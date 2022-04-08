@@ -1,0 +1,529 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-03-09-preview/Microsoft.Cts.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Cts",
+  "description": "Microsoft Cts Resource Types",
+  "resourceDefinitions": {
+    "connections": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-03-09-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 64,
+          "description": "The name for the connection that is to be requested."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of connection"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Cts/connections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cts/connections"
+    },
+    "flows": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-03-09-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 64,
+          "description": "The name for the flow that is to be onboarded."
+        },
+        "plan": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Plan for the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FlowProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of flow"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Cts/flows"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cts/flows"
+    },
+    "pipelines": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-03-09-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 64,
+          "description": "The name for the pipeline that is to be requested."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PipelineProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of pipeline"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Cts/pipelines"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cts/pipelines"
+    }
+  },
+  "definitions": {
+    "ConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "justification": {
+          "type": "string",
+          "description": "Justification for the connection request"
+        },
+        "remoteCloud": {
+          "type": "string",
+          "description": "Destination cloud of the data to be transferred"
+        }
+      },
+      "required": [
+        "remoteCloud"
+      ],
+      "description": "Properties of connection"
+    },
+    "FlowProperties": {
+      "type": "object",
+      "properties": {
+        "acceptableUsePolicyForm": {
+          "type": "string",
+          "description": "Link to signed Acceptable Use Policy (AUP) form"
+        },
+        "accessForManualTransfers": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "JIT",
+                "None"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Please confirm JIT will be used for manual transfers, whether that be access to the source Storage Container or any service which interacts with the Storage Account."
+        },
+        "averageDailyData": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Daily estimate on data size (GB)"
+        },
+        "connection": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SelectedResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A resource selected from ARM"
+        },
+        "dataTypes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "OfficialBuilds",
+                  "VHDs",
+                  "OfficeDocuments",
+                  "Scripts",
+                  "JSON",
+                  "Database",
+                  "Other"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of data types that this Dataflow will service"
+        },
+        "dataUse": {
+          "type": "string",
+          "description": "How will the data be used on the high side?"
+        },
+        "destination": {
+          "type": "string",
+          "description": "What is the destination of this data? (beyond the high-side Storage Account?)"
+        },
+        "email": {
+          "type": "string",
+          "description": "Microsoft corporate e-mail address"
+        },
+        "incidentNumber": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ICM (Incident Management) number in high side where onboarding details are entered"
+        },
+        "keyVaultUri": {
+          "type": "string",
+          "description": "AME, PME, or TORUS only! AKV Chain Containing SAS Token"
+        },
+        "manualUsersStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Tented",
+                "Standard"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of manual users."
+        },
+        "maxData": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enter the max (99th percentile) data sent in a day (GB)"
+        },
+        "origin": {
+          "type": "string",
+          "description": "What is the system of origin for this data?"
+        },
+        "primaryContactAlias": {
+          "type": "string",
+          "description": "Primary contact's alias for this data flow"
+        },
+        "secondaryContactsAliases": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Secondary contacts' aliases for this dataflow"
+        },
+        "serviceName": {
+          "type": "string",
+          "description": "Service Name"
+        },
+        "serviceTreeId": {
+          "type": "string",
+          "description": "Service Tree ID of the service"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the current flow."
+        },
+        "storageAccountName": {
+          "type": "string",
+          "description": "Storage Account"
+        },
+        "storageContainerName": {
+          "type": "string",
+          "description": "Storage Container"
+        },
+        "storageContainerType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Blob",
+                "Table"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Transfer Storage Blobs or Tables."
+        },
+        "storageLocation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CloudVault",
+                "Other"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data currently stored in CloudVault?."
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Subscription ID for the storage account to be onboarded"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of flow"
+        },
+        "usage": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Manual",
+                "Automatic"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Does your service have manual upload through the Teleport pipeline."
+        },
+        "useCase": {
+          "type": "string",
+          "description": "Use case for this data flow."
+        }
+      },
+      "required": [
+        "connection",
+        "storageAccountName",
+        "storageContainerName",
+        "storageContainerType"
+      ],
+      "description": "Properties of flow"
+    },
+    "PipelineProperties": {
+      "type": "object",
+      "properties": {
+        "remoteCloud": {
+          "type": "string",
+          "description": "Remote cloud of the data to be transferred or received"
+        }
+      },
+      "required": [
+        "remoteCloud"
+      ],
+      "description": "Properties of pipeline"
+    },
+    "Plan": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A user defined name of the 3rd Party Artifact that is being procured."
+        },
+        "product": {
+          "type": "string",
+          "description": "The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. "
+        },
+        "promotionCode": {
+          "type": "string",
+          "description": "A publisher provided promotion code as provisioned in Data Market for the said product/artifact."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic"
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the desired product/artifact."
+        }
+      },
+      "required": [
+        "name",
+        "product",
+        "publisher"
+      ],
+      "description": "Plan for the resource."
+    },
+    "SelectedResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Id of the connection"
+        },
+        "location": {
+          "type": "string",
+          "description": "Location of the connection"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the connection"
+        },
+        "subscriptionName": {
+          "type": "string",
+          "description": "Name of the subscription with the connection"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "description": "A resource selected from ARM"
+    }
+  }
+}
