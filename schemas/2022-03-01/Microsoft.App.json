@@ -904,8 +904,8 @@
             {
               "type": "string",
               "enum": [
-                "multiple",
-                "single"
+                "Multiple",
+                "Single"
               ]
             },
             {
@@ -2389,6 +2389,10 @@
           ],
           "description": "Configuration of application logs"
         },
+        "daprAIConnectionString": {
+          "type": "string",
+          "description": "Application Insights connection string used by Dapr to export Service to Service communication telemetry"
+        },
         "daprAIInstrumentationKey": {
           "type": "string",
           "description": "Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry"
@@ -2403,6 +2407,17 @@
             }
           ],
           "description": "Configuration properties for apps environment to join a Virtual Network"
+        },
+        "zoneRedundant": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not this Managed Environment is zone-redundant."
         }
       },
       "description": "Managed environment resource specific properties"

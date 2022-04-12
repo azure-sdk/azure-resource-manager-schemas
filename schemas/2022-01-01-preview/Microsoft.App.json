@@ -904,8 +904,8 @@
             {
               "type": "string",
               "enum": [
-                "multiple",
-                "single"
+                "Multiple",
+                "Single"
               ]
             },
             {
