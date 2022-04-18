@@ -713,6 +713,21 @@
     "GalleryApplicationVersionPublishingProfile": {
       "type": "object",
       "properties": {
+        "advancedSettings": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional. Additional settings to pass to the VMApp extension. For advanced used only."
+        },
         "enableHealthCheck": {
           "oneOf": [
             {
@@ -775,6 +790,16 @@
             }
           ],
           "description": "Optional parameter which specifies the mode to be used for replication. This property is not updatable."
+        },
+        "settings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserArtifactSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "source": {
           "oneOf": [
@@ -1647,6 +1672,19 @@
         "install",
         "remove"
       ]
+    },
+    "UserArtifactSettings": {
+      "type": "object",
+      "properties": {
+        "configFileName": {
+          "type": "string",
+          "description": "Optional. The name to assign the downloaded config file on the VM. If not specified, the configuration file will be named `<gallery application name>_config`. This is limited to 4096 characters."
+        },
+        "packageFileName": {
+          "type": "string",
+          "description": "Optional. The name to assign the downloaded package file on the VM. If not specified, downloaded file will be named the same as the gallery application name. This is limited to 4096 characters."
+        }
+      }
     },
     "UserArtifactSource": {
       "type": "object",
