@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Compute",
   "description": "Microsoft Compute Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -80,7 +80,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -163,7 +163,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -248,7 +248,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -331,7 +331,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -402,7 +402,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "extendedLocation": {
@@ -472,7 +472,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -545,7 +545,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -614,7 +614,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -653,7 +653,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -712,7 +712,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "extendedLocation": {
@@ -831,7 +831,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "extendedLocation": {
@@ -961,7 +961,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -1044,7 +1044,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -1083,7 +1083,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -1142,7 +1142,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -1474,7 +1474,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -1729,6 +1729,17 @@
     "DedicatedHostGroupProperties": {
       "type": "object",
       "properties": {
+        "additionalCapabilities": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DedicatedHostGroupPropertiesAdditionalCapabilities"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enables or disables a capability on the dedicated host group.<br><br>Minimum api-version: 2022-03-01."
+        },
         "platformFaultDomainCount": {
           "oneOf": [
             {
@@ -1757,6 +1768,23 @@
         "platformFaultDomainCount"
       ],
       "description": "Dedicated Host Group Properties."
+    },
+    "DedicatedHostGroupPropertiesAdditionalCapabilities": {
+      "type": "object",
+      "properties": {
+        "ultraSSDEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The flag that enables or disables a capability to have UltraSSD Enabled Virtual Machines on Dedicated Hosts of the Dedicated Host Group. For the Virtual Machines to be UltraSSD Enabled, UltraSSDEnabled flag for the resoure needs to be set true as well. The value is defaulted to 'false' when not provided. Please refer to https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd for more details on Ultra SSD feature. <br><br>NOTE: The ultraSSDEnabled setting can only be enabled for Host Groups that are created as zonal. <br><br>Minimum api-version: 2022-03-01."
+        }
+      },
+      "description": "Enables or disables a capability on the dedicated host group.<br><br>Minimum api-version: 2022-03-01."
     },
     "DedicatedHostProperties": {
       "type": "object",
@@ -2130,7 +2158,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -3294,7 +3322,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -3330,6 +3358,22 @@
     "RestorePointProperties": {
       "type": "object",
       "properties": {
+        "consistencyMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CrashConsistent",
+                "FileSystemConsistent",
+                "ApplicationConsistent"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details."
+        },
         "excludeDisks": {
           "oneOf": [
             {
@@ -4891,109 +4935,109 @@
         "properties": {
           "anyOf": [
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/genericExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/genericExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/iaaSDiagnostics"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/iaaSDiagnostics"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/iaaSAntimalware"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/iaaSAntimalware"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/customScriptExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScriptExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/customScriptForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScriptForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/linuxDiagnostic"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/linuxDiagnostic"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/bgInfo"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bgInfo"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/dscExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dscExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackupLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackupLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackup"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackup"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/linuxChefClient"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/linuxChefClient"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/chefClient"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/chefClient"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/datadogLinuxAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/datadogLinuxAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/datadogWindowsAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/datadogWindowsAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/dockerExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dockerExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/eset"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/eset"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/hpeSecurityApplicationDefender"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/hpeSecurityApplicationDefender"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/puppetAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/puppetAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7LinuxServerExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7LinuxServerExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7WindowsServerExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7WindowsServerExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7ApmInsightExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7ApmInsightExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSALinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSALinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSA"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSA"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/OSPatchingForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/OSPatchingForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshot"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshot"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshotLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshotLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/customScript"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScript"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentLinux"
             }
           ]
         }
@@ -6100,7 +6144,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -6139,7 +6183,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -6209,7 +6253,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -6248,7 +6292,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -6643,7 +6687,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
@@ -6657,109 +6701,109 @@
         "properties": {
           "anyOf": [
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/genericExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/genericExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/iaaSDiagnostics"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/iaaSDiagnostics"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/iaaSAntimalware"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/iaaSAntimalware"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/customScriptExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScriptExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/customScriptForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScriptForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/linuxDiagnostic"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/linuxDiagnostic"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/bgInfo"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bgInfo"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/dscExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dscExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackupLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackupLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackup"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackup"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/linuxChefClient"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/linuxChefClient"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/chefClient"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/chefClient"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/datadogLinuxAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/datadogLinuxAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/datadogWindowsAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/datadogWindowsAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/dockerExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dockerExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/eset"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/eset"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/hpeSecurityApplicationDefender"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/hpeSecurityApplicationDefender"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/puppetAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/puppetAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7LinuxServerExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7LinuxServerExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7WindowsServerExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7WindowsServerExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7ApmInsightExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7ApmInsightExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSALinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSALinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSA"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSA"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/OSPatchingForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/OSPatchingForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshot"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshot"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshotLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshotLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/customScript"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScript"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-11-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentLinux"
             }
           ]
         },
@@ -6800,7 +6844,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-11-01"
+            "2022-03-01"
           ]
         },
         "location": {
