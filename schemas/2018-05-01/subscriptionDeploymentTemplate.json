@@ -1236,6 +1236,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2021-05-01/Microsoft.Resources.json#/subscription_resourceDefinitions/resourceGroups"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2022-02-01/Microsoft.Resources.json#/subscription_resourceDefinitions/resourceGroups"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2015-06-01-preview/Microsoft.Security.json#/subscription_resourceDefinitions/locations_applicationWhitelistings"
             },
             {
