@@ -12590,6 +12590,27 @@
           "$ref": "https://schema.management.azure.com/schemas/2016-03-01/Microsoft.Scheduler.json#/resourceDefinitions/jobCollections_jobs"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#/resourceDefinitions/availabilitySets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#/resourceDefinitions/clouds"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#/resourceDefinitions/virtualMachines"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#/resourceDefinitions/virtualMachineTemplates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#/resourceDefinitions/virtualNetworks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#/resourceDefinitions/vmmServers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#/resourceDefinitions/vmmServers_inventoryItems"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-02-28/Microsoft.Search.json#/resourceDefinitions/searchServices"
         },
         {
