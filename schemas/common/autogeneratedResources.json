@@ -4199,6 +4199,21 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01/Microsoft.Compute.json#/resourceDefinitions/snapshots"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-02/Microsoft.Compute.json#/resourceDefinitions/diskAccesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-02/Microsoft.Compute.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-02/Microsoft.Compute.json#/resourceDefinitions/diskEncryptionSets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-02/Microsoft.Compute.json#/resourceDefinitions/disks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-02/Microsoft.Compute.json#/resourceDefinitions/snapshots"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-12-01-preview/Microsoft.ConfidentialLedger.json#/resourceDefinitions/ledgers"
         },
         {
