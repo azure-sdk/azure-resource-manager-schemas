@@ -374,8 +374,7 @@
             {
               "type": "string",
               "enum": [
-                "Actual",
-                "Forecasted"
+                "Actual"
               ]
             },
             {
