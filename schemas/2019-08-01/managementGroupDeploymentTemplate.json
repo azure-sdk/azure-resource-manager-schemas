@@ -549,6 +549,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2021-04-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
             },
             {
