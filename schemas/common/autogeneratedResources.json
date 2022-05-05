@@ -6251,6 +6251,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-06-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_firewallRules"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2021-06-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_migrations"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-08-08-preview/Microsoft.DelegatedNetwork.json#/resourceDefinitions/controller"
         },
         {
