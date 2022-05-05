@@ -4364,6 +4364,21 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01/Microsoft.Compute.json#/resourceDefinitions/snapshots"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-03/Microsoft.Compute.json#/resourceDefinitions/galleries"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-03/Microsoft.Compute.json#/resourceDefinitions/galleries_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-03/Microsoft.Compute.json#/resourceDefinitions/galleries_applications_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-03/Microsoft.Compute.json#/resourceDefinitions/galleries_images"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-03/Microsoft.Compute.json#/resourceDefinitions/galleries_images_versions"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-12-01-preview/Microsoft.ConfidentialLedger.json#/resourceDefinitions/ledgers"
         },
         {
