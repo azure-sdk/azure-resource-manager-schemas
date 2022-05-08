@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-10-01-preview/Microsoft.StreamAnalytics.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-03-01-preview/Microsoft.StreamAnalytics.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.StreamAnalytics",
   "description": "Microsoft StreamAnalytics Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-10-01-preview"
+            "2022-03-01-preview"
           ]
         },
         "identity": {
@@ -55,12 +55,20 @@
               },
               {
                 "$ref": "#/definitions/streamingjobs_outputs_childResource"
-              },
-              {
-                "$ref": "#/definitions/streamingjobs_transformations_childResource"
               }
             ]
           }
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties that are associated with a SKU."
         },
         "tags": {
           "oneOf": [
@@ -98,7 +106,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-10-01-preview"
+            "2022-03-01-preview"
           ]
         },
         "name": {
@@ -137,7 +145,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-10-01-preview"
+            "2022-03-01-preview"
           ]
         },
         "name": {
@@ -176,7 +184,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-10-01-preview"
+            "2022-03-01-preview"
           ]
         },
         "name": {
@@ -208,45 +216,6 @@
         "type"
       ],
       "description": "Microsoft.StreamAnalytics/streamingjobs/outputs"
-    },
-    "streamingjobs_transformations": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-10-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the transformation."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TransformationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties that are associated with a transformation."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.StreamAnalytics/streamingjobs/transformations"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.StreamAnalytics/streamingjobs/transformations"
     }
   },
   "definitions": {
@@ -3180,6 +3149,17 @@
     "Sku": {
       "type": "object",
       "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of streaming units that the streaming job uses."
+        },
         "name": {
           "oneOf": [
             {
@@ -3427,27 +3407,9 @@
           "format": "date-time",
           "description": "Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime."
         },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Sku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties that are associated with a SKU."
-        },
-        "transformation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Transformation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job."
+        "query": {
+          "type": "string",
+          "description": "Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests."
         }
       },
       "description": "The properties that are associated with a streaming job."
@@ -3458,7 +3420,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-10-01-preview"
+            "2022-03-01-preview"
           ]
         },
         "name": {
@@ -3497,7 +3459,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-10-01-preview"
+            "2022-03-01-preview"
           ]
         },
         "name": {
@@ -3536,7 +3498,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-10-01-preview"
+            "2022-03-01-preview"
           ]
         },
         "name": {
@@ -3568,45 +3530,6 @@
         "type"
       ],
       "description": "Microsoft.StreamAnalytics/streamingjobs/outputs"
-    },
-    "streamingjobs_transformations_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-10-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the transformation."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TransformationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties that are associated with a transformation."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "transformations"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.StreamAnalytics/streamingjobs/transformations"
     },
     "StreamInputDataSource": {
       "type": "object",
@@ -3661,62 +3584,6 @@
         "type"
       ],
       "description": "The properties that are associated with an input containing stream data."
-    },
-    "Transformation": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Resource name"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TransformationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties that are associated with a transformation."
-        }
-      },
-      "description": "A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job."
-    },
-    "TransformationProperties": {
-      "type": "object",
-      "properties": {
-        "query": {
-          "type": "string",
-          "description": "Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests."
-        },
-        "streamingUnits": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Specifies the number of streaming units that the streaming job uses."
-        },
-        "validStreamingUnits": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Specifies the valid streaming units a streaming job can scale to."
-        }
-      },
-      "description": "The properties that are associated with a transformation."
     }
   }
 }
