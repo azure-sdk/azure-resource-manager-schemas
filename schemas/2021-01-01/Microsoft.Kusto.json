@@ -438,6 +438,25 @@
           ],
           "description": "The default principals modification kind."
         },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
+        },
         "tableLevelSharingProperties": {
           "oneOf": [
             {
@@ -554,6 +573,25 @@
           ],
           "description": "Principal type."
         },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
+        },
         "role": {
           "oneOf": [
             {
@@ -668,6 +706,25 @@
             }
           ],
           "description": "A class that contains the optimized auto scale definition."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
         },
         "trustedExternalTenants": {
           "oneOf": [
@@ -965,6 +1022,25 @@
           ],
           "description": "Principal type."
         },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
+        },
         "role": {
           "oneOf": [
             {
@@ -995,6 +1071,23 @@
         "role"
       ],
       "description": "A class representing database principal property."
+    },
+    "DatabaseStatistics": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The database size - the total size of compressed data and index in bytes."
+        }
+      },
+      "description": "A class that contains database statistics information."
     },
     "EventGridConnectionProperties": {
       "type": "object",
@@ -1065,6 +1158,25 @@
         "mappingRuleName": {
           "type": "string",
           "description": "The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
         },
         "storageAccountResourceId": {
           "type": "string",
@@ -1184,6 +1296,25 @@
         "mappingRuleName": {
           "type": "string",
           "description": "The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
         },
         "tableName": {
           "type": "string",
@@ -1320,6 +1451,25 @@
         "mappingRuleName": {
           "type": "string",
           "description": "The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
         },
         "sharedAccessPolicyName": {
           "type": "string",
@@ -1478,6 +1628,36 @@
           "type": "string",
           "format": "duration",
           "description": "The time the data should be kept in cache for fast queries in TimeSpan."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
+        },
+        "statistics": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseStatistics"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A class that contains database statistics information."
         }
       },
       "description": "Class representing the Kusto database properties."
@@ -1516,10 +1696,40 @@
           "format": "duration",
           "description": "The time the data should be kept in cache for fast queries in TimeSpan."
         },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
+        },
         "softDeletePeriod": {
           "type": "string",
           "format": "duration",
           "description": "The time the data should be kept before it stops being accessible to queries in TimeSpan."
+        },
+        "statistics": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseStatistics"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A class that contains database statistics information."
         }
       },
       "description": "Class representing the Kusto database properties."
@@ -1542,6 +1752,25 @@
         "forceUpdateTag": {
           "type": "string",
           "description": "A unique string. If changed the script will be applied again."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Running",
+                "Creating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Moving"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned state of the resource."
         },
         "scriptUrl": {
           "type": "string",
