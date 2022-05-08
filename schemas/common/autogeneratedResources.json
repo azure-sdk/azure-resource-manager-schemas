@@ -10538,21 +10538,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-03-25-preview/Microsoft.M365SecurityAndCompliance.json#/resourceDefinitions/privateLinkServicesForSCCPowershell_privateEndpointConnections"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2016-04-01/Microsoft.MachineLearning.json#/resourceDefinitions/workspaces"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2016-05-01-preview/Microsoft.MachineLearning.json#/resourceDefinitions/commitmentPlans"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2016-05-01-preview/Microsoft.MachineLearning.json#/resourceDefinitions/webServices"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-01-01/Microsoft.MachineLearning.json#/resourceDefinitions/webServices"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-10-01/Microsoft.MachineLearning.json#/resourceDefinitions/workspaces"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2017-06-01-preview/Microsoft.MachineLearningCompute.json#/resourceDefinitions/operationalizationClusters"
         },
         {
