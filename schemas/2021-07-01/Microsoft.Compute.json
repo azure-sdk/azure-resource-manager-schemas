@@ -4273,9 +4273,46 @@
         "diskEncryptionSetId": {
           "type": "string",
           "description": "A relative URI containing the resource ID of the disk encryption set."
+        },
+        "securityProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OSDiskImageSecurityProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Contains security profile for an OS disk image."
         }
       },
       "description": "Contains encryption settings for an OS disk image."
+    },
+    "OSDiskImageSecurityProfile": {
+      "type": "object",
+      "properties": {
+        "secureVMDiskEncryptionSetId": {
+          "type": "string",
+          "description": "secure VM disk encryption set id"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "EncryptedVMGuestStateOnlyWithPmk",
+                "EncryptedWithPmk",
+                "EncryptedWithCmk"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "all types of security profile."
+        }
+      },
+      "description": "Contains security profile for an OS disk image."
     },
     "OSProfile": {
       "type": "object",
@@ -4827,20 +4864,26 @@
     "SharingProfile": {
       "type": "object",
       "properties": {
+        "communityGalleryInfo": {
+          "type": "object",
+          "properties": {},
+          "description": "Information of community gallery if current gallery is shared to community."
+        },
         "permissions": {
           "oneOf": [
             {
               "type": "string",
               "enum": [
                 "Private",
-                "Groups"
+                "Groups",
+                "Community"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**."
+          "description": "This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups** <br><br> **Community**."
         }
       },
       "description": "Profile for gallery sharing to subscription or tenant"
