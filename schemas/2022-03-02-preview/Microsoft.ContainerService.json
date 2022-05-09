@@ -1033,10 +1033,6 @@
           ],
           "description": "Data used when creating a target resource from a source resource."
         },
-        "currentOrchestratorVersion": {
-          "type": "string",
-          "description": "If orchestratorVersion was a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion was <major.minor>, this field will contain the full <major.minor.patch> version being used."
-        },
         "enableAutoScaling": {
           "oneOf": [
             {
@@ -1491,10 +1487,6 @@
             }
           ],
           "description": "Data used when creating a target resource from a source resource."
-        },
-        "currentOrchestratorVersion": {
-          "type": "string",
-          "description": "If orchestratorVersion was a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion was <major.minor>, this field will contain the full <major.minor.patch> version being used."
         },
         "enableAutoScaling": {
           "oneOf": [
