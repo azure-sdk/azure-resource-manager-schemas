@@ -475,7 +475,8 @@
                 "Default",
                 "PointInTimeRestore",
                 "Replica",
-                "GeoRestore"
+                "GeoRestore",
+                "Migrate"
               ]
             },
             {
