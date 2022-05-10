@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-03-02-preview/Microsoft.ContainerService.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-04-02-preview/Microsoft.ContainerService.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.ContainerService",
   "description": "Microsoft ContainerService Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "extendedLocation": {
@@ -76,6 +76,9 @@
               },
               {
                 "$ref": "#/definitions/managedClusters_privateEndpointConnections_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedClusters_trustedAccessRoleBindings_childResource"
               }
             ]
           }
@@ -128,7 +131,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "location": {
@@ -197,7 +200,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "name": {
@@ -236,7 +239,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "name": {
@@ -275,7 +278,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "name": {
@@ -308,13 +311,54 @@
       ],
       "description": "Microsoft.ContainerService/managedClusters/privateEndpointConnections"
     },
+    "managedClusters_trustedAccessRoleBindings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-04-02-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36,
+          "description": "The name of trusted access role binding."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrustedAccessRoleBindingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for trusted access role binding"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings"
+    },
     "snapshots": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "location": {
@@ -557,6 +601,20 @@
             }
           ],
           "description": "Network plugin used for building the Kubernetes network."
+        },
+        "networkPluginMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Overlay"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Network plugin mode used for building the Kubernetes network."
         },
         "networkPolicy": {
           "oneOf": [
@@ -1044,6 +1102,17 @@
           ],
           "description": "Whether to enable auto-scaler"
         },
+        "enableCustomCATrust": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "When set to true, AKS deploys a daemonset and host services to sync custom certificate authorities from a user-provided config map into node trust stores. Defaults to false."
+        },
         "enableEncryptionAtHost": {
           "oneOf": [
             {
@@ -1279,7 +1348,9 @@
               "type": "string",
               "enum": [
                 "Ubuntu",
-                "CBLMariner"
+                "CBLMariner",
+                "Windows2019",
+                "Windows2022"
               ]
             },
             {
@@ -1498,6 +1569,17 @@
             }
           ],
           "description": "Whether to enable auto-scaler"
+        },
+        "enableCustomCATrust": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "When set to true, AKS deploys a daemonset and host services to sync custom certificate authorities from a user-provided config map into node trust stores. Defaults to false."
         },
         "enableEncryptionAtHost": {
           "oneOf": [
@@ -1722,7 +1804,9 @@
               "type": "string",
               "enum": [
                 "Ubuntu",
-                "CBLMariner"
+                "CBLMariner",
+                "Windows2019",
+                "Windows2022"
               ]
             },
             {
@@ -1935,9 +2019,24 @@
           ],
           "description": "Whether to create additional public FQDN for private cluster or not."
         },
+        "enableVnetIntegration": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable apiserver vnet integration for the cluster or not."
+        },
         "privateDNSZone": {
           "type": "string",
           "description": "The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'."
+        },
+        "subnetId": {
+          "type": "string",
+          "description": "It is required when: 1. creating a new cluster with BYO Vnet; 2. updating an existing cluster to enable apiserver vnet integration."
         }
       },
       "description": "Access profile for managed cluster API server."
@@ -2728,6 +2827,17 @@
           ],
           "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs."
         },
+        "storageProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterStorageProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage profile for the container service cluster."
+        },
         "windowsProfile": {
           "oneOf": [
             {
@@ -3043,13 +3153,107 @@
       },
       "description": "Properties for a managed cluster snapshot."
     },
+    "ManagedClusterStorageProfile": {
+      "type": "object",
+      "properties": {
+        "diskCSIDriver": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterStorageProfileDiskCSIDriver"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AzureDisk CSI Driver settings for the storage profile."
+        },
+        "fileCSIDriver": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterStorageProfileFileCSIDriver"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AzureFile CSI Driver settings for the storage profile."
+        },
+        "snapshotController": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterStorageProfileSnapshotController"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Snapshot Controller settings for the storage profile."
+        }
+      },
+      "description": "Storage profile for the container service cluster."
+    },
+    "ManagedClusterStorageProfileDiskCSIDriver": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable AzureDisk CSI Driver. The default value is true."
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of AzureDisk CSI Driver. The default value is v1."
+        }
+      },
+      "description": "AzureDisk CSI Driver settings for the storage profile."
+    },
+    "ManagedClusterStorageProfileFileCSIDriver": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable AzureFile CSI Driver. The default value is true."
+        }
+      },
+      "description": "AzureFile CSI Driver settings for the storage profile."
+    },
+    "ManagedClusterStorageProfileSnapshotController": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable Snapshot Controller. The default value is true."
+        }
+      },
+      "description": "Snapshot Controller settings for the storage profile."
+    },
     "managedClusters_agentPools_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "name": {
@@ -3088,7 +3292,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "name": {
@@ -3127,7 +3331,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-02-preview"
           ]
         },
         "name": {
@@ -3159,6 +3363,47 @@
         "type"
       ],
       "description": "Microsoft.ContainerService/managedClusters/privateEndpointConnections"
+    },
+    "managedClusters_trustedAccessRoleBindings_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-04-02-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36,
+          "description": "The name of trusted access role binding."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrustedAccessRoleBindingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for trusted access role binding"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "trustedAccessRoleBindings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings"
     },
     "ManagedClusterWindowsProfile": {
       "type": "object",
@@ -3266,6 +3511,20 @@
             }
           ],
           "description": "networkPlugin for managed cluster snapshot."
+        },
+        "networkPluginMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Overlay"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NetworkPluginMode for managed cluster snapshot."
         },
         "networkPolicy": {
           "oneOf": [
@@ -3813,6 +4072,34 @@
         }
       },
       "description": "For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z."
+    },
+    "TrustedAccessRoleBindingProperties": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'."
+        },
+        "sourceResourceId": {
+          "type": "string",
+          "description": "The ARM resource ID of source resource that trusted access is configured for."
+        }
+      },
+      "required": [
+        "roles",
+        "sourceResourceId"
+      ],
+      "description": "Properties for trusted access role binding"
     },
     "UserAssignedIdentity": {
       "type": "object",
