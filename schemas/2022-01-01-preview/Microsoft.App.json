@@ -904,8 +904,8 @@
             {
               "type": "string",
               "enum": [
-                "Multiple",
-                "Single"
+                "multiple",
+                "single"
               ]
             },
             {
@@ -1158,9 +1158,9 @@
             {
               "type": "string",
               "enum": [
-                "Liveness",
-                "Readiness",
-                "Startup"
+                "liveness",
+                "readiness",
+                "startup"
               ]
             },
             {
@@ -1209,18 +1209,7 @@
           "description": "Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
         },
         "scheme": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "HTTP",
-                "HTTPS"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Scheme to use for connecting to the host. Defaults to HTTP."
         }
       },
