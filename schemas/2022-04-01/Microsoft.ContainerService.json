@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-03-02-preview/Microsoft.ContainerService.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-04-01/Microsoft.ContainerService.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.ContainerService",
   "description": "Microsoft ContainerService Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-01"
           ]
         },
         "extendedLocation": {
@@ -122,82 +122,13 @@
       ],
       "description": "Microsoft.ContainerService/managedClusters"
     },
-    "managedclustersnapshots": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-02-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
-              "minLength": 1,
-              "maxLength": 63
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the managed cluster resource."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedClusterSnapshotProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties for a managed cluster snapshot."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.ContainerService/managedclustersnapshots"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.ContainerService/managedclustersnapshots"
-    },
     "managedClusters_agentPools": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-01"
           ]
         },
         "name": {
@@ -236,7 +167,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-01"
           ]
         },
         "name": {
@@ -275,7 +206,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-01"
           ]
         },
         "name": {
@@ -314,7 +245,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-01"
           ]
         },
         "location": {
@@ -388,27 +319,6 @@
         }
       },
       "description": "Settings for upgrading an agentpool"
-    },
-    "AzureKeyVaultKms": {
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Whether to enable Azure Key Vault key management service. The default is false."
-        },
-        "keyId": {
-          "type": "string",
-          "description": "Identifier of Azure Key Vault key. See [key identifier format](https://docs.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When Azure Key Vault key management service is disabled, leave the field empty."
-        }
-      },
-      "description": "Azure Key Vault key management service settings for the security profile."
     },
     "ContainerServiceLinuxProfile": {
       "type": "object",
@@ -548,8 +458,7 @@
               "type": "string",
               "enum": [
                 "azure",
-                "kubenet",
-                "none"
+                "kubenet"
               ]
             },
             {
@@ -1007,10 +916,6 @@
           ],
           "description": "The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'."
         },
-        "capacityReservationGroupID": {
-          "type": "string",
-          "description": "Capacity Reservation Group ID for AgentPool to associate"
-        },
         "count": {
           "oneOf": [
             {
@@ -1106,10 +1011,6 @@
           ],
           "description": "GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU."
         },
-        "hostGroupID": {
-          "type": "string",
-          "description": "This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts)."
-        },
         "kubeletConfig": {
           "oneOf": [
             {
@@ -1167,10 +1068,6 @@
             }
           ],
           "description": "The maximum number of pods that can run on a node."
-        },
-        "messageOfTheDay": {
-          "type": "string",
-          "description": "A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script)."
         },
         "minCount": {
           "oneOf": [
@@ -1244,7 +1141,7 @@
         },
         "orchestratorVersion": {
           "type": "string",
-          "description": "Both patch version <major.minor.patch> and <major.minor> are supported. When <major.minor> is specified, the latest supported patch version is chosen automatically. Updating the agent pool with the same <major.minor> once it has been created will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)."
+          "description": "Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)."
         },
         "osDiskSizeGB": {
           "oneOf": [
@@ -1462,10 +1359,6 @@
           ],
           "description": "The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'."
         },
-        "capacityReservationGroupID": {
-          "type": "string",
-          "description": "Capacity Reservation Group ID for AgentPool to associate"
-        },
         "count": {
           "oneOf": [
             {
@@ -1561,10 +1454,6 @@
           ],
           "description": "GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU."
         },
-        "hostGroupID": {
-          "type": "string",
-          "description": "This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts)."
-        },
         "kubeletConfig": {
           "oneOf": [
             {
@@ -1622,10 +1511,6 @@
             }
           ],
           "description": "The maximum number of pods that can run on a node."
-        },
-        "messageOfTheDay": {
-          "type": "string",
-          "description": "A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script)."
         },
         "minCount": {
           "oneOf": [
@@ -1687,7 +1572,7 @@
         },
         "orchestratorVersion": {
           "type": "string",
-          "description": "Both patch version <major.minor.patch> and <major.minor> are supported. When <major.minor> is specified, the latest supported patch version is chosen automatically. Updating the agent pool with the same <major.minor> once it has been created will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)."
+          "description": "Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)."
         },
         "osDiskSizeGB": {
           "oneOf": [
@@ -2035,44 +1920,6 @@
       },
       "description": "Identity for the managed cluster."
     },
-    "ManagedClusterIngressProfile": {
-      "type": "object",
-      "properties": {
-        "webAppRouting": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedClusterIngressProfileWebAppRouting"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Web App Routing settings for the ingress profile."
-        }
-      },
-      "description": "Ingress profile for the container service cluster."
-    },
-    "ManagedClusterIngressProfileWebAppRouting": {
-      "type": "object",
-      "properties": {
-        "dnsZoneResourceId": {
-          "type": "string",
-          "description": "Resource ID of the DNS Zone to be associated with the web app. Used only when Web App Routing is enabled."
-        },
-        "enabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Whether to enable Web App Routing."
-        }
-      },
-      "description": "Web App Routing settings for the ingress profile."
-    },
     "ManagedClusterLoadBalancerProfile": {
       "type": "object",
       "properties": {
@@ -2304,23 +2151,6 @@
       },
       "description": "Profile of the managed cluster NAT gateway."
     },
-    "ManagedClusterOIDCIssuerProfile": {
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Whether the OIDC issuer is enabled."
-        }
-      },
-      "description": "The OIDC issuer profile of the Managed Cluster."
-    },
     "ManagedClusterPodIdentity": {
       "type": "object",
       "properties": {
@@ -2521,17 +2351,6 @@
           ],
           "description": "Auto upgrade profile for a managed cluster."
         },
-        "creationData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CreationData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Data used when creating a target resource from a source resource."
-        },
         "disableLocalAccounts": {
           "oneOf": [
             {
@@ -2550,17 +2369,6 @@
         "dnsPrefix": {
           "type": "string",
           "description": "This cannot be updated once the Managed Cluster has been created."
-        },
-        "enableNamespaceResources": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The default value is false. It can be enabled/disabled on creation and updation of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource."
         },
         "enablePodSecurityPolicy": {
           "oneOf": [
@@ -2614,20 +2422,9 @@
           ],
           "description": "Identities associated with the cluster."
         },
-        "ingressProfile": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedClusterIngressProfile"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Ingress profile for the container service cluster."
-        },
         "kubernetesVersion": {
           "type": "string",
-          "description": "When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details."
+          "description": "Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details."
         },
         "linuxProfile": {
           "oneOf": [
@@ -2654,17 +2451,6 @@
         "nodeResourceGroup": {
           "type": "string",
           "description": "The name of the resource group containing agent pool nodes."
-        },
-        "oidcIssuerProfile": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedClusterOIDCIssuerProfile"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The OIDC issuer profile of the Managed Cluster."
         },
         "podIdentityProfile": {
           "oneOf": [
@@ -2727,6 +2513,17 @@
             }
           ],
           "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs."
+        },
+        "storageProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterStorageProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage profile for the container service cluster."
         },
         "windowsProfile": {
           "oneOf": [
@@ -2829,49 +2626,6 @@
       },
       "description": "Parameters to be applied to the cluster-autoscaler when enabled"
     },
-    "ManagedClusterPropertiesForSnapshot": {
-      "type": "object",
-      "properties": {
-        "enableRbac": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Whether the cluster has enabled Kubernetes Role-Based Access Control or not."
-        },
-        "kubernetesVersion": {
-          "type": "string",
-          "description": "The current kubernetes version."
-        },
-        "networkProfile": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/NetworkProfileForSnapshot"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "network profile for managed cluster snapshot, these properties are read only."
-        },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedClusterSKU"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The SKU of a Managed Cluster."
-        }
-      },
-      "description": "managed cluster properties for snapshot, these properties are read only."
-    },
     "ManagedClusterSecurityProfile": {
       "type": "object",
       "properties": {
@@ -2885,28 +2639,6 @@
             }
           ],
           "description": "Azure Defender settings for the security profile."
-        },
-        "azureKeyVaultKms": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AzureKeyVaultKms"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Azure Key Vault key management service settings for the security profile."
-        },
-        "workloadIdentity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedClusterSecurityProfileWorkloadIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Workload Identity settings for the security profile."
         }
       },
       "description": "Security profile for the container service cluster."
@@ -2931,23 +2663,6 @@
         }
       },
       "description": "Azure Defender settings for the security profile."
-    },
-    "ManagedClusterSecurityProfileWorkloadIdentity": {
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Whether to enable Workload Identity"
-        }
-      },
-      "description": "Workload Identity settings for the security profile."
     },
     "ManagedClusterServicePrincipalProfile": {
       "type": "object",
@@ -3001,47 +2716,95 @@
       },
       "description": "The SKU of a Managed Cluster."
     },
-    "ManagedClusterSnapshotProperties": {
+    "ManagedClusterStorageProfile": {
       "type": "object",
       "properties": {
-        "creationData": {
+        "diskCSIDriver": {
           "oneOf": [
             {
-              "$ref": "#/definitions/CreationData"
+              "$ref": "#/definitions/ManagedClusterStorageProfileDiskCSIDriver"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Data used when creating a target resource from a source resource."
+          "description": "AzureDisk CSI Driver settings for the storage profile."
         },
-        "managedClusterPropertiesReadOnly": {
+        "fileCSIDriver": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterPropertiesForSnapshot"
+              "$ref": "#/definitions/ManagedClusterStorageProfileFileCSIDriver"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "managed cluster properties for snapshot, these properties are read only."
+          "description": "AzureFile CSI Driver settings for the storage profile."
         },
-        "snapshotType": {
+        "snapshotController": {
           "oneOf": [
             {
-              "type": "string",
-              "enum": [
-                "NodePool",
-                "ManagedCluster"
-              ]
+              "$ref": "#/definitions/ManagedClusterStorageProfileSnapshotController"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Snapshot Controller settings for the storage profile."
         }
       },
-      "description": "Properties for a managed cluster snapshot."
+      "description": "Storage profile for the container service cluster."
+    },
+    "ManagedClusterStorageProfileDiskCSIDriver": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable AzureDisk CSI Driver. The default value is true."
+        }
+      },
+      "description": "AzureDisk CSI Driver settings for the storage profile."
+    },
+    "ManagedClusterStorageProfileFileCSIDriver": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable AzureFile CSI Driver. The default value is true."
+        }
+      },
+      "description": "AzureFile CSI Driver settings for the storage profile."
+    },
+    "ManagedClusterStorageProfileSnapshotController": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable Snapshot Controller. The default value is true."
+        }
+      },
+      "description": "Snapshot Controller settings for the storage profile."
     },
     "managedClusters_agentPools_childResource": {
       "type": "object",
@@ -3049,7 +2812,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-01"
           ]
         },
         "name": {
@@ -3088,7 +2851,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-01"
           ]
         },
         "name": {
@@ -3127,7 +2890,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-02-preview"
+            "2022-04-01"
           ]
         },
         "name": {
@@ -3217,73 +2980,6 @@
     "ManagedServiceIdentityUserAssignedIdentitiesValue": {
       "type": "object",
       "properties": {}
-    },
-    "NetworkProfileForSnapshot": {
-      "type": "object",
-      "properties": {
-        "loadBalancerSku": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "standard",
-                "basic"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "loadBalancerSku for managed cluster snapshot."
-        },
-        "networkMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "transparent",
-                "bridge"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "networkMode for managed cluster snapshot."
-        },
-        "networkPlugin": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "azure",
-                "kubenet",
-                "none"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "networkPlugin for managed cluster snapshot."
-        },
-        "networkPolicy": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "calico",
-                "azure"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "networkPolicy for managed cluster snapshot."
-        }
-      },
-      "description": "network profile for managed cluster snapshot, these properties are read only."
     },
     "PowerState": {
       "type": "object",
@@ -3439,8 +3135,7 @@
             {
               "type": "string",
               "enum": [
-                "NodePool",
-                "ManagedCluster"
+                "NodePool"
               ]
             },
             {
