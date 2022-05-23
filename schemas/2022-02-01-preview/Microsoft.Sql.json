@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2020-11-01-preview/Microsoft.Sql.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-02-01-preview/Microsoft.Sql.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Sql",
   "description": "Microsoft Sql Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "location": {
@@ -80,7 +80,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -119,7 +119,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -158,7 +158,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "identity": {
@@ -196,13 +196,22 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/managedInstances_distributedAvailabilityGroups_childResource"
+              },
+              {
                 "$ref": "#/definitions/managedInstances_databases_childResource"
               },
               {
                 "$ref": "#/definitions/managedInstances_administrators_childResource"
               },
               {
+                "$ref": "#/definitions/managedInstances_advancedThreatProtectionSettings_childResource"
+              },
+              {
                 "$ref": "#/definitions/managedInstances_azureADOnlyAuthentications_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedInstances_dtc_childResource"
               },
               {
                 "$ref": "#/definitions/managedInstances_encryptionProtector_childResource"
@@ -217,7 +226,13 @@
                 "$ref": "#/definitions/managedInstances_vulnerabilityAssessments_childResource"
               },
               {
+                "$ref": "#/definitions/managedInstances_dnsAliases_childResource"
+              },
+              {
                 "$ref": "#/definitions/managedInstances_securityAlertPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedInstances_serverTrustCertificates_childResource"
               },
               {
                 "$ref": "#/definitions/managedInstances_sqlAgent_childResource"
@@ -273,7 +288,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -313,13 +328,60 @@
       ],
       "description": "Microsoft.Sql/managedInstances/administrators"
     },
+    "managedInstances_advancedThreatProtectionSettings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/Default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Advanced Threat Protection state."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an Advanced Threat Protection state."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/managedInstances/advancedThreatProtectionSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/advancedThreatProtectionSettings"
+    },
     "managedInstances_azureADOnlyAuthentications": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -366,7 +428,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "location": {
@@ -394,6 +456,9 @@
             "oneOf": [
               {
                 "$ref": "#/definitions/managedInstances_databases_backupShortTermRetentionPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedInstances_databases_advancedThreatProtectionSettings_childResource"
               },
               {
                 "$ref": "#/definitions/managedInstances_databases_securityAlertPolicies_childResource"
@@ -441,13 +506,60 @@
       ],
       "description": "Microsoft.Sql/managedInstances/databases"
     },
+    "managedInstances_databases_advancedThreatProtectionSettings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/Default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Advanced Threat Protection state."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an Advanced Threat Protection state."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/managedInstances/databases/advancedThreatProtectionSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/databases/advancedThreatProtectionSettings"
+    },
     "managedInstances_databases_backupLongTermRetentionPolicies": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -494,7 +606,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -541,7 +653,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -580,14 +692,14 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^.*/Default$"
+              "pattern": "^.*/default$"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -627,7 +739,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -674,7 +786,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -721,7 +833,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -765,13 +877,137 @@
       ],
       "description": "Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines"
     },
+    "managedInstances_distributedAvailabilityGroups": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The distributed availability group name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DistributedAvailabilityGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a distributed availability group."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/managedInstances/distributedAvailabilityGroups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/distributedAvailabilityGroups"
+    },
+    "managedInstances_dnsAliases": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "createDnsRecord": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not DNS record should be created for this alias."
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/managedInstances/dnsAliases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/dnsAliases"
+    },
+    "managedInstances_dtc": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/current$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the managed instance DTC."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedInstanceDtcProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of managed instance DTC."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/managedInstances/dtc"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/dtc"
+    },
     "managedInstances_encryptionProtector": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -818,7 +1054,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -857,7 +1093,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -896,7 +1132,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -943,14 +1179,14 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^.*/Default$"
+              "pattern": "^.*/default$"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -984,13 +1220,52 @@
       ],
       "description": "Microsoft.Sql/managedInstances/securityAlertPolicies"
     },
+    "managedInstances_serverTrustCertificates": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of of the certificate to upload."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerTrustCertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a server trust certificate."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/managedInstances/serverTrustCertificates"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/serverTrustCertificates"
+    },
     "managedInstances_sqlAgent": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1036,7 +1311,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1083,7 +1358,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "identity": {
@@ -1121,10 +1396,16 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/servers_auditingSettings_childResource"
+              },
+              {
                 "$ref": "#/definitions/servers_extendedAuditingSettings_childResource"
               },
               {
-                "$ref": "#/definitions/servers_auditingSettings_childResource"
+                "$ref": "#/definitions/servers_databases_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_elasticPools_childResource"
               },
               {
                 "$ref": "#/definitions/servers_encryptionProtector_childResource"
@@ -1136,16 +1417,28 @@
                 "$ref": "#/definitions/servers_firewallRules_childResource"
               },
               {
+                "$ref": "#/definitions/servers_ipv6FirewallRules_childResource"
+              },
+              {
                 "$ref": "#/definitions/servers_jobAgents_childResource"
               },
               {
+                "$ref": "#/definitions/servers_outboundFirewallRules_childResource"
+              },
+              {
                 "$ref": "#/definitions/servers_privateEndpointConnections_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_advancedThreatProtectionSettings_childResource"
               },
               {
                 "$ref": "#/definitions/servers_administrators_childResource"
               },
               {
                 "$ref": "#/definitions/servers_azureADOnlyAuthentications_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_connectionPolicies_childResource"
               },
               {
                 "$ref": "#/definitions/servers_devOpsAuditingSettings_childResource"
@@ -1167,12 +1460,6 @@
               },
               {
                 "$ref": "#/definitions/servers_virtualNetworkRules_childResource"
-              },
-              {
-                "$ref": "#/definitions/servers_databases_childResource"
-              },
-              {
-                "$ref": "#/definitions/servers_elasticPools_childResource"
               }
             ]
           }
@@ -1214,7 +1501,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1255,13 +1542,60 @@
       ],
       "description": "Microsoft.Sql/servers/administrators"
     },
+    "servers_advancedThreatProtectionSettings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/Default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Advanced Threat Protection state."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an Advanced Threat Protection state."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/servers/advancedThreatProtectionSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/advancedThreatProtectionSettings"
+    },
     "servers_auditingSettings": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1308,7 +1642,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1349,14 +1683,72 @@
       ],
       "description": "Microsoft.Sql/servers/azureADOnlyAuthentications"
     },
+    "servers_connectionPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the connection policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerConnectionPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a server connection policy."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/servers/connectionPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/connectionPolicies"
+    },
     "servers_databases": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Active Directory identity configuration for a resource."
         },
         "location": {
           "type": "string",
@@ -1382,16 +1774,28 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/servers_databases_extendedAuditingSettings_childResource"
+                "$ref": "#/definitions/servers_databases_backupShortTermRetentionPolicies_childResource"
               },
               {
                 "$ref": "#/definitions/servers_databases_auditingSettings_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_databases_extendedAuditingSettings_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_databases_advancedThreatProtectionSettings_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_databases_extensions_childResource"
               },
               {
                 "$ref": "#/definitions/servers_databases_securityAlertPolicies_childResource"
               },
               {
                 "$ref": "#/definitions/servers_databases_vulnerabilityAssessments_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_databases_ledgerDigestUploads_childResource"
               },
               {
                 "$ref": "#/definitions/servers_databases_backupLongTermRetentionPolicies_childResource"
@@ -1403,16 +1807,10 @@
                 "$ref": "#/definitions/servers_databases_syncGroups_childResource"
               },
               {
-                "$ref": "#/definitions/servers_databases_workloadGroups_childResource"
-              },
-              {
-                "$ref": "#/definitions/servers_databases_backupShortTermRetentionPolicies_childResource"
-              },
-              {
-                "$ref": "#/definitions/servers_databases_extensions_childResource"
-              },
-              {
                 "$ref": "#/definitions/servers_databases_transparentDataEncryption_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_databases_workloadGroups_childResource"
               }
             ]
           }
@@ -1459,13 +1857,60 @@
       ],
       "description": "Microsoft.Sql/servers/databases"
     },
+    "servers_databases_advancedThreatProtectionSettings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/Default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Advanced Threat Protection state."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an Advanced Threat Protection state."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/servers/databases/advancedThreatProtectionSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/databases/advancedThreatProtectionSettings"
+    },
     "servers_databases_auditingSettings": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1512,7 +1957,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1559,7 +2004,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1606,7 +2051,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1653,7 +2098,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1668,7 +2113,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Contains the database information after successful export."
+          "description": "Contains the database information after a successful Import, Export, or PolybaseImport"
         },
         "type": {
           "type": "string",
@@ -1685,13 +2130,59 @@
       ],
       "description": "Microsoft.Sql/servers/databases/extensions"
     },
+    "servers_databases_ledgerDigestUploads": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/current$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LedgerDigestUploadsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a database ledger digest upload settings."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/servers/databases/ledgerDigestUploads"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/databases/ledgerDigestUploads"
+    },
     "servers_databases_maintenanceWindows": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1737,7 +2228,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1776,14 +2267,14 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^.*/Default$"
+              "pattern": "^.*/default$"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1823,7 +2314,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1883,7 +2374,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1922,7 +2413,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -1969,7 +2460,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2016,7 +2507,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2066,7 +2557,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2115,7 +2606,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2154,7 +2645,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2193,7 +2684,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2220,7 +2711,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "location": {
@@ -2290,7 +2781,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2337,7 +2828,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2384,7 +2875,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2438,7 +2929,54 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/firewallRules$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/servers/firewallRules"
+          ]
+        },
+        "values": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FirewallRule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/firewallRules"
+    },
+    "servers_ipv6FirewallRules": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2448,18 +2986,18 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ServerFirewallRuleProperties"
+              "$ref": "#/definitions/IPv6ServerFirewallRuleProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The properties of a server firewall rule."
+          "description": "The properties of an IPv6 server firewall rule."
         },
         "type": {
           "type": "string",
           "enum": [
-            "Microsoft.Sql/servers/firewallRules"
+            "Microsoft.Sql/servers/ipv6FirewallRules"
           ]
         }
       },
@@ -2469,7 +3007,7 @@
         "properties",
         "type"
       ],
-      "description": "Microsoft.Sql/servers/firewallRules"
+      "description": "Microsoft.Sql/servers/ipv6FirewallRules"
     },
     "servers_jobAgents": {
       "type": "object",
@@ -2477,7 +3015,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "location": {
@@ -2507,10 +3045,10 @@
                 "$ref": "#/definitions/servers_jobAgents_credentials_childResource"
               },
               {
-                "$ref": "#/definitions/servers_jobAgents_jobs_childResource"
+                "$ref": "#/definitions/servers_jobAgents_targetGroups_childResource"
               },
               {
-                "$ref": "#/definitions/servers_jobAgents_targetGroups_childResource"
+                "$ref": "#/definitions/servers_jobAgents_jobs_childResource"
               }
             ]
           }
@@ -2563,7 +3101,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2602,7 +3140,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2654,7 +3192,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2689,7 +3227,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2728,7 +3266,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2767,7 +3305,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2800,13 +3338,39 @@
       ],
       "description": "Microsoft.Sql/servers/keys"
     },
+    "servers_outboundFirewallRules": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/servers/outboundFirewallRules"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/outboundFirewallRules"
+    },
     "servers_privateEndpointConnections": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2845,14 +3409,14 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^.*/Default$"
+              "pattern": "^.*/default$"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2892,7 +3456,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2931,7 +3495,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -2970,7 +3534,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -3066,6 +3630,31 @@
       ],
       "description": "Properties of a active directory administrator."
     },
+    "AdvancedThreatProtectionProperties": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "New",
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the state of the Advanced Threat Protection, whether it is enabled or disabled or a state has not been applied yet on the specific database or server."
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "description": "Properties of an Advanced Threat Protection state."
+    },
     "AzureADOnlyAuthProperties": {
       "type": "object",
       "properties": {
@@ -3089,6 +3678,17 @@
     "BackupShortTermRetentionPolicyProperties": {
       "type": "object",
       "properties": {
+        "diffBackupIntervalInHours": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases."
+        },
         "retentionDays": {
           "oneOf": [
             {
@@ -3147,7 +3747,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)"
+          "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\nLEDGER_OPERATION_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)"
         },
         "isAzureMonitorTargetEnabled": {
           "oneOf": [
@@ -3159,6 +3759,17 @@
             }
           ],
           "description": "Specifies whether audit events are sent to Azure Monitor. \r\nIn order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.\r\n\r\nWhen using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.\r\nNote that for server level audit you should use the 'master' database as {databaseName}.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n"
+        },
+        "isManagedIdentityInUse": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether Managed Identity is used to access blob storage"
         },
         "isStorageSecondaryKeyInUse": {
           "oneOf": [
@@ -3237,23 +3848,60 @@
     "DatabaseExtensionsProperties": {
       "type": "object",
       "properties": {
+        "administratorLogin": {
+          "type": "string",
+          "description": "Administrator login name."
+        },
+        "administratorLoginPassword": {
+          "type": "string",
+          "description": "Administrator login password."
+        },
+        "authenticationType": {
+          "type": "string",
+          "description": "Authentication type: SQL authentication or AD password."
+        },
+        "databaseEdition": {
+          "type": "string",
+          "description": "Database edition for the newly created database in the case of an import operation."
+        },
+        "maxSizeBytes": {
+          "type": "string",
+          "description": "Database max size in bytes for the newly created database in the case of an import operation."
+        },
+        "networkIsolation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkIsolationSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Contains the ARM resources for which to create private endpoint connection."
+        },
         "operationMode": {
           "oneOf": [
             {
               "type": "string",
               "enum": [
-                "PolybaseImport"
+                "PolybaseImport",
+                "Import",
+                "Export"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Operation Mode."
+          "description": "Operation mode of the operation: Import, Export, or PolybaseImport."
+        },
+        "serviceObjectiveName": {
+          "type": "string",
+          "description": "Database service level objective for the newly created database in the case of an import operation."
         },
         "storageKey": {
           "type": "string",
-          "description": "Storage key."
+          "description": "Storage key for the storage account."
         },
         "storageKeyType": {
           "oneOf": [
@@ -3268,11 +3916,11 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Storage key type."
+          "description": "Storage key type: StorageAccessKey or SharedAccessKey."
         },
         "storageUri": {
           "type": "string",
-          "description": "Storage Uri."
+          "description": "Storage Uri for the storage account."
         }
       },
       "required": [
@@ -3281,7 +3929,43 @@
         "storageKeyType",
         "storageUri"
       ],
-      "description": "Contains the database information after successful export."
+      "description": "Contains the database information after a successful Import, Export, or PolybaseImport"
+    },
+    "DatabaseIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The identity type."
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/DatabaseUserIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource ids of the user assigned identities to use"
+        }
+      },
+      "description": "Azure Active Directory identity configuration for a resource."
     },
     "DatabaseProperties": {
       "type": "object",
@@ -3343,6 +4027,18 @@
           "type": "string",
           "description": "The resource identifier of the elastic pool containing this database."
         },
+        "federatedClientId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Client id used for cross tenant per database CMK scenario"
+        },
         "highAvailabilityReplicaCount": {
           "oneOf": [
             {
@@ -3352,7 +4048,18 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The number of secondary replicas associated with the database that are used to provide high availability."
+          "description": "The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool."
+        },
+        "isLedgerOn": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created."
         },
         "licenseType": {
           "oneOf": [
@@ -3412,7 +4119,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region."
+          "description": "The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool."
         },
         "recoverableDatabaseId": {
           "type": "string",
@@ -3429,7 +4136,8 @@
               "enum": [
                 "Geo",
                 "Local",
-                "Zone"
+                "Zone",
+                "GeoZone"
               ]
             },
             {
@@ -3469,14 +4177,15 @@
               "type": "string",
               "enum": [
                 "Geo",
-                "Named"
+                "Named",
+                "Standby"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The secondary type of the database if it is a secondary.  Valid values are Geo and Named."
+          "description": "The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby."
         },
         "sourceDatabaseDeletionDate": {
           "type": "string",
@@ -3486,6 +4195,10 @@
         "sourceDatabaseId": {
           "type": "string",
           "description": "The resource identifier of the source database associated with create operation of this database."
+        },
+        "sourceResourceId": {
+          "type": "string",
+          "description": "The resource identifier of the source associated with the create operation of this database.\r\n\r\nThis property is only supported for DataWarehouse edition and allows to restore across subscriptions.\r\n\r\nWhen sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.\r\n\r\nWhen createMode is PointInTimeRestore, sourceResourceId must be the resource ID of the existing database or existing sql pool, and restorePointInTime must be specified.\r\n\r\nWhen createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.\r\n\r\nWhen createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.\r\n\r\nWhen source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant "
         },
         "zoneRedundant": {
           "oneOf": [
@@ -3500,6 +4213,11 @@
         }
       },
       "description": "The database's properties."
+    },
+    "DatabaseUserIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "Azure Active Directory identity configuration for a resource."
     },
     "DatabaseVulnerabilityAssessmentProperties": {
       "type": "object",
@@ -3517,7 +4235,7 @@
         },
         "storageAccountAccessKey": {
           "type": "string",
-          "description": "Specifies the identifier key of the storage account for vulnerability assessment scan results. If 'StorageContainerSasKey' isn't specified, storageAccountAccessKey is required."
+          "description": "Specifies the identifier key of the storage account for vulnerability assessment scan results. If 'StorageContainerSasKey' isn't specified, storageAccountAccessKey is required. Applies only if the storage account is not behind a Vnet or a firewall"
         },
         "storageContainerPath": {
           "type": "string",
@@ -3525,7 +4243,7 @@
         },
         "storageContainerSasKey": {
           "type": "string",
-          "description": "A shared access signature (SAS Key) that has write access to the blob container specified in 'storageContainerPath' parameter. If 'storageAccountAccessKey' isn't specified, StorageContainerSasKey is required."
+          "description": "A shared access signature (SAS Key) that has write access to the blob container specified in 'storageContainerPath' parameter. If 'storageAccountAccessKey' isn't specified, StorageContainerSasKey is required. Applies only if the storage account is not behind a Vnet or a firewall"
         }
       },
       "description": "Properties of a database Vulnerability Assessment."
@@ -3576,6 +4294,43 @@
       ],
       "description": "Properties of a database Vulnerability Assessment rule baseline."
     },
+    "DistributedAvailabilityGroupProperties": {
+      "type": "object",
+      "properties": {
+        "primaryAvailabilityGroupName": {
+          "type": "string",
+          "description": "The primary availability group name"
+        },
+        "replicationMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Async",
+                "Sync"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The replication mode of a distributed availability group. Parameter will be ignored during link creation."
+        },
+        "secondaryAvailabilityGroupName": {
+          "type": "string",
+          "description": "The secondary availability group name"
+        },
+        "sourceEndpoint": {
+          "type": "string",
+          "description": "The source endpoint"
+        },
+        "targetDatabase": {
+          "type": "string",
+          "description": "The name of the target database"
+        }
+      },
+      "description": "The properties of a distributed availability group."
+    },
     "ElasticPoolPerDatabaseSettings": {
       "type": "object",
       "properties": {
@@ -3607,6 +4362,17 @@
     "ElasticPoolProperties": {
       "type": "object",
       "properties": {
+        "highAvailabilityReplicaCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools."
+        },
         "licenseType": {
           "oneOf": [
             {
@@ -3636,6 +4402,17 @@
             }
           ],
           "description": "The storage limit for the database elastic pool in bytes."
+        },
+        "minCapacity": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Minimal capacity that serverless pool will not shrink below, if not paused"
         },
         "perDatabaseSettings": {
           "oneOf": [
@@ -3716,7 +4493,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)"
+          "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\nLEDGER_OPERATION_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)"
         },
         "isAzureMonitorTargetEnabled": {
           "oneOf": [
@@ -3728,6 +4505,17 @@
             }
           ],
           "description": "Specifies whether audit events are sent to Azure Monitor. \r\nIn order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.\r\n\r\nWhen using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.\r\nNote that for server level audit you should use the 'master' database as {databaseName}.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n"
+        },
+        "isManagedIdentityInUse": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether Managed Identity is used to access blob storage"
         },
         "isStorageSecondaryKeyInUse": {
           "oneOf": [
@@ -3822,7 +4610,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)"
+          "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\nLEDGER_OPERATION_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)"
         },
         "isAzureMonitorTargetEnabled": {
           "oneOf": [
@@ -3845,6 +4633,17 @@
             }
           ],
           "description": "Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.\r\nIn order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true\r\n\r\nWhen using REST API to configure auditing, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should also be created.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n"
+        },
+        "isManagedIdentityInUse": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether Managed Identity is used to access blob storage"
         },
         "isStorageSecondaryKeyInUse": {
           "oneOf": [
@@ -4218,6 +5017,20 @@
         "vCores"
       ],
       "description": "Properties of an instance pool."
+    },
+    "IPv6ServerFirewallRuleProperties": {
+      "type": "object",
+      "properties": {
+        "endIPv6Address": {
+          "type": "string",
+          "description": "The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress."
+        },
+        "startIPv6Address": {
+          "type": "string",
+          "description": "The start IP address of the firewall rule. Must be IPv6 format."
+        }
+      },
+      "description": "The properties of an IPv6 server firewall rule."
     },
     "JobAgentProperties": {
       "type": "object",
@@ -4638,6 +5451,16 @@
       ],
       "description": "Properties of job target group."
     },
+    "LedgerDigestUploadsProperties": {
+      "type": "object",
+      "properties": {
+        "digestStorageEndpoint": {
+          "type": "string",
+          "description": "The digest storage endpoint, which must be either an Azure blob storage endpoint or an URI for Azure Confidential Ledger."
+        }
+      },
+      "description": "The properties of a database ledger digest upload settings."
+    },
     "MaintenanceWindowsProperties": {
       "type": "object",
       "properties": {
@@ -4867,6 +5690,119 @@
         "azureADOnlyAuthentication"
       ],
       "description": "Properties of a active directory only authentication for Managed Instance."
+    },
+    "ManagedInstanceDtcProperties": {
+      "type": "object",
+      "properties": {
+        "dtcEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Active status of managed instance DTC."
+        },
+        "externalDnsSuffixSearchList": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "External dns suffix search list of managed instance DTC."
+        },
+        "securitySettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedInstanceDtcSecuritySettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Security Settings of managed instance DTC."
+        }
+      },
+      "description": "The properties of managed instance DTC."
+    },
+    "ManagedInstanceDtcSecuritySettings": {
+      "type": "object",
+      "properties": {
+        "snaLu6point2TransactionsEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allow SNA LU 6.2 to managed instance DTC."
+        },
+        "transactionManagerCommunicationSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedInstanceDtcTransactionManagerCommunicationSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Transaction Manager Communication Settings of managed instance DTC."
+        },
+        "xaTransactionsEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allow XA Transactions to managed instance DTC."
+        }
+      },
+      "description": "The Security Settings of managed instance DTC."
+    },
+    "ManagedInstanceDtcTransactionManagerCommunicationSettings": {
+      "type": "object",
+      "properties": {
+        "allowInboundEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allow Inbound traffic to managed instance DTC."
+        },
+        "allowOutboundEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allow Outbound traffic of managed instance DTC."
+        },
+        "authentication": {
+          "type": "string",
+          "description": "Authentication type of managed instance DTC."
+        }
+      },
+      "description": "The Transaction Manager Communication Settings of managed instance DTC."
     },
     "ManagedInstanceEncryptionProtectorProperties": {
       "type": "object",
@@ -5183,30 +6119,42 @@
           ],
           "description": "Whether or not the public data endpoint is enabled."
         },
-        "restorePointInTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database."
-        },
-        "sourceManagedInstanceId": {
-          "type": "string",
-          "description": "The resource identifier of the source managed instance associated with create operation of this instance."
-        },
-        "storageAccountType": {
+        "requestedBackupStorageRedundancy": {
           "oneOf": [
             {
               "type": "string",
               "enum": [
-                "GRS",
-                "LRS",
-                "ZRS"
+                "Geo",
+                "Local",
+                "Zone",
+                "GeoZone"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)."
+          "description": "The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)."
+        },
+        "restorePointInTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database."
+        },
+        "servicePrincipal": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServicePrincipal"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed instance's service principal configuration for a resource."
+        },
+        "sourceManagedInstanceId": {
+          "type": "string",
+          "description": "The resource identifier of the source managed instance associated with create operation of this instance."
         },
         "storageSizeInGB": {
           "oneOf": [
@@ -5258,7 +6206,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5293,13 +6241,55 @@
       ],
       "description": "Microsoft.Sql/managedInstances/administrators"
     },
+    "managedInstances_advancedThreatProtectionSettings_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "Default"
+          ],
+          "description": "The name of the Advanced Threat Protection state."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an Advanced Threat Protection state."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "advancedThreatProtectionSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/advancedThreatProtectionSettings"
+    },
     "managedInstances_azureADOnlyAuthentications_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5335,13 +6325,55 @@
       ],
       "description": "Microsoft.Sql/managedInstances/azureADOnlyAuthentications"
     },
+    "managedInstances_databases_advancedThreatProtectionSettings_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "Default"
+          ],
+          "description": "The name of the Advanced Threat Protection state."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an Advanced Threat Protection state."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "advancedThreatProtectionSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/databases/advancedThreatProtectionSettings"
+    },
     "managedInstances_databases_backupLongTermRetentionPolicies_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5383,7 +6415,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5425,7 +6457,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "location": {
@@ -5484,13 +6516,13 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
           "type": "string",
           "enum": [
-            "Default"
+            "default"
           ],
           "description": "The name of the security alert policy."
         },
@@ -5526,7 +6558,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5568,7 +6600,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5604,13 +6636,132 @@
       ],
       "description": "Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments"
     },
+    "managedInstances_distributedAvailabilityGroups_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The distributed availability group name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DistributedAvailabilityGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a distributed availability group."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "distributedAvailabilityGroups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/distributedAvailabilityGroups"
+    },
+    "managedInstances_dnsAliases_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "createDnsRecord": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not DNS record should be created for this alias."
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dnsAliases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/dnsAliases"
+    },
+    "managedInstances_dtc_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "current"
+          ],
+          "description": "The name of the managed instance DTC."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedInstanceDtcProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of managed instance DTC."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dtc"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/dtc"
+    },
     "managedInstances_encryptionProtector_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5652,7 +6803,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5691,7 +6842,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5730,13 +6881,13 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
           "type": "string",
           "enum": [
-            "Default"
+            "default"
           ],
           "description": "The name of the security alert policy."
         },
@@ -5766,13 +6917,52 @@
       ],
       "description": "Microsoft.Sql/managedInstances/securityAlertPolicies"
     },
+    "managedInstances_serverTrustCertificates_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of of the certificate to upload."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerTrustCertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a server trust certificate."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "serverTrustCertificates"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances/serverTrustCertificates"
+    },
     "managedInstances_sqlAgent_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5813,7 +7003,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -5904,6 +7094,20 @@
         "state"
       ],
       "description": "Properties of a transparent data encryption."
+    },
+    "NetworkIsolationSettings": {
+      "type": "object",
+      "properties": {
+        "sqlServerResourceId": {
+          "type": "string",
+          "description": "The resource id for the SQL server which is the target of this request. If set, private endpoint connection will be created for the SQL server. Must match server which is target of the operation."
+        },
+        "storageAccountResourceId": {
+          "type": "string",
+          "description": "The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for StorageUri parameter."
+        }
+      },
+      "description": "Contains the ARM resources for which to create private endpoint connection."
     },
     "PartnerInfo": {
       "type": "object",
@@ -6250,7 +7454,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)"
+          "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\nLEDGER_OPERATION_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)"
         },
         "isAzureMonitorTargetEnabled": {
           "oneOf": [
@@ -6273,6 +7477,17 @@
             }
           ],
           "description": "Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.\r\nIn order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true\r\n\r\nWhen using REST API to configure auditing, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should also be created.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n"
+        },
+        "isManagedIdentityInUse": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether Managed Identity is used to access blob storage"
         },
         "isStorageSecondaryKeyInUse": {
           "oneOf": [
@@ -6348,6 +7563,31 @@
       ],
       "description": "Properties of a server blob auditing policy."
     },
+    "ServerConnectionPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "connectionType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Redirect",
+                "Proxy"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The server connection type."
+        }
+      },
+      "required": [
+        "connectionType"
+      ],
+      "description": "The properties of a server connection policy."
+    },
     "ServerDevOpsAuditSettingsProperties": {
       "type": "object",
       "properties": {
@@ -6361,6 +7601,17 @@
             }
           ],
           "description": "Specifies whether DevOps audit events are sent to Azure Monitor. \r\nIn order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.\r\n\r\nWhen using REST API to configure DevOps audit, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should be also created.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n"
+        },
+        "isManagedIdentityInUse": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether Managed Identity is used to access blob storage"
         },
         "state": {
           "oneOf": [
@@ -6525,7 +7776,7 @@
         },
         "uri": {
           "type": "string",
-          "description": "The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required."
+          "description": "The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'"
         }
       },
       "required": [
@@ -6555,6 +7806,18 @@
           ],
           "description": "Properties of a active directory administrator."
         },
+        "federatedClientId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Client id used for cross tenant CMK scenario"
+        },
         "keyId": {
           "type": "string",
           "description": "A CMK URI of the key to use for encryption."
@@ -6582,6 +7845,21 @@
           ],
           "description": "Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'."
         },
+        "restrictOutboundNetworkAccess": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'."
+        },
         "version": {
           "type": "string",
           "description": "The version of the server."
@@ -6595,7 +7873,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -6631,13 +7909,55 @@
       ],
       "description": "Microsoft.Sql/servers/administrators"
     },
+    "servers_advancedThreatProtectionSettings_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "Default"
+          ],
+          "description": "The name of the Advanced Threat Protection state."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an Advanced Threat Protection state."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "advancedThreatProtectionSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/advancedThreatProtectionSettings"
+    },
     "servers_auditingSettings_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -6679,7 +7999,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -6715,13 +8035,97 @@
       ],
       "description": "Microsoft.Sql/servers/azureADOnlyAuthentications"
     },
+    "servers_connectionPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ],
+          "description": "The name of the connection policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerConnectionPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a server connection policy."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "connectionPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/connectionPolicies"
+    },
+    "servers_databases_advancedThreatProtectionSettings_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "Default"
+          ],
+          "description": "The name of the Advanced Threat Protection state."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an Advanced Threat Protection state."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "advancedThreatProtectionSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/databases/advancedThreatProtectionSettings"
+    },
     "servers_databases_auditingSettings_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -6763,7 +8167,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -6805,7 +8209,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -6847,8 +8251,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Active Directory identity configuration for a resource."
         },
         "location": {
           "type": "string",
@@ -6917,7 +8332,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -6959,7 +8374,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -6974,7 +8389,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Contains the database information after successful export."
+          "description": "Contains the database information after a successful Import, Export, or PolybaseImport"
         },
         "type": {
           "type": "string",
@@ -6991,13 +8406,54 @@
       ],
       "description": "Microsoft.Sql/servers/databases/extensions"
     },
+    "servers_databases_ledgerDigestUploads_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "current"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LedgerDigestUploadsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a database ledger digest upload settings."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "ledgerDigestUploads"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/databases/ledgerDigestUploads"
+    },
     "servers_databases_maintenanceWindows_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7038,13 +8494,13 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
           "type": "string",
           "enum": [
-            "Default"
+            "default"
           ],
           "description": "The name of the security alert policy."
         },
@@ -7080,7 +8536,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7130,7 +8586,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7169,7 +8625,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7211,7 +8667,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7253,7 +8709,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7292,7 +8748,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7331,7 +8787,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7370,7 +8826,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7397,7 +8853,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "location": {
@@ -7467,7 +8923,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7509,7 +8965,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7551,7 +9007,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7605,7 +9061,49 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "firewallRules"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "firewallRules"
+          ]
+        },
+        "values": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FirewallRule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/firewallRules"
+    },
+    "servers_ipv6FirewallRules_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7615,18 +9113,18 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ServerFirewallRuleProperties"
+              "$ref": "#/definitions/IPv6ServerFirewallRuleProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The properties of a server firewall rule."
+          "description": "The properties of an IPv6 server firewall rule."
         },
         "type": {
           "type": "string",
           "enum": [
-            "firewallRules"
+            "ipv6FirewallRules"
           ]
         }
       },
@@ -7636,7 +9134,7 @@
         "properties",
         "type"
       ],
-      "description": "Microsoft.Sql/servers/firewallRules"
+      "description": "Microsoft.Sql/servers/ipv6FirewallRules"
     },
     "servers_jobAgents_childResource": {
       "type": "object",
@@ -7644,7 +9142,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "location": {
@@ -7714,7 +9212,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7753,7 +9251,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7792,7 +9290,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7827,7 +9325,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7866,7 +9364,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7905,7 +9403,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7938,13 +9436,39 @@
       ],
       "description": "Microsoft.Sql/servers/keys"
     },
+    "servers_outboundFirewallRules_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "outboundFirewallRules"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/outboundFirewallRules"
+    },
     "servers_privateEndpointConnections_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -7983,13 +9507,13 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
           "type": "string",
           "enum": [
-            "Default"
+            "default"
           ],
           "description": "The name of the threat detection policy."
         },
@@ -8025,7 +9549,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -8064,7 +9588,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -8103,7 +9627,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-11-01-preview"
+            "2022-02-01-preview"
           ]
         },
         "name": {
@@ -8138,6 +9662,16 @@
         "type"
       ],
       "description": "Microsoft.Sql/servers/vulnerabilityAssessments"
+    },
+    "ServerTrustCertificateProperties": {
+      "type": "object",
+      "properties": {
+        "publicBlob": {
+          "type": "string",
+          "description": "The certificate public blob"
+        }
+      },
+      "description": "The properties of a server trust certificate."
     },
     "ServerTrustGroupProperties": {
       "type": "object",
@@ -8212,6 +9746,27 @@
         "storageContainerPath"
       ],
       "description": "Properties of a server Vulnerability Assessment."
+    },
+    "ServicePrincipal": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Service principal type."
+        }
+      },
+      "description": "The managed instance's service principal configuration for a resource."
     },
     "Sku": {
       "type": "object",
