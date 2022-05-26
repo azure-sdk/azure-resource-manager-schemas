@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-03-30-preview/Microsoft.DataMigration.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-06-30-preview/Microsoft.DataMigration.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.DataMigration",
   "description": "Microsoft DataMigration Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
@@ -98,7 +98,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
@@ -171,7 +171,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
@@ -214,7 +214,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
@@ -257,7 +257,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
@@ -300,7 +300,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "location": {
@@ -358,7 +358,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "name": {
@@ -4621,7 +4621,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
@@ -4681,7 +4681,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
@@ -4724,7 +4724,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
@@ -4767,7 +4767,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-30-preview"
+            "2022-06-30-preview"
           ]
         },
         "etag": {
