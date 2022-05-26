@@ -758,10 +758,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/virtualMachines_extensions_childResource"
+                "$ref": "#/definitions/virtualMachines_runCommands_childResource"
               },
               {
-                "$ref": "#/definitions/virtualMachines_runCommands_childResource"
+                "$ref": "#/definitions/virtualMachines_extensions_childResource"
               }
             ]
           }
@@ -877,10 +877,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/virtualMachineScaleSets_extensions_childResource"
+                "$ref": "#/definitions/virtualMachineScaleSets_virtualMachines_childResource"
               },
               {
-                "$ref": "#/definitions/virtualMachineScaleSets_virtualMachines_childResource"
+                "$ref": "#/definitions/virtualMachineScaleSets_extensions_childResource"
               }
             ]
           }
@@ -985,10 +985,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/virtualMachineScaleSets_virtualMachines_extensions_childResource"
+                "$ref": "#/definitions/virtualMachineScaleSets_virtualMachines_runCommands_childResource"
               },
               {
-                "$ref": "#/definitions/virtualMachineScaleSets_virtualMachines_runCommands_childResource"
+                "$ref": "#/definitions/virtualMachineScaleSets_virtualMachines_extensions_childResource"
               }
             ]
           }
