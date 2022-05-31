@@ -349,16 +349,16 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/servers_databases_dataMaskingPolicies_childResource"
-              },
-              {
-                "$ref": "#/definitions/servers_databases_geoBackupPolicies_childResource"
-              },
-              {
                 "$ref": "#/definitions/servers_databases_extensions_childResource"
               },
               {
                 "$ref": "#/definitions/servers_databases_securityAlertPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_databases_dataMaskingPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_databases_geoBackupPolicies_childResource"
               },
               {
                 "$ref": "#/definitions/servers_databases_transparentDataEncryption_childResource"
