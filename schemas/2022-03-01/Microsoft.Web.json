@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-01-15/Microsoft.Web.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Web.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Web",
   "description": "Microsoft Web Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -67,13 +67,76 @@
       ],
       "description": "Microsoft.Web/certificates"
     },
+    "containerApps": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-03-01"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource Location."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Container App."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerAppProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ContainerApp resource specific properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Web/containerApps"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Web/containerApps"
+    },
     "hostingEnvironments": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -151,38 +214,86 @@
     },
     "hostingEnvironments_configurations": {
       "type": "object",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Kind of resource."
+            },
+            "name": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^.*/customdnssuffix$"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CustomDnsSuffixConfigurationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ],
+              "description": "CustomDnsSuffixConfiguration resource specific properties"
+            }
+          },
+          "required": [
+            "name",
+            "properties"
+          ],
+          "description": "Microsoft.Web/hostingEnvironments/configurations"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Kind of resource."
+            },
+            "name": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^.*/networking$"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AseV3NetworkingConfigurationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ],
+              "description": "AseV3NetworkingConfiguration resource specific properties"
+            }
+          },
+          "required": [
+            "name",
+            "properties"
+          ],
+          "description": "Microsoft.Web/hostingEnvironments/configurations"
+        }
+      ],
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of resource."
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^.*/networking$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AseV3NetworkingConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "AseV3NetworkingConfiguration resource specific properties"
         },
         "type": {
           "type": "string",
@@ -193,8 +304,6 @@
       },
       "required": [
         "apiVersion",
-        "name",
-        "properties",
         "type"
       ],
       "description": "Microsoft.Web/hostingEnvironments/configurations"
@@ -205,7 +314,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -266,7 +375,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -309,7 +418,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -363,7 +472,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "extendedLocation": {
@@ -437,7 +546,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "extendedLocation": {
@@ -522,7 +631,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -565,7 +674,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -608,7 +717,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "extendedLocation": {
@@ -828,7 +937,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -1264,7 +1373,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -1286,7 +1395,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1329,7 +1438,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1368,38 +1477,70 @@
     },
     "sites_extensions": {
       "type": "object",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Kind of resource."
+            },
+            "name": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^.*/MSDeploy$"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MSDeployCore"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ],
+              "description": "MSDeploy ARM PUT core information"
+            }
+          },
+          "required": [
+            "name",
+            "properties"
+          ],
+          "description": "Microsoft.Web/sites/extensions"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^.*/onedeploy$"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "description": "Microsoft.Web/sites/extensions"
+        }
+      ],
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of resource."
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^.*/MSDeploy$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/MSDeployCore"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "MSDeploy ARM PUT core information"
         },
         "type": {
           "type": "string",
@@ -1410,8 +1551,6 @@
       },
       "required": [
         "apiVersion",
-        "name",
-        "properties",
         "type"
       ],
       "description": "Microsoft.Web/sites/extensions"
@@ -1422,7 +1561,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1475,7 +1614,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -1506,7 +1645,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1549,7 +1688,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1592,7 +1731,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1635,7 +1774,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1685,7 +1824,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1735,7 +1874,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1785,7 +1924,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1848,7 +1987,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1898,7 +2037,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1941,7 +2080,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -1984,7 +2123,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -2011,7 +2150,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "extendedLocation": {
@@ -2046,7 +2185,7 @@
         },
         "name": {
           "type": "string",
-          "description": "Name of the deployment slot to create or update. The name 'production' is reserved."
+          "description": "Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot."
         },
         "properties": {
           "oneOf": [
@@ -2225,7 +2364,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -2625,7 +2764,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -2647,7 +2786,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -2690,7 +2829,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -2733,7 +2872,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -2783,7 +2922,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -2836,7 +2975,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -2867,7 +3006,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -2910,7 +3049,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -2953,7 +3092,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -2996,7 +3135,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3046,7 +3185,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3096,7 +3235,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3159,7 +3298,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3209,7 +3348,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3252,7 +3391,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3295,7 +3434,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -3322,7 +3461,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3372,7 +3511,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3386,13 +3525,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/VnetInfoProperties"
+              "$ref": "#/definitions/VnetInfo"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "VnetInfo resource specific properties"
+          "description": "Virtual Network information contract."
         },
         "resources": {
           "type": "array",
@@ -3425,7 +3564,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3468,7 +3607,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3518,7 +3657,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3532,13 +3671,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/VnetInfoProperties"
+              "$ref": "#/definitions/VnetInfo"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "VnetInfo resource specific properties"
+          "description": "Virtual Network information contract."
         },
         "resources": {
           "type": "array",
@@ -3571,7 +3710,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3614,7 +3753,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "identity": {
@@ -3666,6 +3805,9 @@
               },
               {
                 "$ref": "#/definitions/staticSites_userProvidedFunctionApps_childResource"
+              },
+              {
+                "$ref": "#/definitions/staticSites_linkedBackends_childResource"
               }
             ]
           }
@@ -3800,7 +3942,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -3816,13 +3958,56 @@
       ],
       "description": "Microsoft.Web/staticSites/builds/config"
     },
+    "staticSites_builds_linkedBackends": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-03-01"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of resource."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the backend to link to the static site"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StaticSiteLinkedBackendARMResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "StaticSiteLinkedBackendARMResource resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Web/staticSites/builds/linkedBackends"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Web/staticSites/builds/linkedBackends"
+    },
     "staticSites_builds_userProvidedFunctionApps": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -3947,7 +4132,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -3969,7 +4154,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -4006,13 +4191,56 @@
       ],
       "description": "Microsoft.Web/staticSites/customDomains"
     },
+    "staticSites_linkedBackends": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-03-01"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of resource."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the backend to link to the static site"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StaticSiteLinkedBackendARMResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "StaticSiteLinkedBackendARMResource resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Web/staticSites/linkedBackends"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Web/staticSites/linkedBackends"
+    },
     "staticSites_privateEndpointConnections": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -4055,7 +4283,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -4100,7 +4328,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -4145,7 +4373,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -4203,6 +4431,40 @@
         }
       },
       "description": "The configuration settings of the Allowed Audiences validation flow."
+    },
+    "AllowedPrincipals": {
+      "type": "object",
+      "properties": {
+        "groups": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of the allowed groups."
+        },
+        "identities": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of the allowed identities."
+        }
+      },
+      "description": "The configuration settings of the Azure Active Directory allowed principals."
     },
     "ApiDefinitionInfo": {
       "type": "object",
@@ -4365,6 +4627,28 @@
           ],
           "description": "Custom settings for changing the behavior of the App Service Environment."
         },
+        "customDnsSuffixConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomDnsSuffixConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Full view of the custom domain suffix configuration for ASEv3."
+        },
+        "dedicatedHostCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dedicated Host Count"
+        },
         "dnsSuffix": {
           "type": "string",
           "description": "DNS suffix of the App Service Environment."
@@ -4412,6 +4696,17 @@
           "type": "string",
           "description": "Front-end VM size, e.g. \"Medium\", \"Large\"."
         },
+        "networkingConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AseV3NetworkingConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Full view of networking configuration for an ASE."
+        },
         "userWhitelistedIpRanges": {
           "oneOf": [
             {
@@ -4436,6 +4731,17 @@
             }
           ],
           "description": "Specification for using a Virtual Network."
+        },
+        "zoneRedundant": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not this App Service Environment is zone-redundant."
         }
       },
       "required": [
@@ -4584,6 +4890,18 @@
         "workerTierName": {
           "type": "string",
           "description": "Target worker tier assigned to the App Service plan."
+        },
+        "zoneRedundant": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If <code>true</code>, this App Service Plan will perform availability zone balancing.\nIf <code>false</code>, this App Service Plan will not perform availability zone balancing."
         }
       },
       "description": "AppServicePlan resource specific properties"
@@ -4632,6 +4950,27 @@
         }
       }
     },
+    "AseV3NetworkingConfiguration": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "Kind of resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AseV3NetworkingConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AseV3NetworkingConfiguration resource specific properties"
+        }
+      },
+      "description": "Full view of networking configuration for an ASE."
+    },
     "AseV3NetworkingConfigurationProperties": {
       "type": "object",
       "properties": {
@@ -4645,6 +4984,32 @@
             }
           ],
           "description": "Property to enable and disable new private endpoint connection creation on ASE"
+        },
+        "ftpEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property to enable and disable FTP on ASEV3"
+        },
+        "inboundIpAddressOverride": {
+          "type": "string",
+          "description": "Customer provided Inbound IP Address. Only able to be set on Ase create."
+        },
+        "remoteDebugEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property to enable and disable Remote Debug on ASEV3"
         }
       },
       "description": "AseV3NetworkingConfiguration resource specific properties"
@@ -4972,6 +5337,17 @@
             }
           ],
           "description": "The list of audiences that can make successful authentication/authorization requests."
+        },
+        "defaultAuthorizationPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefaultAuthorizationPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration settings of the Azure Active Directory default authorization policy."
         },
         "jwtClaimChecks": {
           "oneOf": [
@@ -5483,6 +5859,66 @@
       ],
       "description": "Information needed for cloning operation."
     },
+    "Configuration": {
+      "type": "object",
+      "properties": {
+        "activeRevisionsMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "multiple",
+                "single"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ActiveRevisionsMode controls how active revisions are handled for the Container app:\n<list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>."
+        },
+        "ingress": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Ingress"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App Ingress configuration."
+        },
+        "registries": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RegistryCredentials"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of private container registry credentials for containers used by the Container app"
+        },
+        "secrets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Secret"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of secrets used by a Container app"
+        }
+      },
+      "description": "Non versioned Container App configuration properties that define the mutable settings of a Container app"
+    },
     "ConnStringInfo": {
       "type": "object",
       "properties": {
@@ -5558,6 +5994,155 @@
         "value"
       ],
       "description": "Database connection string value to type pair."
+    },
+    "Container": {
+      "type": "object",
+      "properties": {
+        "args": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container start command arguments."
+        },
+        "command": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container start command."
+        },
+        "env": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentVar"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container environment variables."
+        },
+        "image": {
+          "type": "string",
+          "description": "Container image tag."
+        },
+        "name": {
+          "type": "string",
+          "description": "Custom container name."
+        },
+        "resources": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerResources"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App container resource requirements."
+        }
+      },
+      "description": "Container App container definition."
+    },
+    "ContainerAppProperties": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Configuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Non versioned Container App configuration properties that define the mutable settings of a Container app"
+        },
+        "kubeEnvironmentId": {
+          "type": "string",
+          "description": "Resource ID of the Container App's KubeEnvironment."
+        },
+        "template": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Template"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App versioned application definition.\nDefines the desired state of an immutable revision.\nAny changes to this section Will result in a new revision being created"
+        }
+      },
+      "description": "ContainerApp resource specific properties"
+    },
+    "ContainerAppsConfiguration": {
+      "type": "object",
+      "properties": {
+        "appSubnetResourceId": {
+          "type": "string",
+          "description": "Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined."
+        },
+        "controlPlaneSubnetResourceId": {
+          "type": "string",
+          "description": "Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined."
+        },
+        "daprAIInstrumentationKey": {
+          "type": "string",
+          "description": "Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry"
+        },
+        "dockerBridgeCidr": {
+          "type": "string",
+          "description": "CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined."
+        },
+        "platformReservedCidr": {
+          "type": "string",
+          "description": "IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges."
+        },
+        "platformReservedDnsIP": {
+          "type": "string",
+          "description": "An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server"
+        }
+      }
+    },
+    "ContainerResources": {
+      "type": "object",
+      "properties": {
+        "cpu": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Required CPU in cores, e.g. 0.5"
+        },
+        "memory": {
+          "type": "string",
+          "description": "Required memory, e.g. \"250Mb\""
+        }
+      },
+      "description": "Container App container resource requirements."
     },
     "CookieExpiration": {
       "type": "object",
@@ -5635,6 +6220,45 @@
       ],
       "description": "CsmPublishingCredentialsPoliciesEntity resource specific properties"
     },
+    "CustomDnsSuffixConfiguration": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "Kind of resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomDnsSuffixConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "CustomDnsSuffixConfiguration resource specific properties"
+        }
+      },
+      "description": "Full view of the custom domain suffix configuration for ASEv3."
+    },
+    "CustomDnsSuffixConfigurationProperties": {
+      "type": "object",
+      "properties": {
+        "certificateUrl": {
+          "type": "string",
+          "description": "The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix."
+        },
+        "dnsSuffix": {
+          "type": "string",
+          "description": "The default custom domain suffix to use for all sites deployed on the ASE."
+        },
+        "keyVaultReferenceIdentity": {
+          "type": "string",
+          "description": "The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available."
+        }
+      },
+      "description": "CustomDnsSuffixConfiguration resource specific properties"
+    },
     "CustomOpenIdConnectProvider": {
       "type": "object",
       "properties": {
@@ -5674,6 +6298,141 @@
       },
       "description": "The configuration settings of the custom Open ID Connect provider."
     },
+    "CustomScaleRule": {
+      "type": "object",
+      "properties": {
+        "auth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScaleRuleAuth"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authentication secrets for the custom scale rule."
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata properties to describe custom scale rule."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of the custom scale rule\neg: azure-servicebus, redis etc."
+        }
+      },
+      "description": "Container App container Custom scaling rule."
+    },
+    "Dapr": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "Dapr application identifier"
+        },
+        "appPort": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Port on which the Dapr side car"
+        },
+        "components": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DaprComponent"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of Dapr components"
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Boolean indicating if the Dapr side car is enabled"
+        }
+      },
+      "description": "Container App Dapr configuration."
+    },
+    "DaprComponent": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DaprMetadata"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Component metadata"
+        },
+        "name": {
+          "type": "string",
+          "description": "Component name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Component type"
+        },
+        "version": {
+          "type": "string",
+          "description": "Component version"
+        }
+      },
+      "description": "Dapr component configuration"
+    },
+    "DaprMetadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Metadata property name."
+        },
+        "secretRef": {
+          "type": "string",
+          "description": "Name of the Container App secret from which to pull the metadata property value."
+        },
+        "value": {
+          "type": "string",
+          "description": "Metadata property value."
+        }
+      },
+      "description": "Container App Dapr component metadata."
+    },
     "DatabaseBackupSetting": {
       "type": "object",
       "properties": {
@@ -5710,6 +6469,37 @@
         "databaseType"
       ],
       "description": "Database backup settings."
+    },
+    "DefaultAuthorizationPolicy": {
+      "type": "object",
+      "properties": {
+        "allowedApplications": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration settings of the Azure Active Directory allowed applications."
+        },
+        "allowedPrincipals": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AllowedPrincipals"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration settings of the Azure Active Directory allowed principals."
+        }
+      },
+      "description": "The configuration settings of the Azure Active Directory default authorization policy."
     },
     "DeploymentProperties": {
       "type": "object",
@@ -5785,6 +6575,24 @@
         }
       },
       "description": "Enabled configuration."
+    },
+    "EnvironmentVar": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Environment variable name."
+        },
+        "secretRef": {
+          "type": "string",
+          "description": "Name of the Container App secret from which to pull the environment variable value."
+        },
+        "value": {
+          "type": "string",
+          "description": "Non-secret environment variable value."
+        }
+      },
+      "description": "Container App container environment variable."
     },
     "Experiments": {
       "type": "object",
@@ -6317,33 +7125,76 @@
     },
     "hostingEnvironments_configurations_childResource": {
       "type": "object",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Kind of resource."
+            },
+            "name": {
+              "type": "string",
+              "enum": [
+                "customdnssuffix"
+              ]
+            },
+            "properties": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CustomDnsSuffixConfigurationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ],
+              "description": "CustomDnsSuffixConfiguration resource specific properties"
+            }
+          },
+          "required": [
+            "name",
+            "properties"
+          ],
+          "description": "Microsoft.Web/hostingEnvironments/configurations"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Kind of resource."
+            },
+            "name": {
+              "type": "string",
+              "enum": [
+                "networking"
+              ]
+            },
+            "properties": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AseV3NetworkingConfigurationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ],
+              "description": "AseV3NetworkingConfiguration resource specific properties"
+            }
+          },
+          "required": [
+            "name",
+            "properties"
+          ],
+          "description": "Microsoft.Web/hostingEnvironments/configurations"
+        }
+      ],
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of resource."
-        },
-        "name": {
-          "type": "string",
-          "enum": [
-            "networking"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AseV3NetworkingConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "AseV3NetworkingConfiguration resource specific properties"
         },
         "type": {
           "type": "string",
@@ -6354,8 +7205,6 @@
       },
       "required": [
         "apiVersion",
-        "name",
-        "properties",
         "type"
       ],
       "description": "Microsoft.Web/hostingEnvironments/configurations"
@@ -6366,7 +7215,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -6422,7 +7271,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -6465,7 +7314,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -6684,6 +7533,41 @@
       },
       "description": "Http logs configuration."
     },
+    "HttpScaleRule": {
+      "type": "object",
+      "properties": {
+        "auth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScaleRuleAuth"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authentication secrets for the custom scale rule."
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata properties to describe http scale rule."
+        }
+      },
+      "description": "Container App container Custom scaling rule."
+    },
     "HttpSettings": {
       "type": "object",
       "properties": {
@@ -6897,6 +7781,75 @@
       },
       "description": "The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization."
     },
+    "Ingress": {
+      "type": "object",
+      "properties": {
+        "allowInsecure": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections"
+        },
+        "external": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Bool indicating if app exposes an external http endpoint"
+        },
+        "targetPort": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Target Port in containers for traffic from ingress"
+        },
+        "traffic": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TrafficWeight"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "transport": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "auto",
+                "http",
+                "http2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Ingress transport protocol."
+        }
+      },
+      "description": "Container App Ingress configuration."
+    },
     "IpSecurityRestriction": {
       "type": "object",
       "properties": {
@@ -7063,6 +8016,20 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "containerAppsConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerAppsConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "environmentType": {
+          "type": "string",
+          "description": "Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed"
         },
         "internalLoadBalancerEnabled": {
           "oneOf": [
@@ -7725,6 +8692,41 @@
       ],
       "description": "PushSettings resource specific properties"
     },
+    "QueueScaleRule": {
+      "type": "object",
+      "properties": {
+        "auth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScaleRuleAuth"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authentication secrets for the queue scale rule."
+        },
+        "queueLength": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Queue length."
+        },
+        "queueName": {
+          "type": "string",
+          "description": "Queue name."
+        }
+      },
+      "description": "Container App container Azure Queue based scaling rule."
+    },
     "RampUpRule": {
       "type": "object",
       "properties": {
@@ -7798,6 +8800,24 @@
       },
       "description": "Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance."
     },
+    "RegistryCredentials": {
+      "type": "object",
+      "properties": {
+        "passwordSecretRef": {
+          "type": "string",
+          "description": "The name of the Secret that contains the registry login password"
+        },
+        "server": {
+          "type": "string",
+          "description": "Container Registry Server"
+        },
+        "username": {
+          "type": "string",
+          "description": "Container Registry Username"
+        }
+      },
+      "description": "Container App Private Registry"
+    },
     "RelayServiceConnectionEntityProperties": {
       "type": "object",
       "properties": {
@@ -7852,6 +8872,119 @@
         }
       },
       "description": "Trigger based on total requests."
+    },
+    "Scale": {
+      "type": "object",
+      "properties": {
+        "maxReplicas": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional. Maximum number of container replicas. Defaults to 10 if not set."
+        },
+        "minReplicas": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional. Minimum number of container replicas."
+        },
+        "rules": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScaleRule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scaling rules."
+        }
+      },
+      "description": "Container App scaling configurations."
+    },
+    "ScaleRule": {
+      "type": "object",
+      "properties": {
+        "azureQueue": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueueScaleRule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App container Azure Queue based scaling rule."
+        },
+        "custom": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomScaleRule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App container Custom scaling rule."
+        },
+        "http": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HttpScaleRule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App container Custom scaling rule."
+        },
+        "name": {
+          "type": "string",
+          "description": "Scale Rule Name"
+        }
+      },
+      "description": "Container App container scaling rule."
+    },
+    "ScaleRuleAuth": {
+      "type": "object",
+      "properties": {
+        "secretRef": {
+          "type": "string",
+          "description": "Name of the Container App secret from which to pull the auth params."
+        },
+        "triggerParameter": {
+          "type": "string",
+          "description": "Trigger Parameter that uses the secret"
+        }
+      },
+      "description": "Auth Secrets for Container App Scale Rule"
+    },
+    "Secret": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Secret Name."
+        },
+        "value": {
+          "type": "string",
+          "description": "Secret Value."
+        }
+      },
+      "description": "Container App Secret."
     },
     "SiteAuthSettingsProperties": {
       "type": "object",
@@ -9172,6 +10305,39 @@
         "virtualNetworkSubnetId": {
           "type": "string",
           "description": "Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.\nThis must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}"
+        },
+        "vnetContentShareEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "To enable accessing content over virtual network"
+        },
+        "vnetImagePullEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "To enable pulling image over Virtual Network"
+        },
+        "vnetRouteAllEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied."
         }
       },
       "description": "Site resource specific properties"
@@ -9315,7 +10481,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -9696,7 +10862,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -9718,7 +10884,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -9761,7 +10927,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -9800,33 +10966,60 @@
     },
     "sites_extensions_childResource": {
       "type": "object",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Kind of resource."
+            },
+            "name": {
+              "type": "string",
+              "enum": [
+                "MSDeploy"
+              ]
+            },
+            "properties": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MSDeployCore"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ],
+              "description": "MSDeploy ARM PUT core information"
+            }
+          },
+          "required": [
+            "name",
+            "properties"
+          ],
+          "description": "Microsoft.Web/sites/extensions"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "onedeploy"
+              ]
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "description": "Microsoft.Web/sites/extensions"
+        }
+      ],
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of resource."
-        },
-        "name": {
-          "type": "string",
-          "enum": [
-            "MSDeploy"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/MSDeployCore"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "MSDeploy ARM PUT core information"
         },
         "type": {
           "type": "string",
@@ -9837,8 +11030,6 @@
       },
       "required": [
         "apiVersion",
-        "name",
-        "properties",
         "type"
       ],
       "description": "Microsoft.Web/sites/extensions"
@@ -9849,7 +11040,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -9892,7 +11083,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -9923,7 +11114,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -9966,7 +11157,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10009,7 +11200,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10054,7 +11245,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10099,7 +11290,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10162,7 +11353,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10207,7 +11398,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10250,7 +11441,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10293,7 +11484,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -10384,7 +11575,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -10406,7 +11597,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "extendedLocation": {
@@ -10441,7 +11632,7 @@
         },
         "name": {
           "type": "string",
-          "description": "Name of the deployment slot to create or update. The name 'production' is reserved."
+          "description": "Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot."
         },
         "properties": {
           "oneOf": [
@@ -10819,7 +12010,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -10841,7 +12032,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10884,7 +12075,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10927,7 +12118,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -10972,7 +12163,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11015,7 +12206,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -11046,7 +12237,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11089,7 +12280,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11132,7 +12323,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11177,7 +12368,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11240,7 +12431,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11285,7 +12476,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11328,7 +12519,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11371,7 +12562,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "name": {
@@ -11398,7 +12589,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11443,7 +12634,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11457,13 +12648,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/VnetInfoProperties"
+              "$ref": "#/definitions/VnetInfo"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "VnetInfo resource specific properties"
+          "description": "Virtual Network information contract."
         },
         "type": {
           "type": "string",
@@ -11486,7 +12677,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11529,7 +12720,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11574,7 +12765,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11588,13 +12779,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/VnetInfoProperties"
+              "$ref": "#/definitions/VnetInfo"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "VnetInfo resource specific properties"
+          "description": "Virtual Network information contract."
         },
         "type": {
           "type": "string",
@@ -11617,7 +12808,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -11909,6 +13100,27 @@
           ],
           "description": "Build properties for the static site."
         },
+        "enterpriseGradeCdnStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Enabling",
+                "Disabled",
+                "Disabling"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "State indicating the status of the enterprise grade CDN serving traffic to the static web app."
+        },
+        "provider": {
+          "type": "string",
+          "description": "The provider that submitted the last deployment to the primary environment of the static site."
+        },
         "repositoryToken": {
           "type": "string",
           "description": "A user's github repository token. This is used to setup the Github Actions workflow file and API secrets."
@@ -12002,6 +13214,20 @@
       },
       "description": "StaticSiteCustomDomainRequestPropertiesARMResource resource specific properties"
     },
+    "StaticSiteLinkedBackendARMResourceProperties": {
+      "type": "object",
+      "properties": {
+        "backendResourceId": {
+          "type": "string",
+          "description": "The resource id of the backend linked to the static site"
+        },
+        "region": {
+          "type": "string",
+          "description": "The region of the backend linked to the static site"
+        }
+      },
+      "description": "StaticSiteLinkedBackendARMResource resource specific properties"
+    },
     "staticSites_config_childResource": {
       "type": "object",
       "oneOf": [
@@ -12080,7 +13306,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "type": {
@@ -12102,7 +13328,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -12139,13 +13365,56 @@
       ],
       "description": "Microsoft.Web/staticSites/customDomains"
     },
+    "staticSites_linkedBackends_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-03-01"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of resource."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the backend to link to the static site"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StaticSiteLinkedBackendARMResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "StaticSiteLinkedBackendARMResource resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "linkedBackends"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Web/staticSites/linkedBackends"
+    },
     "staticSites_privateEndpointConnections_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -12188,7 +13457,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-01-15"
+            "2022-03-01"
           ]
         },
         "kind": {
@@ -12421,6 +13690,52 @@
       },
       "description": "SwiftVirtualNetwork resource specific properties"
     },
+    "Template": {
+      "type": "object",
+      "properties": {
+        "containers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Container"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of container definitions for the Container App."
+        },
+        "dapr": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Dapr"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App Dapr configuration."
+        },
+        "revisionSuffix": {
+          "type": "string",
+          "description": "User friendly suffix that is appended to the revision name"
+        },
+        "scale": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Scale"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App scaling configurations."
+        }
+      },
+      "description": "Container App versioned application definition.\nDefines the desired state of an immutable revision.\nAny changes to this section Will result in a new revision being created"
+    },
     "TokenStore": {
       "type": "object",
       "properties": {
@@ -12470,6 +13785,39 @@
         }
       },
       "description": "The configuration settings of the token store."
+    },
+    "TrafficWeight": {
+      "type": "object",
+      "properties": {
+        "latestRevision": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates that the traffic weight belongs to a latest stable revision"
+        },
+        "revisionName": {
+          "type": "string",
+          "description": "Name of a revision"
+        },
+        "weight": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Traffic weight assigned to a revision"
+        }
+      },
+      "description": "Traffic weight assigned to a revision"
     },
     "Twitter": {
       "type": "object",
@@ -12637,7 +13985,7 @@
       ],
       "description": "VnetGateway resource specific properties"
     },
-    "VnetInfoProperties": {
+    "VnetInfo": {
       "type": "object",
       "properties": {
         "certBlob": {
@@ -12664,7 +14012,7 @@
           "description": "The Virtual Network's resource ID."
         }
       },
-      "description": "VnetInfo resource specific properties"
+      "description": "Virtual Network information contract."
     },
     "VnetRouteProperties": {
       "type": "object",
