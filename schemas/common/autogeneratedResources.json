@@ -11228,6 +11228,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-09-01-preview/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2019-06-01-preview/Microsoft.ManagedNetwork.json#/resourceDefinitions/managedNetworks"
         },
         {
