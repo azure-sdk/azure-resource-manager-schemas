@@ -2710,7 +2710,8 @@
               "enum": [
                 "Info",
                 "Warning",
-                "Error"
+                "Error",
+                "Debug"
               ]
             },
             {
