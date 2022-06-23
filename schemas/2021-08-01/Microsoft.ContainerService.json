@@ -1154,6 +1154,7 @@
         },
         "podSubnetID": {
           "type": "string",
+          "format": "arm-id",
           "description": "If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}"
         },
         "proximityPlacementGroupID": {
@@ -1263,6 +1264,7 @@
         },
         "vnetSubnetID": {
           "type": "string",
+          "format": "arm-id",
           "description": "If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}"
         },
         "workloadRuntime": {
@@ -1574,6 +1576,7 @@
         },
         "podSubnetID": {
           "type": "string",
+          "format": "arm-id",
           "description": "If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}"
         },
         "proximityPlacementGroupID": {
@@ -1683,6 +1686,7 @@
         },
         "vnetSubnetID": {
           "type": "string",
+          "format": "arm-id",
           "description": "If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}"
         },
         "workloadRuntime": {
@@ -2282,6 +2286,7 @@
         },
         "diskEncryptionSetID": {
           "type": "string",
+          "format": "arm-id",
           "description": "This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'"
         },
         "dnsPrefix": {
@@ -2896,6 +2901,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "The fully qualified Azure resource id."
         }
       },
@@ -3307,6 +3313,7 @@
         },
         "resourceId": {
           "type": "string",
+          "format": "arm-id",
           "description": "The resource ID of the user assigned identity."
         }
       },
