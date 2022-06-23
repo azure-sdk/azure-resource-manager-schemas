@@ -1659,6 +1659,7 @@
       "properties": {
         "userAssignedIdentity": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account."
         }
       },
@@ -2857,6 +2858,7 @@
       "properties": {
         "resourceId": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "tenantId": {
@@ -3978,6 +3980,7 @@
         },
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}."
         },
         "state": {
