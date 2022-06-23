@@ -774,6 +774,7 @@
         },
         "storageAccountResourceId": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource id of the storage account to be used to create the blobs"
         }
       },
@@ -788,6 +789,7 @@
         },
         "clusterArmId": {
           "type": "string",
+          "format": "arm-id",
           "description": "Cluster ARM ID of the Namespace."
         },
         "disableLocalAuth": {
@@ -1502,6 +1504,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "The ARM identifier for Private Endpoint."
         }
       },
@@ -1693,6 +1696,7 @@
       "properties": {
         "userAssignedIdentity": {
           "type": "string",
+          "format": "arm-id",
           "description": "ARM ID of user Identity selected for encryption"
         }
       }
