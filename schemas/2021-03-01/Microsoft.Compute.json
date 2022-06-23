@@ -102,16 +102,6 @@
           ],
           "description": "Cloud service properties"
         },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/cloudServices_updateDomains_childResource"
-              }
-            ]
-          }
-        },
         "tags": {
           "oneOf": [
             {
@@ -1159,6 +1149,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/..."
         }
       },
@@ -1603,40 +1594,6 @@
       },
       "description": "Describes the cloud service role sku."
     },
-    "cloudServices_updateDomains_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-03-01"
-          ]
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Specifies an integer value that identifies the update domain. Update domains are identified with a zero-based index: the first update domain has an ID of 0, the second has an ID of 1, and so on."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "updateDomains"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Compute/cloudServices/updateDomains"
-    },
     "CloudServiceVaultAndSecretReference": {
       "type": "object",
       "properties": {
@@ -1981,6 +1938,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         }
       },
@@ -2595,6 +2553,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "offer": {
@@ -2951,6 +2910,7 @@
         },
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "storageAccountType": {
@@ -2980,6 +2940,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "properties": {
@@ -3833,6 +3794,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         }
       }
@@ -5251,6 +5213,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "name": {
@@ -5439,6 +5402,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "name": {
