@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-04-01-preview/Microsoft.DocumentDB.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-05-15-preview/Microsoft.DocumentDB.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.DocumentDB",
   "description": "Microsoft DocumentDB Resource Types",
@@ -10,13 +10,13 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedServiceIdentity"
+              "$ref": "#/definitions/ManagedCassandraManagedServiceIdentity"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -32,7 +32,7 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*",
+              "pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$",
               "minLength": 1,
               "maxLength": 100
             },
@@ -99,14 +99,14 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*",
+              "pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$",
               "minLength": 1,
               "maxLength": 100
             },
@@ -148,7 +148,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -212,6 +212,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/databaseAccounts_graphs_childResource"
+              },
+              {
                 "$ref": "#/definitions/databaseAccounts_sqlDatabases_childResource"
               },
               {
@@ -224,6 +227,12 @@
                 "$ref": "#/definitions/databaseAccounts_mongodbDatabases_childResource"
               },
               {
+                "$ref": "#/definitions/databaseAccounts_mongodbRoleDefinitions_childResource"
+              },
+              {
+                "$ref": "#/definitions/databaseAccounts_mongodbUserDefinitions_childResource"
+              },
+              {
                 "$ref": "#/definitions/databaseAccounts_tables_childResource"
               },
               {
@@ -231,6 +240,9 @@
               },
               {
                 "$ref": "#/definitions/databaseAccounts_gremlinDatabases_childResource"
+              },
+              {
+                "$ref": "#/definitions/databaseAccounts_dataTransferJobs_childResource"
               },
               {
                 "$ref": "#/definitions/databaseAccounts_notebookWorkspaces_childResource"
@@ -280,7 +292,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -322,6 +334,9 @@
               },
               {
                 "$ref": "#/definitions/databaseAccounts_cassandraKeyspaces_tables_childResource"
+              },
+              {
+                "$ref": "#/definitions/databaseAccounts_cassandraKeyspaces_views_childResource"
               }
             ]
           }
@@ -362,7 +377,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -441,7 +456,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -517,7 +532,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -587,13 +602,276 @@
       ],
       "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings"
     },
+    "databaseAccounts_cassandraKeyspaces_views": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the resource group to which the resource belongs."
+        },
+        "name": {
+          "type": "string",
+          "description": "Cosmos DB view name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CassandraViewCreateUpdateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to create and update Azure Cosmos DB Cassandra view."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/databaseAccounts_cassandraKeyspaces_views_throughputSettings_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views"
+    },
+    "databaseAccounts_cassandraKeyspaces_views_throughputSettings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the resource group to which the resource belongs."
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ThroughputSettingsUpdateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to update Azure Cosmos DB resource throughput."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings"
+    },
+    "databaseAccounts_dataTransferJobs": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Data Transfer Job"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataTransferJobProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a DataTransfer Job"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DocumentDB/databaseAccounts/dataTransferJobs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/dataTransferJobs"
+    },
+    "databaseAccounts_graphs": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the resource group to which the resource belongs."
+        },
+        "name": {
+          "type": "string",
+          "description": "Cosmos DB graph resource name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GraphResourceCreateUpdateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to create and update Azure Cosmos DB Graph resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DocumentDB/databaseAccounts/graphs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/graphs"
+    },
     "databaseAccounts_gremlinDatabases": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -675,7 +953,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -754,7 +1032,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -830,7 +1108,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -906,7 +1184,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -988,7 +1266,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1067,7 +1345,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1143,7 +1421,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1213,13 +1491,91 @@
       ],
       "description": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings"
     },
+    "databaseAccounts_mongodbRoleDefinitions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID for the Role Definition {dbName.roleName}."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MongoRoleDefinitionResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Cosmos DB Mongo Role Definition resource object."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DocumentDB/databaseAccounts/mongodbRoleDefinitions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/mongodbRoleDefinitions"
+    },
+    "databaseAccounts_mongodbUserDefinitions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID for the User Definition {dbName.userName}."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MongoUserDefinitionResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Cosmos DB Mongo User Definition resource object."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions"
+    },
     "databaseAccounts_notebookWorkspaces": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -1254,7 +1610,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -1293,7 +1649,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -1305,13 +1661,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ServicesCreateUpdateProperties"
+              "$ref": "#/definitions/ServiceResourceCreateUpdateProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Describes the service response property."
+          "description": "Properties in ServiceResourceCreateUpdateParameters."
         },
         "type": {
           "type": "string",
@@ -1334,7 +1690,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1375,6 +1731,9 @@
                 "$ref": "#/definitions/databaseAccounts_sqlDatabases_throughputSettings_childResource"
               },
               {
+                "$ref": "#/definitions/databaseAccounts_sqlDatabases_clientEncryptionKeys_childResource"
+              },
+              {
                 "$ref": "#/definitions/databaseAccounts_sqlDatabases_containers_childResource"
               }
             ]
@@ -1410,13 +1769,52 @@
       ],
       "description": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
     },
+    "databaseAccounts_sqlDatabases_clientEncryptionKeys": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Cosmos DB ClientEncryptionKey name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClientEncryptionKeyCreateUpdateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to create and update ClientEncryptionKey."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/clientEncryptionKeys"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/clientEncryptionKeys"
+    },
     "databaseAccounts_sqlDatabases_containers": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1504,7 +1902,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1573,7 +1971,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1649,7 +2047,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1718,7 +2116,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1787,7 +2185,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -1863,7 +2261,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -1902,7 +2300,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -1941,7 +2339,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -2020,7 +2418,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -2092,6 +2490,31 @@
     }
   },
   "definitions": {
+    "AccountKeyMetadata": {
+      "type": "object",
+      "properties": {},
+      "description": "The metadata related to an access key for a given database account."
+    },
+    "AnalyticalStorageConfiguration": {
+      "type": "object",
+      "properties": {
+        "schemaType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "WellDefined",
+                "FullFidelity"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Analytical storage specific properties."
+    },
     "ApiProperties": {
       "type": "object",
       "properties": {
@@ -2102,7 +2525,8 @@
               "enum": [
                 "3.2",
                 "3.6",
-                "4.0"
+                "4.0",
+                "4.2"
               ]
             },
             {
@@ -2112,6 +2536,56 @@
           "description": "Describes the ServerVersion of an a MongoDB account."
         }
       }
+    },
+    "AuthenticationMethodLdapProperties": {
+      "type": "object",
+      "properties": {
+        "searchBaseDistinguishedName": {
+          "type": "string",
+          "description": "Distinguished name of the object to start the recursive search of users from."
+        },
+        "searchFilterTemplate": {
+          "type": "string",
+          "description": "Template to use for searching. Defaults to (cn=%s) where %s will be replaced by the username used to login."
+        },
+        "serverCertificates": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Certificate"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serverHostname": {
+          "type": "string",
+          "description": "Hostname of the LDAP server."
+        },
+        "serverPort": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Port of the LDAP server."
+        },
+        "serviceUserDistinguishedName": {
+          "type": "string",
+          "description": "Distinguished name of the look up user account, who can look up user details on authentication."
+        },
+        "serviceUserPassword": {
+          "type": "string",
+          "description": "Password of the look up user."
+        }
+      },
+      "description": "Ldap authentication method properties. This feature is in preview."
     },
     "AutoscaleSettings": {
       "type": "object",
@@ -2177,6 +2651,28 @@
       },
       "description": "Cosmos DB resource auto-upgrade policy"
     },
+    "AzureBlobDataTransferDataSourceSink": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "type": "string",
+          "enum": [
+            "AzureBlobStorage"
+          ]
+        },
+        "containerName": {
+          "type": "string"
+        },
+        "endpointUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "component",
+        "containerName"
+      ],
+      "description": "An Azure Blob Storage data source/sink"
+    },
     "BackupPolicy": {
       "type": "object",
       "oneOf": [
@@ -2187,8 +2683,63 @@
           "$ref": "#/definitions/ContinuousModeBackupPolicy"
         }
       ],
-      "properties": {},
+      "properties": {
+        "migrationState": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupPolicyMigrationState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The object representing the state of the migration between the backup policies."
+        }
+      },
       "description": "The object representing the policy for taking backups on an account."
+    },
+    "BackupPolicyMigrationState": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time at which the backup policy migration started (ISO-8601 format)."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "InProgress",
+                "Completed",
+                "Failed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the status of migration between backup policy types."
+        },
+        "targetType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Periodic",
+                "Continuous"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the target backup policy type of the backup policy migration."
+        }
+      },
+      "description": "The object representing the state of the migration between the backup policies."
     },
     "Capability": {
       "type": "object",
@@ -2200,20 +2751,38 @@
       },
       "description": "Cosmos DB capability object"
     },
+    "Capacity": {
+      "type": "object",
+      "properties": {
+        "totalThroughputLimit": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": -1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput."
+        }
+      },
+      "description": "The object that represents all properties related to capacity enforcement on an account."
+    },
     "cassandraClusters_dataCenters_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*",
+              "pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$",
               "minLength": 1,
               "maxLength": 100
             },
@@ -2428,6 +2997,55 @@
       ],
       "description": "Cosmos DB Cassandra table resource object"
     },
+    "CassandraViewCreateUpdateProperties": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateUpdateOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are \"If-Match\", \"If-None-Match\", \"Session-Token\" and \"Throughput\""
+        },
+        "resource": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CassandraViewResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cosmos DB Cassandra view resource object"
+        }
+      },
+      "required": [
+        "resource"
+      ],
+      "description": "Properties to create and update Azure Cosmos DB Cassandra view."
+    },
+    "CassandraViewResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Name of the Cosmos DB Cassandra view"
+        },
+        "viewDefinition": {
+          "type": "string",
+          "description": "View Definition of the Cosmos DB Cassandra view"
+        }
+      },
+      "required": [
+        "id",
+        "viewDefinition"
+      ],
+      "description": "Cosmos DB Cassandra view resource object"
+    },
     "Certificate": {
       "type": "object",
       "properties": {
@@ -2436,6 +3054,126 @@
           "description": "PEM formatted public key."
         }
       }
+    },
+    "ClientEncryptionIncludedPath": {
+      "type": "object",
+      "properties": {
+        "clientEncryptionKeyId": {
+          "type": "string",
+          "description": "The identifier of the Client Encryption Key to be used to encrypt the path."
+        },
+        "encryptionAlgorithm": {
+          "type": "string",
+          "description": "The encryption algorithm which will be used. Eg - AEAD_AES_256_CBC_HMAC_SHA256."
+        },
+        "encryptionType": {
+          "type": "string",
+          "description": "The type of encryption to be performed. Eg - Deterministic, Randomized."
+        },
+        "path": {
+          "type": "string",
+          "description": "Path that needs to be encrypted."
+        }
+      },
+      "required": [
+        "clientEncryptionKeyId",
+        "encryptionAlgorithm",
+        "encryptionType",
+        "path"
+      ],
+      "description": "."
+    },
+    "ClientEncryptionKeyCreateUpdateProperties": {
+      "type": "object",
+      "properties": {
+        "resource": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClientEncryptionKeyResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cosmos DB client encryption key resource object."
+        }
+      },
+      "required": [
+        "resource"
+      ],
+      "description": "Properties to create and update ClientEncryptionKey."
+    },
+    "ClientEncryptionKeyResource": {
+      "type": "object",
+      "properties": {
+        "encryptionAlgorithm": {
+          "type": "string",
+          "description": "Encryption algorithm that will be used along with this client encryption key to encrypt/decrypt data."
+        },
+        "id": {
+          "type": "string",
+          "description": "Name of the ClientEncryptionKey"
+        },
+        "keyWrapMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyWrapMetadata"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents key wrap metadata that a key wrapping provider can use to wrap/unwrap a client encryption key."
+        },
+        "wrappedDataEncryptionKey": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Wrapped (encrypted) form of the key represented as a byte array."
+        }
+      },
+      "description": "Cosmos DB client encryption key resource object."
+    },
+    "ClientEncryptionPolicy": {
+      "type": "object",
+      "properties": {
+        "includedPaths": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ClientEncryptionIncludedPath"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Paths of the item that need encryption along with path-specific settings."
+        },
+        "policyFormatVersion": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "1"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Version of the client encryption policy definition. Please note, user passed value is ignored. Default policy version is 1."
+        }
+      },
+      "required": [
+        "includedPaths"
+      ],
+      "description": "Cosmos DB client encryption policy."
     },
     "ClusterKey": {
       "type": "object",
@@ -2460,14 +3198,26 @@
               "type": "string",
               "enum": [
                 "None",
-                "Cassandra"
+                "Cassandra",
+                "Ldap"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'."
+          "description": "Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'. 'Ldap' is in preview."
+        },
+        "cassandraAuditLoggingEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether Cassandra audit logging is enabled"
         },
         "cassandraVersion": {
           "type": "string",
@@ -2490,6 +3240,17 @@
         "clusterNameOverride": {
           "type": "string",
           "description": "If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property."
+        },
+        "deallocated": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether the cluster and associated data centers has been deallocated."
         },
         "delegatedManagementSubnetId": {
           "type": "string",
@@ -2532,7 +3293,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0."
+          "description": "Number of hours to wait between taking a backup of the cluster."
         },
         "initialCassandraAdminPassword": {
           "type": "string",
@@ -2760,6 +3521,17 @@
     "ContinuousModeBackupPolicy": {
       "type": "object",
       "properties": {
+        "continuousModeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContinuousModeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration values for periodic mode backup"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -2771,6 +3543,27 @@
         "type"
       ],
       "description": "The object representing continuous mode backup policy."
+    },
+    "ContinuousModeProperties": {
+      "type": "object",
+      "properties": {
+        "tier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Continuous7Days",
+                "Continuous30Days"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enum to indicate type of Continuos backup mode."
+        }
+      },
+      "description": "Configuration values for periodic mode backup"
     },
     "CorsPolicy": {
       "type": "object",
@@ -2810,6 +3603,52 @@
       ],
       "description": "The CORS policy for the Cosmos DB database account."
     },
+    "CosmosCassandraDataTransferDataSourceSink": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "type": "string",
+          "enum": [
+            "CosmosDBCassandra"
+          ]
+        },
+        "keyspaceName": {
+          "type": "string"
+        },
+        "tableName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "component",
+        "keyspaceName",
+        "tableName"
+      ],
+      "description": "A CosmosDB Cassandra API data source/sink"
+    },
+    "CosmosSqlDataTransferDataSourceSink": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "type": "string",
+          "enum": [
+            "CosmosDBSql"
+          ]
+        },
+        "containerName": {
+          "type": "string"
+        },
+        "databaseName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "component",
+        "containerName",
+        "databaseName"
+      ],
+      "description": "A CosmosDB Cassandra API data source/sink"
+    },
     "CreateUpdateOptions": {
       "type": "object",
       "properties": {
@@ -2839,15 +3678,18 @@
     },
     "DatabaseAccountCreateUpdateProperties": {
       "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/DefaultRequestDatabaseAccountCreateUpdateProperties"
-        },
-        {
-          "$ref": "#/definitions/RestoreReqeustDatabaseAccountCreateUpdateProperties"
-        }
-      ],
       "properties": {
+        "analyticalStorageConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AnalyticalStorageConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Analytical storage specific properties."
+        },
         "apiProperties": {
           "oneOf": [
             {
@@ -2882,6 +3724,17 @@
             }
           ],
           "description": "List of Cosmos DB capabilities for the account"
+        },
+        "capacity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Capacity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The object that represents all properties related to capacity enforcement on an account."
         },
         "connectorOffer": {
           "oneOf": [
@@ -2922,6 +3775,21 @@
           ],
           "description": "The CORS policy for the Cosmos DB database account."
         },
+        "createMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Restore"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enum to indicate the mode of account creation."
+        },
         "databaseAccountOfferType": {
           "oneOf": [
             {
@@ -2936,6 +3804,21 @@
           ],
           "description": "The offer type for the database"
         },
+        "defaultIdentity": {
+          "type": "string",
+          "description": "The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be \"FirstPartyIdentity\", \"SystemAssignedIdentity\" and more."
+        },
+        "diagnosticLogSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiagnosticLogSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates what diagnostic log settings are to be enabled."
+        },
         "disableKeyBasedMetadataWriteAccess": {
           "oneOf": [
             {
@@ -2946,6 +3829,17 @@
             }
           ],
           "description": "Disable write operations on metadata resources (databases, containers, throughput) via account keys"
+        },
+        "disableLocalAuth": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication."
         },
         "enableAnalyticalStorage": {
           "oneOf": [
@@ -2991,6 +3885,17 @@
           ],
           "description": "Flag to indicate whether Free Tier is enabled."
         },
+        "enableMaterializedViews": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Flag to indicate whether to enable MaterializedViews on the Cosmos DB account"
+        },
         "enableMultipleWriteLocations": {
           "oneOf": [
             {
@@ -3026,6 +3931,17 @@
             }
           ],
           "description": "Flag to indicate whether to enable/disable Virtual Network ACL rules."
+        },
+        "keysMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseAccountKeysMetadata"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The metadata related to each access key for the given Cosmos DB database account."
         },
         "keyVaultKeyUri": {
           "type": "string",
@@ -3089,6 +4005,17 @@
           ],
           "description": "Whether requests from Public Network are allowed."
         },
+        "restoreParameters": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RestoreParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameters to indicate the information about the restore."
+        },
         "virtualNetworkRules": {
           "oneOf": [
             {
@@ -3110,13 +4037,63 @@
       ],
       "description": "Properties to create and update Azure Cosmos DB database accounts."
     },
+    "DatabaseAccountKeysMetadata": {
+      "type": "object",
+      "properties": {
+        "primaryMasterKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AccountKeyMetadata"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The metadata related to an access key for a given database account."
+        },
+        "primaryReadonlyMasterKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AccountKeyMetadata"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The metadata related to an access key for a given database account."
+        },
+        "secondaryMasterKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AccountKeyMetadata"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The metadata related to an access key for a given database account."
+        },
+        "secondaryReadonlyMasterKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AccountKeyMetadata"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The metadata related to an access key for a given database account."
+        }
+      },
+      "description": "The metadata related to each access key for the given Cosmos DB database account."
+    },
     "databaseAccounts_cassandraKeyspaces_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3185,7 +4162,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3254,7 +4231,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3325,7 +4302,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3390,13 +4367,261 @@
       ],
       "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings"
     },
+    "databaseAccounts_cassandraKeyspaces_views_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the resource group to which the resource belongs."
+        },
+        "name": {
+          "type": "string",
+          "description": "Cosmos DB view name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CassandraViewCreateUpdateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to create and update Azure Cosmos DB Cassandra view."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "views"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views"
+    },
+    "databaseAccounts_cassandraKeyspaces_views_throughputSettings_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the resource group to which the resource belongs."
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ThroughputSettingsUpdateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to update Azure Cosmos DB resource throughput."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "throughputSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings"
+    },
+    "databaseAccounts_dataTransferJobs_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Data Transfer Job"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataTransferJobProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a DataTransfer Job"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dataTransferJobs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/dataTransferJobs"
+    },
+    "databaseAccounts_graphs_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the resource group to which the resource belongs."
+        },
+        "name": {
+          "type": "string",
+          "description": "Cosmos DB graph resource name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GraphResourceCreateUpdateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to create and update Azure Cosmos DB Graph resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "graphs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/graphs"
+    },
     "databaseAccounts_gremlinDatabases_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3465,7 +4690,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3534,7 +4759,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3605,7 +4830,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3676,7 +4901,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3745,7 +4970,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3814,7 +5039,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3885,7 +5110,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -3950,13 +5175,91 @@
       ],
       "description": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings"
     },
+    "databaseAccounts_mongodbRoleDefinitions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID for the Role Definition {dbName.roleName}."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MongoRoleDefinitionResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Cosmos DB Mongo Role Definition resource object."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "mongodbRoleDefinitions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/mongodbRoleDefinitions"
+    },
+    "databaseAccounts_mongodbUserDefinitions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID for the User Definition {dbName.userName}."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MongoUserDefinitionResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Cosmos DB Mongo User Definition resource object."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "mongodbUserDefinitions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions"
+    },
     "databaseAccounts_notebookWorkspaces_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -3986,7 +5289,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -4025,7 +5328,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -4037,13 +5340,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ServicesCreateUpdateProperties"
+              "$ref": "#/definitions/ServiceResourceCreateUpdateProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Describes the service response property."
+          "description": "Properties in ServiceResourceCreateUpdateParameters."
         },
         "type": {
           "type": "string",
@@ -4066,7 +5369,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4129,13 +5432,52 @@
       ],
       "description": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
     },
+    "databaseAccounts_sqlDatabases_clientEncryptionKeys_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Cosmos DB ClientEncryptionKey name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClientEncryptionKeyCreateUpdateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to create and update ClientEncryptionKey."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "clientEncryptionKeys"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/clientEncryptionKeys"
+    },
     "databaseAccounts_sqlDatabases_containers_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4204,7 +5546,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4273,7 +5615,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4344,7 +5686,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4413,7 +5755,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4482,7 +5824,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4553,7 +5895,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -4592,7 +5934,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "name": {
@@ -4631,7 +5973,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4700,7 +6042,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-04-01-preview"
+            "2022-05-15-preview"
           ]
         },
         "identity": {
@@ -4792,6 +6134,32 @@
     "DataCenterResourceProperties": {
       "type": "object",
       "properties": {
+        "authenticationMethodLdapProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthenticationMethodLdapProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Ldap authentication method properties. This feature is in preview."
+        },
+        "availabilityZone": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the data center has Availability Zone feature, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines."
+        },
+        "backupStorageCustomerKeyUri": {
+          "type": "string",
+          "description": "Indicates the Key Uri of the customer key to use for encryption of the backup storage account."
+        },
         "base64EncodedCassandraYamlFragment": {
           "type": "string",
           "description": "A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed."
@@ -4803,6 +6171,25 @@
         "delegatedSubnetId": {
           "type": "string",
           "description": "Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'."
+        },
+        "diskCapacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of disk used for data centers. Default value is 4."
+        },
+        "diskSku": {
+          "type": "string",
+          "description": "Disk SKU used for data centers. Default value is P30."
+        },
+        "managedDiskCustomerKeyUri": {
+          "type": "string",
+          "description": "Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key."
         },
         "nodeCount": {
           "oneOf": [
@@ -4832,24 +6219,95 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "sku": {
+          "type": "string",
+          "description": "Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2"
         }
       },
       "description": "Properties of a managed Cassandra data center."
     },
-    "DefaultRequestDatabaseAccountCreateUpdateProperties": {
+    "DataTransferDataSourceSink": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/CosmosCassandraDataTransferDataSourceSink"
+        },
+        {
+          "$ref": "#/definitions/CosmosSqlDataTransferDataSourceSink"
+        },
+        {
+          "$ref": "#/definitions/AzureBlobDataTransferDataSourceSink"
+        }
+      ],
+      "properties": {},
+      "description": "Base class for all DataTransfer source/sink"
+    },
+    "DataTransferJobProperties": {
       "type": "object",
       "properties": {
-        "createMode": {
-          "type": "string",
-          "enum": [
-            "Default"
-          ]
+        "destination": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataTransferDataSourceSink"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base class for all DataTransfer source/sink"
+        },
+        "source": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataTransferDataSourceSink"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base class for all DataTransfer source/sink"
+        },
+        "workerCount": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Worker count"
         }
       },
       "required": [
-        "createMode"
+        "destination",
+        "source"
       ],
-      "description": "Properties for non-restore Azure Cosmos DB database account requests."
+      "description": "The properties of a DataTransfer Job"
+    },
+    "DiagnosticLogSettings": {
+      "type": "object",
+      "properties": {
+        "enableFullTextQuery": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "True",
+                "False"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describe the level of detail with which queries are to be logged."
+        }
+      },
+      "description": "Indicates what diagnostic log settings are to be enabled."
     },
     "ExcludedPath": {
       "type": "object",
@@ -4859,6 +6317,50 @@
           "description": "The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)"
         }
       }
+    },
+    "GraphResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Name of the Cosmos DB Graph"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "description": "Cosmos DB Graph resource object"
+    },
+    "GraphResourceCreateUpdateProperties": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateUpdateOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are \"If-Match\", \"If-None-Match\", \"Session-Token\" and \"Throughput\""
+        },
+        "resource": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GraphResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cosmos DB Graph resource object"
+        }
+      },
+      "required": [
+        "resource"
+      ],
+      "description": "Properties to create and update Azure Cosmos DB Graph resource."
     },
     "GremlinDatabaseCreateUpdateProperties": {
       "type": "object",
@@ -4903,6 +6405,30 @@
         "id"
       ],
       "description": "Cosmos DB Gremlin database resource object"
+    },
+    "GremlinDatabaseRestoreResource": {
+      "type": "object",
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "The name of the gremlin database available for restore."
+        },
+        "graphNames": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The names of the graphs available for restore."
+        }
+      },
+      "description": "Specific Gremlin Databases to restore."
     },
     "GremlinGraphCreateUpdateProperties": {
       "type": "object",
@@ -5181,6 +6707,28 @@
       },
       "description": "IpAddressOrRange object"
     },
+    "KeyWrapMetadata": {
+      "type": "object",
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "description": "Algorithm used in wrapping and unwrapping of the data encryption key."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of associated KeyEncryptionKey (aka CustomerManagedKey)."
+        },
+        "type": {
+          "type": "string",
+          "description": "ProviderName of KeyStoreProvider."
+        },
+        "value": {
+          "type": "string",
+          "description": "Reference / link to the KeyEncryptionKey."
+        }
+      },
+      "description": "Represents key wrap metadata that a key wrapping provider can use to wrap/unwrap a client encryption key."
+    },
     "Location": {
       "type": "object",
       "properties": {
@@ -5217,6 +6765,27 @@
         }
       },
       "description": "A region in which the Azure Cosmos DB database account is deployed."
+    },
+    "ManagedCassandraManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned",
+                "None"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the resource."
+        }
+      },
+      "description": "Identity for the resource."
     },
     "ManagedServiceIdentity": {
       "type": "object",
@@ -5460,6 +7029,103 @@
       },
       "description": "Cosmos DB MongoDB collection index options"
     },
+    "MongoRoleDefinitionResource": {
+      "type": "object",
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "The database name for which access is being granted for this Role Definition."
+        },
+        "privileges": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Privilege"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege."
+        },
+        "roleName": {
+          "type": "string",
+          "description": "A user-friendly name for the Role Definition. Must be unique for the database account."
+        },
+        "roles": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Role"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of roles inherited by this Role Definition."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "BuiltInRole",
+                "CustomRole"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether the Role Definition was built-in or user created."
+        }
+      },
+      "description": "Azure Cosmos DB Mongo Role Definition resource object."
+    },
+    "MongoUserDefinitionResource": {
+      "type": "object",
+      "properties": {
+        "customData": {
+          "type": "string",
+          "description": "A custom definition for the USer Definition."
+        },
+        "databaseName": {
+          "type": "string",
+          "description": "The database name for which access is being granted for this User Definition."
+        },
+        "mechanisms": {
+          "type": "string",
+          "description": "The Mongo Auth mechanism. For now, we only support auth mechanism SCRAM-SHA-256."
+        },
+        "password": {
+          "type": "string",
+          "description": "The password for User Definition. Response does not contain user password."
+        },
+        "roles": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Role"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of roles inherited by the User Definition."
+        },
+        "userName": {
+          "type": "string",
+          "description": "The user name for User Definition."
+        }
+      },
+      "description": "Azure Cosmos DB Mongo User Definition resource object."
+    },
     "PeriodicModeBackupPolicy": {
       "type": "object",
       "properties": {
@@ -5626,6 +7292,51 @@
       },
       "description": "Connection State of the Private Endpoint Connection."
     },
+    "Privilege": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An array of actions that are allowed."
+        },
+        "resource": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivilegeResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An Azure Cosmos DB Mongo DB Resource."
+        }
+      },
+      "description": "The set of data plane operations permitted through this Role Definition."
+    },
+    "PrivilegeResource": {
+      "type": "object",
+      "properties": {
+        "collection": {
+          "type": "string",
+          "description": "The collection name the role is applied."
+        },
+        "db": {
+          "type": "string",
+          "description": "The database name the role is applied."
+        }
+      },
+      "description": "An Azure Cosmos DB Mongo DB Resource."
+    },
     "RestoreParameters": {
       "type": "object",
       "properties": {
@@ -5642,6 +7353,20 @@
             }
           ],
           "description": "List of specific databases available for restore."
+        },
+        "gremlinDatabasesToRestore": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GremlinDatabaseRestoreResource"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of specific gremlin databases available for restore."
         },
         "restoreMode": {
           "oneOf": [
@@ -5665,35 +7390,37 @@
           "type": "string",
           "format": "date-time",
           "description": "Time to which the account has to be restored (ISO-8601 format)."
-        }
-      },
-      "description": "Parameters to indicate the information about the restore."
-    },
-    "RestoreReqeustDatabaseAccountCreateUpdateProperties": {
-      "type": "object",
-      "properties": {
-        "createMode": {
-          "type": "string",
-          "enum": [
-            "Restore"
-          ]
         },
-        "restoreParameters": {
+        "tablesToRestore": {
           "oneOf": [
             {
-              "$ref": "#/definitions/RestoreParameters"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Parameters to indicate the information about the restore."
+          "description": "List of specific tables available for restore."
         }
       },
-      "required": [
-        "createMode"
-      ],
-      "description": "Properties to restore Azure Cosmos DB database account."
+      "description": "Parameters to indicate the information about the restore."
+    },
+    "Role": {
+      "type": "object",
+      "properties": {
+        "db": {
+          "type": "string",
+          "description": "The database name the role is applied."
+        },
+        "role": {
+          "type": "string",
+          "description": "The role name."
+        }
+      },
+      "description": "The set of roles permitted through this Role Definition."
     },
     "SeedNode": {
       "type": "object",
@@ -5704,13 +7431,14 @@
         }
       }
     },
-    "ServicesCreateUpdateProperties": {
+    "ServiceResourceCreateUpdateProperties": {
       "type": "object",
       "properties": {
         "instanceCount": {
           "oneOf": [
             {
-              "type": "integer"
+              "type": "integer",
+              "minimum": 0
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5734,15 +7462,23 @@
           ]
         },
         "serviceType": {
-          "type": "string",
-          "description": "The type of Azure resource."
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SqlDedicatedGateway",
+                "DataTransfer",
+                "GraphAPICompute",
+                "MaterializedViewsBuilder"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
-      "required": [
-        "instanceCount",
-        "instanceSize"
-      ],
-      "description": "Describes the service response property."
+      "description": "Properties in ServiceResourceCreateUpdateParameters."
     },
     "SpatialSpec": {
       "type": "object",
@@ -5817,6 +7553,17 @@
             }
           ],
           "description": "Analytical TTL."
+        },
+        "clientEncryptionPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClientEncryptionPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cosmos DB client encryption policy."
         },
         "conflictResolutionPolicy": {
           "oneOf": [
