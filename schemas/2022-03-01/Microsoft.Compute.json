@@ -5558,6 +5558,17 @@
           ],
           "description": "Specify what happens to the network interface when the VM is deleted."
         },
+        "disableTcpStateTracking": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether the network interface is disabled for tcp state tracking."
+        },
         "dnsSettings": {
           "oneOf": [
             {
