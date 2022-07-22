@@ -1536,6 +1536,7 @@
         },
         "sourceResourceId": {
           "type": "string",
+          "format": "arm-id",
           "description": "If createOption is Copy, this is the ARM id of the source snapshot or disk."
         },
         "sourceUri": {
@@ -1544,6 +1545,7 @@
         },
         "storageAccountId": {
           "type": "string",
+          "format": "arm-id",
           "description": "Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk."
         },
         "uploadSizeBytes": {
@@ -1948,6 +1950,7 @@
         },
         "diskAccessId": {
           "type": "string",
+          "format": "arm-id",
           "description": "ARM id of the DiskAccess resource for using private endpoints on disks."
         },
         "diskIOPSReadOnly": {
@@ -2194,6 +2197,7 @@
       "properties": {
         "diskEncryptionSetId": {
           "type": "string",
+          "format": "arm-id",
           "description": "ResourceId of the disk encryption set to use for enabling encryption at rest."
         },
         "type": {
@@ -2728,6 +2732,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "A relative uri containing either a Platform Image Repository or user image reference."
         },
         "lun": {
@@ -3918,6 +3923,7 @@
         },
         "diskAccessId": {
           "type": "string",
+          "format": "arm-id",
           "description": "ARM id of the DiskAccess resource for using private endpoints on disks."
         },
         "diskSizeGB": {
@@ -4083,6 +4089,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         }
       },
