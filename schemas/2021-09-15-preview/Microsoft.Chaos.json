@@ -32,7 +32,7 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^[^<>%&:?#/\\\\]+$",
+              "pattern": "^[a-zA-Z0-9_\\-\\.]+$",
               "minLength": 1
             },
             {
