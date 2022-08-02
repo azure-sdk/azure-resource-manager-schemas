@@ -6715,7 +6715,7 @@
         "url": {
           "type": "object",
           "properties": {},
-          "description": "The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string)."
+          "description": "The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string)."
         },
         "userName": {
           "type": "object",
@@ -11821,17 +11821,6 @@
           ],
           "description": "List of datasets passed to web endpoint."
         },
-        "disableCertValidation": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "When set to true, Certificate validation will be disabled."
-        },
         "headers": {
           "type": "object",
           "properties": {},
@@ -12011,7 +12000,7 @@
         "url": {
           "type": "object",
           "properties": {},
-          "description": "The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string)."
+          "description": "The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string)."
         }
       },
       "required": [

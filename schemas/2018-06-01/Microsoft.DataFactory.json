@@ -80,9 +80,6 @@
               },
               {
                 "$ref": "#/definitions/factories_privateEndpointConnections_childResource"
-              },
-              {
-                "$ref": "#/definitions/factories_globalParameters_childResource"
               }
             ]
           }
@@ -215,59 +212,6 @@
       ],
       "description": "Microsoft.DataFactory/factories/datasets"
     },
-    "factories_globalParameters": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2018-06-01"
-          ]
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[A-Za-z0-9_][^<>*#.%&:\\\\+?/]*$",
-              "minLength": 1,
-              "maxLength": 260
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The global parameter name."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/GlobalParameterSpecification"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Global parameters associated with the Azure Data Factory"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.DataFactory/factories/globalParameters"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DataFactory/factories/globalParameters"
-    },
     "factories_integrationRuntimes": {
       "type": "object",
       "properties": {
@@ -349,7 +293,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The nested object which contains the information and credential which can be used to connect with related store or compute resource."
+          "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource."
         },
         "type": {
           "type": "string",
@@ -1908,123 +1852,6 @@
       },
       "description": "AppendVariable activity properties."
     },
-    "AppFiguresLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "AppFigures"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AppFiguresLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "AppFigures linked service type properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Linked service for AppFigures."
-    },
-    "AppFiguresLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "clientKey": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "password": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "userName": {
-          "type": "object",
-          "properties": {},
-          "description": "The username of the Appfigures source."
-        }
-      },
-      "required": [
-        "clientKey",
-        "password",
-        "userName"
-      ],
-      "description": "AppFigures linked service type properties."
-    },
-    "AsanaLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Asana"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AsanaLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Asana linked service type properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Linked service for Asana."
-    },
-    "AsanaLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "apiToken": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "encryptedCredential": {
-          "type": "object",
-          "properties": {},
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        }
-      },
-      "required": [
-        "apiToken"
-      ],
-      "description": "Asana linked service type properties."
-    },
     "AvroDataset": {
       "type": "object",
       "properties": {
@@ -2541,22 +2368,6 @@
           "type": "object",
           "properties": {},
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        },
-        "servicePrincipalCredential": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "servicePrincipalCredentialType": {
-          "type": "object",
-          "properties": {},
-          "description": "The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string)."
         },
         "servicePrincipalId": {
           "type": "object",
@@ -3199,17 +3010,6 @@
           "properties": {},
           "description": "The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string)."
         },
-        "credential": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CredentialReference"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Credential reference type."
-        },
         "domain": {
           "type": "object",
           "properties": {},
@@ -3219,11 +3019,6 @@
           "type": "object",
           "properties": {},
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        },
-        "workspaceResourceId": {
-          "type": "object",
-          "properties": {},
-          "description": "Workspace resource id for databricks REST API. Type: string (or Expression with resultType string)."
         }
       },
       "required": [
@@ -7287,9 +7082,6 @@
           "$ref": "#/definitions/WaitActivity"
         },
         {
-          "$ref": "#/definitions/FailActivity"
-        },
-        {
           "$ref": "#/definitions/UntilActivity"
         },
         {
@@ -7935,17 +7727,6 @@
           "type": "object",
           "properties": {},
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
-        },
-        "credential": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CredentialReference"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Credential reference type."
         },
         "database": {
           "type": "object",
@@ -9044,17 +8825,6 @@
           "type": "string",
           "description": "Transformation name."
         },
-        "rejectedDataLinkedService": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/LinkedServiceReference"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Linked service reference type."
-        },
         "schemaLinkedService": {
           "oneOf": [
             {
@@ -9408,9 +9178,6 @@
         },
         {
           "$ref": "#/definitions/SapTableResourceDataset"
-        },
-        {
-          "$ref": "#/definitions/SapOdpResourceDataset"
         },
         {
           "$ref": "#/definitions/WebTableDataset"
@@ -9835,58 +9602,6 @@
         }
       },
       "description": "The format definition of a storage."
-    },
-    "DataworldLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Dataworld"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DataworldLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Dataworld linked service type properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Linked service for Dataworld."
-    },
-    "DataworldLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "apiToken": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "encryptedCredential": {
-          "type": "object",
-          "properties": {},
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        }
-      },
-      "required": [
-        "apiToken"
-      ],
-      "description": "Dataworld linked service type properties."
     },
     "Db2LinkedService": {
       "type": "object",
@@ -11137,17 +10852,6 @@
           "properties": {},
           "description": "The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string)."
         },
-        "credential": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CredentialReference"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Credential reference type."
-        },
         "deploymentType": {
           "type": "object",
           "properties": {},
@@ -11746,17 +11450,6 @@
     "ExecutePipelineActivity": {
       "type": "object",
       "properties": {
-        "policy": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExecutePipelineActivityPolicy"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Execution policy for an execute pipeline activity."
-        },
         "type": {
           "type": "string",
           "enum": [
@@ -11780,39 +11473,6 @@
         "typeProperties"
       ],
       "description": "Execute pipeline activity."
-    },
-    "ExecutePipelineActivityPolicy": {
-      "type": "object",
-      "properties": {
-        "additionalProperties": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "properties": {}
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Unmatched properties from the message are deserialized this collection"
-        },
-        "secureInput": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "When set to true, Input from activity is considered as secure and will not be logged to monitoring."
-        }
-      },
-      "description": "Execution policy for an execute pipeline activity."
     },
     "ExecutePipelineActivityTypeProperties": {
       "type": "object",
@@ -12251,9 +11911,6 @@
         },
         {
           "$ref": "#/definitions/ExecuteDataFlowActivity"
-        },
-        {
-          "$ref": "#/definitions/ScriptActivity"
         }
       ],
       "properties": {
@@ -12417,59 +12074,6 @@
       ],
       "description": "Microsoft.DataFactory/factories/datasets"
     },
-    "factories_globalParameters_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2018-06-01"
-          ]
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[A-Za-z0-9_][^<>*#.%&:\\\\+?/]*$",
-              "minLength": 1,
-              "maxLength": 260
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The global parameter name."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/GlobalParameterSpecification"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Global parameters associated with the Azure Data Factory"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "globalParameters"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DataFactory/factories/globalParameters"
-    },
     "factories_integrationRuntimes_childResource": {
       "type": "object",
       "properties": {
@@ -12551,7 +12155,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The nested object which contains the information and credential which can be used to connect with related store or compute resource."
+          "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource."
         },
         "type": {
           "type": "string",
@@ -12823,7 +12427,7 @@
         },
         "hostName": {
           "type": "string",
-          "description": "GitHub Enterprise host name. For example: `https://github.mydomain.com`"
+          "description": "GitHub Enterprise host name. For example: https://github.mydomain.com"
         },
         "type": {
           "type": "string",
@@ -12922,17 +12526,6 @@
           ],
           "description": "Whether or not public network access is allowed for the data factory."
         },
-        "purviewConfiguration": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PurviewConfiguration"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Purview configuration."
-        },
         "repoConfiguration": {
           "oneOf": [
             {
@@ -13010,53 +12603,6 @@
         "type"
       ],
       "description": "Factory's VSTS repo information."
-    },
-    "FailActivity": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Fail"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/FailActivityTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Fail activity properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "This activity will fail within its own scope and output a custom error message and error code. The error message and code can provided either as a string literal or as an expression that can be evaluated to a string at runtime. The activity scope can be the whole pipeline or a control activity (e.g. foreach, switch, until), if the fail activity is contained in it."
-    },
-    "FailActivityTypeProperties": {
-      "type": "object",
-      "properties": {
-        "errorCode": {
-          "type": "object",
-          "properties": {},
-          "description": "The error code that categorizes the error type of the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string)."
-        },
-        "message": {
-          "type": "object",
-          "properties": {},
-          "description": "The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string)."
-        }
-      },
-      "required": [
-        "errorCode",
-        "message"
-      ],
-      "description": "Fail activity properties."
     },
     "FileServerLinkedService": {
       "type": "object",
@@ -14005,11 +13551,6 @@
           ],
           "description": "The base definition of a secret type."
         },
-        "connectionProperties": {
-          "type": "object",
-          "properties": {},
-          "description": "Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object."
-        },
         "developerToken": {
           "oneOf": [
             {
@@ -14058,6 +13599,11 @@
           "description": "Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false."
         }
       },
+      "required": [
+        "authenticationType",
+        "clientCustomerID",
+        "developerToken"
+      ],
       "description": "Google AdWords service linked service properties."
     },
     "GoogleAdWordsObjectDataset": {
@@ -16313,7 +15859,7 @@
         "url": {
           "type": "object",
           "properties": {},
-          "description": "The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string)."
+          "description": "The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string)."
         },
         "userName": {
           "type": "object",
@@ -17927,17 +17473,6 @@
             "RBAC"
           ]
         },
-        "credential": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CredentialReference"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Credential reference type."
-        },
         "resourceId": {
           "type": "string",
           "description": "The resource identifier of the integration runtime to be shared."
@@ -18113,34 +17648,7 @@
           "$ref": "#/definitions/SapOpenHubLinkedService"
         },
         {
-          "$ref": "#/definitions/SapOdpLinkedService"
-        },
-        {
           "$ref": "#/definitions/RestServiceLinkedService"
-        },
-        {
-          "$ref": "#/definitions/TeamDeskLinkedService"
-        },
-        {
-          "$ref": "#/definitions/QuickbaseLinkedService"
-        },
-        {
-          "$ref": "#/definitions/SmartsheetLinkedService"
-        },
-        {
-          "$ref": "#/definitions/ZendeskLinkedService"
-        },
-        {
-          "$ref": "#/definitions/DataworldLinkedService"
-        },
-        {
-          "$ref": "#/definitions/AppFiguresLinkedService"
-        },
-        {
-          "$ref": "#/definitions/AsanaLinkedService"
-        },
-        {
-          "$ref": "#/definitions/TwilioLinkedService"
         },
         {
           "$ref": "#/definitions/AmazonS3LinkedService"
@@ -18362,7 +17870,7 @@
           "description": "Definition of all parameters for an entity."
         }
       },
-      "description": "The nested object which contains the information and credential which can be used to connect with related store or compute resource."
+      "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource."
     },
     "LinkedServiceReference": {
       "type": "object",
@@ -22327,17 +21835,6 @@
           "type": "string",
           "description": "Transformation name."
         },
-        "rejectedDataLinkedService": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/LinkedServiceReference"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Linked service reference type."
-        },
         "schemaLinkedService": {
           "oneOf": [
             {
@@ -22668,30 +22165,9 @@
       ],
       "description": "A copy activity Presto server source."
     },
-    "PrivateEndpoint": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The resource Id for private endpoint"
-        }
-      },
-      "description": "Private endpoint which a connection belongs to."
-    },
     "PrivateLinkConnectionApprovalRequest": {
       "type": "object",
       "properties": {
-        "privateEndpoint": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PrivateEndpoint"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Private endpoint which a connection belongs to."
-        },
         "privateLinkServiceConnectionState": {
           "oneOf": [
             {
@@ -22723,74 +22199,6 @@
         }
       },
       "description": "The state of a private link connection"
-    },
-    "PurviewConfiguration": {
-      "type": "object",
-      "properties": {
-        "purviewResourceId": {
-          "type": "string",
-          "description": "Purview resource id."
-        }
-      },
-      "description": "Purview configuration."
-    },
-    "QuickbaseLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Quickbase"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/QuickbaseLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Quickbase linked service type properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Linked service for Quickbase."
-    },
-    "QuickbaseLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "encryptedCredential": {
-          "type": "object",
-          "properties": {},
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        },
-        "url": {
-          "type": "object",
-          "properties": {},
-          "description": "The url to connect Quickbase source. Type: string (or Expression with resultType string)."
-        },
-        "userToken": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        }
-      },
-      "required": [
-        "url",
-        "userToken"
-      ],
-      "description": "Quickbase linked service type properties."
     },
     "QuickBooksLinkedService": {
       "type": "object",
@@ -23502,8 +22910,7 @@
                 "Anonymous",
                 "Basic",
                 "AadServicePrincipal",
-                "ManagedServiceIdentity",
-                "OAuth2ClientCredential"
+                "ManagedServiceIdentity"
               ]
             },
             {
@@ -23521,22 +22928,6 @@
           "type": "object",
           "properties": {},
           "description": "Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string)."
-        },
-        "clientId": {
-          "type": "object",
-          "properties": {},
-          "description": "The client ID associated with your application. Type: string (or Expression with resultType string)."
-        },
-        "clientSecret": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
         },
         "credential": {
           "oneOf": [
@@ -23570,16 +22961,6 @@
           ],
           "description": "The base definition of a secret type."
         },
-        "resource": {
-          "type": "object",
-          "properties": {},
-          "description": "The target service or resource to which the access will be requested. Type: string (or Expression with resultType string)."
-        },
-        "scope": {
-          "type": "object",
-          "properties": {},
-          "description": "The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string)."
-        },
         "servicePrincipalId": {
           "type": "object",
           "properties": {},
@@ -23600,11 +22981,6 @@
           "type": "object",
           "properties": {},
           "description": "The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides."
-        },
-        "tokenEndpoint": {
-          "type": "object",
-          "properties": {},
-          "description": "The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string)."
         },
         "url": {
           "type": "object",
@@ -24811,217 +24187,6 @@
       },
       "description": "SAP HANA Table properties."
     },
-    "SapOdpLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "SapOdp"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SapOdpLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties specific to this linked service type."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "SAP ODP Linked Service."
-    },
-    "SapOdpLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "clientId": {
-          "type": "object",
-          "properties": {},
-          "description": "Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string)."
-        },
-        "encryptedCredential": {
-          "type": "object",
-          "properties": {},
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        },
-        "language": {
-          "type": "object",
-          "properties": {},
-          "description": "Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string)."
-        },
-        "logonGroup": {
-          "type": "object",
-          "properties": {},
-          "description": "The Logon Group for the SAP System. Type: string (or Expression with resultType string)."
-        },
-        "messageServer": {
-          "type": "object",
-          "properties": {},
-          "description": "The hostname of the SAP Message Server. Type: string (or Expression with resultType string)."
-        },
-        "messageServerService": {
-          "type": "object",
-          "properties": {},
-          "description": "The service name or port number of the Message Server. Type: string (or Expression with resultType string)."
-        },
-        "password": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "server": {
-          "type": "object",
-          "properties": {},
-          "description": "Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string)."
-        },
-        "sncLibraryPath": {
-          "type": "object",
-          "properties": {},
-          "description": "External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string)."
-        },
-        "sncMode": {
-          "type": "object",
-          "properties": {},
-          "description": "SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string)."
-        },
-        "sncMyName": {
-          "type": "object",
-          "properties": {},
-          "description": "Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string)."
-        },
-        "sncPartnerName": {
-          "type": "object",
-          "properties": {},
-          "description": "Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string)."
-        },
-        "sncQop": {
-          "type": "object",
-          "properties": {},
-          "description": "SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string)."
-        },
-        "subscriberName": {
-          "type": "object",
-          "properties": {},
-          "description": "The subscriber name. Type: string (or Expression with resultType string)."
-        },
-        "systemId": {
-          "type": "object",
-          "properties": {},
-          "description": "SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string)."
-        },
-        "systemNumber": {
-          "type": "object",
-          "properties": {},
-          "description": "System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string)."
-        },
-        "userName": {
-          "type": "object",
-          "properties": {},
-          "description": "Username to access the SAP server where the table is located. Type: string (or Expression with resultType string)."
-        },
-        "x509CertificatePath": {
-          "type": "object",
-          "properties": {},
-          "description": "SNC X509 certificate file path. Type: string (or Expression with resultType string)."
-        }
-      },
-      "description": "Properties specific to this linked service type."
-    },
-    "SapOdpResourceDataset": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "SapOdpResource"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SapOdpResourceDatasetTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "SAP ODP Resource properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "SAP ODP Resource properties."
-    },
-    "SapOdpResourceDatasetTypeProperties": {
-      "type": "object",
-      "properties": {
-        "context": {
-          "type": "object",
-          "properties": {},
-          "description": "The context of the SAP ODP Object. Type: string (or Expression with resultType string)."
-        },
-        "objectName": {
-          "type": "object",
-          "properties": {},
-          "description": "The name of the SAP ODP Object. Type: string (or Expression with resultType string)."
-        }
-      },
-      "required": [
-        "context",
-        "objectName"
-      ],
-      "description": "SAP ODP Resource properties."
-    },
-    "SapOdpSource": {
-      "type": "object",
-      "properties": {
-        "extractionMode": {
-          "type": "object",
-          "properties": {},
-          "description": "The extraction mode. Allowed value include: Full, Delta and Recovery. The default value is Full. Type: string (or Expression with resultType string)."
-        },
-        "projection": {
-          "type": "object",
-          "properties": {},
-          "description": "Specifies the columns to be selected from source data. Type: array of objects(projection) (or Expression with resultType array of objects)."
-        },
-        "selection": {
-          "type": "object",
-          "properties": {},
-          "description": "Specifies the selection conditions from source data. Type: array of objects(selection) (or Expression with resultType array of objects)."
-        },
-        "subscriberProcess": {
-          "type": "object",
-          "properties": {},
-          "description": "The subscriber process to manage the delta process. Type: string (or Expression with resultType string)."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "SapOdpSource"
-          ]
-        }
-      },
-      "required": [
-        "type"
-      ],
-      "description": "A copy activity source for SAP ODP source."
-    },
     "SapOpenHubLinkedService": {
       "type": "object",
       "properties": {
@@ -25606,211 +24771,6 @@
         "uri"
       ],
       "description": "Custom script action to run on HDI ondemand cluster once it's up."
-    },
-    "ScriptActivity": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Script"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ScriptActivityTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Script activity properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Script activity type."
-    },
-    "ScriptActivityParameter": {
-      "type": "object",
-      "properties": {
-        "direction": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Input",
-                "Output",
-                "InputOutput"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The direction of the parameter."
-        },
-        "name": {
-          "type": "object",
-          "properties": {},
-          "description": "The name of the parameter. Type: string (or Expression with resultType string)."
-        },
-        "size": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The size of the output direction parameter."
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Boolean",
-                "DateTime",
-                "DateTimeOffset",
-                "Decimal",
-                "Double",
-                "Guid",
-                "Int16",
-                "Int32",
-                "Int64",
-                "Single",
-                "String",
-                "Timespan"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The type of the parameter."
-        },
-        "value": {
-          "type": "object",
-          "properties": {},
-          "description": "The value of the parameter."
-        }
-      },
-      "description": "Parameters of a script block."
-    },
-    "ScriptActivityScriptBlock": {
-      "type": "object",
-      "properties": {
-        "parameters": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ScriptActivityParameter"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Array of script parameters. Type: array."
-        },
-        "text": {
-          "type": "object",
-          "properties": {},
-          "description": "The query text. Type: string (or Expression with resultType string)."
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Query",
-                "NonQuery"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The type of the query. Type: string."
-        }
-      },
-      "required": [
-        "text",
-        "type"
-      ],
-      "description": "Script block of scripts."
-    },
-    "ScriptActivityTypeProperties": {
-      "type": "object",
-      "properties": {
-        "logSettings": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ScriptActivityTypePropertiesLogSettings"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Log settings of script activity."
-        },
-        "scripts": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ScriptActivityScriptBlock"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Array of script blocks. Type: array."
-        }
-      },
-      "description": "Script activity properties."
-    },
-    "ScriptActivityTypePropertiesLogSettings": {
-      "type": "object",
-      "properties": {
-        "logDestination": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "ActivityOutput",
-                "ExternalStore"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The destination of logs. Type: string."
-        },
-        "logLocationSettings": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/LogLocationSettings"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Log location settings."
-        }
-      },
-      "required": [
-        "logDestination"
-      ],
-      "description": "Log settings of script activity."
     },
     "SecretBase": {
       "type": "object",
@@ -26625,58 +25585,6 @@
         }
       },
       "description": "Skip error file."
-    },
-    "SmartsheetLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Smartsheet"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SmartsheetLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Smartsheet linked service type properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Linked service for Smartsheet."
-    },
-    "SmartsheetLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "apiToken": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "encryptedCredential": {
-          "type": "object",
-          "properties": {},
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        }
-      },
-      "required": [
-        "apiToken"
-      ],
-      "description": "Smartsheet linked service type properties."
     },
     "SnowflakeDataset": {
       "type": "object",
@@ -27759,8 +26667,18 @@
           "description": "Stored procedure name. Type: string (or Expression with resultType string)."
         },
         "storedProcedureParameters": {
-          "type": "object",
-          "properties": {},
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/StoredProcedureParameter"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Value and type setting for stored procedure parameters. Example: \"{Parameter1: {value: \"1\", type: \"int\"}}\"."
         }
       },
@@ -28902,9 +27820,6 @@
           "$ref": "#/definitions/SapOpenHubSource"
         },
         {
-          "$ref": "#/definitions/SapOdpSource"
-        },
-        {
           "$ref": "#/definitions/SapTableSource"
         },
         {
@@ -29102,95 +28017,6 @@
         "type"
       ],
       "description": "The Tar compression read settings."
-    },
-    "TeamDeskLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "TeamDesk"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TeamDeskLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "TeamDesk linked service type properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Linked service for TeamDesk."
-    },
-    "TeamDeskLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "apiToken": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "authenticationType": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Basic",
-                "Token"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The authentication type to use."
-        },
-        "encryptedCredential": {
-          "type": "object",
-          "properties": {},
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        },
-        "password": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "url": {
-          "type": "object",
-          "properties": {},
-          "description": "The url to connect TeamDesk source. Type: string (or Expression with resultType string)."
-        },
-        "userName": {
-          "type": "object",
-          "properties": {},
-          "description": "The username of the TeamDesk source. Type: string (or Expression with resultType string)."
-        }
-      },
-      "required": [
-        "authenticationType",
-        "url"
-      ],
-      "description": "TeamDesk linked service type properties."
     },
     "TeradataLinkedService": {
       "type": "object",
@@ -29802,59 +28628,6 @@
       ],
       "description": "Tumbling Window Trigger properties."
     },
-    "TwilioLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Twilio"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TwilioLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Twilio linked service type properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Linked service for Twilio."
-    },
-    "TwilioLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "password": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "userName": {
-          "type": "object",
-          "properties": {},
-          "description": "The Account SID of Twilio service."
-        }
-      },
-      "required": [
-        "password",
-        "userName"
-      ],
-      "description": "Twilio linked service type properties."
-    },
     "UntilActivity": {
       "type": "object",
       "properties": {
@@ -30329,17 +29102,6 @@
           ],
           "description": "List of datasets passed to web endpoint."
         },
-        "disableCertValidation": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "When set to true, Certificate validation will be disabled."
-        },
         "headers": {
           "type": "object",
           "properties": {},
@@ -30605,7 +29367,7 @@
         "url": {
           "type": "object",
           "properties": {},
-          "description": "The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string)."
+          "description": "The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string)."
         }
       },
       "required": [
@@ -31006,95 +29768,6 @@
         "type"
       ],
       "description": "A copy activity Xml source."
-    },
-    "ZendeskLinkedService": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Zendesk"
-          ]
-        },
-        "typeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ZendeskLinkedServiceTypeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Zendesk linked service type properties."
-        }
-      },
-      "required": [
-        "type",
-        "typeProperties"
-      ],
-      "description": "Linked service for Zendesk."
-    },
-    "ZendeskLinkedServiceTypeProperties": {
-      "type": "object",
-      "properties": {
-        "apiToken": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "authenticationType": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Basic",
-                "Token"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The authentication type to use."
-        },
-        "encryptedCredential": {
-          "type": "object",
-          "properties": {},
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
-        },
-        "password": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SecretBase"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The base definition of a secret type."
-        },
-        "url": {
-          "type": "object",
-          "properties": {},
-          "description": "The url to connect Zendesk source. Type: string (or Expression with resultType string)."
-        },
-        "userName": {
-          "type": "object",
-          "properties": {},
-          "description": "The username of the Zendesk source. Type: string (or Expression with resultType string)."
-        }
-      },
-      "required": [
-        "authenticationType",
-        "url"
-      ],
-      "description": "Zendesk linked service type properties."
     },
     "ZipDeflateReadSettings": {
       "type": "object",
