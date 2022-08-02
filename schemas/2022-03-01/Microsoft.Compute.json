@@ -2415,7 +2415,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The OS State."
+          "description": "The OS State. For managed images, use Generalized."
         },
         "osType": {
           "oneOf": [
@@ -3259,6 +3259,38 @@
         }
       },
       "description": "Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**."
+    },
+    "PriorityMixPolicy": {
+      "type": "object",
+      "properties": {
+        "baseRegularPriorityCount": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base number of regular priority VM's that will be created in this scale set as it scales out."
+        },
+        "regularPriorityPercentageAboveBase": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The percentage of VM instances, after the base regular priority count has been reached, that are expected to use regular priority."
+        }
+      },
+      "description": "Specifies the target splits for Spot and Regular priority VMs within a scale set with flexible orchestration mode."
     },
     "ProximityPlacementGroupProperties": {
       "type": "object",
@@ -5983,6 +6015,17 @@
             }
           ],
           "description": "Fault Domain count for each placement group."
+        },
+        "priorityMixPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PriorityMixPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the target splits for Spot and Regular priority VMs within a scale set with flexible orchestration mode."
         },
         "proximityPlacementGroup": {
           "oneOf": [
