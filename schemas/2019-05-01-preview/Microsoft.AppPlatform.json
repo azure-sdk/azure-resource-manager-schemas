@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-09-01-preview/Microsoft.AppPlatform.json#",
+  "id": "https://schema.management.azure.com/schemas/2019-05-01-preview/Microsoft.AppPlatform.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.AppPlatform",
   "description": "Microsoft AppPlatform Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "location": {
@@ -37,16 +37,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Spring_configServers_childResource"
-              },
-              {
-                "$ref": "#/definitions/Spring_monitoringSettings_childResource"
-              },
-              {
                 "$ref": "#/definitions/Spring_apps_childResource"
-              },
-              {
-                "$ref": "#/definitions/Spring_storages_childResource"
               },
               {
                 "$ref": "#/definitions/Spring_certificates_childResource"
@@ -101,7 +92,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "identity": {
@@ -171,7 +162,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "name": {
@@ -210,7 +201,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "name": {
@@ -260,7 +251,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "name": {
@@ -299,7 +290,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "name": {
@@ -331,177 +322,15 @@
         "type"
       ],
       "description": "Microsoft.AppPlatform/Spring/certificates"
-    },
-    "Spring_configServers": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-09-01-preview"
-          ]
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^.*/default$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ConfigServerProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Config server git properties payload"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/configServers"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/configServers"
-    },
-    "Spring_monitoringSettings": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-09-01-preview"
-          ]
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^.*/default$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/MonitoringSettingProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Monitoring Setting properties payload"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/monitoringSettings"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/monitoringSettings"
-    },
-    "Spring_storages": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-09-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the storage resource."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/StorageProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Storage resource payload."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/storages"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/storages"
     }
   },
   "definitions": {
-    "ApplicationInsightsAgentVersions": {
-      "type": "object",
-      "properties": {},
-      "description": "Application Insights agent versions properties payload"
-    },
     "AppResourceProperties": {
       "type": "object",
       "properties": {
         "activeDeploymentName": {
           "type": "string",
           "description": "Name of the active deployment of the App"
-        },
-        "customPersistentDisks": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/CustomPersistentDiskResource"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Collection of persistent disk resources list and a possible link for next page."
-        },
-        "enableEndToEndTLS": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicate if end to end TLS is enabled."
         },
         "fqdn": {
           "type": "string",
@@ -518,20 +347,6 @@
             }
           ],
           "description": "Indicate if only https is allowed."
-        },
-        "loadedCertificates": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LoadedCertificate"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Collection of loaded certificate resources list and a possible link for next page."
         },
         "persistentDisk": {
           "oneOf": [
@@ -569,26 +384,6 @@
       },
       "description": "App resource properties payload"
     },
-    "AzureFileVolume": {
-      "type": "object",
-      "properties": {
-        "shareName": {
-          "type": "string",
-          "description": "The share name of the Azure File share."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "AzureFileVolume"
-          ]
-        }
-      },
-      "required": [
-        "shareName",
-        "type"
-      ],
-      "description": "The properties of the Azure File volume. Azure File shares are mounted as volumes."
-    },
     "BindingResourceProperties": {
       "type": "object",
       "properties": {
@@ -621,20 +416,40 @@
     },
     "CertificateProperties": {
       "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/KeyVaultCertificateProperties"
+      "properties": {
+        "certVersion": {
+          "type": "string",
+          "description": "The certificate version of key vault."
         },
-        {
-          "$ref": "#/definitions/ContentCertificateProperties"
+        "keyVaultCertName": {
+          "type": "string",
+          "description": "The certificate name of key vault."
+        },
+        "vaultUri": {
+          "type": "string",
+          "description": "The vault uri of user key vault."
         }
+      },
+      "required": [
+        "keyVaultCertName",
+        "vaultUri"
       ],
-      "properties": {},
       "description": "Certificate resource payload."
     },
     "ClusterResourceProperties": {
       "type": "object",
       "properties": {
+        "configServerProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Config server git properties payload"
+        },
         "networkProfile": {
           "oneOf": [
             {
@@ -645,6 +460,17 @@
             }
           ],
           "description": "Service network profile payload"
+        },
+        "trace": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TraceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Trace properties payload"
         }
       },
       "description": "Service properties payload"
@@ -770,79 +596,6 @@
       },
       "description": "The settings of config server."
     },
-    "ContentCertificateProperties": {
-      "type": "object",
-      "properties": {
-        "content": {
-          "type": "string",
-          "description": "The content of uploaded certificate."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "ContentCertificate"
-          ]
-        }
-      },
-      "required": [
-        "content",
-        "type"
-      ],
-      "description": "Properties of certificate imported from key vault."
-    },
-    "CustomContainer": {
-      "type": "object",
-      "properties": {
-        "args": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided."
-        },
-        "command": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided."
-        },
-        "containerImage": {
-          "type": "string",
-          "description": "Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry"
-        },
-        "imageRegistryCredential": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ImageRegistryCredential"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Credential of the image registry"
-        },
-        "server": {
-          "type": "string",
-          "description": "The name of the registry that contains the container image"
-        }
-      },
-      "description": "Custom container payload"
-    },
     "CustomDomainProperties": {
       "type": "object",
       "properties": {
@@ -856,73 +609,6 @@
         }
       },
       "description": "Custom domain of app resource payload."
-    },
-    "CustomPersistentDiskProperties": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/AzureFileVolume"
-        }
-      ],
-      "properties": {
-        "mountOptions": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "These are the mount options for a persistent disk."
-        },
-        "mountPath": {
-          "type": "string",
-          "description": "The mount path of the persistent disk."
-        },
-        "readOnly": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether the persistent disk is a readOnly one."
-        }
-      },
-      "required": [
-        "mountPath"
-      ],
-      "description": "Custom persistent disk resource payload."
-    },
-    "CustomPersistentDiskResource": {
-      "type": "object",
-      "properties": {
-        "customPersistentDiskProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomPersistentDiskProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Custom persistent disk resource payload."
-        },
-        "storageId": {
-          "type": "string",
-          "description": "The resource id of Azure Spring Cloud Storage resource."
-        }
-      },
-      "required": [
-        "storageId"
-      ],
-      "description": "Custom persistent disk resource payload."
     },
     "DeploymentResourceProperties": {
       "type": "object",
@@ -955,17 +641,6 @@
     "DeploymentSettings": {
       "type": "object",
       "properties": {
-        "containerProbeSettings": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DeploymentSettingsContainerProbeSettings"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Container liveness and readiness probe settings"
-        },
         "cpu": {
           "oneOf": [
             {
@@ -976,7 +651,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Required CPU. This should be 1 for Basic tier, and in range [1, 4] for Standard tier. This is deprecated starting from API version 2021-09-01-preview. Please use the resourceRequests field to set the CPU size."
+          "description": "Required CPU, basic tier should be 1, standard tier should be in range (1, 4)"
         },
         "environmentVariables": {
           "oneOf": [
@@ -993,6 +668,18 @@
           ],
           "description": "Collection of environment variables"
         },
+        "instanceCount": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "1"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)"
+        },
         "jvmOptions": {
           "type": "string",
           "description": "JVM parameter"
@@ -1007,22 +694,11 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Required Memory size in GB. This should be in range [1, 2] for Basic tier, and in range [1, 8] for Standard tier. This is deprecated starting from API version 2021-09-01-preview. Please use the resourceRequests field to set the the memory size."
+          "description": "Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)"
         },
         "netCoreMainEntryPath": {
           "type": "string",
           "description": "The path to the .NET executable relative to zip root"
-        },
-        "resourceRequests": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceRequests"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Deployment resource request payload"
         },
         "runtimeVersion": {
           "oneOf": [
@@ -1042,23 +718,6 @@
         }
       },
       "description": "Deployment settings payload"
-    },
-    "DeploymentSettingsContainerProbeSettings": {
-      "type": "object",
-      "properties": {
-        "disableProbe": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether disable the liveness and readiness probe"
-        }
-      },
-      "description": "Container liveness and readiness probe settings"
     },
     "Error": {
       "type": "object",
@@ -1155,96 +814,14 @@
       ],
       "description": "Git repository property payload"
     },
-    "ImageRegistryCredential": {
-      "type": "object",
-      "properties": {
-        "password": {
-          "type": "string",
-          "description": "The password of the image registry credential"
-        },
-        "username": {
-          "type": "string",
-          "description": "The username of the image registry credential"
-        }
-      },
-      "description": "Credential of the image registry"
-    },
-    "KeyVaultCertificateProperties": {
-      "type": "object",
-      "properties": {
-        "certVersion": {
-          "type": "string",
-          "description": "The certificate version of key vault."
-        },
-        "excludePrivateKey": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Optional. If set to true, it will not import private key from key vault."
-        },
-        "keyVaultCertName": {
-          "type": "string",
-          "description": "The certificate name of key vault."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "KeyVaultCertificate"
-          ]
-        },
-        "vaultUri": {
-          "type": "string",
-          "description": "The vault uri of user key vault."
-        }
-      },
-      "required": [
-        "keyVaultCertName",
-        "type",
-        "vaultUri"
-      ],
-      "description": "Properties of certificate imported from key vault."
-    },
-    "LoadedCertificate": {
-      "type": "object",
-      "properties": {
-        "loadTrustStore": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicate whether the certificate will be loaded into default trust store, only work for Java runtime."
-        },
-        "resourceId": {
-          "type": "string",
-          "description": "Resource Id of loaded certificate"
-        }
-      },
-      "required": [
-        "resourceId"
-      ],
-      "description": "Loaded certificate payload"
-    },
     "ManagedIdentityProperties": {
       "type": "object",
       "properties": {
         "principalId": {
-          "type": "string",
-          "description": "Principal Id"
+          "type": "string"
         },
         "tenantId": {
-          "type": "string",
-          "description": "Tenant Id"
+          "type": "string"
         },
         "type": {
           "oneOf": [
@@ -1260,67 +837,10 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "Type of the managed identity."
+          ]
         }
       },
       "description": "Managed identity properties retrieved from ARM request headers."
-    },
-    "MonitoringSettingProperties": {
-      "type": "object",
-      "properties": {
-        "appInsightsAgentVersions": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ApplicationInsightsAgentVersions"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Application Insights agent versions properties payload"
-        },
-        "appInsightsInstrumentationKey": {
-          "type": "string",
-          "description": "Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings"
-        },
-        "appInsightsSamplingRate": {
-          "oneOf": [
-            {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 100
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]"
-        },
-        "error": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Error"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The error code compose of code and message."
-        },
-        "traceEnabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not"
-        }
-      },
-      "description": "Monitoring Setting properties payload"
     },
     "NetworkProfile": {
       "type": "object",
@@ -1371,20 +891,6 @@
       },
       "description": "Persistent disk payload"
     },
-    "ResourceRequests": {
-      "type": "object",
-      "properties": {
-        "cpu": {
-          "type": "string",
-          "description": "Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier."
-        },
-        "memory": {
-          "type": "string",
-          "description": "Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier."
-        }
-      },
-      "description": "Deployment resource request payload"
-    },
     "Sku": {
       "type": "object",
       "properties": {
@@ -1418,7 +924,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "name": {
@@ -1457,7 +963,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "identity": {
@@ -1511,7 +1017,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "name": {
@@ -1561,7 +1067,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "name": {
@@ -1600,7 +1106,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-09-01-preview"
+            "2019-05-01-preview"
           ]
         },
         "name": {
@@ -1633,162 +1139,6 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/certificates"
     },
-    "Spring_configServers_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-09-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "enum": [
-            "default"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ConfigServerProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Config server git properties payload"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "configServers"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/configServers"
-    },
-    "Spring_monitoringSettings_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-09-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "enum": [
-            "default"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/MonitoringSettingProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Monitoring Setting properties payload"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "monitoringSettings"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/monitoringSettings"
-    },
-    "Spring_storages_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-09-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the storage resource."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/StorageProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Storage resource payload."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "storages"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/storages"
-    },
-    "StorageAccount": {
-      "type": "object",
-      "properties": {
-        "accountKey": {
-          "type": "string",
-          "description": "The account key of the Azure Storage Account."
-        },
-        "accountName": {
-          "type": "string",
-          "description": "The account name of the Azure Storage Account."
-        },
-        "storageType": {
-          "type": "string",
-          "enum": [
-            "StorageAccount"
-          ]
-        }
-      },
-      "required": [
-        "accountKey",
-        "accountName",
-        "storageType"
-      ],
-      "description": "storage resource of type Azure Storage Account."
-    },
-    "StorageProperties": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/StorageAccount"
-        }
-      ],
-      "properties": {},
-      "description": "Storage resource payload."
-    },
     "TemporaryDisk": {
       "type": "object",
       "properties": {
@@ -1813,23 +1163,44 @@
       },
       "description": "Temporary disk payload"
     },
+    "TraceProperties": {
+      "type": "object",
+      "properties": {
+        "appInsightInstrumentationKey": {
+          "type": "string",
+          "description": "Target application insight instrumentation key"
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether enable the tracing functionality"
+        },
+        "error": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Error"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The error code compose of code and message."
+        }
+      },
+      "description": "Trace properties payload"
+    },
     "UserSourceInfo": {
       "type": "object",
       "properties": {
         "artifactSelector": {
           "type": "string",
           "description": "Selector for the artifact to be used for the deployment for multi-module projects. This should be\r\nthe relative path to the target module/project."
-        },
-        "customContainer": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomContainer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Custom container payload"
         },
         "relativePath": {
           "type": "string",
@@ -1842,8 +1213,7 @@
               "enum": [
                 "Jar",
                 "NetCoreZip",
-                "Source",
-                "Container"
+                "Source"
               ]
             },
             {
