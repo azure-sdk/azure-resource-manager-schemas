@@ -676,8 +676,7 @@
               "type": "string",
               "enum": [
                 "BasePrice",
-                "LicenseIncluded",
-                "DisasterRecovery"
+                "LicenseIncluded"
               ]
             },
             {
