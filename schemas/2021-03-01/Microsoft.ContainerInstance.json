@@ -398,10 +398,7 @@
         "httpHeaders": {
           "oneOf": [
             {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/HttpHeader"
-              }
+              "$ref": "#/definitions/HttpHeaders"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -799,7 +796,7 @@
       ],
       "description": "The GPU resource."
     },
-    "HttpHeader": {
+    "HttpHeaders": {
       "type": "object",
       "properties": {
         "name": {
@@ -811,7 +808,7 @@
           "description": "The header value."
         }
       },
-      "description": "The HTTP header"
+      "description": "The HTTP headers."
     },
     "ImageRegistryCredential": {
       "type": "object",
