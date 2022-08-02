@@ -1117,10 +1117,10 @@
             {
               "type": "string",
               "enum": [
-                "none",
                 "query",
-                "recent",
-                "function"
+                "function",
+                "folder",
+                "recent"
               ]
             },
             {
@@ -1459,10 +1459,10 @@
             {
               "type": "string",
               "enum": [
-                "none",
                 "query",
-                "recent",
-                "function"
+                "function",
+                "folder",
+                "recent"
               ]
             },
             {
