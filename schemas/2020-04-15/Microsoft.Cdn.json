@@ -582,11 +582,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -2066,11 +2062,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -2673,11 +2665,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -2946,11 +2934,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -3154,11 +3138,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -3246,11 +3226,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -3342,11 +3318,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -3571,11 +3543,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -3748,11 +3716,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -3840,11 +3804,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
@@ -3933,11 +3893,7 @@
                 "type": "string",
                 "enum": [
                   "Lowercase",
-                  "Uppercase",
-                  "Trim",
-                  "UrlDecode",
-                  "UrlEncode",
-                  "RemoveNulls"
+                  "Uppercase"
                 ]
               }
             },
