@@ -2618,6 +2618,24 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-06-22/Microsoft.Automation.json#/resourceDefinitions/automationAccounts_hybridRunbookWorkerGroups_hybridRunbookWorkers"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-02-22/Microsoft.Automation.json#/resourceDefinitions/automationAccounts_hybridRunbookWorkerGroups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-30-preview/Microsoft.Automation.json#/resourceDefinitions/automationAccounts_jobs"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-30-preview/Microsoft.Automation.json#/resourceDefinitions/automationAccounts_runbooks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-30-preview/Microsoft.Automation.json#/resourceDefinitions/automationAccounts_runbooks_draft"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-30-preview/Microsoft.Automation.json#/resourceDefinitions/automationAccounts_runtimes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-30-preview/Microsoft.Automation.json#/resourceDefinitions/automationAccounts_runtimes_dependencies"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-07-01-preview/Microsoft.AutonomousDevelopmentPlatform.json#/resourceDefinitions/accounts"
         },
         {
