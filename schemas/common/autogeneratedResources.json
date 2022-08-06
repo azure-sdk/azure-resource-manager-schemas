@@ -74,24 +74,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2020-05-12-preview/Microsoft.AgFoodPlatform.json#/resourceDefinitions/farmBeats_extensions"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2019-03-01/Microsoft.AlertsManagement.json#/resourceDefinitions/smartDetectorAlertRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-05-05-preview/Microsoft.AlertsManagement.json#/resourceDefinitions/actionRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-06-01/Microsoft.AlertsManagement.json#/resourceDefinitions/smartDetectorAlertRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-04-01/Microsoft.AlertsManagement.json#/resourceDefinitions/smartDetectorAlertRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-08-08/Microsoft.AlertsManagement.json#/resourceDefinitions/actionRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-08-08-preview/Microsoft.AlertsManagement.json#/resourceDefinitions/actionRules"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2016-05-16/Microsoft.AnalysisServices.json#/resourceDefinitions/servers"
         },
         {
