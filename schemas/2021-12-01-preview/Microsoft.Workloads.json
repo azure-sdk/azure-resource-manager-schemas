@@ -1274,6 +1274,18 @@
         "appResourceGroup": {
           "type": "string",
           "description": "The application resource group where SAP system resources will be deployed."
+        },
+        "isRestrictedUse": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A boolean, if true, specifies that the user is aware about the given infrastructure configuration to be restricted."
         }
       },
       "required": [
