@@ -6836,6 +6836,24 @@
       },
       "description": "Identity for the resource."
     },
+    "MaterializedViewDefinition": {
+      "type": "object",
+      "properties": {
+        "definition": {
+          "type": "string",
+          "description": "Definition of the Cosmos DB SQL Materialized view"
+        },
+        "sourceCollectionId": {
+          "type": "string",
+          "description": "Name of the Cosmos DB SQL source container"
+        }
+      },
+      "required": [
+        "definition",
+        "sourceCollectionId"
+      ],
+      "description": "Materialized View definition for the container."
+    },
     "MongoDBCollectionCreateUpdateProperties": {
       "type": "object",
       "properties": {
@@ -7612,6 +7630,17 @@
             }
           ],
           "description": "Cosmos DB indexing policy"
+        },
+        "materializedViewDefinition": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaterializedViewDefinition"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Materialized View definition for the container."
         },
         "partitionKey": {
           "oneOf": [
