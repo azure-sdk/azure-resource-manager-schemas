@@ -1,0 +1,956 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.AI.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Ai",
+  "description": "Microsoft Ai Resource Types",
+  "resourceDefinitions": {
+    "locations_applicationDefinitions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-10-01-preview"
+          ]
+        },
+        "managedBy": {
+          "type": "string",
+          "description": "ID of the resource that manages this resource."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 64,
+          "description": "The name of the managed application definition."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationDefinitionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application definition properties."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Ai/locations/applicationDefinitions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Ai/locations/applicationDefinitions"
+    },
+    "locations_applications": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-10-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "kind": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._,\\(\\)]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog."
+        },
+        "managedBy": {
+          "type": "string",
+          "description": "ID of the resource that manages this resource."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 64,
+          "description": "The name of the managed application."
+        },
+        "plan": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Plan for the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application properties."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Ai/locations/applications"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "kind",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Ai/locations/applications"
+    },
+    "locations_jitRequests": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the JIT request."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JitRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Information about JIT request properties"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Ai/locations/jitRequests"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Ai/locations/jitRequests"
+    }
+  },
+  "definitions": {
+    "ApplicationAuthorization": {
+      "type": "object",
+      "properties": {
+        "principalId": {
+          "type": "string",
+          "description": "The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources."
+        },
+        "roleDefinitionId": {
+          "type": "string",
+          "description": "The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group."
+        }
+      },
+      "required": [
+        "principalId",
+        "roleDefinitionId"
+      ],
+      "description": "The managed application provider authorization."
+    },
+    "ApplicationDefinitionArtifact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotSpecified",
+                "ApplicationResourceTemplate",
+                "CreateUiDefinition",
+                "MainTemplateParameters"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application definition artifact name."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotSpecified",
+                "Template",
+                "Custom"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application definition artifact type."
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "The managed application definition artifact blob uri."
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "uri"
+      ],
+      "description": "Application definition artifact."
+    },
+    "ApplicationDefinitionProperties": {
+      "type": "object",
+      "properties": {
+        "artifacts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApplicationDefinitionArtifact"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition."
+        },
+        "authorizations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApplicationAuthorization"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application provider authorizations."
+        },
+        "createUiDefinition": {
+          "type": "object",
+          "properties": {},
+          "description": "The createUiDefinition json for the backing template with Microsoft.Ai/locations/{location}/applications resource. It can be a JObject or well-formed JSON string."
+        },
+        "deploymentPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationDeploymentPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed application deployment policy."
+        },
+        "description": {
+          "type": "string",
+          "description": "The managed application definition description."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The managed application definition display name."
+        },
+        "isEnabled": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled",
+                "Custom"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application artifact type."
+        },
+        "lockingPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationPackageLockingPolicyDefinition"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed application locking policy."
+        },
+        "lockLevel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CanNotDelete",
+                "ReadOnly",
+                "None"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application lock level."
+        },
+        "mainTemplate": {
+          "type": "object",
+          "properties": {},
+          "description": "The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string."
+        },
+        "managementPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationManagementPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed application management policy."
+        },
+        "notificationPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationNotificationPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed application notification policy."
+        },
+        "packageFileUri": {
+          "type": "string",
+          "description": "The managed application definition package file Uri. Use this element"
+        },
+        "policies": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApplicationPolicy"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application provider policies."
+        }
+      },
+      "required": [
+        "lockLevel"
+      ],
+      "description": "The managed application definition properties."
+    },
+    "ApplicationDeploymentPolicy": {
+      "type": "object",
+      "properties": {
+        "deploymentMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotSpecified",
+                "Incremental",
+                "Complete"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application deployment mode."
+        }
+      },
+      "required": [
+        "deploymentMode"
+      ],
+      "description": "Managed application deployment policy."
+    },
+    "ApplicationJitAccessPolicy": {
+      "type": "object",
+      "properties": {
+        "accessEnabled": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled",
+                "Custom"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application artifact type."
+        },
+        "jitApprovalMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotSpecified",
+                "AutoApprove",
+                "ManualApprove"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "JIT approval mode."
+        },
+        "jitApprovers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JitApproverDefinition"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The JIT approvers"
+        },
+        "maximumJitAccessDuration": {
+          "type": "string",
+          "description": "The maximum duration JIT access is granted. This is an ISO8601 time period value."
+        }
+      },
+      "required": [
+        "accessEnabled"
+      ],
+      "description": "Managed application Jit access policy."
+    },
+    "ApplicationManagementPolicy": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotSpecified",
+                "Unmanaged",
+                "Managed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application management mode."
+        }
+      },
+      "description": "Managed application management policy."
+    },
+    "ApplicationNotificationEndpoint": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "The managed application notification endpoint uri."
+        }
+      },
+      "required": [
+        "uri"
+      ],
+      "description": "Managed application notification endpoint."
+    },
+    "ApplicationNotificationPolicy": {
+      "type": "object",
+      "properties": {
+        "notificationEndpoints": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApplicationNotificationEndpoint"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed application notification endpoint."
+        }
+      },
+      "required": [
+        "notificationEndpoints"
+      ],
+      "description": "Managed application notification policy."
+    },
+    "ApplicationPackageLockingPolicyDefinition": {
+      "type": "object",
+      "properties": {
+        "allowedActions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed application locking policy definition."
+        }
+      },
+      "description": "Managed application locking policy."
+    },
+    "ApplicationPolicy": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The policy name"
+        },
+        "parameters": {
+          "type": "string",
+          "description": "The policy parameters."
+        },
+        "policyDefinitionId": {
+          "type": "string",
+          "description": "The policy definition Id."
+        }
+      },
+      "description": "Managed application policy."
+    },
+    "ApplicationProperties": {
+      "type": "object",
+      "properties": {
+        "applicationDefinitionId": {
+          "type": "string",
+          "description": "The fully qualified path of managed application definition Id."
+        },
+        "jitAccessPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationJitAccessPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed application Jit access policy."
+        },
+        "managedResourceGroupId": {
+          "type": "string",
+          "description": "The managed resource group Id."
+        },
+        "outputs": {
+          "type": "object",
+          "properties": {},
+          "description": "Name and value pairs that define the managed application outputs."
+        },
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "description": "Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string."
+        }
+      },
+      "description": "The managed application properties."
+    },
+    "Identity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The identity type."
+        }
+      },
+      "description": "Identity for the resource."
+    },
+    "JitApproverDefinition": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "The approver display name."
+        },
+        "id": {
+          "type": "string",
+          "description": "The approver service principal Id."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "user",
+                "group"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The approver type."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "description": "JIT approver definition."
+    },
+    "JitAuthorizationPolicies": {
+      "type": "object",
+      "properties": {
+        "principalId": {
+          "type": "string",
+          "description": "The the principal id that will be granted JIT access."
+        },
+        "roleDefinitionId": {
+          "type": "string",
+          "description": "The role definition id that will be granted to the Principal."
+        }
+      },
+      "required": [
+        "principalId",
+        "roleDefinitionId"
+      ],
+      "description": "The JIT authorization policies."
+    },
+    "JitRequestProperties": {
+      "type": "object",
+      "properties": {
+        "applicationResourceId": {
+          "type": "string",
+          "description": "The parent application id."
+        },
+        "authorizationPolicies": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JitAuthorizationPolicies"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The JIT authorization policies."
+        },
+        "schedulingPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JitSchedulingPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The JIT scheduling policies."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        }
+      },
+      "required": [
+        "applicationResourceId",
+        "authorizationPolicies",
+        "schedulingPolicy"
+      ],
+      "description": "Information about JIT request properties"
+    },
+    "JitSchedulingPolicy": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "string",
+          "format": "duration"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The start time of the request."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotSpecified",
+                "Once",
+                "Recurring"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of JIT schedule."
+        }
+      },
+      "required": [
+        "duration",
+        "startTime",
+        "type"
+      ],
+      "description": "The JIT scheduling policies."
+    },
+    "Plan": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A user defined name of the 3rd Party Artifact that is being procured."
+        },
+        "product": {
+          "type": "string",
+          "description": "The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. "
+        },
+        "promotionCode": {
+          "type": "string",
+          "description": "A publisher provided promotion code as provisioned in Data Market for the said product/artifact."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic"
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the desired product/artifact."
+        }
+      },
+      "required": [
+        "name",
+        "product",
+        "publisher"
+      ],
+      "description": "Plan for the resource."
+    },
+    "Sku": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU. Ex - P3. It is typically a letter+number code"
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. "
+        },
+        "tier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Free",
+                "Basic",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "The resource model definition representing SKU"
+    },
+    "SystemData": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that created the resource."
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource last modification (UTC)"
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that last modified the resource."
+        }
+      },
+      "description": "Metadata pertaining to creation and last modification of the resource."
+    }
+  }
+}
