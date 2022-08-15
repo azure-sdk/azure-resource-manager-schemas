@@ -13271,6 +13271,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OperationalInsights.json#/resourceDefinitions/workspaces_tables"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.OperationalInsights.json#/resourceDefinitions/workspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.OperationalInsights.json#/resourceDefinitions/workspaces_tables"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2021-04-04-preview/Microsoft.Orbital.json#/resourceDefinitions/contactProfiles"
         },
         {
@@ -15624,6 +15630,33 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.ServiceFabric.json#/resourceDefinitions/managedClusters_nodeTypes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/networks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/volumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/gateways"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/networks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/secrets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/secrets_values"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/volumes"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2018-03-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/SignalR"
@@ -21864,33 +21897,6 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2021-05-01-preview/NGINX.NGINXPLUS.json#/resourceDefinitions/nginxDeployments_configurations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/applications"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/networks"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/volumes"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/applications"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/gateways"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/networks"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/secrets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/secrets_values"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/volumes"
         }
       ]
     }
