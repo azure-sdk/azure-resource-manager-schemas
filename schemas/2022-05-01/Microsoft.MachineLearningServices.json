@@ -5276,26 +5276,23 @@
             }
           ]
         },
-        "target": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string",
-          "description": "Value details of the workspace connection."
-        },
-        "valueFormat": {
+        "metadata": {
           "oneOf": [
             {
-              "type": "string",
-              "enum": [
-                "JSON"
-              ]
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "format for the workspace connection value."
+          ]
+        },
+        "target": {
+          "type": "string"
         }
       }
     },
