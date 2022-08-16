@@ -5555,6 +5555,33 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-06-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/snapshots"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/fleets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/fleets_members"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/managedClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/managedClusters_agentPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/managedClusters_maintenanceConfigurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/managedClusters_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/managedClusters_trustedAccessRoleBindings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/managedclustersnapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-02-preview/Microsoft.ContainerService.json#/resourceDefinitions/snapshots"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.CustomProviders.json#/resourceDefinitions/resourceProviders"
         },
         {
@@ -15626,6 +15653,33 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.ServiceFabric.json#/resourceDefinitions/managedClusters_nodeTypes"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/networks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/volumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/gateways"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/networks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/secrets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/secrets_values"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/volumes"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-03-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/SignalR"
         },
         {
@@ -21864,33 +21918,6 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2021-05-01-preview/NGINX.NGINXPLUS.json#/resourceDefinitions/nginxDeployments_configurations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/applications"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/networks"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/volumes"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/applications"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/gateways"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/networks"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/secrets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/secrets_values"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json#/resourceDefinitions/volumes"
         }
       ]
     }
