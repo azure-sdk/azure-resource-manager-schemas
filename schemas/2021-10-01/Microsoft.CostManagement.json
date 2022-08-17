@@ -165,6 +165,17 @@
             }
           ],
           "description": "The granularity of rows in the export. Currently only 'Daily' is supported."
+        },
+        "grouping": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportDatasetGrouping"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The group by union expression"
         }
       },
       "description": "The definition for data in the export."
@@ -188,6 +199,35 @@
         }
       },
       "description": "The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns."
+    },
+    "ExportDatasetGrouping": {
+      "type": "object",
+      "properties": {
+        "ColumnType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Tag",
+                "Metric",
+                "Dimension",
+                "TagKey",
+                "TagValue"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cost management report column types."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the column(dimension, metric)/key(tag) to filter on"
+        }
+      },
+      "description": "The group by union expression"
     },
     "ExportDefinition": {
       "type": "object",
