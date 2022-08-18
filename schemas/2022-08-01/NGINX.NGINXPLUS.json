@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-05-01-preview/NGINX.NGINXPLUS.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-08-01/NGINX.NGINXPLUS.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Nginx.NginxPlus",
   "description": "Nginx NginxPlus Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-08-01"
           ]
         },
         "identity": {
@@ -98,7 +98,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-08-01"
           ]
         },
         "location": {
@@ -153,7 +153,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-08-01"
           ]
         },
         "location": {
@@ -411,7 +411,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-08-01"
           ]
         },
         "location": {
@@ -466,7 +466,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-08-01"
           ]
         },
         "location": {
