@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Cdn.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Cdn.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Cdn",
   "description": "Microsoft Cdn Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "etag": {
@@ -86,7 +86,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "location": {
@@ -120,6 +120,12 @@
               },
               {
                 "$ref": "#/definitions/profiles_originGroups_childResource"
+              },
+              {
+                "$ref": "#/definitions/profiles_dedicatedVIPs_childResource"
+              },
+              {
+                "$ref": "#/definitions/profiles_reservedRoutes_childResource"
               },
               {
                 "$ref": "#/definitions/profiles_ruleSets_childResource"
@@ -185,7 +191,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "location": {
@@ -254,7 +260,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -293,7 +299,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -326,13 +332,52 @@
       ],
       "description": "Microsoft.Cdn/profiles/customDomains"
     },
+    "profiles_dedicatedVIPs": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the dedicated VIP which is unique within the profile."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DedicatedVIPProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The JSON object that contains the properties of the Dedicated VIP."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Cdn/profiles/dedicatedVIPs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cdn/profiles/dedicatedVIPs"
+    },
     "profiles_endpoints": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "location": {
@@ -407,7 +452,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -446,7 +491,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -485,7 +530,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -524,7 +569,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -573,7 +618,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -606,13 +651,52 @@
       ],
       "description": "Microsoft.Cdn/profiles/originGroups/origins"
     },
+    "profiles_reservedRoutes": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the reserved route which is unique within the profile."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReservedRouteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The JSON object that contains the properties of the Reserved route."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Cdn/profiles/reservedRoutes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cdn/profiles/reservedRoutes"
+    },
     "profiles_ruleSets": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -649,7 +733,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -688,7 +772,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -727,7 +811,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -836,6 +920,21 @@
             }
           ],
           "description": "Reference to another resource."
+        },
+        "extendedProperties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Key-Value pair representing migration properties for domains."
         },
         "hostName": {
           "type": "string",
@@ -1312,6 +1411,21 @@
           ],
           "description": "Defines contents of custom rules"
         },
+        "extendedProperties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Key-Value pair representing additional properties for Web Application Firewall policy."
+        },
         "managedRules": {
           "oneOf": [
             {
@@ -1732,6 +1846,142 @@
         }
       },
       "description": "Defines contents of custom rules"
+    },
+    "DedicatedVIPCertificate": {
+      "type": "object",
+      "properties": {
+        "secretSource": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reference to another resource."
+        },
+        "secretVersion": {
+          "type": "string",
+          "description": "Certificate version."
+        },
+        "subjectAlternativeNames": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of SANs."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "UrlSigningKey",
+                "CustomerCertificate",
+                "ManagedCertificate",
+                "AzureFirstPartyManagedCertificate",
+                "DedicatedVIPCertificate"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "useLatestVersion": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to use the latest version for the certificate"
+        }
+      },
+      "description": "Dedicated VIP Certificate used for HTTPS."
+    },
+    "DedicatedVIPCertificateParameters": {
+      "type": "object",
+      "properties": {
+        "secretSource": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reference to another resource."
+        },
+        "secretVersion": {
+          "type": "string",
+          "description": "Version of the secret to be used"
+        },
+        "subjectAlternativeNames": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of SANs."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "DedicatedVIPCertificate"
+          ]
+        },
+        "useLatestVersion": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to use the latest version for the certificate"
+        }
+      },
+      "required": [
+        "secretSource",
+        "type"
+      ],
+      "description": "Dedicated VIP Certificate used for https"
+    },
+    "DedicatedVIPProperties": {
+      "type": "object",
+      "properties": {
+        "certificate": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DedicatedVIPCertificate"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dedicated VIP Certificate used for HTTPS."
+        }
+      },
+      "description": "The JSON object that contains the properties of the Dedicated VIP."
     },
     "DeepCreatedOrigin": {
       "type": "object",
@@ -4159,6 +4409,21 @@
     "ProfileProperties": {
       "type": "object",
       "properties": {
+        "extendedProperties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Key-Value pair representing additional properties for profiles."
+        },
         "originResponseTimeoutSeconds": {
           "oneOf": [
             {
@@ -4180,7 +4445,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "location": {
@@ -4239,7 +4504,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4278,7 +4543,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4311,13 +4576,52 @@
       ],
       "description": "Microsoft.Cdn/profiles/customDomains"
     },
+    "profiles_dedicatedVIPs_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the dedicated VIP which is unique within the profile."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DedicatedVIPProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The JSON object that contains the properties of the Dedicated VIP."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dedicatedVIPs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cdn/profiles/dedicatedVIPs"
+    },
     "profiles_endpoints_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "location": {
@@ -4376,7 +4680,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4415,7 +4719,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4454,7 +4758,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4493,7 +4797,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4532,7 +4836,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4565,13 +4869,52 @@
       ],
       "description": "Microsoft.Cdn/profiles/originGroups/origins"
     },
+    "profiles_reservedRoutes_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the reserved route which is unique within the profile."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReservedRouteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The JSON object that contains the properties of the Reserved route."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "reservedRoutes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cdn/profiles/reservedRoutes"
+    },
     "profiles_ruleSets_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4598,7 +4941,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4637,7 +4980,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -4676,7 +5019,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01"
+            "2022-05-01-preview"
           ]
         },
         "name": {
@@ -5474,6 +5817,42 @@
       ],
       "description": "Defines the parameters for RequestUri match conditions"
     },
+    "ReservedRouteProperties": {
+      "type": "object",
+      "properties": {
+        "domains": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration specifying domains that reserved route registers to."
+        },
+        "paths": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration specifying paths that reserved route registers to."
+        }
+      },
+      "description": "The JSON object that contains the properties of the Reserved route."
+    },
     "ResourceReference": {
       "type": "object",
       "properties": {
@@ -5811,6 +6190,9 @@
         },
         {
           "$ref": "#/definitions/AzureFirstPartyManagedCertificateParameters"
+        },
+        {
+          "$ref": "#/definitions/DedicatedVIPCertificateParameters"
         }
       ],
       "properties": {},
