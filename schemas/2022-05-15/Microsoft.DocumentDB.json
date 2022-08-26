@@ -168,8 +168,7 @@
               "type": "string",
               "enum": [
                 "GlobalDocumentDB",
-                "MongoDB",
-                "Parse"
+                "MongoDB"
               ]
             },
             {
