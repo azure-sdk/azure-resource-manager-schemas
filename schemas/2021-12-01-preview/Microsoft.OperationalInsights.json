@@ -13,9 +13,9 @@
             "2021-12-01-preview"
           ]
         },
-        "eTag": {
+        "etag": {
           "type": "string",
-          "description": "The ETag of the workspace."
+          "description": "The etag of the workspace."
         },
         "location": {
           "type": "string",
