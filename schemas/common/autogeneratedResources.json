@@ -2987,6 +2987,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2019-07-24-preview/Microsoft.AzureData.json#/resourceDefinitions/sqlServerRegistrations_sqlServers"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-12/Microsoft.AzureData.json#/resourceDefinitions/sqlServerRegistrations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-12/Microsoft.AzureData.json#/resourceDefinitions/sqlServerRegistrations_sqlServers"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2016-01-01/Microsoft.AzureStack.json#/resourceDefinitions/registrations"
         },
         {
