@@ -196,6 +196,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/managedInstances_databases_childResource"
+              },
+              {
                 "$ref": "#/definitions/managedInstances_administrators_childResource"
               },
               {
@@ -218,9 +221,6 @@
               },
               {
                 "$ref": "#/definitions/managedInstances_sqlAgent_childResource"
-              },
-              {
-                "$ref": "#/definitions/managedInstances_databases_childResource"
               }
             ]
           }
