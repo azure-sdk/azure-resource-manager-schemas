@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-05-01/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -133,7 +133,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -228,7 +228,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -313,7 +313,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -362,7 +362,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -401,7 +401,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -450,7 +450,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -489,7 +489,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -569,7 +569,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -607,7 +607,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -656,7 +656,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -695,7 +695,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -734,7 +734,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -783,7 +783,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -822,7 +822,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -861,7 +861,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -909,7 +909,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -948,7 +948,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -1043,7 +1043,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -1127,7 +1127,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -2396,17 +2396,6 @@
         "description": {
           "type": "string",
           "description": "The description of the Machine Learning compute."
-        },
-        "disableLocalAuth": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication."
         },
         "resourceId": {
           "type": "string",
@@ -5451,7 +5440,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -5536,7 +5525,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -5621,7 +5610,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5660,7 +5649,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5699,7 +5688,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5738,7 +5727,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5777,7 +5766,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -5857,7 +5846,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5895,7 +5884,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5934,7 +5923,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5973,7 +5962,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6012,7 +6001,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6051,7 +6040,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6090,7 +6079,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6129,7 +6118,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6167,7 +6156,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6206,7 +6195,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -6291,7 +6280,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -6375,7 +6364,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
