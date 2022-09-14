@@ -50,18 +50,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-03-01/Microsoft.AAD.json#/resourceDefinitions/domainServices_ouContainer"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.Aadiam.json#/resourceDefinitions/privateLinkForAzureAd"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.Aadiam.json#/resourceDefinitions/privateLinkForAzureAd_privateEndpointConnections"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-03-01-preview/Microsoft.Aadiam.json#/resourceDefinitions/privateLinkForAzureAd"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-07-01-preview/Microsoft.Aadiam.json#/resourceDefinitions/azureADMetrics"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2017-04-19/Microsoft.Advisor.json#/resourceDefinitions/configurations"
         },
         {
