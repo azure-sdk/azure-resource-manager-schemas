@@ -2545,12 +2545,7 @@
     },
     "CspWorkspaceAdminProperties": {
       "type": "object",
-      "properties": {
-        "initialWorkspaceAdminObjectId": {
-          "type": "string",
-          "description": "AAD object ID of initial workspace admin"
-        }
-      },
+      "properties": {},
       "description": "Initial workspace AAD admin properties for a CSP subscription"
     },
     "CustomerManagedKeyDetails": {
@@ -5833,21 +5828,6 @@
             }
           ],
           "description": "Enable or Disable AzureADOnlyAuthentication on All Workspace subresource"
-        },
-        "connectivityEndpoints": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Connectivity endpoints"
         },
         "cspWorkspaceAdminProperties": {
           "oneOf": [
