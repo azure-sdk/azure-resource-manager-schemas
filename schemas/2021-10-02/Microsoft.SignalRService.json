@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-02-01/Microsoft.SignalRService.json#",
+  "id": "https://schema.management.azure.com/schemas/2021-10-02/Microsoft.SignalRService.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.SignalRService",
   "description": "Microsoft SignalRService Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-02-01"
+            "2021-10-02"
           ]
         },
         "identity": {
@@ -62,12 +62,6 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/signalR_customCertificates_childResource"
-              },
-              {
-                "$ref": "#/definitions/signalR_customDomains_childResource"
-              },
-              {
                 "$ref": "#/definitions/signalR_privateEndpointConnections_childResource"
               },
               {
@@ -117,91 +111,13 @@
       ],
       "description": "Microsoft.SignalRService/signalR"
     },
-    "signalR_customCertificates": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-02-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Custom certificate name"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomCertificateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Custom certificate properties."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.SignalRService/signalR/customCertificates"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.SignalRService/signalR/customCertificates"
-    },
-    "signalR_customDomains": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-02-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Custom domain name."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomDomainProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties of a custom domain."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.SignalRService/signalR/customDomains"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.SignalRService/signalR/customDomains"
-    },
     "signalR_privateEndpointConnections": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-02-01"
+            "2021-10-02"
           ]
         },
         "name": {
@@ -240,7 +156,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-02-01"
+            "2021-10-02"
           ]
         },
         "name": {
@@ -275,92 +191,6 @@
     }
   },
   "definitions": {
-    "CustomCertificateProperties": {
-      "type": "object",
-      "properties": {
-        "keyVaultBaseUri": {
-          "type": "string",
-          "description": "Base uri of the KeyVault that stores certificate."
-        },
-        "keyVaultSecretName": {
-          "type": "string",
-          "description": "Certificate secret name."
-        },
-        "keyVaultSecretVersion": {
-          "type": "string",
-          "description": "Certificate secret version."
-        }
-      },
-      "required": [
-        "keyVaultBaseUri",
-        "keyVaultSecretName"
-      ],
-      "description": "Custom certificate properties."
-    },
-    "CustomDomainProperties": {
-      "type": "object",
-      "properties": {
-        "customCertificate": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceReference"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Reference to a resource."
-        },
-        "domainName": {
-          "type": "string",
-          "description": "The custom domain name."
-        }
-      },
-      "required": [
-        "customCertificate",
-        "domainName"
-      ],
-      "description": "Properties of a custom domain."
-    },
-    "LiveTraceCategory": {
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "string",
-          "description": "Indicates whether or the live trace category is enabled.\r\nAvailable values: true, false.\r\nCase insensitive."
-        },
-        "name": {
-          "type": "string",
-          "description": "Gets or sets the live trace category's name.\r\nAvailable values: ConnectivityLogs, MessagingLogs.\r\nCase insensitive."
-        }
-      },
-      "description": "Live trace category configuration of a Microsoft.SignalRService resource."
-    },
-    "LiveTraceConfiguration": {
-      "type": "object",
-      "properties": {
-        "categories": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LiveTraceCategory"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the list of category configurations."
-        },
-        "enabled": {
-          "type": "string",
-          "default": "false",
-          "description": "Indicates whether or not enable live trace.\r\nWhen it's set to true, live trace client can connect to the service.\r\nOtherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in \"categories\".\r\nAvailable values: true, false.\r\nCase insensitive."
-        }
-      },
-      "description": "Live trace configuration of a Microsoft.SignalRService resource."
-    },
     "ManagedIdentity": {
       "type": "object",
       "properties": {
@@ -608,16 +438,6 @@
       },
       "description": "Resource log configuration of a Microsoft.SignalRService resource."
     },
-    "ResourceReference": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID."
-        }
-      },
-      "description": "Reference to a resource."
-    },
     "ResourceSku": {
       "type": "object",
       "properties": {
@@ -864,17 +684,6 @@
           ],
           "description": "List of the featureFlags.\r\n\r\nFeatureFlags that are not included in the parameters for the update operation will not be modified.\r\nAnd the response will only include featureFlags that are explicitly set. \r\nWhen a featureFlag is not explicitly set, its globally default value will be used\r\nBut keep in mind, the default value doesn't mean \"false\". It varies in terms of different FeatureFlags."
         },
-        "liveTraceConfiguration": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/LiveTraceConfiguration"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Live trace configuration of a Microsoft.SignalRService resource."
-        },
         "networkACLs": {
           "oneOf": [
             {
@@ -945,91 +754,13 @@
       },
       "description": "TLS settings for the resource"
     },
-    "signalR_customCertificates_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-02-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Custom certificate name"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomCertificateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Custom certificate properties."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "customCertificates"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.SignalRService/signalR/customCertificates"
-    },
-    "signalR_customDomains_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-02-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Custom domain name."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomDomainProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties of a custom domain."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "customDomains"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.SignalRService/signalR/customDomains"
-    },
     "signalR_privateEndpointConnections_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-02-01"
+            "2021-10-02"
           ]
         },
         "name": {
@@ -1068,7 +799,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-02-01"
+            "2021-10-02"
           ]
         },
         "name": {
@@ -1148,15 +879,15 @@
         },
         "categoryPattern": {
           "type": "string",
-          "description": "Gets or sets the matching pattern for category names. If not set, it matches any category.\r\nThere are 3 kind of patterns supported:\r\n    1. \"*\", it to matches any category name.\r\n    2. Combine multiple categories with \",\", for example \"connections,messages\", it matches category \"connections\" and \"messages\".\r\n    3. The single category name, for example, \"connections\", it matches the category \"connections\"."
+          "description": "Gets or sets the matching pattern for category names. If not set, it matches any category.\r\nThere are 3 kind of patterns supported:\r\n    1. \"*\", it to matches any category name\r\n    2. Combine multiple categories with \",\", for example \"connections,messages\", it matches category \"connections\" and \"messages\"\r\n    3. The single category name, for example, \"connections\", it matches the category \"connections\""
         },
         "eventPattern": {
           "type": "string",
-          "description": "Gets or sets the matching pattern for event names. If not set, it matches any event.\r\nThere are 3 kind of patterns supported:\r\n    1. \"*\", it to matches any event name.\r\n    2. Combine multiple events with \",\", for example \"connect,disconnect\", it matches event \"connect\" and \"disconnect\".\r\n    3. The single event name, for example, \"connect\", it matches \"connect\"."
+          "description": "Gets or sets the matching pattern for event names. If not set, it matches any event.\r\nThere are 3 kind of patterns supported:\r\n    1. \"*\", it to matches any event name\r\n    2. Combine multiple events with \",\", for example \"connect,disconnect\", it matches event \"connect\" and \"disconnect\"\r\n    3. The single event name, for example, \"connect\", it matches \"connect\""
         },
         "hubPattern": {
           "type": "string",
-          "description": "Gets or sets the matching pattern for hub names. If not set, it matches any hub.\r\nThere are 3 kind of patterns supported:\r\n    1. \"*\", it to matches any hub name.\r\n    2. Combine multiple hubs with \",\", for example \"hub1,hub2\", it matches \"hub1\" and \"hub2\".\r\n    3. The single hub name, for example, \"hub1\", it matches \"hub1\"."
+          "description": "Gets or sets the matching pattern for hub names. If not set, it matches any hub.\r\nThere are 3 kind of patterns supported:\r\n    1. \"*\", it to matches any hub name\r\n    2. Combine multiple hubs with \",\", for example \"hub1,hub2\", it matches \"hub1\" and \"hub2\"\r\n    3. The single hub name, for example, \"hub1\", it matches \"hub1\""
         },
         "urlTemplate": {
           "type": "string",
