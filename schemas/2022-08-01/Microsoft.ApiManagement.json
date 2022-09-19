@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.ApiManagement.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.ApiManagement.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.ApiManagement",
   "description": "Microsoft ApiManagement Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "identity": {
@@ -67,6 +67,9 @@
                 "$ref": "#/definitions/service_apiVersionSets_childResource"
               },
               {
+                "$ref": "#/definitions/service_authorizationProviders_childResource"
+              },
+              {
                 "$ref": "#/definitions/service_authorizationServers_childResource"
               },
               {
@@ -115,13 +118,13 @@
                 "$ref": "#/definitions/service_policyFragments_childResource"
               },
               {
+                "$ref": "#/definitions/service_portalconfigs_childResource"
+              },
+              {
                 "$ref": "#/definitions/service_portalRevisions_childResource"
               },
               {
                 "$ref": "#/definitions/service_portalsettings_childResource"
-              },
-              {
-                "$ref": "#/definitions/service_portalconfigs_childResource"
               },
               {
                 "$ref": "#/definitions/service_privateEndpointConnections_childResource"
@@ -207,7 +210,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -239,6 +242,9 @@
               },
               {
                 "$ref": "#/definitions/service_apis_tags_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_apis_resolvers_childResource"
               },
               {
                 "$ref": "#/definitions/service_apis_policies_childResource"
@@ -279,7 +285,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -328,7 +334,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -390,7 +396,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -439,7 +445,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -488,7 +494,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -542,7 +548,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -589,7 +595,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -626,7 +632,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -673,7 +679,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -716,13 +722,111 @@
       ],
       "description": "Microsoft.ApiManagement/service/apis/releases"
     },
+    "service_apis_resolvers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResolverEntityBaseContract"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "GraphQL API Resolver Entity Base Contract details."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_apis_resolvers_policies_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/apis/resolvers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/resolvers"
+    },
+    "service_apis_resolvers_policies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/policy$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The identifier of the Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Policy contract Properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/apis/resolvers/policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/resolvers/policies"
+    },
     "service_apis_schemas": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -763,7 +867,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -812,7 +916,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -849,7 +953,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -892,13 +996,180 @@
       ],
       "description": "Microsoft.ApiManagement/service/apiVersionSets"
     },
+    "service_authorizationProviders": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization provider."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationProviderContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Provider details."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_authorizationProviders_authorizations_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/authorizationProviders"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders"
+    },
+    "service_authorizationProviders_authorizations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization details."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_authorizationProviders_authorizations_accesspolicies_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/authorizationProviders/authorizations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders/authorizations"
+    },
+    "service_authorizationProviders_authorizations_accesspolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization access policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationAccessPolicyContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Access Policy details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/authorizationProviders/authorizations/accesspolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders/authorizations/accesspolicies"
+    },
     "service_authorizationServers": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -947,7 +1218,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -988,7 +1259,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1037,7 +1308,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1086,7 +1357,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1136,7 +1407,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1165,7 +1436,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1214,7 +1485,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1271,7 +1542,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1312,7 +1583,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1361,7 +1632,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1402,7 +1673,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1453,7 +1724,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1482,7 +1753,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1536,7 +1807,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1584,7 +1855,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1632,7 +1903,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1688,7 +1959,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1715,7 +1986,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1744,7 +2015,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1792,7 +2063,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1839,7 +2110,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1888,7 +2159,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1929,7 +2200,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2067,7 +2338,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "type": {
@@ -2089,7 +2360,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "id": {
@@ -2132,7 +2403,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2192,7 +2463,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2221,7 +2492,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2250,7 +2521,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2297,7 +2568,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2334,7 +2605,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2375,7 +2646,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2423,7 +2694,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2472,7 +2743,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2534,7 +2805,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2584,7 +2855,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2929,6 +3200,21 @@
         "termsOfServiceUrl": {
           "type": "string",
           "description": " A URL to the Terms of Service for the API. MUST be in the format of a URL."
+        },
+        "translateRequiredQueryParameters": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "template",
+                "query"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'."
         },
         "type": {
           "oneOf": [
@@ -3419,6 +3705,20 @@
           ],
           "description": "API OAuth2 Authentication settings details."
         },
+        "oAuth2AuthenticationSettings": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OAuth2AuthenticationSettingsContract"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of OAuth2 authentication settings included into this API."
+        },
         "openid": {
           "oneOf": [
             {
@@ -3432,6 +3732,183 @@
         }
       },
       "description": "API Authentication Settings."
+    },
+    "AuthorizationAccessPolicyContractProperties": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "The Object Id"
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The Tenant Id"
+        }
+      },
+      "description": "Authorization Access Policy details."
+    },
+    "AuthorizationContractProperties": {
+      "type": "object",
+      "properties": {
+        "authorizationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "OAuth2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization type options."
+        },
+        "error": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization error details."
+        },
+        "oauth2grantType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AuthorizationCode",
+                "ClientCredentials"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OAuth2 grant type options."
+        },
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization parameters"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the Authorization"
+        }
+      },
+      "description": "Authorization details."
+    },
+    "AuthorizationError": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Error code"
+        },
+        "message": {
+          "type": "string",
+          "description": "Error message"
+        }
+      },
+      "description": "Authorization error details."
+    },
+    "AuthorizationProviderContractProperties": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "Authorization Provider name. Must be 1 to 300 characters long."
+        },
+        "identityProvider": {
+          "type": "string",
+          "description": "Identity provider name. Must be 1 to 300 characters long."
+        },
+        "oauth2": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationProviderOAuth2Settings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OAuth2 settings details"
+        }
+      },
+      "description": "Authorization Provider details."
+    },
+    "AuthorizationProviderOAuth2GrantTypes": {
+      "type": "object",
+      "properties": {
+        "authorizationCode": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OAuth2 authorization code grant parameters"
+        },
+        "clientCredentials": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OAuth2 client credential grant parameters"
+        }
+      },
+      "description": "Authorization Provider oauth2 grant types settings"
+    },
+    "AuthorizationProviderOAuth2Settings": {
+      "type": "object",
+      "properties": {
+        "grantTypes": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationProviderOAuth2GrantTypes"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Provider oauth2 grant types settings"
+        },
+        "redirectUrl": {
+          "type": "string",
+          "description": "Redirect url to be set in the OAuth application."
+        }
+      },
+      "description": "OAuth2 settings details"
     },
     "AuthorizationServerContractProperties": {
       "type": "object",
@@ -3582,6 +4059,28 @@
         "tokenEndpoint": {
           "type": "string",
           "description": "OAuth token endpoint. Contains absolute URI to entity being referenced."
+        },
+        "useInApiDocumentation": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided."
+        },
+        "useInTestConsole": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, the authorization server may be used in the developer portal test console. True by default if no value is provided."
         }
       },
       "required": [
@@ -4221,6 +4720,17 @@
         "loggerId": {
           "type": "string",
           "description": "Resource Id of a target logger."
+        },
+        "metrics": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings."
         },
         "operationNameFormat": {
           "oneOf": [
@@ -5972,6 +6482,29 @@
       },
       "description": "Operation request details."
     },
+    "ResolverEntityBaseContract": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Description of the resolver. May include HTML formatting tags."
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "Resolver Name."
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "Path is type/field being resolved."
+        }
+      },
+      "description": "GraphQL API Resolver Entity Base Contract details."
+    },
     "ResourceLocationDataContract": {
       "type": "object",
       "properties": {
@@ -6136,7 +6669,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6177,7 +6710,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6226,7 +6759,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6275,7 +6808,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6324,7 +6857,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6373,7 +6906,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6414,7 +6947,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6456,7 +6989,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6493,7 +7026,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6535,7 +7068,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6578,13 +7111,96 @@
       ],
       "description": "Microsoft.ApiManagement/service/apis/releases"
     },
+    "service_apis_resolvers_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResolverEntityBaseContract"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "GraphQL API Resolver Entity Base Contract details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "resolvers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/resolvers"
+    },
+    "service_apis_resolvers_policies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "policy"
+          ],
+          "description": "The identifier of the Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Policy contract Properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/resolvers/policies"
+    },
     "service_apis_schemas_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6625,7 +7241,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6674,7 +7290,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6711,7 +7327,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6754,13 +7370,160 @@
       ],
       "description": "Microsoft.ApiManagement/service/apiVersionSets"
     },
+    "service_authorizationProviders_authorizations_accesspolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization access policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationAccessPolicyContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Access Policy details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "accesspolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders/authorizations/accesspolicies"
+    },
+    "service_authorizationProviders_authorizations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "authorizations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders/authorizations"
+    },
+    "service_authorizationProviders_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization provider."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationProviderContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Provider details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "authorizationProviders"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders"
+    },
     "service_authorizationServers_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6809,7 +7572,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6850,7 +7613,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6899,7 +7662,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6948,7 +7711,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6988,7 +7751,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7017,7 +7780,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7066,7 +7829,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7107,7 +7870,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7156,7 +7919,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7197,7 +7960,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7238,7 +8001,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7279,7 +8042,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7308,7 +8071,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7362,7 +8125,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7410,7 +8173,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7458,7 +8221,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7501,7 +8264,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7528,7 +8291,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7557,7 +8320,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7605,7 +8368,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7647,7 +8410,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7696,7 +8459,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7737,7 +8500,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7860,7 +8623,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "type": {
@@ -7882,7 +8645,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "id": {
@@ -7925,7 +8688,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7954,7 +8717,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7995,7 +8758,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8024,7 +8787,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8066,7 +8829,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8103,7 +8866,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8144,7 +8907,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8192,7 +8955,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8241,7 +9004,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8303,7 +9066,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8353,7 +9116,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-08-01"
           ]
         },
         "name": {
