@@ -16,13 +16,13 @@
         "identity": {
           "oneOf": [
             {
-              "$ref": "#/definitions/IdentityData"
+              "$ref": "#/definitions/ManagedServiceIdentity"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Identity for the resource."
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
         },
         "location": {
           "type": "string",
@@ -376,7 +376,12 @@
       ],
       "description": "Key Vault input properties for encryption."
     },
-    "IdentityData": {
+    "ManagedIdentityConfiguration": {
+      "type": "object",
+      "properties": {},
+      "description": "The Managed Identity details for storage account."
+    },
+    "ManagedServiceIdentity": {
       "type": "object",
       "properties": {
         "type": {
@@ -385,25 +390,36 @@
               "type": "string",
               "enum": [
                 "None",
-                "SystemAssigned"
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
           ],
-          "description": "The identity type."
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
         }
       },
       "required": [
         "type"
       ],
-      "description": "Identity for the resource."
-    },
-    "ManagedIdentityConfiguration": {
-      "type": "object",
-      "properties": {},
-      "description": "The Managed Identity details for storage account."
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
     },
     "PrivateEndpoint": {
       "type": "object",
@@ -509,6 +525,11 @@
         "name"
       ],
       "description": "SKU for the resource."
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
     },
     "VirtualNetworkPeeringPropertiesFormat": {
       "type": "object",
