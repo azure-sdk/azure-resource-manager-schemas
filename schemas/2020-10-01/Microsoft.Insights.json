@@ -15,8 +15,7 @@
         },
         "location": {
           "type": "string",
-          "default": "global",
-          "description": "The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'."
+          "description": "Resource location"
         },
         "name": {
           "type": "string",
@@ -46,7 +45,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The tags of the resource."
+          "description": "Resource tags"
         },
         "type": {
           "type": "string",
@@ -57,6 +56,7 @@
       },
       "required": [
         "apiVersion",
+        "location",
         "name",
         "properties",
         "type"
@@ -65,7 +65,7 @@
     }
   },
   "definitions": {
-    "ActionGroup": {
+    "ActionGroupForActivityLogAlerts": {
       "type": "object",
       "properties": {
         "actionGroupId": {
@@ -101,7 +101,7 @@
             {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ActionGroup"
+                "$ref": "#/definitions/ActionGroupForActivityLogAlerts"
               }
             },
             {
