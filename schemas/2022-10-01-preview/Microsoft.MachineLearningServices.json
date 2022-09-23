@@ -1,16 +1,471 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-10-01-preview/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
   "resourceDefinitions": {
+    "registries": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of registry. This is case-insensitive"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Registry"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the Registry"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/registries_codes_childResource"
+              },
+              {
+                "$ref": "#/definitions/registries_components_childResource"
+              },
+              {
+                "$ref": "#/definitions/registries_environments_childResource"
+              },
+              {
+                "$ref": "#/definitions/registries_models_childResource"
+              }
+            ]
+          }
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries"
+    },
+    "registries_codes": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CodeContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container for code asset versions."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/registries_codes_versions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/codes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/codes"
+    },
+    "registries_codes_versions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CodeVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Code asset version details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/codes/versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/codes/versions"
+    },
+    "registries_components": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComponentContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Component container definition.\r\n<see href=\"https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command\" />"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/registries_components_versions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/components"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/components"
+    },
+    "registries_components_versions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComponentVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Definition of a component version: defines resources that span component types."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/components/versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/components/versions"
+    },
+    "registries_environments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container for environment specification versions."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/registries_environments_versions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/environments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/environments"
+    },
+    "registries_environments_versions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment version details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/environments/versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/environments/versions"
+    },
+    "registries_models": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ModelContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/registries_models_versions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/models"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/models"
+    },
+    "registries_models_versions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ModelVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model asset version details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/models/versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/models/versions"
+    },
     "workspaces": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -139,7 +594,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -234,7 +689,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -319,7 +774,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -368,7 +823,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -407,7 +862,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -456,7 +911,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -495,7 +950,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -575,7 +1030,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -613,7 +1068,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -662,7 +1117,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -701,7 +1156,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -740,7 +1195,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -789,7 +1244,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -828,7 +1283,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -867,7 +1322,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -906,7 +1361,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -954,7 +1409,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -993,7 +1448,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -1088,7 +1543,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -1172,7 +1627,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -1252,7 +1707,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -1287,6 +1742,30 @@
     }
   },
   "definitions": {
+    "AccessKeyAuthTypeWorkspaceConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "AccessKey"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkspaceConnectionAccessKey"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
     "AccountKeyDatastoreCredentials": {
       "type": "object",
       "properties": {
@@ -1324,6 +1803,47 @@
       },
       "description": "Datastore account key secrets."
     },
+    "AcrDetails": {
+      "type": "object",
+      "properties": {
+        "systemCreatedAcrAccount": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemCreatedAcrAccount"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userCreatedAcrAccount": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserCreatedAcrAccount"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Details of ACR account to be used for the Registry"
+    },
+    "AllNodes": {
+      "type": "object",
+      "properties": {
+        "nodesValueType": {
+          "type": "string",
+          "enum": [
+            "All"
+          ]
+        }
+      },
+      "required": [
+        "nodesValueType"
+      ],
+      "description": "All nodes means the service will be running on all of the nodes of the job"
+    },
     "AmlToken": {
       "type": "object",
       "properties": {
@@ -1338,6 +1858,16 @@
         "identityType"
       ],
       "description": "AML Token identity configuration."
+    },
+    "ArmResourceId": {
+      "type": "object",
+      "properties": {
+        "resourceId": {
+          "type": "string",
+          "description": "Arm ResourceId is in the format \"/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Storage/storageAccounts/{StorageAccountName}\"\r\nor \"/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{AcrName}\""
+        }
+      },
+      "description": "ARM ResourceId of a resource"
     },
     "AssetReferenceBase": {
       "type": "object",
@@ -1354,6 +1884,30 @@
       ],
       "properties": {},
       "description": "Base definition for asset references."
+    },
+    "AutologgerSettings": {
+      "type": "object",
+      "properties": {
+        "mlflowAutologger": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Indicates whether mlflow autologger is enabled."
+        }
+      },
+      "required": [
+        "mlflowAutologger"
+      ],
+      "description": "Settings for Autologger."
     },
     "AutoMLJob": {
       "type": "object",
@@ -2106,6 +2660,17 @@
     "CommandJob": {
       "type": "object",
       "properties": {
+        "autologgerSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AutologgerSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Settings for Autologger."
+        },
         "codeId": {
           "type": "string",
           "description": "ARM resource ID of the code asset."
@@ -2372,17 +2937,6 @@
         "description": {
           "type": "string",
           "description": "The description of the Machine Learning compute."
-        },
-        "disableLocalAuth": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication."
         },
         "resourceId": {
           "type": "string",
@@ -2691,7 +3245,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "[Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220601Preview.Assets.DataVersionBase.DataType"
+          "description": "[Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20221001Preview.Assets.DataVersionBase.DataType"
         },
         "description": {
           "type": "string",
@@ -3516,6 +4070,17 @@
           "type": "string",
           "description": "Endpoint type."
         },
+        "nodes": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Nodes"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Abstract Nodes definition"
+        },
         "port": {
           "oneOf": [
             {
@@ -3525,7 +4090,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Port for endpoint."
+          "description": "Port for endpoint set by user."
         },
         "properties": {
           "oneOf": [
@@ -4308,6 +4873,16 @@
       ],
       "description": "MPI distribution configuration."
     },
+    "Nodes": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AllNodes"
+        }
+      ],
+      "properties": {},
+      "description": "Abstract Nodes definition"
+    },
     "NoneAuthTypeWorkspaceConnectionProperties": {
       "type": "object",
       "properties": {
@@ -5013,6 +5588,20 @@
           ],
           "description": "[Required] List of minutes for the schedule."
         },
+        "monthDays": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of month days for the schedule"
+        },
         "weekDays": {
           "oneOf": [
             {
@@ -5094,9 +5683,444 @@
       "required": [
         "frequency",
         "interval",
-        "schedule",
         "triggerType"
       ]
+    },
+    "registries_codes_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CodeContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container for code asset versions."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "codes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/codes"
+    },
+    "registries_codes_versions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CodeVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Code asset version details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/codes/versions"
+    },
+    "registries_components_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComponentContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Component container definition.\r\n<see href=\"https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command\" />"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "components"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/components"
+    },
+    "registries_components_versions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComponentVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Definition of a component version: defines resources that span component types."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/components/versions"
+    },
+    "registries_environments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container for environment specification versions."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "environments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/environments"
+    },
+    "registries_environments_versions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment version details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/environments/versions"
+    },
+    "registries_models_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ModelContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "models"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/models"
+    },
+    "registries_models_versions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ModelVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model asset version details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/models/versions"
+    },
+    "Registry": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The asset description text."
+        },
+        "discoveryUrl": {
+          "type": "string"
+        },
+        "intellectualPropertyPublisher": {
+          "type": "string"
+        },
+        "managedResourceGroup": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArmResourceId"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ARM ResourceId of a resource"
+        },
+        "mlFlowRegistryUri": {
+          "type": "string"
+        },
+        "privateLinkCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The asset property dictionary."
+        },
+        "publicNetworkAccess": {
+          "type": "string"
+        },
+        "regionDetails": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RegistryRegionArmDetails"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of each region the registry is in"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tag dictionary. Tags can be added, removed, and updated."
+        }
+      },
+      "description": "Details of the Registry"
+    },
+    "RegistryRegionArmDetails": {
+      "type": "object",
+      "properties": {
+        "acrDetails": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AcrDetails"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of ACR accounts"
+        },
+        "location": {
+          "type": "string",
+          "description": "The location where the registry exists"
+        },
+        "storageAccountDetails": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StorageAccountDetails"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of storage accounts"
+        }
+      },
+      "description": "Details for each region the registry is in"
     },
     "Route": {
       "type": "object",
@@ -5313,6 +6337,30 @@
           ]
         }
       }
+    },
+    "ServicePrincipalAuthTypeWorkspaceConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "ServicePrincipal"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkspaceConnectionServicePrincipal"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
     },
     "ServicePrincipalDatastoreCredentials": {
       "type": "object",
@@ -5708,7 +6756,7 @@
         "sparkJobEntryType": {
           "type": "string",
           "enum": [
-            "SparkJobPythonEntry"
+            "SparkJobScalaEntry"
           ]
         }
       },
@@ -5730,6 +6778,32 @@
           "description": "Version of spark runtime used for the job."
         }
       }
+    },
+    "StorageAccountDetails": {
+      "type": "object",
+      "properties": {
+        "systemCreatedStorageAccount": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemCreatedStorageAccount"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userCreatedStorageAccount": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserCreatedStorageAccount"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Details of storage account to be used for the Registry"
     },
     "SweepJob": {
       "type": "object",
@@ -5966,6 +7040,55 @@
         "workspaceName": {
           "type": "string",
           "description": "Name of Azure Machine Learning workspace."
+        }
+      }
+    },
+    "SystemCreatedAcrAccount": {
+      "type": "object",
+      "properties": {
+        "acrAccountSku": {
+          "type": "string"
+        },
+        "armResourceId": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArmResourceId"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ARM ResourceId of a resource"
+        }
+      }
+    },
+    "SystemCreatedStorageAccount": {
+      "type": "object",
+      "properties": {
+        "armResourceId": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArmResourceId"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ARM ResourceId of a resource"
+        },
+        "storageAccountHnsEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageAccountType": {
+          "type": "string",
+          "description": "Allowed values:\r\n\"Standard_LRS\",\r\n\"Standard_GRS\",\r\n\"Standard_RAGRS\",\r\n\"Standard_ZRS\",\r\n\"Standard_GZRS\",\r\n\"Standard_RAGZRS\",\r\n\"Premium_LRS\",\r\n\"Premium_ZRS\""
         }
       }
     },
@@ -6226,6 +7349,38 @@
       "properties": {},
       "description": "User assigned identity properties"
     },
+    "UserCreatedAcrAccount": {
+      "type": "object",
+      "properties": {
+        "armResourceId": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArmResourceId"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ARM ResourceId of a resource"
+        }
+      }
+    },
+    "UserCreatedStorageAccount": {
+      "type": "object",
+      "properties": {
+        "armResourceId": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArmResourceId"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ARM ResourceId of a resource"
+        }
+      }
+    },
     "UserIdentity": {
       "type": "object",
       "properties": {
@@ -6265,6 +7420,17 @@
         "authType"
       ]
     },
+    "WorkspaceConnectionAccessKey": {
+      "type": "object",
+      "properties": {
+        "accessKeyId": {
+          "type": "string"
+        },
+        "secretAccessKey": {
+          "type": "string"
+        }
+      }
+    },
     "WorkspaceConnectionManagedIdentity": {
       "type": "object",
       "properties": {
@@ -6297,6 +7463,12 @@
           "$ref": "#/definitions/UsernamePasswordAuthTypeWorkspaceConnectionProperties"
         },
         {
+          "$ref": "#/definitions/AccessKeyAuthTypeWorkspaceConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/ServicePrincipalAuthTypeWorkspaceConnectionProperties"
+        },
+        {
           "$ref": "#/definitions/NoneAuthTypeWorkspaceConnectionProperties"
         },
         {
@@ -6305,19 +7477,8 @@
       ],
       "properties": {
         "category": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "PythonFeed",
-                "ContainerRegistry",
-                "Git"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "type": "string",
+          "description": "Category of the connection"
         },
         "target": {
           "type": "string"
@@ -6339,6 +7500,20 @@
             }
           ],
           "description": "format for the workspace connection value."
+        }
+      }
+    },
+    "WorkspaceConnectionServicePrincipal": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "tenantId": {
+          "type": "string"
         }
       }
     },
@@ -6494,7 +7669,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -6579,7 +7754,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -6664,7 +7839,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -6703,7 +7878,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -6742,7 +7917,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -6781,7 +7956,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -6820,7 +7995,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -6900,7 +8075,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -6938,7 +8113,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -6977,7 +8152,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -7016,7 +8191,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -7055,7 +8230,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -7094,7 +8269,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -7133,7 +8308,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -7172,7 +8347,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -7211,7 +8386,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -7249,7 +8424,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
@@ -7288,7 +8463,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -7373,7 +8548,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -7457,7 +8632,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "identity": {
@@ -7537,7 +8712,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-10-01-preview"
           ]
         },
         "name": {
