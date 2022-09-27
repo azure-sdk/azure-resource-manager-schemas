@@ -1075,7 +1075,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Ignore missing vnet service endpoint or not."
+          "description": "Ignore missing vnet services endpoint or not."
         },
         "state": {
           "type": "string",
