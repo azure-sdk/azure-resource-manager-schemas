@@ -1108,9 +1108,29 @@
     "CertificateProperties": {
       "type": "object",
       "properties": {
+        "domainControlValidation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CNAME",
+                "HTTP",
+                "TXT"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Selected type of domain control validation for managed certificates."
+        },
         "password": {
           "type": "string",
           "description": "Certificate password."
+        },
+        "subjectName": {
+          "type": "string",
+          "description": "Subject name of the certificate."
         },
         "value": {
           "oneOf": [
