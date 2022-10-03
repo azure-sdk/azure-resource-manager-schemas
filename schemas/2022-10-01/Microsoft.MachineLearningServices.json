@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-05-01/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -82,6 +82,9 @@
               },
               {
                 "$ref": "#/definitions/workspaces_onlineEndpoints_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_schedules_childResource"
               }
             ]
           }
@@ -133,7 +136,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -228,7 +231,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -313,7 +316,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -362,7 +365,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -401,7 +404,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -450,7 +453,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -489,7 +492,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -569,7 +572,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -607,7 +610,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -656,7 +659,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -695,7 +698,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -734,7 +737,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -783,7 +786,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -822,7 +825,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -861,7 +864,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -909,7 +912,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -948,7 +951,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -1043,7 +1046,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -1127,7 +1130,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -1200,6 +1203,45 @@
         "type"
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+    },
+    "workspaces_schedules": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Schedule name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base definition of a schedule"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/schedules"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/schedules"
     }
   },
   "definitions": {
@@ -1270,6 +1312,119 @@
       ],
       "properties": {},
       "description": "Base definition for asset references."
+    },
+    "AutoMLJob": {
+      "type": "object",
+      "properties": {
+        "environmentId": {
+          "type": "string",
+          "description": "The ARM resource ID of the Environment specification for the job.\r\nThis is optional value to provide, if not provided, AutoML will default this to Production AutoML curated environment version when running the job."
+        },
+        "environmentVariables": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment variables included in the job."
+        },
+        "jobType": {
+          "type": "string",
+          "enum": [
+            "AutoML"
+          ]
+        },
+        "outputs": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JobOutput"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Mapping of output data bindings used in the job."
+        },
+        "resources": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobResourceConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "taskDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AutoMLVertical"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AutoML vertical class.\r\nBase class for AutoML verticals - TableVertical/ImageVertical/NLPVertical"
+        }
+      },
+      "required": [
+        "jobType",
+        "taskDetails"
+      ],
+      "description": "AutoMLJob class.\r\nUse this class for executing AutoML tasks like Classification/Regression etc.\r\nSee TaskType enum for all the tasks supported."
+    },
+    "AutoMLVertical": {
+      "type": "object",
+      "properties": {
+        "logVerbosity": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotSet",
+                "Debug",
+                "Info",
+                "Warning",
+                "Error",
+                "Critical"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Log verbosity for the job."
+        },
+        "targetColumnName": {
+          "type": "string",
+          "description": "Target column name: This is prediction values column.\r\nAlso known as label column name in context of classification tasks."
+        },
+        "trainingData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MLTableJobInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "trainingData"
+      ],
+      "description": "AutoML vertical class.\r\nBase class for AutoML verticals - TableVertical/ImageVertical/NLPVertical"
     },
     "AutoPauseProperties": {
       "type": "object",
@@ -1735,7 +1890,7 @@
         "resources": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ResourceConfiguration"
+              "$ref": "#/definitions/DeploymentResourceConfiguration"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2235,7 +2390,7 @@
         "resources": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ResourceConfiguration"
+              "$ref": "#/definitions/JobResourceConfiguration"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2397,17 +2552,6 @@
           "type": "string",
           "description": "The description of the Machine Learning compute."
         },
-        "disableLocalAuth": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication."
-        },
         "resourceId": {
           "type": "string",
           "description": "ARM resource id of the underlying compute"
@@ -2473,6 +2617,33 @@
           "description": "The throughput of the collections in cosmosdb database"
         }
       }
+    },
+    "CronTrigger": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_]"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Specifies cron expression of schedule.\r\nThe expression should follow NCronTab format."
+        },
+        "triggerType": {
+          "type": "string",
+          "enum": [
+            "Cron"
+          ]
+        }
+      },
+      "required": [
+        "expression",
+        "triggerType"
+      ]
     },
     "DataContainer": {
       "type": "object",
@@ -2697,7 +2868,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "[Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220501.Assets.DataVersionBase.DataType"
+          "description": "[Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20221001.Assets.DataVersionBase.DataType"
         },
         "description": {
           "type": "string",
@@ -2776,6 +2947,43 @@
       "required": [
         "scaleType"
       ]
+    },
+    "DeploymentResourceConfiguration": {
+      "type": "object",
+      "properties": {
+        "instanceCount": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "1"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional number of instances or nodes used by the compute target."
+        },
+        "instanceType": {
+          "type": "string",
+          "description": "Optional type of VM used as supported by the compute target."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Additional properties bag."
+        }
+      }
     },
     "DistributionConfiguration": {
       "type": "object",
@@ -2914,6 +3122,26 @@
       },
       "description": "Keys for endpoint authentication."
     },
+    "EndpointScheduleAction": {
+      "type": "object",
+      "properties": {
+        "actionType": {
+          "type": "string",
+          "enum": [
+            "InvokeBatchEndpoint"
+          ]
+        },
+        "endpointInvocationDefinition": {
+          "type": "object",
+          "properties": {},
+          "description": "[Required] Defines Schedule action definition details.\r\n<see href=\"TBD\" />"
+        }
+      },
+      "required": [
+        "actionType",
+        "endpointInvocationDefinition"
+      ]
+    },
     "EnvironmentContainer": {
       "type": "object",
       "properties": {
@@ -2969,6 +3197,21 @@
     "EnvironmentVersion": {
       "type": "object",
       "properties": {
+        "autoRebuild": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "OnBaseImageUpdate"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines if image needs to be rebuilt based on base image changes."
+        },
         "build": {
           "oneOf": [
             {
@@ -3202,6 +3445,9 @@
       "type": "object",
       "oneOf": [
         {
+          "$ref": "#/definitions/AutoMLJob"
+        },
+        {
           "$ref": "#/definitions/CommandJob"
         },
         {
@@ -3212,6 +3458,10 @@
         }
       ],
       "properties": {
+        "componentId": {
+          "type": "string",
+          "description": "ARM resource ID of the component resource."
+        },
         "computeId": {
           "type": "string",
           "description": "ARM resource ID of the compute resource."
@@ -3324,6 +3574,86 @@
         }
       },
       "description": "Job output definition container information on where to find job output/logs."
+    },
+    "JobResourceConfiguration": {
+      "type": "object",
+      "properties": {
+        "dockerArgs": {
+          "type": "string",
+          "description": "Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types."
+        },
+        "instanceCount": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "1"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional number of instances or nodes used by the compute target."
+        },
+        "instanceType": {
+          "type": "string",
+          "description": "Optional type of VM used as supported by the compute target."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Additional properties bag."
+        },
+        "shmSize": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "\\d+[bBkKmMgG]",
+              "default": "2g"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Size of the docker container's shared memory block. This should be in the format of (number)(unit) where number as to be greater than 0 and the unit can be one of b(bytes), k(kilobytes), m(megabytes), or g(gigabytes)."
+        }
+      }
+    },
+    "JobScheduleAction": {
+      "type": "object",
+      "properties": {
+        "actionType": {
+          "type": "string",
+          "enum": [
+            "CreateJob"
+          ]
+        },
+        "jobDefinition": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base definition for a job."
+        }
+      },
+      "required": [
+        "actionType",
+        "jobDefinition"
+      ]
     },
     "JobService": {
       "type": "object",
@@ -3584,6 +3914,70 @@
         "dataType"
       ],
       "description": "MLTable data definition"
+    },
+    "MLTableJobInput": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description for the input."
+        },
+        "jobInputType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "literal",
+                "uri_file",
+                "uri_folder",
+                "mltable",
+                "custom_model",
+                "mlflow_model",
+                "triton_model"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Specifies the type of job."
+        },
+        "mode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ReadOnlyMount",
+                "ReadWriteMount",
+                "Download",
+                "Direct",
+                "EvalMount",
+                "EvalDownload"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Input Asset Delivery Mode."
+        },
+        "uri": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_]"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Input Asset URI."
+        }
+      },
+      "required": [
+        "jobInputType",
+        "uri"
+      ]
     },
     "ModelContainer": {
       "type": "object",
@@ -3857,6 +4251,21 @@
           "type": "string",
           "description": "Description of the endpoint deployment."
         },
+        "egressPublicNetworkAccess": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled."
+        },
         "environmentId": {
           "type": "string",
           "description": "ARM resource ID or AssetId of the environment specification for the endpoint deployment."
@@ -4001,6 +4410,21 @@
             }
           ],
           "description": "Property dictionary. Properties can be added, but not removed or altered."
+        },
+        "publicNetworkAccess": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Set to \"Enabled\" for endpoints that should allow public access when Private Link is enabled."
         },
         "traffic": {
           "oneOf": [
@@ -4172,6 +4596,10 @@
           "type": "object",
           "properties": {},
           "description": "Pipeline settings, for things like ContinueRunOnStepFailure etc."
+        },
+        "sourceJobId": {
+          "type": "string",
+          "description": "ARM resource ID of source job."
         }
       },
       "required": [
@@ -4378,42 +4806,134 @@
       ],
       "description": "Defines a Sampling Algorithm that generates values randomly"
     },
-    "ResourceConfiguration": {
+    "RecurrenceSchedule": {
       "type": "object",
       "properties": {
-        "instanceCount": {
+        "hours": {
           "oneOf": [
             {
-              "type": "integer",
-              "default": "1"
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Optional number of instances or nodes used by the compute target."
+          "description": "[Required] List of hours for the schedule."
         },
-        "instanceType": {
-          "type": "string",
-          "description": "Optional type of VM used as supported by the compute target."
-        },
-        "properties": {
+        "minutes": {
           "oneOf": [
             {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "properties": {}
-              },
-              "properties": {}
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Additional properties bag."
+          "description": "[Required] List of minutes for the schedule."
+        },
+        "monthDays": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of month days for the schedule"
+        },
+        "weekDays": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of days for the schedule."
         }
-      }
+      },
+      "required": [
+        "hours",
+        "minutes"
+      ]
+    },
+    "RecurrenceTrigger": {
+      "type": "object",
+      "properties": {
+        "frequency": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Minute",
+                "Hour",
+                "Day",
+                "Week",
+                "Month"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] The frequency to trigger schedule."
+        },
+        "interval": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Specifies schedule interval in conjunction with frequency"
+        },
+        "schedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecurrenceSchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "triggerType": {
+          "type": "string",
+          "enum": [
+            "Recurrence"
+          ]
+        }
+      },
+      "required": [
+        "frequency",
+        "interval",
+        "triggerType"
+      ]
     },
     "Route": {
       "type": "object",
@@ -4523,6 +5043,98 @@
         }
       },
       "description": "Datastore SAS secrets."
+    },
+    "Schedule": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduleActionBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "The asset description text."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of schedule."
+        },
+        "isEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Is the schedule enabled?"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The asset property dictionary."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tag dictionary. Tags can be added, removed, and updated."
+        },
+        "trigger": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TriggerBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "action",
+        "trigger"
+      ],
+      "description": "Base definition of a schedule"
+    },
+    "ScheduleActionBase": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/EndpointScheduleAction"
+        },
+        {
+          "$ref": "#/definitions/JobScheduleAction"
+        }
+      ],
+      "properties": {}
     },
     "ServiceManagedResourcesSettings": {
       "type": "object",
@@ -5107,7 +5719,7 @@
         "resources": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ResourceConfiguration"
+              "$ref": "#/definitions/JobResourceConfiguration"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5120,6 +5732,32 @@
         "environmentId"
       ],
       "description": "Trial component definition."
+    },
+    "TriggerBase": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/RecurrenceTrigger"
+        },
+        {
+          "$ref": "#/definitions/CronTrigger"
+        }
+      ],
+      "properties": {
+        "endTime": {
+          "type": "string",
+          "description": "Specifies end time of schedule in ISO 8601, but without a UTC offset. Refer https://en.wikipedia.org/wiki/ISO_8601.\r\nRecommented format would be \"2022-06-01T00:00:01\"\r\nIf not present, the schedule will run indefinitely"
+        },
+        "startTime": {
+          "type": "string",
+          "description": "Specifies start time of schedule in ISO 8601 format, but without a UTC offset."
+        },
+        "timeZone": {
+          "type": "string",
+          "default": "UTC",
+          "description": "Specifies time zone in which the schedule runs.\r\nTimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11"
+        }
+      }
     },
     "TruncationSelectionPolicy": {
       "type": "object",
@@ -5451,7 +6089,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -5536,7 +6174,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -5621,7 +6259,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5660,7 +6298,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5699,7 +6337,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5738,7 +6376,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5777,7 +6415,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -5857,7 +6495,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5895,7 +6533,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5934,7 +6572,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -5973,7 +6611,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6012,7 +6650,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6051,7 +6689,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6090,7 +6728,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6129,7 +6767,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6167,7 +6805,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -6206,7 +6844,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -6291,7 +6929,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -6375,7 +7013,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-05-01"
+            "2022-10-01"
           ]
         },
         "identity": {
@@ -6448,6 +7086,45 @@
         "type"
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+    },
+    "workspaces_schedules_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Schedule name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base definition of a schedule"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "schedules"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/schedules"
     }
   }
 }
