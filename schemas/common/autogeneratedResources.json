@@ -5162,21 +5162,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-03-02/Microsoft.Compute.json#/resourceDefinitions/snapshots"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2022-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_applications"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_applications_versions"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_images"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_images_versions"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2022-04-04/Microsoft.Compute.json#/resourceDefinitions/cloudServices"
         },
         {
