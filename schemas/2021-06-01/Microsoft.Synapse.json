@@ -3401,10 +3401,6 @@
     "ManagedIntegrationRuntimeManagedVirtualNetworkReference": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "The id of the managed virtual network."
-        },
         "referenceName": {
           "type": "string",
           "description": "The reference name of the managed virtual network"
