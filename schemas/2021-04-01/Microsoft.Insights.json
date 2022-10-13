@@ -458,7 +458,8 @@
                   "Microsoft-InsightsMetrics",
                   "Microsoft-Perf",
                   "Microsoft-Syslog",
-                  "Microsoft-WindowsEvent"
+                  "Microsoft-WindowsEvent",
+                  "Microsoft-SecurityEvent"
                 ]
               }
             },
@@ -522,7 +523,8 @@
                   "Microsoft-InsightsMetrics",
                   "Microsoft-Perf",
                   "Microsoft-Syslog",
-                  "Microsoft-WindowsEvent"
+                  "Microsoft-WindowsEvent",
+                  "Microsoft-SecurityEvent"
                 ]
               }
             },
