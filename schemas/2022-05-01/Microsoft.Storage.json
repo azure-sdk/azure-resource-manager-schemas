@@ -1152,6 +1152,17 @@
           ],
           "description": "An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'."
         },
+        "Creation-Time": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BlobInventoryPolicyFilterTime"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "***"
+        },
         "excludePrefix": {
           "oneOf": [
             {
@@ -1199,6 +1210,17 @@
           ],
           "description": "Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded."
         },
+        "Last-Modified": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BlobInventoryPolicyFilterTime"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "***"
+        },
         "prefixMatch": {
           "oneOf": [
             {
@@ -1215,6 +1237,23 @@
         }
       },
       "description": "An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional."
+    },
+    "BlobInventoryPolicyFilterTime": {
+      "type": "object",
+      "properties": {
+        "LastNDays": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "*************"
+        }
+      },
+      "description": "***"
     },
     "BlobInventoryPolicyProperties": {
       "type": "object",
