@@ -13544,36 +13544,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-08-01/Microsoft.Migrate.ResourceMover.json#/resourceDefinitions/moveCollections_moveResources"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2019-02-28-preview/Microsoft.MixedReality.json#/resourceDefinitions/spatialAnchorsAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-12-02-preview/Microsoft.MixedReality.json#/resourceDefinitions/remoteRenderingAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-12-02-preview/Microsoft.MixedReality.json#/resourceDefinitions/spatialAnchorsAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-04-06-preview/Microsoft.MixedReality.json#/resourceDefinitions/remoteRenderingAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.MixedReality.json#/resourceDefinitions/spatialAnchorsAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-01-01/Microsoft.MixedReality.json#/resourceDefinitions/remoteRenderingAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-01-01/Microsoft.MixedReality.json#/resourceDefinitions/spatialAnchorsAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.MixedReality.json#/resourceDefinitions/objectAnchorsAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.MixedReality.json#/resourceDefinitions/remoteRenderingAccounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.MixedReality.json#/resourceDefinitions/spatialAnchorsAccounts"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2022-03-01-preview/Microsoft.MobileNetwork.json#/resourceDefinitions/mobileNetworks"
         },
         {
