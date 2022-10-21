@@ -1574,8 +1574,7 @@
         "enabled": {
           "oneOf": [
             {
-              "type": "boolean",
-              "default": false
+              "type": "boolean"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1596,8 +1595,7 @@
         "ignoreErrors": {
           "oneOf": [
             {
-              "type": "boolean",
-              "default": false
+              "type": "boolean"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2168,8 +2166,7 @@
         "allowInsecure": {
           "oneOf": [
             {
-              "type": "boolean",
-              "default": false
+              "type": "boolean"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
