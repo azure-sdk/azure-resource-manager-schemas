@@ -2099,6 +2099,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.App.json#/resourceDefinitions/managedEnvironments_daprComponents"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.App.json#/resourceDefinitions/managedEnvironments_managedCertificates"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.App.json#/resourceDefinitions/managedEnvironments_storages"
         },
         {

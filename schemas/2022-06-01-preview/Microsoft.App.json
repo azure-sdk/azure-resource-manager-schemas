@@ -438,6 +438,9 @@
                 "$ref": "#/definitions/managedEnvironments_certificates_childResource"
               },
               {
+                "$ref": "#/definitions/managedEnvironments_managedCertificates_childResource"
+              },
+              {
                 "$ref": "#/definitions/managedEnvironments_storages_childResource"
               }
             ]
@@ -582,6 +585,65 @@
         "type"
       ],
       "description": "Microsoft.App/managedEnvironments/daprComponents"
+    },
+    "managedEnvironments_managedCertificates": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Managed Certificate."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedCertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Certificate resource specific properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/managedEnvironments/managedCertificates"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/managedCertificates"
     },
     "managedEnvironments_storages": {
       "type": "object",
@@ -3113,6 +3175,32 @@
       },
       "description": "The configuration settings of the login flow, including the scopes that should be requested."
     },
+    "ManagedCertificateProperties": {
+      "type": "object",
+      "properties": {
+        "domainControlValidation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CNAME",
+                "HTTP",
+                "TXT"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Selected type of domain control validation for managed certificates."
+        },
+        "subjectName": {
+          "type": "string",
+          "description": "Subject name of the certificate."
+        }
+      },
+      "description": "Certificate resource specific properties"
+    },
     "ManagedEnvironmentOutboundSettings": {
       "type": "object",
       "properties": {
@@ -3323,6 +3411,65 @@
         "type"
       ],
       "description": "Microsoft.App/managedEnvironments/daprComponents"
+    },
+    "managedEnvironments_managedCertificates_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Managed Certificate."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedCertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Certificate resource specific properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "managedCertificates"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/managedCertificates"
     },
     "managedEnvironments_storages_childResource": {
       "type": "object",
