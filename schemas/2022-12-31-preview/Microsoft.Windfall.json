@@ -1,0 +1,90 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-12-31-preview/Microsoft.Windfall.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Windfall",
+  "description": "Microsoft Windfall Resource Types",
+  "resourceDefinitions": {
+    "WindfallDeployments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-31-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Unique identifier for this Windfall deployment"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WindfallDeploymentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the WindfallDeployment resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Windfall/WindfallDeployments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Windfall/WindfallDeployments"
+    }
+  },
+  "definitions": {
+    "WindfallDeploymentProperties": {
+      "type": "object",
+      "properties": {
+        "property1": {
+          "type": "string",
+          "description": "A property"
+        }
+      },
+      "required": [
+        "property1"
+      ],
+      "description": "Details of the WindfallDeployment resource."
+    }
+  }
+}
