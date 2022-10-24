@@ -29861,6 +29861,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Web.json#/resourceDefinitions/staticSites_userProvidedFunctionApps"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-31-preview/Microsoft.Windfall.json#/resourceDefinitions/WindfallDeployments"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2019-09-16-preview/Microsoft.WindowsESU.json#/resourceDefinitions/multipleActivationKeys"
         },
         {
