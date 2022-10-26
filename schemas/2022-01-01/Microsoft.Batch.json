@@ -415,9 +415,6 @@
           "description": "The resource ID of the storage account to be used for auto-storage account."
         }
       },
-      "required": [
-        "storageAccountId"
-      ],
       "description": "The properties related to the auto-storage account."
     },
     "AutoUserSpecification": {
