@@ -396,7 +396,6 @@
         },
         "resourceId": {
           "type": "string",
-          "format": "arm-id",
           "description": "The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription."
         }
       },
@@ -628,7 +627,6 @@
       "properties": {
         "resourceId": {
           "type": "string",
-          "format": "arm-id",
           "description": "The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription."
         }
       },
@@ -832,7 +830,6 @@
       "properties": {
         "resourceId": {
           "type": "string",
-          "format": "arm-id",
           "description": "The Azure Resource ID of an hybrid connection that is the destination of an event subscription."
         }
       },
@@ -1287,7 +1284,6 @@
       "properties": {
         "resourceId": {
           "type": "string",
-          "format": "arm-id",
           "description": "The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription."
         }
       },
@@ -1324,7 +1320,6 @@
       "properties": {
         "resourceId": {
           "type": "string",
-          "format": "arm-id",
           "description": "The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription."
         }
       },
@@ -1365,7 +1360,6 @@
         },
         "resourceId": {
           "type": "string",
-          "format": "arm-id",
           "description": "The Azure Resource ID of the storage account that is the destination of the deadletter events"
         }
       },
@@ -1406,7 +1400,6 @@
         },
         "resourceId": {
           "type": "string",
-          "format": "arm-id",
           "description": "The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription."
         }
       },
