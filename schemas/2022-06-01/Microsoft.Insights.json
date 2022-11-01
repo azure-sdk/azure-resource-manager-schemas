@@ -166,6 +166,7 @@
         },
         "groupShortName": {
           "type": "string",
+          "minLength": 2,
           "maxLength": 12,
           "description": "The short name of the action group. This will be used in SMS messages."
         },
@@ -393,7 +394,15 @@
       "type": "object",
       "properties": {
         "emailAddress": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The email address of this receiver."
         },
         "name": {
