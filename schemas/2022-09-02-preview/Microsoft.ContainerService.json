@@ -1128,6 +1128,9 @@
           "description": "DNS prefix used to create the FQDN for the Fleet hub."
         }
       },
+      "required": [
+        "dnsPrefix"
+      ],
       "description": "The FleetHubProfile configures the fleet hub."
     },
     "FleetMemberProperties": {
