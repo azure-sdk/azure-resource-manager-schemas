@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-03-01-preview/Microsoft.AzureArcData.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-06-15-preview/Microsoft.AzureArcData.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.AzureArcData",
   "description": "Microsoft AzureArcData Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2022-06-15-preview"
           ]
         },
         "extendedLocation": {
@@ -90,7 +90,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2022-06-15-preview"
           ]
         },
         "name": {
@@ -129,7 +129,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2022-06-15-preview"
           ]
         },
         "extendedLocation": {
@@ -210,7 +210,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2022-06-15-preview"
           ]
         },
         "extendedLocation": {
@@ -291,7 +291,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2022-06-15-preview"
           ]
         },
         "location": {
@@ -312,6 +312,16 @@
             }
           ],
           "description": "Properties of SqlServerInstance."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/sqlServerInstances_databases_childResource"
+              }
+            ]
+          }
         },
         "tags": {
           "oneOf": [
@@ -343,6 +353,65 @@
         "type"
       ],
       "description": "Microsoft.AzureArcData/sqlServerInstances"
+    },
+    "sqlServerInstances_databases": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the database"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlServerDatabaseResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Arc Sql Server database resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureArcData/sqlServerInstances/databases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureArcData/sqlServerInstances/databases"
     }
   },
   "definitions": {
@@ -440,7 +509,6 @@
         }
       },
       "required": [
-        "domainControllers",
         "realm"
       ],
       "description": "Active Directory domain details"
@@ -761,7 +829,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2022-06-15-preview"
           ]
         },
         "name": {
@@ -1321,6 +1389,227 @@
       ],
       "description": "The resource model definition representing SKU for Azure Managed Instance - Azure Arc"
     },
+    "SqlServerDatabaseResourceProperties": {
+      "type": "object",
+      "properties": {
+        "backupInformation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlServerDatabaseResourcePropertiesBackupInformation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "collationName": {
+          "type": "string",
+          "description": "Collation of the database."
+        },
+        "compatibilityLevel": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 80,
+              "maximum": 200
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Compatibility level of the database"
+        },
+        "databaseCreationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation date of the database."
+        },
+        "databaseOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlServerDatabaseResourcePropertiesDatabaseOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of features that are enabled for the database"
+        },
+        "isReadOnly": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether the database is read only or not."
+        },
+        "recoveryMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Full",
+                "Bulk-logged",
+                "Simple"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the database."
+        },
+        "sizeMB": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Size of the database."
+        },
+        "spaceAvailableMB": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Space left of the database."
+        },
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Online",
+                "Restoring",
+                "Recovering",
+                "RecoveryPending",
+                "Suspect",
+                "Emergency",
+                "Offline",
+                "Copying",
+                "OfflineSecondary"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "State of the database."
+        }
+      },
+      "description": "The properties of Arc Sql Server database resource"
+    },
+    "SqlServerDatabaseResourcePropertiesBackupInformation": {
+      "type": "object",
+      "properties": {
+        "lastFullBackup": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date time of last full backup."
+        },
+        "lastLogBackup": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date time of last log backup."
+        }
+      }
+    },
+    "SqlServerDatabaseResourcePropertiesDatabaseOptions": {
+      "type": "object",
+      "properties": {
+        "isAutoCloseOn": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isAutoCreateStatsOn": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isAutoShrinkOn": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isAutoUpdateStatsOn": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isEncrypted": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isMemoryOptimizationEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isRemoteDataArchiveEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isTrustworthyOn": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "List of features that are enabled for the database"
+    },
     "SqlServerInstanceProperties": {
       "type": "object",
       "properties": {
@@ -1352,6 +1641,10 @@
         "containerResourceId": {
           "type": "string",
           "description": "ARM Resource id of the container resource (Azure Arc for Servers)."
+        },
+        "cores": {
+          "type": "string",
+          "description": "The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance."
         },
         "currentVersion": {
           "type": "string",
@@ -1489,6 +1782,65 @@
         "status"
       ],
       "description": "Properties of SqlServerInstance."
+    },
+    "sqlServerInstances_databases_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the database"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlServerDatabaseResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Arc Sql Server database resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "databases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureArcData/sqlServerInstances/databases"
     },
     "UploadServicePrincipal": {
       "type": "object",
