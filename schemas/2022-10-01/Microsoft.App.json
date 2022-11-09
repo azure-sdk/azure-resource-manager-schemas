@@ -1,17 +1,251 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.App.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.App.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.App",
   "description": "Microsoft App Resource Types",
   "resourceDefinitions": {
+    "connectedEnvironments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the connectedEnvironment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectedEnvironmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ConnectedEnvironment resource specific properties"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/connectedEnvironments_certificates_childResource"
+              },
+              {
+                "$ref": "#/definitions/connectedEnvironments_daprComponents_childResource"
+              },
+              {
+                "$ref": "#/definitions/connectedEnvironments_storages_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/connectedEnvironments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/connectedEnvironments"
+    },
+    "connectedEnvironments_certificates": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Certificate."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Certificate resource specific properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/connectedEnvironments/certificates"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/connectedEnvironments/certificates"
+    },
+    "connectedEnvironments_daprComponents": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Dapr Component."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprComponentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dapr Component resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/connectedEnvironments/daprComponents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/connectedEnvironments/daprComponents"
+    },
+    "connectedEnvironments_storages": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the storage."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectedEnvironmentStorageProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/connectedEnvironments/storages"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/connectedEnvironments/storages"
+    },
     "containerApps": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
         },
         "identity": {
           "oneOf": [
@@ -93,7 +327,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -132,7 +366,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -171,7 +405,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "location": {
@@ -198,16 +432,27 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/managedEnvironments_daprComponents_childResource"
+                "$ref": "#/definitions/managedEnvironments_certificates_childResource"
               },
               {
-                "$ref": "#/definitions/managedEnvironments_certificates_childResource"
+                "$ref": "#/definitions/managedEnvironments_daprComponents_childResource"
               },
               {
                 "$ref": "#/definitions/managedEnvironments_storages_childResource"
               }
             ]
           }
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentSkuProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed Environment resource SKU properties."
         },
         "tags": {
           "oneOf": [
@@ -246,7 +491,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "location": {
@@ -305,7 +550,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -344,7 +589,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -936,6 +1181,17 @@
           ],
           "description": "Container App Ingress configuration."
         },
+        "maxInactiveRevisions": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional. Max inactive revisions a Container App can have."
+        },
         "registries": {
           "oneOf": [
             {
@@ -966,6 +1222,185 @@
         }
       },
       "description": "Non versioned Container App configuration properties that define the mutable settings of a Container app"
+    },
+    "ConnectedEnvironmentProperties": {
+      "type": "object",
+      "properties": {
+        "customDomainConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomDomainConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration properties for apps environment custom domain"
+        },
+        "daprAIConnectionString": {
+          "type": "string",
+          "description": "Application Insights connection string used by Dapr to export Service to Service communication telemetry"
+        },
+        "staticIp": {
+          "type": "string",
+          "description": "Static IP of the connectedEnvironment"
+        }
+      },
+      "description": "ConnectedEnvironment resource specific properties"
+    },
+    "ConnectedEnvironmentStorageProperties": {
+      "type": "object",
+      "properties": {
+        "azureFile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureFileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure File Properties."
+        }
+      },
+      "description": "Storage properties"
+    },
+    "connectedEnvironments_certificates_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Certificate."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Certificate resource specific properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "certificates"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/connectedEnvironments/certificates"
+    },
+    "connectedEnvironments_daprComponents_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Dapr Component."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprComponentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dapr Component resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "daprComponents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/connectedEnvironments/daprComponents"
+    },
+    "connectedEnvironments_storages_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the storage."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectedEnvironmentStorageProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "storages"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/connectedEnvironments/storages"
     },
     "Container": {
       "type": "object",
@@ -1060,7 +1495,7 @@
           "description": "Container volume mounts."
         }
       },
-      "description": "Container App container definition."
+      "description": "Container App container definition"
     },
     "ContainerAppProbe": {
       "type": "object",
@@ -1285,9 +1720,13 @@
           ],
           "description": "Non versioned Container App configuration properties that define the mutable settings of a Container app"
         },
+        "environmentId": {
+          "type": "string",
+          "description": "Resource ID of environment."
+        },
         "managedEnvironmentId": {
           "type": "string",
-          "description": "Resource ID of the Container App's environment."
+          "description": "Deprecated. Resource ID of the Container App's environment."
         },
         "template": {
           "oneOf": [
@@ -1299,6 +1738,10 @@
             }
           ],
           "description": "Container App versioned application definition.\nDefines the desired state of an immutable revision.\nAny changes to this section Will result in a new revision being created"
+        },
+        "workloadProfileType": {
+          "type": "string",
+          "description": "Workload profile type for container apps to execute."
         }
       },
       "description": "ContainerApp resource specific properties"
@@ -1309,7 +1752,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -1348,7 +1791,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -1459,6 +1902,40 @@
         "name"
       ],
       "description": "Custom Domain of a Container App"
+    },
+    "CustomDomainConfiguration": {
+      "type": "object",
+      "properties": {
+        "certificatePassword": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Certificate password"
+        },
+        "certificateValue": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "PFX or PEM blob"
+        },
+        "dnsSuffix": {
+          "type": "string",
+          "description": "Dns suffix for the environment domain"
+        }
+      },
+      "description": "Configuration properties for apps environment custom domain"
     },
     "CustomOpenIdConnectProvider": {
       "type": "object",
@@ -1571,7 +2048,7 @@
           ],
           "description": "Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http."
         },
-        "enabled": {
+        "enableApiLogging": {
           "oneOf": [
             {
               "type": "boolean"
@@ -1580,7 +2057,58 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
+          "description": "Enables API logging for the Dapr sidecar"
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Boolean indicating if the Dapr side car is enabled"
+        },
+        "httpMaxRequestSize": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Increasing max size of request body http and grpc servers parameter in MB to handle uploading of big files. Default is 4 MB."
+        },
+        "httpReadBufferSize": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB."
+        },
+        "logLevel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "info",
+                "debug",
+                "warn",
+                "error"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info."
         }
       },
       "description": "Container App Dapr configuration."
@@ -1649,6 +2177,10 @@
           ],
           "description": "Collection of secrets used by a Dapr component"
         },
+        "secretStoreComponent": {
+          "type": "string",
+          "description": "Name of a Dapr component to retrieve component secrets from"
+        },
         "version": {
           "type": "string",
           "description": "Component version"
@@ -1705,6 +2237,30 @@
       },
       "description": "The configuration settings of the Azure Active Directory default authorization policy."
     },
+    "EnvironmentSkuProperties": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Consumption",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Sku."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Managed Environment resource SKU properties."
+    },
     "EnvironmentVar": {
       "type": "object",
       "properties": {
@@ -1722,6 +2278,30 @@
         }
       },
       "description": "Container App container environment variable."
+    },
+    "ExtendedLocation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the extended location."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CustomLocation"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the extended location."
+        }
+      },
+      "description": "The complex type of the extended location."
     },
     "Facebook": {
       "type": "object",
@@ -2011,7 +2591,7 @@
           "description": "Metadata properties to describe http scale rule."
         }
       },
-      "description": "Container App container Custom scaling rule."
+      "description": "Container App container Http scaling rule."
     },
     "HttpSettings": {
       "type": "object",
@@ -2166,7 +2746,8 @@
         "allowInsecure": {
           "oneOf": [
             {
-              "type": "boolean"
+              "type": "boolean",
+              "default": false
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2188,6 +2769,17 @@
           ],
           "description": "custom domain bindings for Container Apps' hostnames."
         },
+        "exposedPort": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Exposed Port in containers for TCP traffic from ingress"
+        },
         "external": {
           "oneOf": [
             {
@@ -2199,6 +2791,20 @@
             }
           ],
           "description": "Bool indicating if app exposes an external http endpoint"
+        },
+        "ipSecurityRestrictions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IpSecurityRestrictionRule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Rules to restrict incoming IP address."
         },
         "targetPort": {
           "oneOf": [
@@ -2232,7 +2838,8 @@
               "enum": [
                 "auto",
                 "http",
-                "http2"
+                "http2",
+                "tcp"
               ]
             },
             {
@@ -2243,6 +2850,125 @@
         }
       },
       "description": "Container App Ingress configuration."
+    },
+    "InitContainer": {
+      "type": "object",
+      "properties": {
+        "args": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container start command arguments."
+        },
+        "command": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container start command."
+        },
+        "env": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentVar"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container environment variables."
+        },
+        "image": {
+          "type": "string",
+          "description": "Container image tag."
+        },
+        "name": {
+          "type": "string",
+          "description": "Custom container name."
+        },
+        "resources": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerResources"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App container resource requirements."
+        },
+        "volumeMounts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VolumeMount"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container volume mounts."
+        }
+      },
+      "description": "Container App init container definition"
+    },
+    "IpSecurityRestrictionRule": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Allow",
+                "Deny"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allow or Deny rules to determine for incoming IP. Note: Rules can only consist of ALL Allow or ALL Deny."
+        },
+        "description": {
+          "type": "string",
+          "description": "Describe the IP restriction rule that is being sent to the container-app. This is an optional field."
+        },
+        "ipAddressRange": {
+          "type": "string",
+          "description": "CIDR notation to match incoming IP address"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name for the IP restriction rule."
+        }
+      },
+      "required": [
+        "action",
+        "ipAddressRange",
+        "name"
+      ],
+      "description": "Rule to restrict incoming IP address."
     },
     "JwtClaimChecks": {
       "type": "object",
@@ -2386,6 +3112,30 @@
       },
       "description": "The configuration settings of the login flow, including the scopes that should be requested."
     },
+    "ManagedEnvironmentOutboundSettings": {
+      "type": "object",
+      "properties": {
+        "outBoundType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "LoadBalancer",
+                "UserDefinedRouting"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "virtualNetworkApplianceIp": {
+          "type": "string",
+          "description": "Virtual Appliance IP used as the Egress controller for the Environment"
+        }
+      },
+      "description": "Configuration used to control the Environment Egress outbound traffic"
+    },
     "ManagedEnvironmentProperties": {
       "type": "object",
       "properties": {
@@ -2399,6 +3149,17 @@
             }
           ],
           "description": "Configuration of application logs"
+        },
+        "customDomainConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomDomainConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration properties for apps environment custom domain"
         },
         "daprAIConnectionString": {
           "type": "string",
@@ -2418,6 +3179,20 @@
             }
           ],
           "description": "Configuration properties for apps environment to join a Virtual Network"
+        },
+        "workloadProfiles": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WorkloadProfile"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Workload profiles configured for the Managed Environment."
         },
         "zoneRedundant": {
           "oneOf": [
@@ -2456,7 +3231,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "location": {
@@ -2515,7 +3290,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -2554,7 +3329,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-10-01"
           ]
         },
         "name": {
@@ -2835,7 +3610,8 @@
         "maxReplicas": {
           "oneOf": [
             {
-              "type": "integer"
+              "type": "integer",
+              "default": "10"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2905,11 +3681,22 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Container App container Custom scaling rule."
+          "description": "Container App container Http scaling rule."
         },
         "name": {
           "type": "string",
           "description": "Scale Rule Name"
+        },
+        "tcp": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TcpScaleRule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App container Tcp scaling rule."
         }
       },
       "description": "Container App container scaling rule."
@@ -2967,6 +3754,41 @@
       },
       "description": "SourceControl resource specific properties"
     },
+    "TcpScaleRule": {
+      "type": "object",
+      "properties": {
+        "auth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScaleRuleAuth"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authentication secrets for the tcp scale rule."
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata properties to describe tcp scale rule."
+        }
+      },
+      "description": "Container App container Tcp scaling rule."
+    },
     "Template": {
       "type": "object",
       "properties": {
@@ -2983,6 +3805,20 @@
             }
           ],
           "description": "List of container definitions for the Container App."
+        },
+        "initContainers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InitContainer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of specialized containers that run before app containers."
         },
         "revisionSuffix": {
           "type": "string",
@@ -3122,6 +3958,17 @@
           ],
           "description": "Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property"
         },
+        "outboundSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedEnvironmentOutboundSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration used to control the Environment Egress outbound traffic"
+        },
         "platformReservedCidr": {
           "type": "string",
           "description": "IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges."
@@ -3179,6 +4026,43 @@
         }
       },
       "description": "Volume mount for the Container App."
+    },
+    "WorkloadProfile": {
+      "type": "object",
+      "properties": {
+        "maximumCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The maximum capacity."
+        },
+        "minimumCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The minimum capacity."
+        },
+        "workloadProfileType": {
+          "type": "string",
+          "description": "Workload profile type for container apps to execute."
+        }
+      },
+      "required": [
+        "maximumCount",
+        "minimumCount",
+        "workloadProfileType"
+      ],
+      "description": "Workload profile to scope container app execution."
     }
   }
 }
