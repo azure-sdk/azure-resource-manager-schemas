@@ -5804,7 +5804,13 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-02-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-02-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_cacheRules"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-02-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_connectedRegistries"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-02-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_credentialSets"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-02-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_exportPipelines"
