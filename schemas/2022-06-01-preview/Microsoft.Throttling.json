@@ -1,0 +1,392 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.Throttling.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Throttling",
+  "description": "Microsoft Throttling Resource Types",
+  "resourceDefinitions": {
+    "accounts": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Account name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AccountProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Account properties"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/accounts_categories_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Throttling/accounts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Throttling/accounts"
+    },
+    "accounts_categories": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Category name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CategoryProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Category properties"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/accounts_categories_thresholds_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Throttling/accounts/categories"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Throttling/accounts/categories"
+    },
+    "accounts_categories_thresholds": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Throttling threshold"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ThresholdProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Threshold properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Throttling/accounts/categories/thresholds"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Throttling/accounts/categories/thresholds"
+    }
+  },
+  "definitions": {
+    "AccountProperties": {
+      "type": "object",
+      "properties": {
+        "authentication": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthenticationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Account authentication properties"
+        }
+      },
+      "required": [
+        "authentication"
+      ],
+      "description": "Account properties"
+    },
+    "accounts_categories_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Category name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CategoryProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Category properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "categories"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Throttling/accounts/categories"
+    },
+    "accounts_categories_thresholds_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-06-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Throttling threshold"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ThresholdProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Threshold properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "thresholds"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Throttling/accounts/categories/thresholds"
+    },
+    "AuthenticationProperties": {
+      "type": "object",
+      "properties": {
+        "azureActiveDirectory": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureActiveDirectoryProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AzureAD-based authentication properties"
+        },
+        "certificates": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CertificateProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Certificate-based authentication properties"
+        }
+      },
+      "description": "Account authentication properties"
+    },
+    "AzureActiveDirectoryProperties": {
+      "type": "object",
+      "properties": {
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of permitted user-assigned managed identities"
+        }
+      },
+      "required": [
+        "userAssignedIdentities"
+      ],
+      "description": "AzureAD-based authentication properties"
+    },
+    "CategoryProperties": {
+      "type": "object",
+      "properties": {
+        "windowDuration": {
+          "type": "string",
+          "format": "duration",
+          "description": "Window duration"
+        }
+      },
+      "required": [
+        "windowDuration"
+      ],
+      "description": "Category properties"
+    },
+    "CertificateProperties": {
+      "type": "object",
+      "properties": {
+        "subjectName": {
+          "type": "string",
+          "description": "Certificate subject name"
+        }
+      },
+      "required": [
+        "subjectName"
+      ],
+      "description": "Certificate-based authentication properties"
+    },
+    "ThresholdProperties": {
+      "type": "object",
+      "properties": {
+        "decisionType": {
+          "type": "string",
+          "maxLength": 128,
+          "description": "Threshold decision type, arbitrary string to be returned to the client"
+        },
+        "depth": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Depth of the bucket"
+        },
+        "minDecisionDuration": {
+          "type": "string",
+          "format": "duration",
+          "description": "Minimal decision duration"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Value of the limit"
+        }
+      },
+      "required": [
+        "decisionType",
+        "depth",
+        "minDecisionDuration",
+        "value"
+      ],
+      "description": "Threshold properties"
+    }
+  }
+}

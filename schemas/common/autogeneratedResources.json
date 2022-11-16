@@ -28202,6 +28202,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.Throttling.json#/resourceDefinitions/accounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.Throttling.json#/resourceDefinitions/accounts_categories"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.Throttling.json#/resourceDefinitions/accounts_categories_thresholds"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2017-02-28-preview/Microsoft.TimeSeriesInsights.json#/resourceDefinitions/environments"
         },
         {
