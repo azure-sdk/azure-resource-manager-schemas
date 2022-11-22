@@ -332,6 +332,10 @@
     "PrivateEndpointConnectionProperties": {
       "type": "object",
       "properties": {
+        "groupId": {
+          "type": "string",
+          "description": "The group id from the provider of resource the private link service connection is for."
+        },
         "privateEndpoint": {
           "oneOf": [
             {
@@ -353,6 +357,24 @@
             }
           ],
           "description": "Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Updating",
+                "Deleting",
+                "Failed",
+                "Succeeded",
+                "Incomplete"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete."
         }
       },
       "description": "Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service."
