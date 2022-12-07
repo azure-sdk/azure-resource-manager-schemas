@@ -12062,6 +12062,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-10-01-preview/Microsoft.HealthcareApis.json#/resourceDefinitions/workspaces_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.HybridCloud.json#/resourceDefinitions/cloudConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.HybridCloud.json#/resourceDefinitions/cloudConnectors"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2019-03-18-preview/Microsoft.HybridCompute.json#/resourceDefinitions/machines"
         },
         {
