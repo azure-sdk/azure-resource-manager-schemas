@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Compute",
   "description": "Microsoft Compute Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -80,7 +80,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -163,7 +163,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -248,7 +248,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -331,7 +331,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -402,7 +402,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "extendedLocation": {
@@ -472,7 +472,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -545,7 +545,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -614,7 +614,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "name": {
@@ -653,7 +653,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -712,7 +712,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "extendedLocation": {
@@ -831,7 +831,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "extendedLocation": {
@@ -961,7 +961,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "identity": {
@@ -1055,7 +1055,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "name": {
@@ -1094,7 +1094,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -1153,7 +1153,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -1496,7 +1496,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -1669,7 +1669,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB"
+          "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023"
         },
         "image": {
           "oneOf": [
@@ -2180,7 +2180,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -2688,6 +2688,17 @@
           ],
           "description": "Specifies whether password authentication should be disabled."
         },
+        "enableVMAgentPlatformUpdates": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether VMAgent Platform Updates is enabled for the Linux virtual machine. Default value is false."
+        },
         "patchSettings": {
           "oneOf": [
             {
@@ -3017,7 +3028,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB"
+          "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023"
         },
         "encryptionSettings": {
           "oneOf": [
@@ -3260,6 +3271,37 @@
       },
       "description": "Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**."
     },
+    "PriorityMixPolicy": {
+      "type": "object",
+      "properties": {
+        "baseRegularPriorityCount": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base number of regular priority VMs that will be created in this scale set as it scales out."
+        },
+        "regularPriorityPercentageAboveBase": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The percentage of VM instances, after the base regular priority count has been reached, that are expected to use regular priority."
+        }
+      },
+      "description": "Specifies the target splits for Spot and Regular priority VMs within a scale set with flexible orchestration mode. <br><br>With this property the customer is able to specify the base number of regular priority VMs created as the VMSS flex instance scales out and the split between Spot and Regular priority VMs after this base target has been reached."
+    },
     "ProximityPlacementGroupProperties": {
       "type": "object",
       "properties": {
@@ -3392,7 +3434,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "name": {
@@ -3660,6 +3702,16 @@
       },
       "description": "Specifies the Security profile settings for the virtual machine or virtual machine scale set."
     },
+    "ServiceArtifactReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}"
+        }
+      },
+      "description": "Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01"
+    },
     "Sku": {
       "type": "object",
       "properties": {
@@ -3766,6 +3818,21 @@
             }
           ],
           "description": "Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview)."
+        },
+        "diskControllerType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SCSI",
+                "NVMe"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the disk controller type configured for the VM. <br><br>NOTE: This property will be set to the default disk controller type if not specified provided virtual machine is being created as a hyperVGeneration: V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. <br>You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. <br><br> Minimum api-version: 2022-08-01."
         },
         "imageReference": {
           "oneOf": [
@@ -4043,9 +4110,15 @@
           "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all."
         },
         "protectedSettingsFromKeyVault": {
-          "type": "object",
-          "properties": {},
-          "description": "The extensions protected settings that are passed by reference, and consumed from key vault"
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultSecretReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes a reference to Key Vault Secret"
         },
         "publisher": {
           "type": "string",
@@ -4171,6 +4244,17 @@
             }
           ],
           "description": "Specify what happens to the network interface when the VM is deleted."
+        },
+        "disableTcpStateTracking": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether the network interface is disabled for tcp state tracking."
         },
         "dnsSettings": {
           "oneOf": [
@@ -4964,7 +5048,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB"
+          "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023"
         },
         "lun": {
           "oneOf": [
@@ -5020,109 +5104,109 @@
         "properties": {
           "anyOf": [
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/genericExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/genericExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/iaaSDiagnostics"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/iaaSDiagnostics"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/iaaSAntimalware"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/iaaSAntimalware"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScriptExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/customScriptExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScriptForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/customScriptForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/linuxDiagnostic"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/linuxDiagnostic"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bgInfo"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/bgInfo"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dscExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/dscExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackupLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackupLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackup"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackup"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/linuxChefClient"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/linuxChefClient"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/chefClient"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/chefClient"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/datadogLinuxAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/datadogLinuxAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/datadogWindowsAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/datadogWindowsAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dockerExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/dockerExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/eset"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/eset"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/hpeSecurityApplicationDefender"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/hpeSecurityApplicationDefender"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/puppetAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/puppetAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7LinuxServerExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7LinuxServerExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7WindowsServerExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7WindowsServerExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7ApmInsightExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7ApmInsightExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSALinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSALinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSA"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSA"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/OSPatchingForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/OSPatchingForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshot"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshot"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshotLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshotLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScript"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/customScript"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentLinux"
             }
           ]
         }
@@ -5188,9 +5272,15 @@
           "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all."
         },
         "protectedSettingsFromKeyVault": {
-          "type": "object",
-          "properties": {},
-          "description": "The extensions protected settings that are passed by reference, and consumed from key vault"
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultSecretReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes a reference to Key Vault Secret"
         },
         "provisionAfterExtensions": {
           "oneOf": [
@@ -5558,6 +5648,17 @@
           ],
           "description": "Specify what happens to the network interface when the VM is deleted."
         },
+        "disableTcpStateTracking": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether the network interface is disabled for tcp state tracking."
+        },
         "dnsSettings": {
           "oneOf": [
             {
@@ -5758,7 +5859,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB"
+          "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023"
         },
         "image": {
           "oneOf": [
@@ -5983,6 +6084,17 @@
             }
           ],
           "description": "Fault Domain count for each placement group."
+        },
+        "priorityMixPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PriorityMixPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the target splits for Spot and Regular priority VMs within a scale set with flexible orchestration mode. <br><br>With this property the customer is able to specify the base number of regular priority VMs created as the VMSS flex instance scales out and the split between Spot and Regular priority VMs after this base target has been reached."
         },
         "proximityPlacementGroup": {
           "oneOf": [
@@ -6210,6 +6322,9 @@
           ],
           "description": "Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview)."
         },
+        "diskControllerType": {
+          "type": "string"
+        },
         "imageReference": {
           "oneOf": [
             {
@@ -6241,7 +6356,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "name": {
@@ -6280,7 +6395,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "identity": {
@@ -6361,7 +6476,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "name": {
@@ -6400,7 +6515,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -6620,6 +6735,17 @@
           ],
           "description": "Specifies the Security profile settings for the virtual machine or virtual machine scale set."
         },
+        "serviceArtifactReference": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceArtifactReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01"
+        },
         "storageProfile": {
           "oneOf": [
             {
@@ -6795,7 +6921,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -6809,109 +6935,109 @@
         "properties": {
           "anyOf": [
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/genericExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/genericExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/iaaSDiagnostics"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/iaaSDiagnostics"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/iaaSAntimalware"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/iaaSAntimalware"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScriptExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/customScriptExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScriptForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/customScriptForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/linuxDiagnostic"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/linuxDiagnostic"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bgInfo"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/bgInfo"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/vmAccessAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dscExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/dscExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackupLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackupLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackup"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/acronisBackup"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/linuxChefClient"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/linuxChefClient"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/chefClient"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/chefClient"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/datadogLinuxAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/datadogLinuxAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/datadogWindowsAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/datadogWindowsAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dockerExtension"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/dockerExtension"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/dynatraceWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/eset"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/eset"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/hpeSecurityApplicationDefender"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/hpeSecurityApplicationDefender"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/puppetAgent"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/puppetAgent"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7LinuxServerExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7LinuxServerExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7WindowsServerExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7WindowsServerExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/site24x7ApmInsightExtn"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/site24x7ApmInsightExtn"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSALinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSALinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSA"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/trendMicroDSA"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/bmcCtmAgentWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/OSPatchingForLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/OSPatchingForLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshot"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshot"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshotLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/VMSnapshotLinux"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/customScript"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/customScript"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentWindows"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentWindows"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentLinux"
+              "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.Extensions.json#/definitions/networkWatcherAgentLinux"
             }
           ]
         },
@@ -6951,7 +7077,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01"
+            "2022-11-01"
           ]
         },
         "location": {
@@ -7145,6 +7271,17 @@
             }
           ],
           "description": "Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning."
+        },
+        "enableVMAgentPlatformUpdates": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether VMAgent Platform Updates is enabled for the Windows virtual machine. Default value is false."
         },
         "patchSettings": {
           "oneOf": [
