@@ -13922,27 +13922,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-10-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_schedules"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01-preview/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-04-01/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-07-01-preview/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-04-01-preview/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-05-01/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-09-01-preview/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-07-01-preview/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2015-08-31-preview/Microsoft.ManagedIdentity.json#/resourceDefinitions/userAssignedIdentities"
         },
         {
