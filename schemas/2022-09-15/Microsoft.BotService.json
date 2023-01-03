@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-05-01-preview/Microsoft.BotService.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-09-15/Microsoft.BotService.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.BotService",
   "description": "Microsoft BotService Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-09-15"
           ]
         },
         "etag": {
@@ -127,7 +127,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-09-15"
           ]
         },
         "etag": {
@@ -243,7 +243,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-09-15"
           ]
         },
         "etag": {
@@ -344,7 +344,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-09-15"
           ]
         },
         "name": {
@@ -634,7 +634,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-09-15"
           ]
         },
         "etag": {
@@ -750,7 +750,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-09-15"
           ]
         },
         "etag": {
@@ -851,7 +851,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-05-01-preview"
+            "2022-09-15"
           ]
         },
         "name": {
@@ -1988,6 +1988,17 @@
         "landingPageUrl": {
           "type": "string",
           "description": "The Slack landing page Url"
+        },
+        "registerBeforeOAuthFlow": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to register the settings before OAuth validation is performed. Recommended to True."
         },
         "scopes": {
           "type": "string",
