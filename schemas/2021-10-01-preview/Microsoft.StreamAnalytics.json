@@ -2210,9 +2210,19 @@
           "description": "The type of identity, can be SystemAssigned or UserAssigned."
         },
         "userAssignedIdentities": {
-          "type": "object",
-          "properties": {},
-          "description": "The user assigned identities associated with the streaming job resource."
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
         }
       },
       "description": "Describes how identity is verified"
@@ -3766,6 +3776,11 @@
         }
       },
       "description": "The properties that are associated with a transformation."
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
     }
   }
 }
