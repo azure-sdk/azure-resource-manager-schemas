@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-06-01-preview/Microsoft.App.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.App.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.App",
   "description": "Microsoft App Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "extendedLocation": {
@@ -96,7 +96,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "location": {
@@ -155,7 +155,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -194,7 +194,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -233,7 +233,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "extendedLocation": {
@@ -327,7 +327,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -366,7 +366,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -405,8 +405,12 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of the Environment."
         },
         "location": {
           "type": "string",
@@ -432,10 +436,22 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/managedEnvironments_daprComponents_childResource"
+                "$ref": "#/definitions/managedEnvironments_certificates_childResource"
               },
               {
-                "$ref": "#/definitions/managedEnvironments_certificates_childResource"
+                "$ref": "#/definitions/managedEnvironments_managedCertificates_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedEnvironments_daprResiliencyCircuitBreakerPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedEnvironments_daprResiliencyTimeoutPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedEnvironments_daprResiliencyRetryPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedEnvironments_daprComponents_childResource"
               },
               {
                 "$ref": "#/definitions/managedEnvironments_storages_childResource"
@@ -491,7 +507,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "location": {
@@ -550,7 +566,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -583,13 +599,213 @@
       ],
       "description": "Microsoft.App/managedEnvironments/daprComponents"
     },
+    "managedEnvironments_daprResiliencyCircuitBreakerPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Dapr Resiliency Circuit Breaker Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyCircuitBreakerPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyCircuitBreakerPolicy resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/managedEnvironments/daprResiliencyCircuitBreakerPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/daprResiliencyCircuitBreakerPolicies"
+    },
+    "managedEnvironments_daprResiliencyRetryPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Dapr Resiliency Retry Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyRetryPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyRetryPolicy resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/managedEnvironments/daprResiliencyRetryPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/daprResiliencyRetryPolicies"
+    },
+    "managedEnvironments_daprResiliencyTimeoutPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Dapr Resiliency Timeout Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyTimeoutPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyTimeoutPolicy resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/managedEnvironments/daprResiliencyTimeoutPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/daprResiliencyTimeoutPolicies"
+    },
+    "managedEnvironments_managedCertificates": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Managed Certificate."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedCertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Certificate resource specific properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/managedEnvironments/managedCertificates"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/managedCertificates"
+    },
     "managedEnvironments_storages": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -1271,7 +1487,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "location": {
@@ -1330,7 +1546,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -1369,7 +1585,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -1752,7 +1968,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -1791,7 +2007,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -1870,6 +2086,93 @@
       },
       "description": "The configuration settings of the session cookie's expiration."
     },
+    "CorsPolicy": {
+      "type": "object",
+      "properties": {
+        "allowCredentials": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allow credential or not"
+        },
+        "allowedHeaders": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allowed HTTP headers"
+        },
+        "allowedMethods": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allowed HTTP methods"
+        },
+        "allowedOrigins": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allowed origins"
+        },
+        "exposeHeaders": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "expose HTTP headers "
+        },
+        "maxAge": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "max time client can cache the result"
+        }
+      },
+      "required": [
+        "allowedOrigins"
+      ],
+      "description": "Cross-Origin-Resource-Sharing policy"
+    },
     "CustomDomain": {
       "type": "object",
       "properties": {
@@ -1907,15 +2210,7 @@
       "type": "object",
       "properties": {
         "certificatePassword": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Certificate password"
         },
         "certificateValue": {
@@ -2062,7 +2357,8 @@
         "enabled": {
           "oneOf": [
             {
-              "type": "boolean"
+              "type": "boolean",
+              "default": false
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2122,7 +2418,8 @@
         "ignoreErrors": {
           "oneOf": [
             {
-              "type": "boolean"
+              "type": "boolean",
+              "default": false
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2187,6 +2484,11 @@
       },
       "description": "Dapr Component resource specific properties"
     },
+    "DaprConfiguration": {
+      "type": "object",
+      "properties": {},
+      "description": "Configuration properties Dapr component"
+    },
     "DaprMetadata": {
       "type": "object",
       "properties": {
@@ -2204,6 +2506,197 @@
         }
       },
       "description": "Dapr component metadata."
+    },
+    "DaprResiliencyCircuitBreakerPolicy": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyCircuitBreakerPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyCircuitBreakerPolicy resource specific properties"
+        }
+      },
+      "description": "Resiliency Policy Circuit Breakers Policy"
+    },
+    "DaprResiliencyCircuitBreakerPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "circuitBreakerCacheSize": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specify a cache size for the number of CBs to keep in memory. The value should be larger than the expected number of active actor instances."
+        },
+        "circuitBreakerScope": {
+          "type": "string",
+          "description": "Specify whether circuit breaking state should be scoped to an individual actor ID, all actors across the actor type, or both. Possible values include id, type, or both"
+        },
+        "interval": {
+          "type": "string",
+          "description": "Cyclical period of time used by the CB to clear its internal counts. Valid values are of the form 15s, 2m, 1h30m, etc."
+        },
+        "maxRequests": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Maximum number of requests allowed to pass through"
+        },
+        "timeout": {
+          "type": "string",
+          "description": "The period of the open state until the CB switches to half-open. Valid values are of the form 15s, 2m, 1h30m, etc."
+        },
+        "trip": {
+          "type": "string",
+          "description": "A Common Expression Language (CEL) statement that is evaluated by the CB When the statement evaluates to true, the CB trips and becomes open"
+        }
+      },
+      "description": "DaprResiliencyCircuitBreakerPolicy resource specific properties"
+    },
+    "DaprResiliencyDefaults": {
+      "type": "object",
+      "properties": {
+        "circuitBreakers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DaprResiliencyCircuitBreakerPolicy"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "circuit breaker policies"
+        },
+        "retries": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DaprResiliencyRetryPolicy"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "retry policies"
+        },
+        "timeouts": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyTimeoutPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resiliency Policy Retries"
+        }
+      },
+      "description": "Default Resiliency Policy"
+    },
+    "DaprResiliencyRetryPolicy": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyRetryPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyRetryPolicy resource specific properties"
+        }
+      },
+      "description": "Resiliency Policy Retries"
+    },
+    "DaprResiliencyRetryPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "string",
+          "description": "Time interval between retries. Valid values are of the form 15s, 2m, 1h30m, etc."
+        },
+        "maxInterval": {
+          "type": "string",
+          "description": "Determines the maximum interval between retries. Valid values are of the form 15s, 2m, 1h30m, etc."
+        },
+        "maxRetries": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The maximum number of retries to attempt. -1 denotes an indefinite number of retries."
+        },
+        "name": {
+          "type": "string",
+          "description": "policy name"
+        },
+        "policy": {
+          "type": "string",
+          "description": "Back-off and retry interval strategy"
+        }
+      },
+      "description": "DaprResiliencyRetryPolicy resource specific properties"
+    },
+    "DaprResiliencyTimeoutPolicy": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyTimeoutPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyTimeoutPolicy resource specific properties"
+        }
+      },
+      "description": "Resiliency Policy Retries"
+    },
+    "DaprResiliencyTimeoutPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "general": {
+          "type": "string",
+          "description": "Timeout duration for general operations. Valid values are of the form 15s, 2m, 1h30m, etc."
+        },
+        "important": {
+          "type": "string",
+          "description": "Timeout duration for important operations. Valid values are of the form 15s, 2m, 1h30m, etc."
+        },
+        "largeResponse": {
+          "type": "string",
+          "description": "Timeout duration for large operations. Valid values are of the form 15s, 2m, 1h30m, etc."
+        }
+      },
+      "description": "DaprResiliencyTimeoutPolicy resource specific properties"
     },
     "DefaultAuthorizationPolicy": {
       "type": "object",
@@ -2745,13 +3238,41 @@
         "allowInsecure": {
           "oneOf": [
             {
-              "type": "boolean"
+              "type": "boolean",
+              "default": false
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
           "description": "Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections"
+        },
+        "clientCertificateMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ignore",
+                "accept",
+                "require"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate."
+        },
+        "corsPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CorsPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cross-Origin-Resource-Sharing policy"
         },
         "customDomains": {
           "oneOf": [
@@ -2804,6 +3325,17 @@
           ],
           "description": "Rules to restrict incoming IP address."
         },
+        "stickySessions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IngressStickySessions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Sticky Sessions for Single Revision Mode"
+        },
         "targetPort": {
           "oneOf": [
             {
@@ -2848,6 +3380,27 @@
         }
       },
       "description": "Container App Ingress configuration."
+    },
+    "IngressStickySessions": {
+      "type": "object",
+      "properties": {
+        "affinity": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "sticky",
+                "none"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Sticky Session Affinity."
+        }
+      },
+      "description": "Sticky Sessions for Single Revision Mode"
     },
     "InitContainer": {
       "type": "object",
@@ -3002,6 +3555,11 @@
       },
       "description": "The configuration settings of the checks that should be made while validating the JWT Claims."
     },
+    "KedaConfiguration": {
+      "type": "object",
+      "properties": {},
+      "description": "Configuration properties Keda component"
+    },
     "LogAnalyticsConfiguration": {
       "type": "object",
       "properties": {
@@ -3110,6 +3668,32 @@
       },
       "description": "The configuration settings of the login flow, including the scopes that should be requested."
     },
+    "ManagedCertificateProperties": {
+      "type": "object",
+      "properties": {
+        "domainControlValidation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CNAME",
+                "HTTP",
+                "TXT"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Selected type of domain control validation for managed certificates."
+        },
+        "subjectName": {
+          "type": "string",
+          "description": "Subject name of the certificate."
+        }
+      },
+      "description": "Certificate resource specific properties"
+    },
     "ManagedEnvironmentOutboundSettings": {
       "type": "object",
       "properties": {
@@ -3166,6 +3750,39 @@
         "daprAIInstrumentationKey": {
           "type": "string",
           "description": "Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry"
+        },
+        "daprConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration properties Dapr component"
+        },
+        "daprResiliencyDefaults": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyDefaults"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default Resiliency Policy"
+        },
+        "kedaConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KedaConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration properties Keda component"
         },
         "vnetConfiguration": {
           "oneOf": [
@@ -3229,7 +3846,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "location": {
@@ -3288,7 +3905,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -3321,13 +3938,213 @@
       ],
       "description": "Microsoft.App/managedEnvironments/daprComponents"
     },
+    "managedEnvironments_daprResiliencyCircuitBreakerPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Dapr Resiliency Circuit Breaker Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyCircuitBreakerPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyCircuitBreakerPolicy resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "daprResiliencyCircuitBreakerPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/daprResiliencyCircuitBreakerPolicies"
+    },
+    "managedEnvironments_daprResiliencyRetryPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Dapr Resiliency Retry Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyRetryPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyRetryPolicy resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "daprResiliencyRetryPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/daprResiliencyRetryPolicies"
+    },
+    "managedEnvironments_daprResiliencyTimeoutPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Dapr Resiliency Timeout Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprResiliencyTimeoutPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DaprResiliencyTimeoutPolicy resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "daprResiliencyTimeoutPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/daprResiliencyTimeoutPolicies"
+    },
+    "managedEnvironments_managedCertificates_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Managed Certificate."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedCertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Certificate resource specific properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "managedCertificates"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/managedCertificates"
+    },
     "managedEnvironments_storages_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-06-01-preview"
+            "2022-11-01-preview"
           ]
         },
         "name": {
@@ -3608,7 +4425,8 @@
         "maxReplicas": {
           "oneOf": [
             {
-              "type": "integer"
+              "type": "integer",
+              "default": "10"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3936,13 +4754,17 @@
     "VnetConfiguration": {
       "type": "object",
       "properties": {
+        "controlPlaneSubnetId": {
+          "type": "string",
+          "description": "Resource ID of a subnet for control plane components. This subnet must be in the same VNET as the subnet defined in infrastructureSubnetId. Must not overlap with any other provided IP ranges."
+        },
         "dockerBridgeCidr": {
           "type": "string",
           "description": "CIDR notation IP range assigned to the Docker bridge, network. Must not overlap with any other provided IP ranges."
         },
         "infrastructureSubnetId": {
           "type": "string",
-          "description": "Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges."
+          "description": "Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in controlPlaneSubnetId if provided. Must not overlap with any other provided IP ranges."
         },
         "internal": {
           "oneOf": [
