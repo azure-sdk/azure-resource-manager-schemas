@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-03-01-preview/Microsoft.AppPlatform.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-01-06/Microsoft.AppPlatform.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.AppPlatform",
   "description": "Microsoft AppPlatform Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "location": {
@@ -52,16 +52,7 @@
                 "$ref": "#/definitions/Spring_apps_childResource"
               },
               {
-                "$ref": "#/definitions/Spring_storages_childResource"
-              },
-              {
                 "$ref": "#/definitions/Spring_certificates_childResource"
-              },
-              {
-                "$ref": "#/definitions/Spring_gateways_childResource"
-              },
-              {
-                "$ref": "#/definitions/Spring_apiPortals_childResource"
               }
             ]
           }
@@ -75,7 +66,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Sku of Azure Spring Cloud"
+          "description": "Sku of Azure Spring Apps"
         },
         "systemData": {
           "oneOf": [
@@ -118,134 +109,13 @@
       ],
       "description": "Microsoft.AppPlatform/Spring"
     },
-    "Spring_apiPortals": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of API portal."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ApiPortalProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "API portal properties payload"
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/Spring_apiPortals_domains_childResource"
-              }
-            ]
-          }
-        },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Sku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Sku of Azure Spring Cloud"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/apiPortals"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/apiPortals"
-    },
-    "Spring_apiPortals_domains": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the API portal custom domain."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ApiPortalCustomDomainProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties of custom domain for API portal"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/apiPortals/domains"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/apiPortals/domains"
-    },
     "Spring_apps": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "identity": {
@@ -326,7 +196,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -376,7 +246,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -403,7 +273,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Sku of Azure Spring Cloud"
+          "description": "Sku of Azure Spring Apps"
         },
         "systemData": {
           "oneOf": [
@@ -437,7 +307,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -487,7 +357,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -537,7 +407,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -597,7 +467,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -647,7 +517,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -697,7 +567,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -747,7 +617,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -804,7 +674,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -848,187 +718,13 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/configurationServices"
     },
-    "Spring_gateways": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of Spring Cloud Gateway."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Spring Cloud Gateway properties payload"
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/Spring_gateways_routeConfigs_childResource"
-              },
-              {
-                "$ref": "#/definitions/Spring_gateways_domains_childResource"
-              }
-            ]
-          }
-        },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Sku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Sku of Azure Spring Cloud"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/gateways"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/gateways"
-    },
-    "Spring_gateways_domains": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Spring Cloud Gateway custom domain."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayCustomDomainProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties of custom domain for Spring Cloud Gateway"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/gateways/domains"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/gateways/domains"
-    },
-    "Spring_gateways_routeConfigs": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Spring Cloud Gateway route config."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayRouteConfigProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "API route config of the Spring Cloud Gateway"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/gateways/routeConfigs"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/gateways/routeConfigs"
-    },
     "Spring_monitoringSettings": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -1085,7 +781,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -1105,138 +801,9 @@
         "type"
       ],
       "description": "Microsoft.AppPlatform/Spring/serviceRegistries"
-    },
-    "Spring_storages": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the storage resource."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/StorageProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Storage resource payload."
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AppPlatform/Spring/storages"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/storages"
     }
   },
   "definitions": {
-    "ApiPortalCustomDomainProperties": {
-      "type": "object",
-      "properties": {
-        "thumbprint": {
-          "type": "string",
-          "description": "The thumbprint of bound certificate."
-        }
-      },
-      "description": "The properties of custom domain for API portal"
-    },
-    "ApiPortalProperties": {
-      "type": "object",
-      "properties": {
-        "gatewayIds": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The array of resource Ids of gateway to integrate with API portal."
-        },
-        "httpsOnly": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicate if only https is allowed."
-        },
-        "public": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether the API portal exposes endpoint."
-        },
-        "sourceUrls": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Collection of OpenAPI source URL locations."
-        },
-        "ssoProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SsoProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Single sign-on related configuration"
-        }
-      },
-      "description": "API portal properties payload"
-    },
     "ApplicationInsightsAgentVersions": {
       "type": "object",
       "properties": {},
@@ -1264,20 +831,6 @@
             }
           ],
           "description": "Collection of addons"
-        },
-        "customPersistentDisks": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/CustomPersistentDiskResource"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Collection of persistent disk resources list and a possible link for next page."
         },
         "enableEndToEndTLS": {
           "oneOf": [
@@ -1356,26 +909,6 @@
         }
       },
       "description": "App resource properties payload"
-    },
-    "AzureFileVolume": {
-      "type": "object",
-      "properties": {
-        "shareName": {
-          "type": "string",
-          "description": "The share name of the Azure File share."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "AzureFileVolume"
-          ]
-        }
-      },
-      "required": [
-        "shareName",
-        "type"
-      ],
-      "description": "The properties of the Azure File volume. Azure File shares are mounted as volumes."
     },
     "BindingResourceProperties": {
       "type": "object",
@@ -1949,23 +1482,6 @@
       },
       "description": "The settings of Application Configuration Service."
     },
-    "ContainerProbeSettings": {
-      "type": "object",
-      "properties": {
-        "disableProbe": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether disable the liveness and readiness probe"
-        }
-      },
-      "description": "Container liveness and readiness probe settings"
-    },
     "ContentCertificateProperties": {
       "type": "object",
       "properties": {
@@ -1985,89 +1501,6 @@
       ],
       "description": "Properties of certificate imported from key vault."
     },
-    "CustomContainer": {
-      "type": "object",
-      "properties": {
-        "args": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided."
-        },
-        "command": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided."
-        },
-        "containerImage": {
-          "type": "string",
-          "description": "Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry"
-        },
-        "imageRegistryCredential": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ImageRegistryCredential"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Credential of the image registry"
-        },
-        "languageFramework": {
-          "type": "string",
-          "description": "Language framework of the container image uploaded"
-        },
-        "server": {
-          "type": "string",
-          "description": "The name of the registry that contains the container image"
-        }
-      },
-      "description": "Custom container payload"
-    },
-    "CustomContainerUserSourceInfo": {
-      "type": "object",
-      "properties": {
-        "customContainer": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomContainer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Custom container payload"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Container"
-          ]
-        }
-      },
-      "required": [
-        "type"
-      ],
-      "description": "Custom container user source info"
-    },
     "CustomDomainProperties": {
       "type": "object",
       "properties": {
@@ -2081,73 +1514,6 @@
         }
       },
       "description": "Custom domain of app resource payload."
-    },
-    "CustomPersistentDiskProperties": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/AzureFileVolume"
-        }
-      ],
-      "properties": {
-        "mountOptions": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "These are the mount options for a persistent disk."
-        },
-        "mountPath": {
-          "type": "string",
-          "description": "The mount path of the persistent disk."
-        },
-        "readOnly": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether the persistent disk is a readOnly one."
-        }
-      },
-      "required": [
-        "mountPath"
-      ],
-      "description": "Custom persistent disk resource payload."
-    },
-    "CustomPersistentDiskResource": {
-      "type": "object",
-      "properties": {
-        "customPersistentDiskProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomPersistentDiskProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Custom persistent disk resource payload."
-        },
-        "storageId": {
-          "type": "string",
-          "description": "The resource id of Azure Spring Cloud Storage resource."
-        }
-      },
-      "required": [
-        "storageId"
-      ],
-      "description": "Custom persistent disk resource payload."
     },
     "DeploymentResourceProperties": {
       "type": "object",
@@ -2211,17 +1577,6 @@
           ],
           "description": "Collection of addons"
         },
-        "containerProbeSettings": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ContainerProbeSettings"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Container liveness and readiness probe settings"
-        },
         "environmentVariables": {
           "oneOf": [
             {
@@ -2264,331 +1619,6 @@
         }
       },
       "description": "The error code compose of code and message."
-    },
-    "GatewayApiMetadataProperties": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string",
-          "description": "Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)"
-        },
-        "documentation": {
-          "type": "string",
-          "description": "Location of additional documentation for the APIs available on the Gateway instance"
-        },
-        "serverUrl": {
-          "type": "string",
-          "description": "Base URL that API consumers will use to access APIs on the Gateway instance."
-        },
-        "title": {
-          "type": "string",
-          "description": "Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)"
-        },
-        "version": {
-          "type": "string",
-          "description": "Version of APIs available on this Gateway instance (default: `unspecified`)."
-        }
-      },
-      "description": "API metadata property for Spring Cloud Gateway"
-    },
-    "GatewayApiRoute": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string",
-          "description": "A description, will be applied to methods in the generated OpenAPI documentation."
-        },
-        "filters": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "To modify the request before sending it to the target endpoint, or the received response."
-        },
-        "order": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Route processing order."
-        },
-        "predicates": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request."
-        },
-        "ssoEnabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enable sso validation."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Classification tags, will be applied to methods in the generated OpenAPI documentation."
-        },
-        "title": {
-          "type": "string",
-          "description": "A title, will be applied to methods in the generated OpenAPI documentation."
-        },
-        "tokenRelay": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Pass currently-authenticated user's identity token to application service, default is 'false'"
-        },
-        "uri": {
-          "type": "string",
-          "description": "Full uri, will override `appName`."
-        }
-      },
-      "description": "API route config of the Spring Cloud Gateway"
-    },
-    "GatewayCorsProperties": {
-      "type": "object",
-      "properties": {
-        "allowCredentials": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`."
-        },
-        "allowedHeaders": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header."
-        },
-        "allowedMethods": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default."
-        },
-        "allowedOrigins": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Allowed origins to make cross-site requests. The special value `*` allows all domains."
-        },
-        "exposedHeaders": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "HTTP response headers to expose for cross-site requests."
-        },
-        "maxAge": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "How long, in seconds, the response from a pre-flight request can be cached by clients."
-        }
-      },
-      "description": "Cross-Origin Resource Sharing property"
-    },
-    "GatewayCustomDomainProperties": {
-      "type": "object",
-      "properties": {
-        "thumbprint": {
-          "type": "string",
-          "description": "The thumbprint of bound certificate."
-        }
-      },
-      "description": "The properties of custom domain for Spring Cloud Gateway"
-    },
-    "GatewayProperties": {
-      "type": "object",
-      "properties": {
-        "apiMetadataProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayApiMetadataProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "API metadata property for Spring Cloud Gateway"
-        },
-        "corsProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayCorsProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Cross-Origin Resource Sharing property"
-        },
-        "httpsOnly": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicate if only https is allowed."
-        },
-        "public": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether the Spring Cloud Gateway exposes endpoint."
-        },
-        "resourceRequests": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayResourceRequests"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource request payload of Spring Cloud Gateway."
-        },
-        "ssoProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SsoProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Single sign-on related configuration"
-        }
-      },
-      "description": "Spring Cloud Gateway properties payload"
-    },
-    "GatewayResourceRequests": {
-      "type": "object",
-      "properties": {
-        "cpu": {
-          "type": "string",
-          "description": "Cpu allocated to each Spring Cloud Gateway instance."
-        },
-        "memory": {
-          "type": "string",
-          "description": "Memory allocated to each Spring Cloud Gateway instance."
-        }
-      },
-      "description": "Resource request payload of Spring Cloud Gateway."
-    },
-    "GatewayRouteConfigProperties": {
-      "type": "object",
-      "properties": {
-        "appResourceId": {
-          "type": "string",
-          "description": "The resource Id of the Azure Spring Cloud app, required unless route defines `uri`."
-        },
-        "routes": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/GatewayApiRoute"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`."
-        }
-      },
-      "description": "API route config of the Spring Cloud Gateway"
     },
     "GitPatternRepository": {
       "type": "object",
@@ -2670,20 +1700,6 @@
         "uri"
       ],
       "description": "Git repository property payload for config server"
-    },
-    "ImageRegistryCredential": {
-      "type": "object",
-      "properties": {
-        "password": {
-          "type": "string",
-          "description": "The password of the image registry credential"
-        },
-        "username": {
-          "type": "string",
-          "description": "The username of the image registry credential"
-        }
-      },
-      "description": "Credential of the image registry"
     },
     "JarUploadedUserSourceInfo": {
       "type": "object",
@@ -2801,21 +1817,6 @@
             }
           ],
           "description": "Type of the managed identity."
-        },
-        "userAssignedIdentities": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/UserAssignedManagedIdentity"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "User-assigned managed identities in key-value map. The key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
         }
       },
       "description": "Managed identity properties retrieved from ARM request headers."
@@ -2904,23 +1905,23 @@
       "properties": {
         "appNetworkResourceGroup": {
           "type": "string",
-          "description": "Name of the resource group containing network resources of Azure Spring Cloud Apps"
+          "description": "Name of the resource group containing network resources for customer apps in Azure Spring Apps"
         },
         "appSubnetId": {
           "type": "string",
-          "description": "Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps"
+          "description": "Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps"
         },
         "serviceCidr": {
           "type": "string",
-          "description": "Azure Spring Cloud service reserved CIDR"
+          "description": "Azure Spring Apps service reserved CIDR"
         },
         "serviceRuntimeNetworkResourceGroup": {
           "type": "string",
-          "description": "Name of the resource group containing network resources of Azure Spring Cloud Service Runtime"
+          "description": "Name of the resource group containing network resources of Azure Spring Apps Service Runtime"
         },
         "serviceRuntimeSubnetId": {
           "type": "string",
-          "description": "Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime"
+          "description": "Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime"
         }
       },
       "description": "Service network profile payload"
@@ -2987,7 +1988,7 @@
           "description": "Tier of the Sku"
         }
       },
-      "description": "Sku of Azure Spring Cloud"
+      "description": "Sku of Azure Spring Apps"
     },
     "SourceUploadedUserSourceInfo": {
       "type": "object",
@@ -3012,124 +2013,13 @@
       ],
       "description": "Uploaded Java source code binary for a deployment"
     },
-    "Spring_apiPortals_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of API portal."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ApiPortalProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "API portal properties payload"
-        },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Sku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Sku of Azure Spring Cloud"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "apiPortals"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/apiPortals"
-    },
-    "Spring_apiPortals_domains_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the API portal custom domain."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ApiPortalCustomDomainProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties of custom domain for API portal"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "domains"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/apiPortals/domains"
-    },
     "Spring_apps_bindings_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3179,7 +2069,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "identity": {
@@ -3244,7 +2134,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3271,7 +2161,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Sku of Azure Spring Cloud"
+          "description": "Sku of Azure Spring Apps"
         },
         "systemData": {
           "oneOf": [
@@ -3305,7 +2195,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3355,7 +2245,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3405,7 +2295,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3455,7 +2345,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3507,7 +2397,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3551,174 +2441,13 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/configurationServices"
     },
-    "Spring_gateways_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of Spring Cloud Gateway."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Spring Cloud Gateway properties payload"
-        },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Sku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Sku of Azure Spring Cloud"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "gateways"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/gateways"
-    },
-    "Spring_gateways_domains_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Spring Cloud Gateway custom domain."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayCustomDomainProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties of custom domain for Spring Cloud Gateway"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "domains"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/gateways/domains"
-    },
-    "Spring_gateways_routeConfigs_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Spring Cloud Gateway route config."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayRouteConfigProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "API route config of the Spring Cloud Gateway"
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "routeConfigs"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/gateways/routeConfigs"
-    },
     "Spring_monitoringSettings_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3770,7 +2499,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-03-01-preview"
+            "2023-01-06"
           ]
         },
         "name": {
@@ -3791,88 +2520,6 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/serviceRegistries"
     },
-    "Spring_storages_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-03-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the storage resource."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/StorageProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Storage resource payload."
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "storages"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AppPlatform/Spring/storages"
-    },
-    "SsoProperties": {
-      "type": "object",
-      "properties": {
-        "clientId": {
-          "type": "string",
-          "description": "The public identifier for the application"
-        },
-        "clientSecret": {
-          "type": "string",
-          "description": "The secret known only to the application and the authorization server"
-        },
-        "issuerUri": {
-          "type": "string",
-          "description": "The URI of Issuer Identifier"
-        },
-        "scope": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "It defines the specific actions applications can be allowed to do on a user's behalf"
-        }
-      },
-      "description": "Single sign-on related configuration"
-    },
     "StackProperties": {
       "type": "object",
       "properties": {
@@ -3886,41 +2533,6 @@
         }
       },
       "description": "KPack ClusterStack properties payload"
-    },
-    "StorageAccount": {
-      "type": "object",
-      "properties": {
-        "accountKey": {
-          "type": "string",
-          "description": "The account key of the Azure Storage Account."
-        },
-        "accountName": {
-          "type": "string",
-          "description": "The account name of the Azure Storage Account."
-        },
-        "storageType": {
-          "type": "string",
-          "enum": [
-            "StorageAccount"
-          ]
-        }
-      },
-      "required": [
-        "accountKey",
-        "accountName",
-        "storageType"
-      ],
-      "description": "storage resource of type Azure Storage Account."
-    },
-    "StorageProperties": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/StorageAccount"
-        }
-      ],
-      "properties": {},
-      "description": "Storage resource payload."
     },
     "SystemData": {
       "type": "object",
@@ -4044,11 +2656,6 @@
       ],
       "description": "Source with uploaded location"
     },
-    "UserAssignedManagedIdentity": {
-      "type": "object",
-      "properties": {},
-      "description": "The details of the user-assigned managed identity assigned to an App."
-    },
     "UserSourceInfo": {
       "type": "object",
       "oneOf": [
@@ -4057,9 +2664,6 @@
         },
         {
           "$ref": "#/definitions/BuildResultUserSourceInfo"
-        },
-        {
-          "$ref": "#/definitions/CustomContainerUserSourceInfo"
         }
       ],
       "properties": {
