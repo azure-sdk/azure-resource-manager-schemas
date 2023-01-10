@@ -1621,6 +1621,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/..."
         }
       },
@@ -2291,6 +2292,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         }
       },
@@ -3367,6 +3369,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "offer": {
@@ -3693,6 +3696,7 @@
         },
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "storageAccountType": {
@@ -3722,6 +3726,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "properties": {
@@ -4905,6 +4910,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         }
       }
@@ -6351,6 +6357,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "name": {
@@ -6539,6 +6546,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "arm-id",
           "description": "Resource Id"
         },
         "name": {
