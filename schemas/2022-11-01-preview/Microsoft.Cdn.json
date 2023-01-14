@@ -1208,6 +1208,21 @@
           ],
           "description": "Indicates whether content compression is enabled. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB."
         },
+        "isNegativeCachingEnabled": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether negative caching is enabled."
+        },
         "queryParameters": {
           "type": "string",
           "description": "query parameters to include or exclude (comma separated)."
