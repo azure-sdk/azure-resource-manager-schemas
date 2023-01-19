@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-08-01/Microsoft.ApiManagement.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.ApiManagement.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.ApiManagement",
   "description": "Microsoft ApiManagement Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "identity": {
@@ -70,6 +70,9 @@
                 "$ref": "#/definitions/service_authorizationServers_childResource"
               },
               {
+                "$ref": "#/definitions/service_authorizationProviders_childResource"
+              },
+              {
                 "$ref": "#/definitions/service_backends_childResource"
               },
               {
@@ -112,6 +115,12 @@
                 "$ref": "#/definitions/service_policies_childResource"
               },
               {
+                "$ref": "#/definitions/service_policyFragments_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_portalconfigs_childResource"
+              },
+              {
                 "$ref": "#/definitions/service_portalRevisions_childResource"
               },
               {
@@ -134,6 +143,9 @@
               },
               {
                 "$ref": "#/definitions/service_users_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_documentations_childResource"
               }
             ]
           }
@@ -201,7 +213,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -235,6 +247,9 @@
                 "$ref": "#/definitions/service_apis_tags_childResource"
               },
               {
+                "$ref": "#/definitions/service_apis_resolvers_childResource"
+              },
+              {
                 "$ref": "#/definitions/service_apis_policies_childResource"
               },
               {
@@ -248,6 +263,9 @@
               },
               {
                 "$ref": "#/definitions/service_apis_tagDescriptions_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_apis_wikis_childResource"
               }
             ]
           }
@@ -273,7 +291,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -322,7 +340,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -384,7 +402,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -433,7 +451,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -482,7 +500,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -536,7 +554,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -583,7 +601,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -620,7 +638,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -667,7 +685,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -710,13 +728,111 @@
       ],
       "description": "Microsoft.ApiManagement/service/apis/releases"
     },
+    "service_apis_resolvers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResolverEntityBaseContract"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "GraphQL API Resolver Entity Base Contract details."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_apis_resolvers_policies_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/apis/resolvers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/resolvers"
+    },
+    "service_apis_resolvers_policies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/policy$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The identifier of the Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Policy contract Properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/apis/resolvers/policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/resolvers/policies"
+    },
     "service_apis_schemas": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -757,7 +873,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -806,7 +922,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -837,13 +953,59 @@
       ],
       "description": "Microsoft.ApiManagement/service/apis/tags"
     },
+    "service_apis_wikis": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WikiContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Wiki contract details"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/apis/wikis"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/wikis"
+    },
     "service_apiVersionSets": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -886,13 +1048,180 @@
       ],
       "description": "Microsoft.ApiManagement/service/apiVersionSets"
     },
+    "service_authorizationProviders": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization provider."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationProviderContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Provider details."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_authorizationProviders_authorizations_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/authorizationProviders"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders"
+    },
+    "service_authorizationProviders_authorizations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization details."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_authorizationProviders_authorizations_accessPolicies_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/authorizationProviders/authorizations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders/authorizations"
+    },
+    "service_authorizationProviders_authorizations_accessPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization access policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationAccessPolicyContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Access Policy details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/authorizationProviders/authorizations/accessPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders/authorizations/accessPolicies"
+    },
     "service_authorizationServers": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -941,7 +1270,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -982,7 +1311,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1031,7 +1360,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1080,7 +1409,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1088,6 +1417,16 @@
           "minLength": 1,
           "maxLength": 80,
           "description": "Content type identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentTypeContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "resources": {
           "type": "array",
@@ -1109,6 +1448,7 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.ApiManagement/service/contentTypes"
@@ -1119,7 +1459,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1148,7 +1488,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1191,13 +1531,62 @@
       ],
       "description": "Microsoft.ApiManagement/service/diagnostics"
     },
+    "service_documentations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Documentation identifier. Must be unique in the current API Management service instance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DocumentationContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Markdown documentation details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/documentations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/documentations"
+    },
     "service_gateways": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1254,7 +1643,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1295,7 +1684,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1344,7 +1733,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1385,7 +1774,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1436,7 +1825,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1465,7 +1854,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1519,7 +1908,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1567,7 +1956,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1615,7 +2004,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1671,7 +2060,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1698,7 +2087,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1727,7 +2116,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1775,7 +2164,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1816,13 +2205,103 @@
       ],
       "description": "Microsoft.ApiManagement/service/policies"
     },
+    "service_policyFragments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A resource identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyFragmentContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Policy fragment contract properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/policyFragments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/policyFragments"
+    },
+    "service_portalconfigs": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Portal configuration identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortalConfigProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The developer portal configuration contract properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/portalconfigs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/portalconfigs"
+    },
     "service_portalRevisions": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -1960,7 +2439,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "type": {
@@ -1982,7 +2461,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "id": {
@@ -2025,7 +2504,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2060,6 +2539,9 @@
               },
               {
                 "$ref": "#/definitions/service_products_policies_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_products_wikis_childResource"
               }
             ]
           }
@@ -2085,7 +2567,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2114,7 +2596,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2143,7 +2625,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2190,7 +2672,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2221,13 +2703,59 @@
       ],
       "description": "Microsoft.ApiManagement/service/products/tags"
     },
+    "service_products_wikis": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WikiContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Wiki contract details"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiManagement/service/products/wikis"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/products/wikis"
+    },
     "service_schemas": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2268,7 +2796,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2316,7 +2844,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2365,7 +2893,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2427,7 +2955,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2477,7 +3005,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -2561,6 +3089,21 @@
         "location": {
           "type": "string",
           "description": "The location name of the additional region among Azure Data center regions."
+        },
+        "natGatewayState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property can be used to enable NAT Gateway for this API Management service."
         },
         "publicIpAddressId": {
           "type": "string",
@@ -2823,6 +3366,21 @@
           "type": "string",
           "description": " A URL to the Terms of Service for the API. MUST be in the format of a URL."
         },
+        "translateRequiredQueryParameters": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "template",
+                "query"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'."
+        },
         "type": {
           "oneOf": [
             {
@@ -3024,6 +3582,21 @@
             }
           ],
           "description": "Custom hostname configuration of the API Management service."
+        },
+        "natGatewayState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property can be used to enable NAT Gateway for this API Management service."
         },
         "notificationSenderEmail": {
           "type": "string",
@@ -3312,6 +3885,20 @@
           ],
           "description": "API OAuth2 Authentication settings details."
         },
+        "oAuth2AuthenticationSettings": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OAuth2AuthenticationSettingsContract"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of OAuth2 authentication settings included into this API."
+        },
         "openid": {
           "oneOf": [
             {
@@ -3322,9 +3909,200 @@
             }
           ],
           "description": "API OAuth2 Authentication settings details."
+        },
+        "openidAuthenticationSettings": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OpenIdAuthenticationSettingsContract"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of Open ID Connect authentication settings included into this API."
         }
       },
       "description": "API Authentication Settings."
+    },
+    "AuthorizationAccessPolicyContractProperties": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "The Object Id"
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The Tenant Id"
+        }
+      },
+      "description": "Authorization Access Policy details."
+    },
+    "AuthorizationContractProperties": {
+      "type": "object",
+      "properties": {
+        "authorizationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "OAuth2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization type options."
+        },
+        "error": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization error details."
+        },
+        "oauth2grantType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AuthorizationCode",
+                "ClientCredentials"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OAuth2 grant type options."
+        },
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization parameters"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the Authorization"
+        }
+      },
+      "description": "Authorization details."
+    },
+    "AuthorizationError": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Error code"
+        },
+        "message": {
+          "type": "string",
+          "description": "Error message"
+        }
+      },
+      "description": "Authorization error details."
+    },
+    "AuthorizationProviderContractProperties": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "Authorization Provider name. Must be 1 to 300 characters long."
+        },
+        "identityProvider": {
+          "type": "string",
+          "description": "Identity provider name. Must be 1 to 300 characters long."
+        },
+        "oauth2": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationProviderOAuth2Settings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OAuth2 settings details"
+        }
+      },
+      "description": "Authorization Provider details."
+    },
+    "AuthorizationProviderOAuth2GrantTypes": {
+      "type": "object",
+      "properties": {
+        "authorizationCode": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OAuth2 authorization code grant parameters"
+        },
+        "clientCredentials": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OAuth2 client credential grant parameters"
+        }
+      },
+      "description": "Authorization Provider oauth2 grant types settings"
+    },
+    "AuthorizationProviderOAuth2Settings": {
+      "type": "object",
+      "properties": {
+        "grantTypes": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationProviderOAuth2GrantTypes"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Provider oauth2 grant types settings"
+        },
+        "redirectUrl": {
+          "type": "string",
+          "description": "Redirect URL to be set in the OAuth application."
+        }
+      },
+      "description": "OAuth2 settings details"
     },
     "AuthorizationServerContractProperties": {
       "type": "object",
@@ -3475,6 +4253,28 @@
         "tokenEndpoint": {
           "type": "string",
           "description": "OAuth token endpoint. Contains absolute URI to entity being referenced."
+        },
+        "useInApiDocumentation": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided."
+        },
+        "useInTestConsole": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, the authorization server may be used in the developer portal test console. True by default if no value is provided."
         }
       },
       "required": [
@@ -3569,7 +4369,7 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 2000,
-          "description": "Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps."
+          "description": "Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps."
         },
         "title": {
           "type": "string",
@@ -3962,6 +4762,32 @@
       ],
       "description": "SSL certificate information."
     },
+    "ContentTypeContractProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Content type description."
+        },
+        "id": {
+          "type": "string",
+          "description": "Content type identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Content type name. Must be 1 to 250 characters long."
+        },
+        "schema": {
+          "type": "object",
+          "properties": {},
+          "description": "Content type schema."
+        },
+        "version": {
+          "type": "string",
+          "description": "Content type version."
+        }
+      }
+    },
     "DataMasking": {
       "type": "object",
       "properties": {
@@ -4147,6 +4973,20 @@
         "loggerId"
       ],
       "description": "Diagnostic Entity Properties"
+    },
+    "DocumentationContractProperties": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Markdown documentation content."
+        },
+        "title": {
+          "type": "string",
+          "description": "documentation title."
+        }
+      },
+      "description": "Markdown documentation details."
     },
     "EmailTemplateParametersContractProperties": {
       "type": "object",
@@ -4462,7 +5302,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type."
+          "description": "Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to gateway Hostname Type."
         },
         "encodedCertificate": {
           "type": "string",
@@ -4583,6 +5423,12 @@
           "type": "string",
           "minLength": 1,
           "description": "Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft."
+        },
+        "clientLibrary": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 16,
+          "description": "The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider."
         },
         "clientSecret": {
           "type": "string",
@@ -4938,6 +5784,28 @@
         "metadataEndpoint": {
           "type": "string",
           "description": "Metadata endpoint URI."
+        },
+        "useInApiDocumentation": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided."
+        },
+        "useInTestConsole": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided."
         }
       },
       "required": [
@@ -5176,6 +6044,272 @@
         "value"
       ],
       "description": "Policy contract Properties."
+    },
+    "PolicyFragmentContractProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 1000,
+          "description": "Policy fragment description."
+        },
+        "format": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "xml",
+                "rawxml"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Format of the policy fragment content."
+        },
+        "value": {
+          "type": "string",
+          "description": "Contents of the policy fragment."
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "description": "Policy fragment contract properties."
+    },
+    "PortalConfigCorsProperties": {
+      "type": "object",
+      "properties": {
+        "allowedOrigins": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allowed origins, e.g. `https://trusted.com`."
+        }
+      },
+      "description": "The developer portal Cross-Origin Resource Sharing (CORS) settings."
+    },
+    "PortalConfigCspProperties": {
+      "type": "object",
+      "properties": {
+        "allowedSources": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allowed sources, e.g. `*.trusted.com`, `trusted.com`, `https://`."
+        },
+        "mode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "enabled",
+                "disabled",
+                "reportOnly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The mode of the developer portal Content Security Policy (CSP)."
+        },
+        "reportUri": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The URLs used by the browser to report CSP violations."
+        }
+      },
+      "description": "The developer portal Content Security Policy (CSP) settings."
+    },
+    "PortalConfigDelegationProperties": {
+      "type": "object",
+      "properties": {
+        "delegateRegistration": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enable or disable delegation for user registration."
+        },
+        "delegateSubscription": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enable or disable delegation for product subscriptions."
+        },
+        "delegationUrl": {
+          "type": "string",
+          "description": "A delegation endpoint URL."
+        },
+        "validationKey": {
+          "type": "string",
+          "description": "A base64-encoded validation key to ensure requests originate from Azure API Management service."
+        }
+      }
+    },
+    "PortalConfigProperties": {
+      "type": "object",
+      "properties": {
+        "cors": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortalConfigCorsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The developer portal Cross-Origin Resource Sharing (CORS) settings."
+        },
+        "csp": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortalConfigCspProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The developer portal Content Security Policy (CSP) settings."
+        },
+        "delegation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortalConfigDelegationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enableBasicAuth": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enable or disable Basic authentication method."
+        },
+        "signin": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortalConfigPropertiesSignin"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "signup": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortalConfigPropertiesSignup"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The developer portal configuration contract properties."
+    },
+    "PortalConfigPropertiesSignin": {
+      "type": "object",
+      "properties": {
+        "require": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Redirect anonymous users to the sign-in page."
+        }
+      }
+    },
+    "PortalConfigPropertiesSignup": {
+      "type": "object",
+      "properties": {
+        "termsOfService": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortalConfigTermsOfServiceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Terms of service contract properties."
+        }
+      }
+    },
+    "PortalConfigTermsOfServiceProperties": {
+      "type": "object",
+      "properties": {
+        "requireConsent": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Ask user for consent to the terms of service."
+        },
+        "text": {
+          "type": "string",
+          "description": "A terms of service text."
+        }
+      },
+      "description": "Terms of service contract properties."
     },
     "PortalDelegationSettingsProperties": {
       "type": "object",
@@ -5578,6 +6712,29 @@
       },
       "description": "Operation request details."
     },
+    "ResolverEntityBaseContract": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Description of the resolver. May include HTML formatting tags."
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "Resolver Name."
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "Path is type/field being resolved."
+        }
+      },
+      "description": "GraphQL API Resolver Entity Base Contract details."
+    },
     "ResourceLocationDataContract": {
       "type": "object",
       "properties": {
@@ -5712,7 +6869,8 @@
         }
       },
       "required": [
-        "contentType"
+        "contentType",
+        "document"
       ],
       "description": "API Schema create or update contract Properties."
     },
@@ -5742,7 +6900,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -5783,7 +6941,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -5832,7 +6990,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -5881,7 +7039,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -5930,7 +7088,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -5979,7 +7137,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6020,7 +7178,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6062,7 +7220,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6099,7 +7257,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6141,7 +7299,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6184,13 +7342,96 @@
       ],
       "description": "Microsoft.ApiManagement/service/apis/releases"
     },
+    "service_apis_resolvers_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResolverEntityBaseContract"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "GraphQL API Resolver Entity Base Contract details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "resolvers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/resolvers"
+    },
+    "service_apis_resolvers_policies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "policy"
+          ],
+          "description": "The identifier of the Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Policy contract Properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/resolvers/policies"
+    },
     "service_apis_schemas_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6231,7 +7472,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6280,7 +7521,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6311,13 +7552,54 @@
       ],
       "description": "Microsoft.ApiManagement/service/apis/tags"
     },
+    "service_apis_wikis_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WikiContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Wiki contract details"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "wikis"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/apis/wikis"
+    },
     "service_apiVersionSets_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6360,13 +7642,160 @@
       ],
       "description": "Microsoft.ApiManagement/service/apiVersionSets"
     },
+    "service_authorizationProviders_authorizations_accessPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization access policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationAccessPolicyContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Access Policy details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "accessPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders/authorizations/accessPolicies"
+    },
+    "service_authorizationProviders_authorizations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "authorizations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders/authorizations"
+    },
+    "service_authorizationProviders_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifier of the authorization provider."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthorizationProviderContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authorization Provider details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "authorizationProviders"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/authorizationProviders"
+    },
     "service_authorizationServers_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6415,7 +7844,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6456,7 +7885,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6505,7 +7934,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6554,7 +7983,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6562,6 +7991,16 @@
           "minLength": 1,
           "maxLength": 80,
           "description": "Content type identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentTypeContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "type": "string",
@@ -6573,6 +8012,7 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.ApiManagement/service/contentTypes"
@@ -6583,7 +8023,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6612,7 +8052,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6655,13 +8095,62 @@
       ],
       "description": "Microsoft.ApiManagement/service/diagnostics"
     },
+    "service_documentations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^*#&+:<>?]+$",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Documentation identifier. Must be unique in the current API Management service instance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DocumentationContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Markdown documentation details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "documentations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/documentations"
+    },
     "service_gateways_apis_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6702,7 +8191,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6751,7 +8240,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6792,7 +8281,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6833,7 +8322,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6874,7 +8363,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6903,7 +8392,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -6957,7 +8446,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7005,7 +8494,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7053,7 +8542,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7096,7 +8585,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7123,7 +8612,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7152,7 +8641,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7200,7 +8689,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7236,13 +8725,103 @@
       ],
       "description": "Microsoft.ApiManagement/service/policies"
     },
+    "service_policyFragments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A resource identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyFragmentContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Policy fragment contract properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "policyFragments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/policyFragments"
+    },
+    "service_portalconfigs_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Portal configuration identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortalConfigProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The developer portal configuration contract properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "portalconfigs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/portalconfigs"
+    },
     "service_portalRevisions_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7365,7 +8944,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "type": {
@@ -7387,7 +8966,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "id": {
@@ -7430,7 +9009,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7459,7 +9038,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7500,7 +9079,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7529,7 +9108,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7571,7 +9150,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7602,13 +9181,54 @@
       ],
       "description": "Microsoft.ApiManagement/service/products/tags"
     },
+    "service_products_wikis_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-08-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WikiContractProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Wiki contract details"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "wikis"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiManagement/service/products/wikis"
+    },
     "service_schemas_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7649,7 +9269,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7697,7 +9317,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7746,7 +9366,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7808,7 +9428,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -7858,7 +9478,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-08-01"
+            "2022-08-01"
           ]
         },
         "name": {
@@ -8216,6 +9836,36 @@
         }
       },
       "description": "Configuration of a virtual network to which API Management service is deployed."
+    },
+    "WikiContractProperties": {
+      "type": "object",
+      "properties": {
+        "documents": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WikiDocumentationContract"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection wiki documents included into this wiki."
+        }
+      },
+      "description": "Wiki contract details"
+    },
+    "WikiDocumentationContract": {
+      "type": "object",
+      "properties": {
+        "documentationId": {
+          "type": "string",
+          "description": "Documentation Identifier"
+        }
+      },
+      "description": "Wiki documentation details."
     },
     "X509CertificateName": {
       "type": "object",
