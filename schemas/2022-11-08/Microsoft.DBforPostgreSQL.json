@@ -1,0 +1,755 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-11-08/Microsoft.DBforPostgreSQL.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.DBforPostgreSQL",
+  "description": "Microsoft DBforPostgreSQL Resource Types",
+  "resourceDefinitions": {
+    "serverGroupsv2": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(?![0-9]+$)(?!-)[a-z0-9-]{3,40}(?<!-)$",
+              "minLength": 3,
+              "maxLength": 40
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the cluster."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties used to create a new cluster."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/serverGroupsv2_firewallRules_childResource"
+              },
+              {
+                "$ref": "#/definitions/serverGroupsv2_roles_childResource"
+              },
+              {
+                "$ref": "#/definitions/serverGroupsv2_privateEndpointConnections_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DBforPostgreSQL/serverGroupsv2"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2"
+    },
+    "serverGroupsv2_configurations_coordinator": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/coordinator$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerConfigurationRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents a configuration properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DBforPostgreSQL/serverGroupsv2/configurations/coordinator"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/configurations/coordinator"
+    },
+    "serverGroupsv2_configurations_node": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/node$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerConfigurationRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents a configuration properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DBforPostgreSQL/serverGroupsv2/configurations/node"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/configurations/node"
+    },
+    "serverGroupsv2_firewallRules": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the cluster firewall rule."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FirewallRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a cluster firewall rule."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DBforPostgreSQL/serverGroupsv2/firewallRules"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/firewallRules"
+    },
+    "serverGroupsv2_privateEndpointConnections": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the private endpoint connection."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointConnectionActionRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties used to create a private endpoint connection"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections"
+    },
+    "serverGroupsv2_roles": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the cluster role."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a cluster role."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DBforPostgreSQL/serverGroupsv2/roles"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/roles"
+    }
+  },
+  "definitions": {
+    "ClusterProperties": {
+      "type": "object",
+      "properties": {
+        "administratorLoginPassword": {
+          "type": "string",
+          "format": "password",
+          "description": "The password of the administrator login. Required for creation."
+        },
+        "citusVersion": {
+          "type": "string",
+          "description": "The Citus version of cluster."
+        },
+        "coordinatorEnablePublicIpAccess": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If public IP is requested or not for the coordinator."
+        },
+        "coordinatorServerEdition": {
+          "type": "string",
+          "description": "The edition of the coordinator (default: GeneralPurpose). Required for creation."
+        },
+        "coordinatorStorageQuotaInMb": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage of the coordinator in MB. Required for creation."
+        },
+        "coordinatorVCores": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The vCores count of the coordinator (max: 64). Required for creation."
+        },
+        "enableHa": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If high availability is enabled or not for the cluster."
+        },
+        "enableShardsOnCoordinator": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If shards on coordinator is enabled or not for the cluster."
+        },
+        "maintenanceWindow": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaintenanceWindow"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Maintenance window of a cluster."
+        },
+        "nodeCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Worker node count of the cluster. When node count is 0, it represents a coordinator with the ability to create distributed tables on that node. Node count value can not be 1. Required for creation."
+        },
+        "nodeEnablePublicIpAccess": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If public IP is requested or not for a node."
+        },
+        "nodeServerEdition": {
+          "type": "string",
+          "description": "The edition of a node (default: MemoryOptimized)."
+        },
+        "nodeStorageQuotaInMb": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage of a node in MB."
+        },
+        "nodeVCores": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The vCores count of a node (max: 64)."
+        },
+        "postgresqlVersion": {
+          "type": "string",
+          "description": "The PostgreSQL version of cluster."
+        },
+        "preferredPrimaryZone": {
+          "type": "string",
+          "description": "Preferred primary zone for the cluster"
+        },
+        "sourceLocation": {
+          "type": "string",
+          "description": "The source cluster location to restore from. It's required for 'PointInTimeRestore' or 'ReadReplica' operations"
+        },
+        "sourceResourceId": {
+          "type": "string",
+          "description": "The source resource id to restore from. It's required for 'PointInTimeRestore' or 'ReadReplica' operations"
+        }
+      },
+      "description": "The properties used to create a new cluster."
+    },
+    "FirewallRuleProperties": {
+      "type": "object",
+      "properties": {
+        "endIpAddress": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The end IP address of the cluster firewall rule. Must be IPv4 format."
+        },
+        "startIpAddress": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The start IP address of the cluster firewall rule. Must be IPv4 format."
+        }
+      },
+      "required": [
+        "endIpAddress",
+        "startIpAddress"
+      ],
+      "description": "The properties of a cluster firewall rule."
+    },
+    "MaintenanceWindow": {
+      "type": "object",
+      "properties": {
+        "customWindow": {
+          "type": "string",
+          "description": "indicates whether custom window is enabled or disabled"
+        },
+        "dayOfWeek": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "day of week for maintenance window"
+        },
+        "startHour": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "start hour for maintenance window"
+        },
+        "startMinute": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "start minute for maintenance window"
+        }
+      },
+      "description": "Maintenance window of a cluster."
+    },
+    "PrivateEndpointConnectionActionRequestProperties": {
+      "type": "object",
+      "properties": {
+        "privateLinkServiceConnectionState": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateLinkServiceConnectionState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The private link service connection state"
+        }
+      },
+      "required": [
+        "privateLinkServiceConnectionState"
+      ],
+      "description": "The properties used to create a private endpoint connection"
+    },
+    "PrivateLinkServiceConnectionState": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The private link service connection description."
+        },
+        "status": {
+          "type": "string",
+          "description": "The private link service connection status."
+        }
+      },
+      "description": "The private link service connection state"
+    },
+    "RoleProperties": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string",
+          "format": "password",
+          "description": "The password of the cluster role."
+        }
+      },
+      "required": [
+        "password"
+      ],
+      "description": "The properties of a cluster role."
+    },
+    "ServerConfigurationRequestProperties": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "Represents the value of a configuration."
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "description": "Represents a configuration properties"
+    },
+    "serverGroupsv2_firewallRules_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the cluster firewall rule."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FirewallRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a cluster firewall rule."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "firewallRules"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/firewallRules"
+    },
+    "serverGroupsv2_privateEndpointConnections_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the private endpoint connection."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointConnectionActionRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties used to create a private endpoint connection"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "privateEndpointConnections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections"
+    },
+    "serverGroupsv2_roles_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-11-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the cluster role."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a cluster role."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "roles"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/roles"
+    }
+  }
+}
