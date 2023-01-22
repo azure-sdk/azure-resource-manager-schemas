@@ -1,0 +1,90 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-05-17-preview/Microsoft.AzureScan.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.AzureScan",
+  "description": "Microsoft AzureScan Resource Types",
+  "resourceDefinitions": {
+    "scanningAccounts": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-05-17-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(?=.{3,24}$)[^0-9][A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scanning account name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScanProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of the scan profile"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureScan/scanningAccounts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureScan/scanningAccounts"
+    }
+  },
+  "definitions": {
+    "ScanProfileProperties": {
+      "type": "object",
+      "properties": {
+        "aadClientId": {
+          "type": "string",
+          "description": "AAD client Id of the scan profile"
+        }
+      },
+      "required": [
+        "aadClientId"
+      ],
+      "description": "Properties of the scan profile"
+    }
+  }
+}

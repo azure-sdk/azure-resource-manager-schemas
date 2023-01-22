@@ -3491,6 +3491,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2019-07-24-preview/Microsoft.AzureData.json#/resourceDefinitions/sqlServerRegistrations_sqlServers"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-05-17-preview/Microsoft.AzureScan.json#/resourceDefinitions/scanningAccounts"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2016-01-01/Microsoft.AzureStack.json#/resourceDefinitions/registrations"
         },
         {
