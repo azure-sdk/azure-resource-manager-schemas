@@ -28064,60 +28064,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.Storage.json#/resourceDefinitions/storageAccounts_tableServices_tables"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2019-08-01-preview/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-08-01-preview/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-11-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-11-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-03-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-03-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-05-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-05-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-01-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-01-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-05-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-05-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2022-07-01-preview/Microsoft.StorageMover.json#/resourceDefinitions/storageMovers"
         },
         {
