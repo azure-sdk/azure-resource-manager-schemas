@@ -2207,6 +2207,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-05-01/Microsoft.AppConfiguration.json#/resourceDefinitions/configurationStores_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-03/Microsoft.AppConfiguration.json#/resourceDefinitions/configurationStores"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-03/Microsoft.AppConfiguration.json#/resourceDefinitions/configurationStores_keyValues"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-03/Microsoft.AppConfiguration.json#/resourceDefinitions/configurationStores_privateEndpointConnections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-07-01/Microsoft.AppPlatform.json#/resourceDefinitions/Spring"
         },
         {
