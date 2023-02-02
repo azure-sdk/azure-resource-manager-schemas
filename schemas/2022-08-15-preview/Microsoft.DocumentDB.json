@@ -2736,6 +2736,30 @@
       },
       "description": "The object representing the state of the migration between the backup policies."
     },
+    "BackupSchedule": {
+      "type": "object",
+      "properties": {
+        "cronExpression": {
+          "type": "string",
+          "description": "The cron expression that defines when you want to back up your data."
+        },
+        "retentionInHours": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The retention period (hours) of the backups. If you want to retain data forever, set retention to 0."
+        },
+        "scheduleName": {
+          "type": "string",
+          "description": "The unique identifier of backup schedule."
+        }
+      }
+    },
     "Capability": {
       "type": "object",
       "properties": {
@@ -2812,6 +2836,23 @@
         "type"
       ],
       "description": "Microsoft.DocumentDB/cassandraClusters/dataCenters"
+    },
+    "CassandraError": {
+      "type": "object",
+      "properties": {
+        "additionalErrorInfo": {
+          "type": "string",
+          "description": "Additional information about the error."
+        },
+        "code": {
+          "type": "string",
+          "description": "The code of error that occurred."
+        },
+        "message": {
+          "type": "string",
+          "description": "The message of the error."
+        }
+      }
     },
     "CassandraKeyspaceCreateUpdateProperties": {
       "type": "object",
@@ -3203,6 +3244,20 @@
           ],
           "description": "Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'. 'Ldap' is in preview."
         },
+        "backupSchedules": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BackupSchedule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of backup schedules that define when you want to back up your data."
+        },
         "cassandraAuditLoggingEnabled": {
           "oneOf": [
             {
@@ -3236,6 +3291,21 @@
           "type": "string",
           "description": "If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property."
         },
+        "clusterType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Production",
+                "NonProduction"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the cluster. If set to Production, some operations might not be permitted on cluster."
+        },
         "deallocated": {
           "oneOf": [
             {
@@ -3250,6 +3320,20 @@
         "delegatedManagementSubnetId": {
           "type": "string",
           "description": "Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'"
+        },
+        "extensions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Extensions to be added or updated on cluster."
         },
         "externalGossipCertificates": {
           "oneOf": [
@@ -3288,7 +3372,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Number of hours to wait between taking a backup of the cluster."
+          "description": "(Deprecated) Number of hours to wait between taking a backup of the cluster."
         },
         "initialCassandraAdminPassword": {
           "type": "string",
@@ -3298,6 +3382,16 @@
           "oneOf": [
             {
               "$ref": "#/definitions/SeedNode"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisionError": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CassandraError"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -6152,6 +6246,17 @@
           "type": "string",
           "description": "The region this data center should be created in."
         },
+        "deallocated": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether the data center has been deallocated."
+        },
         "delegatedSubnetId": {
           "type": "string",
           "description": "Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'."
@@ -6185,6 +6290,16 @@
             }
           ],
           "description": "The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster."
+        },
+        "provisionError": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CassandraError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "provisioningState": {
           "oneOf": [
