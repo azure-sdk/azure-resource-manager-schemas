@@ -7641,6 +7641,52 @@
       ],
       "description": "Copy activity properties."
     },
+    "CopyComputeScaleProperties": {
+      "type": "object",
+      "properties": {
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Unmatched properties from the message are deserialized this collection"
+        },
+        "dataIntegrationUnit": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 4
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DIU number setting reserved for copy activity execution. Supported values are multiples of 4 in range 4-256."
+        },
+        "timeToLive": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 5
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Time to live (in minutes) setting of integration runtime which will execute copy activity."
+        }
+      },
+      "description": "CopyComputeScale properties for managed integration runtime."
+    },
     "CopySink": {
       "type": "object",
       "oneOf": [
@@ -17236,6 +17282,17 @@
           ],
           "description": "Unmatched properties from the message are deserialized this collection"
         },
+        "copyComputeScaleProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CopyComputeScaleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "CopyComputeScale properties for managed integration runtime."
+        },
         "dataFlowProperties": {
           "oneOf": [
             {
@@ -17278,6 +17335,17 @@
             }
           ],
           "description": "The required number of nodes for managed integration runtime."
+        },
+        "pipelineExternalComputeScaleProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PipelineExternalComputeScaleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "PipelineExternalComputeScale properties for managed integration runtime."
         },
         "vNetProperties": {
           "oneOf": [
@@ -22363,6 +22431,40 @@
         }
       },
       "description": "Pipeline ElapsedTime Metric Policy."
+    },
+    "PipelineExternalComputeScaleProperties": {
+      "type": "object",
+      "properties": {
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Unmatched properties from the message are deserialized this collection"
+        },
+        "timeToLive": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 5
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity."
+        }
+      },
+      "description": "PipelineExternalComputeScale properties for managed integration runtime."
     },
     "PipelineFolder": {
       "type": "object",
