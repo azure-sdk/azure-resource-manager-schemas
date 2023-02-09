@@ -29301,15 +29301,9 @@
           "description": "Synapse notebook reference type."
         },
         "numExecutors": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide."
+          "type": "object",
+          "properties": {},
+          "description": "Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer)."
         },
         "parameters": {
           "oneOf": [
