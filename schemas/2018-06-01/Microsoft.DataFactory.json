@@ -15322,11 +15322,11 @@
         "variables": {
           "oneOf": [
             {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {}
-              }
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
