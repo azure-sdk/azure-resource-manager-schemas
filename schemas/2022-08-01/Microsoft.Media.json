@@ -3183,6 +3183,10 @@
           ],
           "description": "The HLS setting for a track."
         },
+        "languageCode": {
+          "type": "string",
+          "description": "The RFC5646 language code for the text track."
+        },
         "playerVisibility": {
           "oneOf": [
             {
