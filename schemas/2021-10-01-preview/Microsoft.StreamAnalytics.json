@@ -2542,6 +2542,46 @@
       },
       "description": "The properties that are associated with the JSON serialization type."
     },
+    "LakeHouseOutputDataSource": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LakeHouseOutputDataSourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties that are associated with a LakeHouse output."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "LakeHouse"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Describes a LakeHouse source."
+    },
+    "LakeHouseOutputDataSourceProperties": {
+      "type": "object",
+      "properties": {
+        "artifactId": {
+          "type": "string",
+          "description": "artifact name"
+        },
+        "workspaceId": {
+          "type": "string",
+          "description": "Workspace Name"
+        }
+      },
+      "description": "The properties that are associated with a LakeHouse output."
+    },
     "Output": {
       "type": "object",
       "properties": {
@@ -2610,6 +2650,9 @@
         },
         {
           "$ref": "#/definitions/GatewayMessageBusOutputDataSource"
+        },
+        {
+          "$ref": "#/definitions/LakeHouseOutputDataSource"
         }
       ],
       "properties": {},
