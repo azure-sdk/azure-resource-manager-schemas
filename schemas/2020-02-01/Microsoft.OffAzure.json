@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2020-01-01/Microsoft.OffAzure.json#",
+  "id": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.OffAzure",
   "description": "Microsoft OffAzure Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "eTag": {
@@ -86,7 +86,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "name": {
@@ -125,7 +125,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "name": {
@@ -164,7 +164,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "location": {
@@ -223,7 +223,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "location": {
@@ -292,7 +292,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "name": {
@@ -331,7 +331,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "eTag": {
@@ -404,7 +404,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "name": {
@@ -666,7 +666,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "name": {
@@ -705,7 +705,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "name": {
@@ -1224,7 +1224,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "name": {
@@ -1579,7 +1579,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2020-01-01"
+            "2020-02-01"
           ]
         },
         "name": {
