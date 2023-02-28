@@ -1845,6 +1845,17 @@
           "type": "string",
           "description": "The container in the storage account, only to be specified for WASB storage accounts."
         },
+        "enableSecureChannel": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer specify use secure channel or not. Only work when IsDefault is true. It will impact the setting of FS.defaultFS for ambari and could be null."
+        },
         "fileshare": {
           "type": "string",
           "description": "The file share name."
