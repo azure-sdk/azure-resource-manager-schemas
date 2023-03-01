@@ -8567,6 +8567,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_firewallRules"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-02/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-02/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_databases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-02/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_firewallRules"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2017-12-01/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/servers"
         },
         {
