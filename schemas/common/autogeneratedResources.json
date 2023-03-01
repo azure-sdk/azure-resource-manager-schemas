@@ -8675,6 +8675,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-03-08-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_firewallRules"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_migrations"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-12-01/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers"
         },
         {
