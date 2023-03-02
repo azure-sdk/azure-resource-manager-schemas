@@ -507,6 +507,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2018-03-01/Microsoft.Addons.json#/subscription_resourceDefinitions/supportProviders_supportPlanTypes"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2021-09-12/Microsoft.Addons.json#/subscription_resourceDefinitions/supportProviders_supportPlanTypes"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2017-04-19/Microsoft.Advisor.json#/subscription_resourceDefinitions/configurations"
             },
             {
