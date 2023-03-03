@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-12-01-preview/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-02-01-preview/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -56,6 +56,9 @@
               },
               {
                 "$ref": "#/definitions/registries_components_childResource"
+              },
+              {
+                "$ref": "#/definitions/registries_data_childResource"
               },
               {
                 "$ref": "#/definitions/registries_environments_childResource"
@@ -114,7 +117,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -163,7 +166,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -202,7 +205,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -251,7 +254,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -284,13 +287,101 @@
       ],
       "description": "Microsoft.MachineLearningServices/registries/components/versions"
     },
+    "registries_data": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container for data asset versions."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/registries_data_versions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/data"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/data"
+    },
+    "registries_data_versions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataVersionBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data version base definition"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/registries/data/versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/data/versions"
+    },
     "registries_environments": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -339,7 +430,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -378,7 +469,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -426,7 +517,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -465,7 +556,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -484,7 +575,15 @@
           "description": "Specifies the location of the resource."
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Name of Azure Machine Learning workspace."
         },
         "properties": {
@@ -528,6 +627,12 @@
               },
               {
                 "$ref": "#/definitions/workspaces_environments_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_featuresets_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_featurestoreEntities_childResource"
               },
               {
                 "$ref": "#/definitions/workspaces_jobs_childResource"
@@ -594,7 +699,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -689,7 +794,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -774,7 +879,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -823,7 +928,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -862,7 +967,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -911,7 +1016,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -950,7 +1055,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -1030,7 +1135,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1068,7 +1173,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1117,7 +1222,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1156,7 +1261,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1195,7 +1300,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1244,7 +1349,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1277,13 +1382,189 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/environments/versions"
     },
+    "workspaces_featuresets": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name. This is case-sensitive."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturesetContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing feature set"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/workspaces_featuresets_versions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/featuresets"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/featuresets"
+    },
+    "workspaces_featuresets_versions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier. This is case-sensitive."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturesetVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing feature set version"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/featuresets/versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/featuresets/versions"
+    },
+    "workspaces_featurestoreEntities": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name. This is case-sensitive."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturestoreEntityContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing feature entity"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/workspaces_featurestoreEntities_versions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/featurestoreEntities"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/featurestoreEntities"
+    },
+    "workspaces_featurestoreEntities_versions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier. This is case-sensitive."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturestoreEntityVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing feature entity version"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/featurestoreEntities/versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/featurestoreEntities/versions"
+    },
     "workspaces_jobs": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1322,7 +1603,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1361,7 +1642,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1409,7 +1690,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1448,7 +1729,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -1543,7 +1824,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -1627,7 +1908,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -1707,7 +1988,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -1873,10 +2154,10 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/DataPathAssetReference"
+          "$ref": "#/definitions/IdAssetReference"
         },
         {
-          "$ref": "#/definitions/IdAssetReference"
+          "$ref": "#/definitions/DataPathAssetReference"
         },
         {
           "$ref": "#/definitions/OutputPathAssetReference"
@@ -1951,6 +2232,16 @@
             }
           ],
           "description": "Mapping of output data bindings used in the job."
+        },
+        "queueSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueueSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "resources": {
           "oneOf": [
@@ -2141,6 +2432,17 @@
           "type": "string",
           "description": "Compute target for batch inference operation."
         },
+        "deploymentConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BatchDeploymentConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties relevant to different deployment types."
+        },
         "description": {
           "type": "string",
           "description": "Description of the endpoint deployment."
@@ -2286,6 +2588,16 @@
       },
       "description": "Batch inference settings per deployment."
     },
+    "BatchDeploymentConfiguration": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/BatchPipelineComponentDeploymentConfiguration"
+        }
+      ],
+      "properties": {},
+      "description": "Properties relevant to different deployment types."
+    },
     "BatchEndpoint": {
       "type": "object",
       "properties": {
@@ -2361,6 +2673,66 @@
         }
       },
       "description": "Batch endpoint default values"
+    },
+    "BatchPipelineComponentDeploymentConfiguration": {
+      "type": "object",
+      "properties": {
+        "componentId": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IdAssetReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reference to an asset via its ARM resource ID."
+        },
+        "deploymentConfigurationType": {
+          "type": "string",
+          "enum": [
+            "PipelineComponent"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "The description which will be applied to the job."
+        },
+        "settings": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Run-time settings for the pipeline job."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The tags which will be applied to the job."
+        }
+      },
+      "required": [
+        "deploymentConfigurationType"
+      ],
+      "description": "Properties for a Batch Pipeline Component Deployment."
     },
     "BatchRetrySettings": {
       "type": "object",
@@ -2772,6 +3144,16 @@
             }
           ],
           "description": "Mapping of output data bindings used in the job."
+        },
+        "queueSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueueSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "resources": {
           "oneOf": [
@@ -3359,6 +3741,20 @@
           "type": "string",
           "description": "Optional type of VM used as supported by the compute target."
         },
+        "locations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Locations where the job can run."
+        },
         "properties": {
           "oneOf": [
             {
@@ -3709,6 +4105,301 @@
       },
       "description": "Environment version details."
     },
+    "FeaturesetContainer": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The asset description text."
+        },
+        "isArchived": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Is the asset archived?"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The asset property dictionary."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tag dictionary. Tags can be added, removed, and updated."
+        }
+      },
+      "description": "Dto object representing feature set"
+    },
+    "FeaturesetSpecification": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Specifies the spec path"
+        }
+      },
+      "description": "Dto object representing specification"
+    },
+    "FeaturesetVersion": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The asset description text."
+        },
+        "entities": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies list of entities"
+        },
+        "isAnonymous": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the name version are system generated (anonymous registration)."
+        },
+        "isArchived": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Is the asset archived?"
+        },
+        "materializationSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaterializationSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The asset property dictionary."
+        },
+        "specification": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturesetSpecification"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing specification"
+        },
+        "stage": {
+          "type": "string",
+          "description": "Specifies the asset stage"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tag dictionary. Tags can be added, removed, and updated."
+        }
+      },
+      "description": "Dto object representing feature set version"
+    },
+    "FeaturestoreEntityContainer": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The asset description text."
+        },
+        "isArchived": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Is the asset archived?"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The asset property dictionary."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tag dictionary. Tags can be added, removed, and updated."
+        }
+      },
+      "description": "Dto object representing feature entity"
+    },
+    "FeaturestoreEntityVersion": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The asset description text."
+        },
+        "indexColumns": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IndexColumn"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies index columns"
+        },
+        "isAnonymous": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the name version are system generated (anonymous registration)."
+        },
+        "isArchived": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Is the asset archived?"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The asset property dictionary."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tag dictionary. Tags can be added, removed, and updated."
+        }
+      },
+      "description": "Dto object representing feature entity version"
+    },
     "FlavorData": {
       "type": "object",
       "properties": {
@@ -3834,6 +4525,37 @@
       },
       "description": "Identity that will be used to access key vault for encryption at rest"
     },
+    "IndexColumn": {
+      "type": "object",
+      "properties": {
+        "columnName": {
+          "type": "string",
+          "description": "Specifies the column name"
+        },
+        "dataType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "String",
+                "Integer",
+                "Long",
+                "Float",
+                "Double",
+                "Binary",
+                "Datetime",
+                "Boolean"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the data type."
+        }
+      },
+      "description": "Dto object representing index column"
+    },
     "InferenceContainerProperties": {
       "type": "object",
       "properties": {
@@ -3936,6 +4658,17 @@
           ],
           "description": "Is the asset archived?"
         },
+        "notificationSetting": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NotificationSetting"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration for notification."
+        },
         "properties": {
           "oneOf": [
             {
@@ -4031,6 +4764,20 @@
         "instanceType": {
           "type": "string",
           "description": "Optional type of VM used as supported by the compute target."
+        },
+        "locations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Locations where the job can run."
         },
         "properties": {
           "oneOf": [
@@ -4564,6 +5311,85 @@
       ],
       "description": "Managed service identity (system assigned and/or user assigned identities)"
     },
+    "MaterializationComputeResource": {
+      "type": "object",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "description": "Specifies the instance type"
+        }
+      },
+      "description": "Dto object representing compute resource"
+    },
+    "MaterializationSettings": {
+      "type": "object",
+      "properties": {
+        "notification": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NotificationSetting"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration for notification."
+        },
+        "resource": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaterializationComputeResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing compute resource"
+        },
+        "schedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecurrenceTrigger"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sparkConfiguration": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the spark compute settings"
+        },
+        "storeType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Online",
+                "Offline",
+                "OnlineAndOffline"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the stores to which materialization should happen."
+        }
+      }
+    },
     "MedianStoppingPolicy": {
       "type": "object",
       "properties": {
@@ -4947,6 +5773,45 @@
         "credentialsType"
       ],
       "description": "Empty/none datastore credentials."
+    },
+    "NotificationSetting": {
+      "type": "object",
+      "properties": {
+        "emailOn": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "JobCompleted",
+                  "JobFailed",
+                  "JobCancelled"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Send email notification to user on specified notification type"
+        },
+        "emails": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This is the email recipient list which has a limitation of 499 characters in total concat with comma separator"
+        }
+      },
+      "description": "Configuration for notification."
     },
     "Objective": {
       "type": "object",
@@ -5552,6 +6417,39 @@
       ],
       "description": "PyTorch distribution configuration."
     },
+    "QueueSettings": {
+      "type": "object",
+      "properties": {
+        "jobTier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Spot",
+                "Basic",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enum to determine the job tier."
+        },
+        "priority": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Controls the priority of the job on a compute."
+        }
+      }
+    },
     "RandomSamplingAlgorithm": {
       "type": "object",
       "properties": {
@@ -5674,6 +6572,10 @@
     "RecurrenceTrigger": {
       "type": "object",
       "properties": {
+        "endTime": {
+          "type": "string",
+          "description": "Specifies end time of schedule in ISO 8601, but without a UTC offset. Refer https://en.wikipedia.org/wiki/ISO_8601.\r\nRecommented format would be \"2022-06-01T00:00:01\"\r\nIf not present, the schedule will run indefinitely"
+        },
         "frequency": {
           "oneOf": [
             {
@@ -5713,6 +6615,15 @@
             }
           ]
         },
+        "startTime": {
+          "type": "string",
+          "description": "Specifies start time of schedule in ISO 8601 format, but without a UTC offset."
+        },
+        "timeZone": {
+          "type": "string",
+          "default": "UTC",
+          "description": "Specifies time zone in which the schedule runs.\r\nTimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11"
+        },
         "triggerType": {
           "type": "string",
           "enum": [
@@ -5732,7 +6643,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -5771,7 +6682,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -5810,7 +6721,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -5849,7 +6760,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -5882,13 +6793,91 @@
       ],
       "description": "Microsoft.MachineLearningServices/registries/components/versions"
     },
+    "registries_data_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container for data asset versions."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "data"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/data"
+    },
+    "registries_data_versions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataVersionBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data version base definition"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/registries/data/versions"
+    },
     "registries_environments_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -5927,7 +6916,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -5966,7 +6955,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -6004,7 +6993,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -6060,6 +7049,21 @@
             }
           ],
           "description": "ARM ResourceId of a resource"
+        },
+        "managedResourceGroupTags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tags to be applied to the managed resource group associated with this registry."
         },
         "mlFlowRegistryUri": {
           "type": "string"
@@ -6718,6 +7722,16 @@
           ],
           "description": "Python files used in the job."
         },
+        "queueSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueueSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "resources": {
           "oneOf": [
             {
@@ -6916,6 +7930,16 @@
             }
           ],
           "description": "Mapping of output data bindings used in the job."
+        },
+        "queueSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueueSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "samplingAlgorithm": {
           "oneOf": [
@@ -7739,7 +8763,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -7824,7 +8848,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -7909,7 +8933,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -7948,7 +8972,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -7987,7 +9011,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8026,7 +9050,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8065,7 +9089,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -8145,7 +9169,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8183,7 +9207,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8222,7 +9246,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8261,7 +9285,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8300,7 +9324,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8339,7 +9363,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8372,13 +9396,169 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/environments/versions"
     },
+    "workspaces_featuresets_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name. This is case-sensitive."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturesetContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing feature set"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "featuresets"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/featuresets"
+    },
+    "workspaces_featuresets_versions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier. This is case-sensitive."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturesetVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing feature set version"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/featuresets/versions"
+    },
+    "workspaces_featurestoreEntities_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Container name. This is case-sensitive."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturestoreEntityContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing feature entity"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "featurestoreEntities"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/featurestoreEntities"
+    },
+    "workspaces_featurestoreEntities_versions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Version identifier. This is case-sensitive."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeaturestoreEntityVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dto object representing feature entity version"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/featurestoreEntities/versions"
+    },
     "workspaces_jobs_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8417,7 +9597,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8456,7 +9636,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8494,7 +9674,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
@@ -8533,7 +9713,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -8618,7 +9798,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -8702,7 +9882,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "identity": {
@@ -8782,7 +9962,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-01-preview"
+            "2023-02-01-preview"
           ]
         },
         "name": {
