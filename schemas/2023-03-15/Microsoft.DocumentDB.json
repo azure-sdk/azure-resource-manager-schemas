@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-11-15-preview/Microsoft.DocumentDB.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.DocumentDB.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.DocumentDB",
   "description": "Microsoft DocumentDB Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "identity": {
@@ -99,7 +99,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -148,7 +148,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "identity": {
@@ -212,9 +212,6 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/databaseAccounts_graphs_childResource"
-              },
-              {
                 "$ref": "#/definitions/databaseAccounts_sqlDatabases_childResource"
               },
               {
@@ -240,9 +237,6 @@
               },
               {
                 "$ref": "#/definitions/databaseAccounts_gremlinDatabases_childResource"
-              },
-              {
-                "$ref": "#/definitions/databaseAccounts_dataTransferJobs_childResource"
               },
               {
                 "$ref": "#/definitions/databaseAccounts_notebookWorkspaces_childResource"
@@ -292,19 +286,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -334,9 +317,6 @@
               },
               {
                 "$ref": "#/definitions/databaseAccounts_cassandraKeyspaces_tables_childResource"
-              },
-              {
-                "$ref": "#/definitions/databaseAccounts_cassandraKeyspaces_views_childResource"
               }
             ]
           }
@@ -377,19 +357,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -456,19 +425,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -532,19 +490,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -602,288 +549,14 @@
       ],
       "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings"
     },
-    "databaseAccounts_cassandraKeyspaces_views": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-11-15-preview"
-          ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
-        },
-        "location": {
-          "type": "string",
-          "description": "The location of the resource group to which the resource belongs."
-        },
-        "name": {
-          "type": "string",
-          "description": "Cosmos DB view name."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CassandraViewCreateUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties to create and update Azure Cosmos DB Cassandra view."
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/databaseAccounts_cassandraKeyspaces_views_throughputSettings_childResource"
-              }
-            ]
-          }
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views"
-    },
-    "databaseAccounts_cassandraKeyspaces_views_throughputSettings": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-11-15-preview"
-          ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
-        },
-        "location": {
-          "type": "string",
-          "description": "The location of the resource group to which the resource belongs."
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^.*/default$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ThroughputSettingsUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties to update Azure Cosmos DB resource throughput."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings"
-    },
-    "databaseAccounts_dataTransferJobs": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-11-15-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of the Data Transfer Job"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DataTransferJobProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties of a DataTransfer Job"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/dataTransferJobs"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DocumentDB/databaseAccounts/dataTransferJobs"
-    },
-    "databaseAccounts_graphs": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-11-15-preview"
-          ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
-        },
-        "location": {
-          "type": "string",
-          "description": "The location of the resource group to which the resource belongs."
-        },
-        "name": {
-          "type": "string",
-          "description": "Cosmos DB graph resource name."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GraphResourceCreateUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties to create and update Azure Cosmos DB Graph resource."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/graphs"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DocumentDB/databaseAccounts/graphs"
-    },
     "databaseAccounts_gremlinDatabases": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -953,19 +626,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1032,19 +694,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1108,19 +759,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1184,19 +824,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1266,19 +895,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1345,19 +963,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1421,19 +1028,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1497,7 +1093,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -1536,7 +1132,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -1575,7 +1171,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -1610,7 +1206,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -1649,7 +1245,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -1690,19 +1286,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1731,10 +1316,10 @@
                 "$ref": "#/definitions/databaseAccounts_sqlDatabases_throughputSettings_childResource"
               },
               {
-                "$ref": "#/definitions/databaseAccounts_sqlDatabases_clientEncryptionKeys_childResource"
+                "$ref": "#/definitions/databaseAccounts_sqlDatabases_containers_childResource"
               },
               {
-                "$ref": "#/definitions/databaseAccounts_sqlDatabases_containers_childResource"
+                "$ref": "#/definitions/databaseAccounts_sqlDatabases_clientEncryptionKeys_childResource"
               }
             ]
           }
@@ -1775,7 +1360,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -1814,19 +1399,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1902,19 +1476,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -1971,19 +1534,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -2047,19 +1599,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -2116,19 +1657,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -2185,19 +1715,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -2261,7 +1780,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -2300,7 +1819,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -2339,19 +1858,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -2418,19 +1926,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -2532,56 +2029,6 @@
         }
       }
     },
-    "AuthenticationMethodLdapProperties": {
-      "type": "object",
-      "properties": {
-        "searchBaseDistinguishedName": {
-          "type": "string",
-          "description": "Distinguished name of the object to start the recursive search of users from."
-        },
-        "searchFilterTemplate": {
-          "type": "string",
-          "description": "Template to use for searching. Defaults to (cn=%s) where %s will be replaced by the username used to login."
-        },
-        "serverCertificates": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Certificate"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "serverHostname": {
-          "type": "string",
-          "description": "Hostname of the LDAP server."
-        },
-        "serverPort": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Port of the LDAP server."
-        },
-        "serviceUserDistinguishedName": {
-          "type": "string",
-          "description": "Distinguished name of the look up user account, who can look up user details on authentication."
-        },
-        "serviceUserPassword": {
-          "type": "string",
-          "description": "Password of the look up user."
-        }
-      },
-      "description": "Ldap authentication method properties. This feature is in preview."
-    },
     "AutoscaleSettings": {
       "type": "object",
       "properties": {
@@ -2645,28 +2092,6 @@
         }
       },
       "description": "Cosmos DB resource auto-upgrade policy"
-    },
-    "AzureBlobDataTransferDataSourceSink": {
-      "type": "object",
-      "properties": {
-        "component": {
-          "type": "string",
-          "enum": [
-            "AzureBlobStorage"
-          ]
-        },
-        "containerName": {
-          "type": "string"
-        },
-        "endpointUrl": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "component",
-        "containerName"
-      ],
-      "description": "An Azure Blob Storage data source/sink"
     },
     "BackupPolicy": {
       "type": "object",
@@ -2770,7 +2195,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -2992,55 +2417,6 @@
       ],
       "description": "Cosmos DB Cassandra table resource object"
     },
-    "CassandraViewCreateUpdateProperties": {
-      "type": "object",
-      "properties": {
-        "options": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CreateUpdateOptions"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are \"If-Match\", \"If-None-Match\", \"Session-Token\" and \"Throughput\""
-        },
-        "resource": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CassandraViewResource"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Cosmos DB Cassandra view resource object"
-        }
-      },
-      "required": [
-        "resource"
-      ],
-      "description": "Properties to create and update Azure Cosmos DB Cassandra view."
-    },
-    "CassandraViewResource": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Name of the Cosmos DB Cassandra view"
-        },
-        "viewDefinition": {
-          "type": "string",
-          "description": "View Definition of the Cosmos DB Cassandra view"
-        }
-      },
-      "required": [
-        "id",
-        "viewDefinition"
-      ],
-      "description": "Cosmos DB Cassandra view resource object"
-    },
     "Certificate": {
       "type": "object",
       "properties": {
@@ -3195,15 +2571,14 @@
               "type": "string",
               "enum": [
                 "None",
-                "Cassandra",
-                "Ldap"
+                "Cassandra"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'. 'Ldap' is in preview."
+          "description": "Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'."
         },
         "cassandraAuditLoggingEnabled": {
           "oneOf": [
@@ -3518,17 +2893,6 @@
     "ContinuousModeBackupPolicy": {
       "type": "object",
       "properties": {
-        "continuousModeProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ContinuousModeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Configuration values for periodic mode backup"
-        },
         "type": {
           "type": "string",
           "enum": [
@@ -3540,27 +2904,6 @@
         "type"
       ],
       "description": "The object representing continuous mode backup policy."
-    },
-    "ContinuousModeProperties": {
-      "type": "object",
-      "properties": {
-        "tier": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Continuous7Days",
-                "Continuous30Days"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enum to indicate type of Continuos backup mode."
-        }
-      },
-      "description": "Configuration values for periodic mode backup"
     },
     "CorsPolicy": {
       "type": "object",
@@ -3599,52 +2942,6 @@
         "allowedOrigins"
       ],
       "description": "The CORS policy for the Cosmos DB database account."
-    },
-    "CosmosCassandraDataTransferDataSourceSink": {
-      "type": "object",
-      "properties": {
-        "component": {
-          "type": "string",
-          "enum": [
-            "CosmosDBCassandra"
-          ]
-        },
-        "keyspaceName": {
-          "type": "string"
-        },
-        "tableName": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "component",
-        "keyspaceName",
-        "tableName"
-      ],
-      "description": "A CosmosDB Cassandra API data source/sink"
-    },
-    "CosmosSqlDataTransferDataSourceSink": {
-      "type": "object",
-      "properties": {
-        "component": {
-          "type": "string",
-          "enum": [
-            "CosmosDBSql"
-          ]
-        },
-        "containerName": {
-          "type": "string"
-        },
-        "databaseName": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "component",
-        "containerName",
-        "databaseName"
-      ],
-      "description": "A CosmosDB Cassandra API data source/sink"
     },
     "CreateUpdateOptions": {
       "type": "object",
@@ -3805,17 +3102,6 @@
           "type": "string",
           "description": "The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be \"FirstPartyIdentity\", \"SystemAssignedIdentity\" and more."
         },
-        "diagnosticLogSettings": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DiagnosticLogSettings"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates what diagnostic log settings are to be enabled."
-        },
         "disableKeyBasedMetadataWriteAccess": {
           "oneOf": [
             {
@@ -3860,17 +3146,6 @@
           ],
           "description": "Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account."
         },
-        "enableBurstCapacity": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account"
-        },
         "enableCassandraConnector": {
           "oneOf": [
             {
@@ -3892,17 +3167,6 @@
             }
           ],
           "description": "Flag to indicate whether Free Tier is enabled."
-        },
-        "enableMaterializedViews": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Flag to indicate whether to enable MaterializedViews on the Cosmos DB account"
         },
         "enableMultipleWriteLocations": {
           "oneOf": [
@@ -4083,19 +3347,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4152,19 +3405,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4221,19 +3463,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4292,19 +3523,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4357,273 +3577,14 @@
       ],
       "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings"
     },
-    "databaseAccounts_cassandraKeyspaces_views_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-11-15-preview"
-          ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
-        },
-        "location": {
-          "type": "string",
-          "description": "The location of the resource group to which the resource belongs."
-        },
-        "name": {
-          "type": "string",
-          "description": "Cosmos DB view name."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CassandraViewCreateUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties to create and update Azure Cosmos DB Cassandra view."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "views"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views"
-    },
-    "databaseAccounts_cassandraKeyspaces_views_throughputSettings_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-11-15-preview"
-          ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
-        },
-        "location": {
-          "type": "string",
-          "description": "The location of the resource group to which the resource belongs."
-        },
-        "name": {
-          "type": "string",
-          "enum": [
-            "default"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ThroughputSettingsUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties to update Azure Cosmos DB resource throughput."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "throughputSettings"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings"
-    },
-    "databaseAccounts_dataTransferJobs_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-11-15-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of the Data Transfer Job"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DataTransferJobProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties of a DataTransfer Job"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "dataTransferJobs"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DocumentDB/databaseAccounts/dataTransferJobs"
-    },
-    "databaseAccounts_graphs_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-11-15-preview"
-          ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
-        },
-        "location": {
-          "type": "string",
-          "description": "The location of the resource group to which the resource belongs."
-        },
-        "name": {
-          "type": "string",
-          "description": "Cosmos DB graph resource name."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GraphResourceCreateUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Properties to create and update Azure Cosmos DB Graph resource."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with \"defaultExperience\": \"Cassandra\". Current \"defaultExperience\" values also include \"Table\", \"Graph\", \"DocumentDB\", and \"MongoDB\"."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "graphs"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.DocumentDB/databaseAccounts/graphs"
-    },
     "databaseAccounts_gremlinDatabases_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4680,19 +3641,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4749,19 +3699,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4820,19 +3759,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4891,19 +3819,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -4960,19 +3877,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5029,19 +3935,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5100,19 +3995,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5171,7 +4055,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -5210,7 +4094,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -5249,7 +4133,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -5279,7 +4163,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -5318,7 +4202,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -5359,19 +4243,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5428,7 +4301,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -5467,19 +4340,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5536,19 +4398,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5605,19 +4456,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5676,19 +4516,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5745,19 +4574,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5814,19 +4632,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -5885,7 +4692,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -5924,7 +4731,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
         },
         "name": {
@@ -5963,19 +4770,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -6032,19 +4828,8 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-15-preview"
+            "2023-03-15"
           ]
-        },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Identity for the resource."
         },
         "location": {
           "type": "string",
@@ -6124,17 +4909,6 @@
     "DataCenterResourceProperties": {
       "type": "object",
       "properties": {
-        "authenticationMethodLdapProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AuthenticationMethodLdapProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Ldap authentication method properties. This feature is in preview."
-        },
         "availabilityZone": {
           "oneOf": [
             {
@@ -6144,7 +4918,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "If the data center has Availability Zone feature, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines."
+          "description": "If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines."
         },
         "backupStorageCustomerKeyUri": {
           "type": "string",
@@ -6217,88 +4991,6 @@
       },
       "description": "Properties of a managed Cassandra data center."
     },
-    "DataTransferDataSourceSink": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/CosmosCassandraDataTransferDataSourceSink"
-        },
-        {
-          "$ref": "#/definitions/CosmosSqlDataTransferDataSourceSink"
-        },
-        {
-          "$ref": "#/definitions/AzureBlobDataTransferDataSourceSink"
-        }
-      ],
-      "properties": {},
-      "description": "Base class for all DataTransfer source/sink"
-    },
-    "DataTransferJobProperties": {
-      "type": "object",
-      "properties": {
-        "destination": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DataTransferDataSourceSink"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Base class for all DataTransfer source/sink"
-        },
-        "source": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DataTransferDataSourceSink"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Base class for all DataTransfer source/sink"
-        },
-        "workerCount": {
-          "oneOf": [
-            {
-              "type": "integer",
-              "minimum": 0
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Worker count"
-        }
-      },
-      "required": [
-        "destination",
-        "source"
-      ],
-      "description": "The properties of a DataTransfer Job"
-    },
-    "DiagnosticLogSettings": {
-      "type": "object",
-      "properties": {
-        "enableFullTextQuery": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "True",
-                "False"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Describe the level of detail with which queries are to be logged."
-        }
-      },
-      "description": "Indicates what diagnostic log settings are to be enabled."
-    },
     "ExcludedPath": {
       "type": "object",
       "properties": {
@@ -6307,50 +4999,6 @@
           "description": "The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)"
         }
       }
-    },
-    "GraphResource": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Name of the Cosmos DB Graph"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "description": "Cosmos DB Graph resource object"
-    },
-    "GraphResourceCreateUpdateProperties": {
-      "type": "object",
-      "properties": {
-        "options": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CreateUpdateOptions"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are \"If-Match\", \"If-None-Match\", \"Session-Token\" and \"Throughput\""
-        },
-        "resource": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GraphResource"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Cosmos DB Graph resource object"
-        }
-      },
-      "required": [
-        "resource"
-      ],
-      "description": "Properties to create and update Azure Cosmos DB Graph resource."
     },
     "GremlinDatabaseCreateUpdateProperties": {
       "type": "object",
@@ -6386,35 +5034,9 @@
     "GremlinDatabaseResource": {
       "type": "object",
       "properties": {
-        "createMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Default",
-                "Restore"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enum to indicate the mode of resource creation."
-        },
         "id": {
           "type": "string",
           "description": "Name of the Cosmos DB Gremlin database"
-        },
-        "restoreParameters": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceRestoreParameters"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Parameters to indicate the information about the restore."
         }
       },
       "required": [
@@ -6502,21 +5124,6 @@
           ],
           "description": "The conflict resolution policy for the container."
         },
-        "createMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Default",
-                "Restore"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enum to indicate the mode of resource creation."
-        },
         "defaultTtl": {
           "oneOf": [
             {
@@ -6553,17 +5160,6 @@
             }
           ],
           "description": "The configuration of the partition key to be used for partitioning data into multiple partitions"
-        },
-        "restoreParameters": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceRestoreParameters"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Parameters to indicate the information about the restore."
         },
         "uniqueKeyPolicy": {
           "oneOf": [
@@ -6923,21 +5519,6 @@
           ],
           "description": "Analytical TTL."
         },
-        "createMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Default",
-                "Restore"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enum to indicate the mode of resource creation."
-        },
         "id": {
           "type": "string",
           "description": "Name of the Cosmos DB MongoDB collection"
@@ -6955,17 +5536,6 @@
             }
           ],
           "description": "List of index keys"
-        },
-        "restoreParameters": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceRestoreParameters"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Parameters to indicate the information about the restore."
         },
         "shardKey": {
           "oneOf": [
@@ -7022,35 +5592,9 @@
     "MongoDBDatabaseResource": {
       "type": "object",
       "properties": {
-        "createMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Default",
-                "Restore"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enum to indicate the mode of resource creation."
-        },
         "id": {
           "type": "string",
           "description": "Name of the Cosmos DB MongoDB database"
-        },
-        "restoreParameters": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceRestoreParameters"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Parameters to indicate the information about the restore."
         }
       },
       "required": [
@@ -7442,21 +5986,6 @@
       },
       "description": "An Azure Cosmos DB Mongo DB Resource."
     },
-    "ResourceRestoreParameters": {
-      "type": "object",
-      "properties": {
-        "restoreSource": {
-          "type": "string",
-          "description": "The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}"
-        },
-        "restoreTimestampInUtc": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Time to which the account has to be restored (ISO-8601 format)."
-        }
-      },
-      "description": "Parameters to indicate the information about the restore."
-    },
     "RestoreParameters": {
       "type": "object",
       "properties": {
@@ -7510,10 +6039,6 @@
           "type": "string",
           "format": "date-time",
           "description": "Time to which the account has to be restored (ISO-8601 format)."
-        },
-        "sourceBackupLocation": {
-          "type": "string",
-          "description": "The source backup location for restore."
         },
         "tablesToRestore": {
           "oneOf": [
@@ -7700,21 +6225,6 @@
           ],
           "description": "The conflict resolution policy for the container."
         },
-        "createMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Default",
-                "Restore"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enum to indicate the mode of resource creation."
-        },
         "defaultTtl": {
           "oneOf": [
             {
@@ -7751,17 +6261,6 @@
             }
           ],
           "description": "The configuration of the partition key to be used for partitioning data into multiple partitions"
-        },
-        "restoreParameters": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceRestoreParameters"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Parameters to indicate the information about the restore."
         },
         "uniqueKeyPolicy": {
           "oneOf": [
@@ -7814,35 +6313,9 @@
     "SqlDatabaseResource": {
       "type": "object",
       "properties": {
-        "createMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Default",
-                "Restore"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enum to indicate the mode of resource creation."
-        },
         "id": {
           "type": "string",
           "description": "Name of the Cosmos DB SQL database"
-        },
-        "restoreParameters": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceRestoreParameters"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Parameters to indicate the information about the restore."
         }
       },
       "required": [
@@ -8132,35 +6605,9 @@
     "TableResource": {
       "type": "object",
       "properties": {
-        "createMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Default",
-                "Restore"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Enum to indicate the mode of resource creation."
-        },
         "id": {
           "type": "string",
           "description": "Name of the Cosmos DB table"
-        },
-        "restoreParameters": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceRestoreParameters"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Parameters to indicate the information about the restore."
         }
       },
       "required": [
