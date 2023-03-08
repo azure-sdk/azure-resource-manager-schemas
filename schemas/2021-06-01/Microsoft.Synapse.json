@@ -832,6 +832,10 @@
             "2021-06-01"
           ]
         },
+        "kind": {
+          "type": "string",
+          "description": "kind"
+        },
         "location": {
           "type": "string",
           "description": "The geo-location where the resource lives"
@@ -3456,17 +3460,6 @@
           ],
           "description": "Allowed Aad Tenant Ids For Linking"
         },
-        "linkedAccessCheckOnTargetResource": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Linked Access Check On Target Resource"
-        },
         "preventDataExfiltration": {
           "oneOf": [
             {
@@ -3827,17 +3820,6 @@
           ],
           "description": "Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.\r\nIn order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true\r\n\r\nWhen using REST API to configure auditing, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should also be created.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n"
         },
-        "isStorageSecondaryKeyInUse": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Specifies whether storageAccountAccessKey value is the storage's secondary key."
-        },
         "queueDelayMs": {
           "oneOf": [
             {
@@ -4011,9 +3993,6 @@
           "description": "A shared access signature (SAS Key) that has read and write access to the blob container specified in 'storageContainerPath' parameter. If 'storageAccountAccessKey' isn't specified, StorageContainerSasKey is required."
         }
       },
-      "required": [
-        "storageContainerPath"
-      ],
       "description": "Properties of a server Vulnerability Assessment."
     },
     "Sku": {
@@ -4165,6 +4144,10 @@
     "SqlPoolResourceProperties": {
       "type": "object",
       "properties": {
+        "catalogCollation": {
+          "type": "string",
+          "description": "catalogCollation"
+        },
         "collation": {
           "type": "string",
           "default": "",
@@ -4186,6 +4169,14 @@
             }
           ],
           "description": "Specifies the mode of sql pool creation.\n\nDefault: regular sql pool creation.\n\nPointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.\n\nRecovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.\n\nRestore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified."
+        },
+        "currentServiceObjectiveName": {
+          "type": "string",
+          "description": "currentServiceObjectiveName"
+        },
+        "defaultSecondaryLocation": {
+          "type": "string",
+          "description": "defaultSecondaryLocation"
         },
         "maxSizeBytes": {
           "oneOf": [
@@ -5393,6 +5384,10 @@
           "enum": [
             "2021-06-01"
           ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "kind"
         },
         "location": {
           "type": "string",
