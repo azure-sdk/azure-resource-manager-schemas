@@ -17554,25 +17554,10 @@
         "referenceName": {
           "type": "string",
           "description": "Reference integration runtime name."
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "IntegrationRuntimeReference"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Type of integration runtime."
         }
       },
       "required": [
-        "referenceName",
-        "type"
+        "referenceName"
       ],
       "description": "Integration runtime reference type."
     },
@@ -18716,25 +18701,10 @@
         "referenceName": {
           "type": "string",
           "description": "Reference LinkedService name."
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "LinkedServiceReference"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Linked service reference type."
         }
       },
       "required": [
-        "referenceName",
-        "type"
+        "referenceName"
       ],
       "description": "Linked service reference type."
     },
