@@ -802,7 +802,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**."
+          "description": "This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux**."
         }
       },
       "required": [
@@ -1279,7 +1279,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**."
+          "description": "This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux**."
         },
         "privacyStatementUri": {
           "type": "string",
@@ -1797,7 +1797,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups** <br><br> **Community**."
+          "description": "This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community**."
         }
       },
       "description": "Profile for gallery sharing to subscription or tenant"
