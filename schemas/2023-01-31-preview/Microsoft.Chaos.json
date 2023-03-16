@@ -1,0 +1,1115 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-01-31-preview/Microsoft.Chaos.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Chaos",
+  "description": "Microsoft Chaos Resource Types",
+  "resourceDefinitions": {
+    "applications": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-31-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^<>%&:?#/\\\\]+$",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "name of an application resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of an application resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Chaos/applications"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Chaos/applications"
+    },
+    "experiments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-31-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed identity of a resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^<>%&:?#/\\\\]+$",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "String that represents a Experiment resource name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExperimentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model that represents the Experiment properties model."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Chaos/experiments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Chaos/experiments"
+    }
+  },
+  "extension_resourceDefinitions": {
+    "targets": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-31-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Location of the target resource."
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-\\.]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "String that represents a Target resource name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model that represents the base Target properties model."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/targets_capabilities_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Chaos/targets"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Chaos/targets"
+    },
+    "targets_capabilities": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-31-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\-\\.]+-\\d\\.\\d$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "String that represents a Capability resource name."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Chaos/targets/capabilities"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Chaos/targets/capabilities"
+    }
+  },
+  "definitions": {
+    "Action": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/DelayAction"
+        },
+        {
+          "$ref": "#/definitions/DiscreteAction"
+        },
+        {
+          "$ref": "#/definitions/ContinuousAction"
+        }
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 2048,
+          "description": "String that represents a URN."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Model that represents the base action model."
+    },
+    "ApplicationProperties": {
+      "type": "object",
+      "properties": {
+        "deployedPlatform": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PlatformProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Platform on which application is/will be deployed"
+        },
+        "faultMetadata": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Metadata"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of fault metadata of an application resource"
+        },
+        "identities": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserAssignedManagedIdentityProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "list of User assigned managed identities used by application"
+        },
+        "profileId": {
+          "type": "string",
+          "description": "Chaos Studio profile id of an application resource."
+        }
+      },
+      "required": [
+        "identities"
+      ],
+      "description": "The properties of an application resource"
+    },
+    "Branch": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Action"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of actions."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "String of the branch name."
+        }
+      },
+      "required": [
+        "actions",
+        "name"
+      ],
+      "description": "Model that represents a branch in the step."
+    },
+    "ContainingFunctionProperties": {
+      "type": "object",
+      "properties": {
+        "signature": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SignatureProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the attributes of the function signature."
+        }
+      },
+      "required": [
+        "signature"
+      ],
+      "description": "Defines the signature of the function calling the faultable function"
+    },
+    "ContinuousAction": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ISO8601 formatted string that represents a duration."
+        },
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/KeyValuePair"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of key value pairs."
+        },
+        "selectorId": {
+          "type": "string",
+          "minLength": 1,
+          "description": "String that represents a selector."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "continuous"
+          ]
+        }
+      },
+      "required": [
+        "duration",
+        "parameters",
+        "selectorId",
+        "type"
+      ],
+      "description": "Model that represents a continuous action."
+    },
+    "DelayAction": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ISO8601 formatted string that represents a duration."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "delay"
+          ]
+        }
+      },
+      "required": [
+        "duration",
+        "type"
+      ],
+      "description": "Model that represents a delay action."
+    },
+    "DiscreteAction": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/KeyValuePair"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of key value pairs."
+        },
+        "selectorId": {
+          "type": "string",
+          "minLength": 1,
+          "description": "String that represents a selector."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "discrete"
+          ]
+        }
+      },
+      "required": [
+        "parameters",
+        "selectorId",
+        "type"
+      ],
+      "description": "Model that represents a discrete action."
+    },
+    "ExperimentProperties": {
+      "type": "object",
+      "properties": {
+        "selectors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Selector"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of selectors."
+        },
+        "startOnCreation": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A boolean value that indicates if experiment should be started on creation or not."
+        },
+        "steps": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Step"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of steps."
+        }
+      },
+      "required": [
+        "selectors",
+        "steps"
+      ],
+      "description": "Model that represents the Experiment properties model."
+    },
+    "FaultableFunctionProperties": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "SDK or Custom library in which fault is injected"
+        },
+        "faultCapabilities": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FaultCapabilityProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "faults supported by torch for the function"
+        },
+        "signature": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SignatureProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the attributes of the function signature."
+        }
+      },
+      "required": [
+        "signature"
+      ],
+      "description": "Application function in which fault can be injected"
+    },
+    "FaultCapabilityProperties": {
+      "type": "object",
+      "properties": {
+        "faultUrn": {
+          "type": "string",
+          "description": "URN for fault capability"
+        },
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FaultParameter"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Input Parameters supported by a fault"
+        }
+      },
+      "description": "Capabilities supported by the faults"
+    },
+    "FaultParameter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "name of a fault parameter"
+        }
+      }
+    },
+    "Filter": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/SimpleFilter"
+        }
+      ],
+      "properties": {},
+      "description": "Model that represents available filter types that can be applied to a targets list."
+    },
+    "FunctionArguments": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a function argument"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of a function argument"
+        }
+      }
+    },
+    "KeyValuePair": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The name of the setting for the action."
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The value of the setting for the action."
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "description": "A map to describe the settings of an action."
+    },
+    "Metadata": {
+      "type": "object",
+      "properties": {
+        "containingFunction": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainingFunctionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the signature of the function calling the faultable function"
+        },
+        "faultableFunction": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FaultableFunctionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Application function in which fault can be injected"
+        },
+        "source": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "defines the function code path and location in the class"
+        }
+      }
+    },
+    "PlatformProperties": {
+      "type": "object",
+      "properties": {
+        "resourceId": {
+          "type": "string",
+          "description": "ARM id of the platform resource on which application is deployed"
+        }
+      },
+      "required": [
+        "resourceId"
+      ],
+      "description": "Platform on which application is/will be deployed"
+    },
+    "ResourceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "String of the resource identity type."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "The managed identity of a resource."
+    },
+    "Selector": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Filter"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model that represents available filter types that can be applied to a targets list."
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "String of the selector ID."
+        },
+        "targets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TargetReference"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of Target references."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Percent",
+                "Random",
+                "Tag",
+                "List"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enum of the selector type."
+        }
+      },
+      "required": [
+        "id",
+        "targets",
+        "type"
+      ],
+      "description": "Model that represents a selector in the Experiment resource."
+    },
+    "SignatureProperties": {
+      "type": "object",
+      "properties": {
+        "archive": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SignaturePropertiesArchive"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "arguments": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FunctionArguments"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of arguments of a function"
+        },
+        "functionNamespace": {
+          "type": "string",
+          "description": "Namespace in which the function is defined"
+        },
+        "genericCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of types defined in a generic"
+        },
+        "genericTypes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Types defined if Class is a generic class"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a function"
+        },
+        "type": {
+          "type": "string",
+          "description": "ClassName in which the function is defined"
+        }
+      },
+      "required": [
+        "functionNamespace",
+        "name",
+        "type"
+      ],
+      "description": "Defines the attributes of the function signature."
+    },
+    "SignaturePropertiesArchive": {
+      "type": "object",
+      "properties": {
+        "culture": {
+          "type": "string",
+          "description": "culture of an archive"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of an archive which defines the function"
+        },
+        "publicKeyToken": {
+          "type": "string",
+          "description": "public key token of an archive"
+        },
+        "type": {
+          "type": "string",
+          "description": "defines the type of an archive"
+        },
+        "version": {
+          "type": "string",
+          "description": "version of an archive"
+        }
+      }
+    },
+    "SimpleFilter": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SimpleFilterParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model that represents the Simple filter parameters."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Simple"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Model that represents a simple target filter."
+    },
+    "SimpleFilterParameters": {
+      "type": "object",
+      "properties": {
+        "zones": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of Azure availability zones to filter targets by."
+        }
+      },
+      "description": "Model that represents the Simple filter parameters."
+    },
+    "SourceProperties": {
+      "type": "object",
+      "properties": {
+        "codePath": {
+          "type": "string",
+          "description": "code path where function is defined"
+        },
+        "endColumn": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "column in the code where function ends"
+        },
+        "endLine": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "line in the code where function ends"
+        },
+        "startColumn": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "column in the code where function starts"
+        },
+        "startLine": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "line in the code where function starts"
+        }
+      },
+      "description": "defines the function code path and location in the class"
+    },
+    "Step": {
+      "type": "object",
+      "properties": {
+        "branches": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Branch"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of branches."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "String of the step name."
+        }
+      },
+      "required": [
+        "branches",
+        "name"
+      ],
+      "description": "Model that represents a step in the Experiment resource."
+    },
+    "TargetReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^\\/[Ss][Uu][Bb][Ss][Cc][Rr][Ii][Pp][Tt][Ii][Oo][Nn][Ss]\\/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\/[Rr][Ee][Ss][Oo][Uu][Rr][Cc][Ee][Gg][Rr][Oo][Uu][Pp][Ss]\\/[a-zA-Z0-9_\\-\\.\\(\\)]*[a-zA-Z0-9_\\-\\(\\)]\\/[Pp][Rr][Oo][Vv][Ii][Dd][Ee][Rr][Ss]\\/[a-zA-Z0-9]+\\.[a-zA-Z0-9]+\\/[a-zA-Z0-9_\\-\\.]+\\/[a-zA-Z0-9_\\-\\.]+\\/[Pp][Rr][Oo][Vv][Ii][Dd][Ee][Rr][Ss]\\/[Mm][Ii][Cc][Rr][Oo][Ss][Oo][Ff][Tt]\\.[Cc][Hh][Aa][Oo][Ss]\\/[Tt][Aa][Rr][Gg][Ee][Tt][Ss]\\/[a-zA-Z0-9_\\-\\.]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "String of the resource ID of a Target resource."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ChaosTarget"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enum of the Target reference type."
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "description": "Model that represents a reference to a Target in the selector."
+    },
+    "targets_capabilities_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-31-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\-\\.]+-\\d\\.\\d$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "String that represents a Capability resource name."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "capabilities"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Chaos/targets/capabilities"
+    },
+    "UserAssignedManagedIdentityProperties": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string",
+          "description": "client id of the managed identity"
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "active directory tenant id in which managed identity is provisioned"
+        },
+        "type": {
+          "type": "string",
+          "description": "type of managed identity i.e AzureManagedIdentity"
+        }
+      },
+      "required": [
+        "clientId",
+        "tenantId",
+        "type"
+      ],
+      "description": "User assigned managed identity assigned to the platform on which application is deployed"
+    }
+  }
+}
