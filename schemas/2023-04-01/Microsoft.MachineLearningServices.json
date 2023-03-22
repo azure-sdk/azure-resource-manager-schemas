@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -136,7 +136,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -231,7 +231,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -316,7 +316,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -365,7 +365,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -404,7 +404,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -453,7 +453,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -492,7 +492,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -572,7 +572,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -610,7 +610,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -659,7 +659,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -698,7 +698,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -737,7 +737,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -786,7 +786,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -825,7 +825,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -864,7 +864,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -912,7 +912,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -951,7 +951,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -1046,7 +1046,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -1130,7 +1130,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -1210,7 +1210,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -1564,7 +1564,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1586,7 +1587,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1608,7 +1610,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1651,7 +1654,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1673,7 +1677,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2033,7 +2038,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2108,7 +2114,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2317,7 +2324,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2640,7 +2648,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2877,7 +2886,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3374,7 +3384,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3749,7 +3760,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3980,7 +3992,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4213,7 +4226,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4957,7 +4971,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5708,7 +5723,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9_]"
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5752,10 +5768,10 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/RecurrenceTrigger"
+          "$ref": "#/definitions/CronTrigger"
         },
         {
-          "$ref": "#/definitions/CronTrigger"
+          "$ref": "#/definitions/RecurrenceTrigger"
         }
       ],
       "properties": {
@@ -6104,7 +6120,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -6189,7 +6205,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -6274,7 +6290,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6313,7 +6329,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6352,7 +6368,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6391,7 +6407,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6430,7 +6446,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -6510,7 +6526,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6548,7 +6564,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6587,7 +6603,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6626,7 +6642,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6665,7 +6681,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6704,7 +6720,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6743,7 +6759,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6782,7 +6798,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6820,7 +6836,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
@@ -6859,7 +6875,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -6944,7 +6960,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -7028,7 +7044,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "identity": {
@@ -7108,7 +7124,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-10-01"
+            "2023-04-01"
           ]
         },
         "name": {
