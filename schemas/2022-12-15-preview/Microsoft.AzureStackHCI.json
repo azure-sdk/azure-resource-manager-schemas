@@ -1,0 +1,3603 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.AzureStackHCI",
+  "description": "Microsoft AzureStackHCI Resource Types",
+  "resourceDefinitions": {
+    "clusters": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the cluster."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cluster properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/clusters_arcSettings_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/clusters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/clusters"
+    },
+    "clusters_arcSettings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the proxy resource holding details of HCI ArcSetting information."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArcSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ArcSetting properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/clusters_arcSettings_extensions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/clusters/arcSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/clusters/arcSettings"
+    },
+    "clusters_arcSettings_extensions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the machine extension."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtensionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of Arc Extension for a particular node in HCI Cluster."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/clusters/arcSettings/extensions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/clusters/arcSettings/extensions"
+    },
+    "galleryImages": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,78}[a-zA-Z0-9]$",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the gallery image"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties under the gallery image resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/galleryImages"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/galleryImages"
+    },
+    "marketplaceGalleryImages": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,78}[a-zA-Z0-9]$",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the marketplace gallery image"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MarketplaceGalleryImageProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties under the marketplace gallery image resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/marketplaceGalleryImages"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/marketplaceGalleryImages"
+    },
+    "networkInterfaces": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,78}[_a-zA-Z0-9]$",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the network interface"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkInterfaceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties under the network interface resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/networkInterfaces"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/networkInterfaces"
+    },
+    "storageContainers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,78}[_a-zA-Z0-9]$",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the storage container"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageContainerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties under the storage container resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/storageContainers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/storageContainers"
+    },
+    "virtualHardDisks": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-_a-zA-Z0-9]{1,80}$",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the virtual hard disk"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualHardDiskProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties under the virtual hard disk resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/virtualHardDisks"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualHardDisks"
+    },
+    "virtualMachines": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,62}[a-zA-Z0-9]$",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the virtual machine"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties under the virtual machine resource"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/virtualMachines_hybridIdentityMetadata_childResource"
+              },
+              {
+                "$ref": "#/definitions/virtualMachines_extensions_childResource"
+              },
+              {
+                "$ref": "#/definitions/virtualMachines_guestAgents_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/virtualMachines"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualMachines"
+    },
+    "virtualMachines_extensions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the machine extension."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MachineExtensionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a Machine Extension."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/virtualMachines/extensions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualMachines/extensions"
+    },
+    "virtualMachines_guestAgents": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the guestAgents."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestAgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the resource properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/virtualMachines/guestAgents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualMachines/guestAgents"
+    },
+    "virtualMachines_hybridIdentityMetadata": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the hybridIdentityMetadata."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HybridIdentityMetadataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the resource properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/virtualMachines/hybridIdentityMetadata"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualMachines/hybridIdentityMetadata"
+    },
+    "virtualNetworks": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The complex type of the extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,62}[_a-zA-Z0-9]$",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the virtual network"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties under the virtual network resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureStackHCI/virtualNetworks"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualNetworks"
+    }
+  },
+  "definitions": {
+    "ArcSettingProperties": {
+      "type": "object",
+      "properties": {
+        "arcApplicationClientId": {
+          "type": "string",
+          "description": "App id of arc AAD identity."
+        },
+        "arcApplicationObjectId": {
+          "type": "string",
+          "description": "Object id of arc AAD identity."
+        },
+        "arcApplicationTenantId": {
+          "type": "string",
+          "description": "Tenant id of arc AAD identity."
+        },
+        "arcInstanceResourceGroup": {
+          "type": "string",
+          "description": "The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources."
+        },
+        "arcServicePrincipalObjectId": {
+          "type": "string",
+          "description": "Object id of arc AAD service principal."
+        },
+        "connectivityProperties": {
+          "type": "object",
+          "properties": {},
+          "description": "contains connectivity related configuration for ARC resources"
+        }
+      },
+      "description": "ArcSetting properties."
+    },
+    "ClusterDesiredProperties": {
+      "type": "object",
+      "properties": {
+        "diagnosticLevel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Off",
+                "Basic",
+                "Enhanced"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Desired level of diagnostic data emitted by the cluster."
+        },
+        "windowsServerSubscription": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "Enabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Desired state of Windows Server Subscription."
+        }
+      },
+      "description": "Desired properties of the cluster."
+    },
+    "ClusterProperties": {
+      "type": "object",
+      "properties": {
+        "aadApplicationObjectId": {
+          "type": "string",
+          "description": "Object id of cluster AAD identity."
+        },
+        "aadClientId": {
+          "type": "string",
+          "description": "App id of cluster AAD identity."
+        },
+        "aadServicePrincipalObjectId": {
+          "type": "string",
+          "description": "Id of cluster identity service principal."
+        },
+        "aadTenantId": {
+          "type": "string",
+          "description": "Tenant id of cluster AAD identity."
+        },
+        "cloudManagementEndpoint": {
+          "type": "string",
+          "description": "Endpoint configured for management from the Azure portal."
+        },
+        "desiredProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterDesiredProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Desired properties of the cluster."
+        },
+        "softwareAssuranceProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SoftwareAssuranceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Software Assurance properties of the cluster."
+        }
+      },
+      "description": "Cluster properties."
+    },
+    "clusters_arcSettings_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the proxy resource holding details of HCI ArcSetting information."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArcSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ArcSetting properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "arcSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/clusters/arcSettings"
+    },
+    "clusters_arcSettings_extensions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the machine extension."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtensionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of Arc Extension for a particular node in HCI Cluster."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "extensions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/clusters/arcSettings/extensions"
+    },
+    "Components3iu67jschemasvirtualnetworkpropertiespropertiessubnetsitemspropertiespropertiespropertiesroutetablepropertiesproperties": {
+      "type": "object",
+      "properties": {
+        "routes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualNetworkPropertiesSubnetsPropertiesPropertiesPropertiesPropertiesItemsItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Routes - Collection of routes contained within a route table."
+        }
+      },
+      "description": "RouteTablePropertiesFormat route Table resource."
+    },
+    "Componentscr63wschemasvirtualnetworkpropertiespropertiessubnetsitemspropertiespropertiespropertiesipconfigurationreferencesitems": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "string",
+          "description": "IPConfigurationID"
+        }
+      },
+      "description": "IPConfigurationReference - Describes a IPConfiguration under the virtual network"
+    },
+    "Componentsi4f0mhschemasvirtualnetworkpropertiespropertiessubnetsitemspropertiespropertiespropertiesroutetable": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Etag - Gets a unique read-only string that changes whenever the resource is updated."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name - READ-ONLY; Resource name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Components3iu67jschemasvirtualnetworkpropertiespropertiessubnetsitemspropertiespropertiespropertiesroutetablepropertiesproperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RouteTablePropertiesFormat route Table resource."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type - READ-ONLY; Resource type."
+        }
+      },
+      "description": "RouteTable for the subnet"
+    },
+    "ExtendedLocation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the extended location."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CustomLocation"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the extended location."
+        }
+      },
+      "description": "The complex type of the extended location."
+    },
+    "ExtensionParameters": {
+      "type": "object",
+      "properties": {
+        "autoUpgradeMinorVersion": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true."
+        },
+        "enableAutomaticUpgrade": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available."
+        },
+        "forceUpdateTag": {
+          "type": "string",
+          "description": "How the extension handler should be forced to update even if the extension configuration has not changed."
+        },
+        "protectedSettings": {
+          "type": "object",
+          "properties": {},
+          "description": "Protected settings (may contain secrets)."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The name of the extension handler publisher."
+        },
+        "settings": {
+          "type": "object",
+          "properties": {},
+          "description": "Json formatted public settings for the extension."
+        },
+        "type": {
+          "type": "string",
+          "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\"."
+        },
+        "typeHandlerVersion": {
+          "type": "string",
+          "description": "Specifies the version of the script handler. Latest version would be used if not specified."
+        }
+      },
+      "description": "Describes the properties of a Machine Extension. This object mirrors the definition in HybridCompute."
+    },
+    "ExtensionProperties": {
+      "type": "object",
+      "properties": {
+        "extensionParameters": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtensionParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a Machine Extension. This object mirrors the definition in HybridCompute."
+        }
+      },
+      "description": "Status of Arc Extension for a particular node in HCI Cluster."
+    },
+    "GalleryImageIdentifier": {
+      "type": "object",
+      "properties": {
+        "offer": {
+          "type": "string",
+          "description": "The name of the gallery image definition offer."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The name of the gallery image definition publisher."
+        },
+        "sku": {
+          "type": "string",
+          "description": "The name of the gallery image definition SKU."
+        }
+      },
+      "required": [
+        "offer",
+        "publisher",
+        "sku"
+      ],
+      "description": "This is the gallery image definition identifier."
+    },
+    "GalleryImageProperties": {
+      "type": "object",
+      "properties": {
+        "cloudInitDataSource": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NoCloud",
+                "Azure"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]."
+        },
+        "containerName": {
+          "type": "string",
+          "description": "Container Name for storage container"
+        },
+        "hyperVGeneration": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "V1",
+                "V2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The hypervisor generation of the Virtual Machine [V1, V2]."
+        },
+        "identifier": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageIdentifier"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This is the gallery image definition identifier."
+        },
+        "imagePath": {
+          "type": "string",
+          "description": "location of the image the gallery image should be created from"
+        },
+        "osType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Windows",
+                "Linux"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Operating system type that the gallery image uses [Windows, Linux]."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The observed state of gallery images"
+        },
+        "version": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies information about the gallery image version that you want to create or update."
+        }
+      },
+      "description": "Properties under the gallery image resource"
+    },
+    "GalleryImageStatus": {
+      "type": "object",
+      "properties": {
+        "downloadStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageStatusDownloadStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The download status of the gallery image"
+        },
+        "errorCode": {
+          "type": "string",
+          "description": "GalleryImage provisioning error code"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Descriptive error message"
+        },
+        "progressPercentage": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The progress of the operation in percentage"
+        },
+        "provisioningStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageStatusProvisioningStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The observed state of gallery images"
+    },
+    "GalleryImageStatusDownloadStatus": {
+      "type": "object",
+      "properties": {
+        "downloadSizeInMB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The downloaded sized of the image in MB"
+        }
+      },
+      "description": "The download status of the gallery image"
+    },
+    "GalleryImageStatusProvisioningStatus": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "description": "The ID of the operation performed on the gallery image"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotYetRegistered",
+                "ConnectedRecently",
+                "NotConnectedRecently",
+                "Disconnected",
+                "Error",
+                "NotSpecified",
+                "Succeeded",
+                "Failed",
+                "InProgress"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the operation performed on the gallery image [Succeeded, Failed, InProgress]."
+        }
+      }
+    },
+    "GalleryImageVersion": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "This is the version of the gallery image."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageVersionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a gallery image version."
+        }
+      },
+      "description": "Specifies information about the gallery image version that you want to create or update."
+    },
+    "GalleryImageVersionProperties": {
+      "type": "object",
+      "properties": {
+        "storageProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageVersionStorageProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This is the storage profile of a Gallery Image Version."
+        }
+      },
+      "required": [
+        "storageProfile"
+      ],
+      "description": "Describes the properties of a gallery image version."
+    },
+    "GalleryImageVersionStorageProfile": {
+      "type": "object",
+      "properties": {
+        "osDiskImage": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryOSDiskImage"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This is the OS disk image."
+        }
+      },
+      "description": "This is the storage profile of a Gallery Image Version."
+    },
+    "GalleryOSDiskImage": {
+      "type": "object",
+      "properties": {},
+      "description": "This is the OS disk image."
+    },
+    "GuestAgentProfile": {
+      "type": "object",
+      "properties": {},
+      "description": "Defines the resource properties."
+    },
+    "GuestAgentProperties": {
+      "type": "object",
+      "properties": {
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestCredential"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Username / Password Credentials to connect to guest."
+        },
+        "httpProxyConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HttpProxyConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "HTTP Proxy configuration for the VM."
+        },
+        "provisioningAction": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "install",
+                "uninstall",
+                "repair"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The guest agent provisioning action."
+        }
+      },
+      "description": "Defines the resource properties."
+    },
+    "GuestCredential": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string",
+          "description": "The password to connect with the guest."
+        },
+        "username": {
+          "type": "string",
+          "description": "The username to connect with the guest."
+        }
+      },
+      "description": "Username / Password Credentials to connect to guest."
+    },
+    "HttpProxyConfiguration": {
+      "type": "object",
+      "properties": {
+        "httpsProxy": {
+          "type": "string",
+          "description": "The httpsProxy url."
+        }
+      },
+      "description": "HTTP Proxy configuration for the VM."
+    },
+    "HybridIdentityMetadataProperties": {
+      "type": "object",
+      "properties": {
+        "publicKey": {
+          "type": "string",
+          "description": "The Public Key."
+        },
+        "resourceUid": {
+          "type": "string",
+          "description": "The unique identifier for the resource."
+        }
+      },
+      "description": "Defines the resource properties."
+    },
+    "Identity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The identity type."
+        }
+      },
+      "description": "Identity for the resource."
+    },
+    "InterfaceDNSSettings": {
+      "type": "object",
+      "properties": {
+        "dnsServers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of DNS server IP Addresses for the interface"
+        }
+      }
+    },
+    "IPConfiguration": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,78}[_a-zA-Z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name - The name of the resource that is unique within a resource group. This name can be used to access the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IPConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "InterfaceIPConfigurationPropertiesFormat properties of IP configuration."
+        }
+      },
+      "description": "InterfaceIPConfiguration iPConfiguration in a network interface."
+    },
+    "IPConfigurationProperties": {
+      "type": "object",
+      "properties": {
+        "gateway": {
+          "type": "string",
+          "description": "Gateway for network interface"
+        },
+        "prefixLength": {
+          "type": "string",
+          "description": "prefixLength for network interface"
+        },
+        "privateIPAddress": {
+          "type": "string",
+          "description": "PrivateIPAddress - Private IP address of the IP configuration."
+        },
+        "privateIPAllocationMethod": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Dynamic",
+                "Static"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "PrivateIPAllocationMethod - The private IP address allocation method."
+        },
+        "subnet": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IPConfigurationPropertiesSubnet"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Subnet - Name of Subnet bound to the IP configuration."
+        }
+      },
+      "description": "InterfaceIPConfigurationPropertiesFormat properties of IP configuration."
+    },
+    "IPConfigurationPropertiesSubnet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/..."
+        }
+      },
+      "description": "Subnet - Name of Subnet bound to the IP configuration."
+    },
+    "IPPool": {
+      "type": "object",
+      "properties": {
+        "end": {
+          "type": "string",
+          "description": "end of the ip address pool"
+        },
+        "info": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IPPoolInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "ipPoolType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "vm",
+                "vippool"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ip pool type."
+        },
+        "start": {
+          "type": "string",
+          "description": "start of the ip address pool"
+        }
+      }
+    },
+    "IPPoolInfo": {
+      "type": "object",
+      "properties": {}
+    },
+    "MachineExtensionInstanceViewStatus": {
+      "type": "object",
+      "properties": {},
+      "description": "Instance view status."
+    },
+    "MachineExtensionProperties": {
+      "type": "object",
+      "properties": {
+        "autoUpgradeMinorVersion": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true."
+        },
+        "forceUpdateTag": {
+          "type": "string",
+          "description": "How the extension handler should be forced to update even if the extension configuration has not changed."
+        },
+        "instanceView": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MachineExtensionPropertiesInstanceView"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The machine extension instance view."
+        },
+        "protectedSettings": {
+          "type": "object",
+          "properties": {},
+          "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The name of the extension handler publisher."
+        },
+        "settings": {
+          "type": "object",
+          "properties": {},
+          "description": "Json formatted public settings for the extension."
+        },
+        "type": {
+          "type": "string",
+          "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\"."
+        },
+        "typeHandlerVersion": {
+          "type": "string",
+          "description": "Specifies the version of the script handler."
+        }
+      },
+      "description": "Describes the properties of a Machine Extension."
+    },
+    "MachineExtensionPropertiesInstanceView": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MachineExtensionInstanceViewStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Instance view status."
+        }
+      },
+      "description": "The machine extension instance view."
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned, UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "MarketplaceGalleryImageProperties": {
+      "type": "object",
+      "properties": {
+        "cloudInitDataSource": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NoCloud",
+                "Azure"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]."
+        },
+        "containerName": {
+          "type": "string",
+          "description": "Container Name for storage container"
+        },
+        "hyperVGeneration": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "V1",
+                "V2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The hypervisor generation of the Virtual Machine [V1, V2]."
+        },
+        "identifier": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageIdentifier"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This is the gallery image definition identifier."
+        },
+        "osType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Windows",
+                "Linux"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Operating system type that the gallery image uses [Windows, Linux]."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MarketplaceGalleryImageStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The observed state of marketplace gallery images"
+        },
+        "version": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageVersion"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies information about the gallery image version that you want to create or update."
+        }
+      },
+      "description": "Properties under the marketplace gallery image resource"
+    },
+    "MarketplaceGalleryImageStatus": {
+      "type": "object",
+      "properties": {
+        "downloadStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MarketplaceGalleryImageStatusDownloadStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The download status of the gallery image"
+        },
+        "errorCode": {
+          "type": "string",
+          "description": "MarketplaceGalleryImage provisioning error code"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Descriptive error message"
+        },
+        "progressPercentage": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The progress of the operation in percentage"
+        },
+        "provisioningStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MarketplaceGalleryImageStatusProvisioningStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The observed state of marketplace gallery images"
+    },
+    "MarketplaceGalleryImageStatusDownloadStatus": {
+      "type": "object",
+      "properties": {
+        "downloadSizeInMB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The downloaded sized of the image in MB"
+        }
+      },
+      "description": "The download status of the gallery image"
+    },
+    "MarketplaceGalleryImageStatusProvisioningStatus": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "description": "The ID of the operation performed on the gallery image"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotYetRegistered",
+                "ConnectedRecently",
+                "NotConnectedRecently",
+                "Disconnected",
+                "Error",
+                "NotSpecified",
+                "Succeeded",
+                "Failed",
+                "InProgress"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the operation performed on the gallery image [Succeeded, Failed, InProgress]."
+        }
+      }
+    },
+    "NetworkInterfaceProperties": {
+      "type": "object",
+      "properties": {
+        "dnsSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InterfaceDNSSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "ipConfigurations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IPConfiguration"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "IPConfigurations - A list of IPConfigurations of the network interface."
+        },
+        "macAddress": {
+          "type": "string",
+          "description": "MacAddress - The MAC address of the network interface."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkInterfaceStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The observed state of network interfaces"
+        }
+      },
+      "description": "Properties under the network interface resource"
+    },
+    "NetworkInterfaceStatus": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string",
+          "description": "NetworkInterface provisioning error code"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Descriptive error message"
+        },
+        "provisioningStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkInterfaceStatusProvisioningStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The observed state of network interfaces"
+    },
+    "NetworkInterfaceStatusProvisioningStatus": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "description": "The ID of the operation performed on the network interface"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotYetRegistered",
+                "ConnectedRecently",
+                "NotConnectedRecently",
+                "Disconnected",
+                "Error",
+                "NotSpecified",
+                "Succeeded",
+                "Failed",
+                "InProgress"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the operation performed on the network interface [Succeeded, Failed, InProgress]."
+        }
+      }
+    },
+    "SoftwareAssuranceProperties": {
+      "type": "object",
+      "properties": {
+        "softwareAssuranceIntent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enable",
+                "Disable"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer Intent for Software Assurance Benefit."
+        },
+        "softwareAssuranceStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the Software Assurance for the cluster."
+        }
+      },
+      "description": "Software Assurance properties of the cluster."
+    },
+    "StorageContainerProperties": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path of the storage container on the disk"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageContainerStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The observed state of storage containers"
+        }
+      },
+      "description": "Properties under the storage container resource"
+    },
+    "StorageContainerStatus": {
+      "type": "object",
+      "properties": {
+        "availableSizeMB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Amount of space available on the disk in MB"
+        },
+        "containerSizeMB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Total size of the disk in MB"
+        },
+        "errorCode": {
+          "type": "string",
+          "description": "StorageContainer provisioning error code"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Descriptive error message"
+        },
+        "provisioningStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageContainerStatusProvisioningStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The observed state of storage containers"
+    },
+    "StorageContainerStatusProvisioningStatus": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "description": "The ID of the operation performed on the storage container"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotYetRegistered",
+                "ConnectedRecently",
+                "NotConnectedRecently",
+                "Disconnected",
+                "Error",
+                "NotSpecified",
+                "Succeeded",
+                "Failed",
+                "InProgress"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the operation performed on the storage container [Succeeded, Failed, InProgress]."
+        }
+      }
+    },
+    "SystemData": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that created the resource."
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource last modification (UTC)"
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that last modified the resource."
+        }
+      },
+      "description": "Metadata pertaining to creation and last modification of the resource."
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    },
+    "VirtualHardDiskProperties": {
+      "type": "object",
+      "properties": {
+        "blockSizeBytes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "containerId": {
+          "type": "string",
+          "description": "Storage ContainerID of the storage container to be used for VHD"
+        },
+        "diskFileFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "vhdx",
+                "vhd"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The format of the actual VHD file [vhd, vhdx]."
+        },
+        "diskSizeGB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Size of the disk in GB"
+        },
+        "dynamic": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Boolean for enabling dynamic sizing on the virtual hard disk"
+        },
+        "hyperVGeneration": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "V1",
+                "V2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The hypervisor generation of the Virtual Machine [V1, V2]."
+        },
+        "logicalSectorBytes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "physicalSectorBytes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualHardDiskStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The observed state of virtual hard disks"
+        }
+      },
+      "description": "Properties under the virtual hard disk resource"
+    },
+    "VirtualHardDiskStatus": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string",
+          "description": "VirtualHardDisk provisioning error code"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Descriptive error message"
+        },
+        "provisioningStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualHardDiskStatusProvisioningStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The observed state of virtual hard disks"
+    },
+    "VirtualHardDiskStatusProvisioningStatus": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "description": "The ID of the operation performed on the virtual hard disk"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotYetRegistered",
+                "ConnectedRecently",
+                "NotConnectedRecently",
+                "Disconnected",
+                "Error",
+                "NotSpecified",
+                "Succeeded",
+                "Failed",
+                "InProgress"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the operation performed on the virtual hard disk [Succeeded, Failed, InProgress]."
+        }
+      }
+    },
+    "VirtualMachineProperties": {
+      "type": "object",
+      "properties": {
+        "guestAgentProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestAgentProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the resource properties."
+        },
+        "hardwareProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesHardwareProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "HardwareProfile - Specifies the hardware settings for the virtual machine."
+        },
+        "networkProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesNetworkProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NetworkProfile - describes the network configuration the virtual machine"
+        },
+        "osProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesOsProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OsProfile - describes the configuration of the operating system and sets login data"
+        },
+        "securityProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesSecurityProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SecurityProfile - Specifies the security settings for the virtual machine."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The observed state of virtual machines"
+        },
+        "storageProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesStorageProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "StorageProfile - contains information about the disks and storage information for the virtual machine"
+        }
+      },
+      "description": "Properties under the virtual machine resource"
+    },
+    "VirtualMachinePropertiesHardwareProfile": {
+      "type": "object",
+      "properties": {
+        "dynamicMemoryConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesHardwareProfileDynamicMemoryConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "memoryMB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAM in MB for the virtual machine"
+        },
+        "processors": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "number of processors for the virtual machine"
+        },
+        "vmSize": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Standard_A2_v2",
+                "Standard_A4_v2",
+                "Standard_D2s_v3",
+                "Standard_D4s_v3",
+                "Standard_D8s_v3",
+                "Standard_D16s_v3",
+                "Standard_D32s_v3",
+                "Standard_DS2_v2",
+                "Standard_DS3_v2",
+                "Standard_DS4_v2",
+                "Standard_DS5_v2",
+                "Standard_DS13_v2",
+                "Standard_K8S_v1",
+                "Standard_K8S2_v1",
+                "Standard_K8S3_v1",
+                "Standard_K8S4_v1",
+                "Standard_NK6",
+                "Standard_NK12",
+                "Standard_NV6",
+                "Standard_NV12",
+                "Standard_K8S5_v1",
+                "Custom"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "HardwareProfile - Specifies the hardware settings for the virtual machine."
+    },
+    "VirtualMachinePropertiesHardwareProfileDynamicMemoryConfig": {
+      "type": "object",
+      "properties": {
+        "maximumMemoryMB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "minimumMemoryMB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetMemoryBuffer": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the amount of extra memory that should be reserved for a virtual machine at runtime, as a percentage of the total memory that the virtual machine is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000."
+        }
+      }
+    },
+    "VirtualMachinePropertiesNetworkProfile": {
+      "type": "object",
+      "properties": {
+        "networkInterfaces": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualMachinePropertiesNetworkProfileNetworkInterfacesItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NetworkInterfaces - list of network interfaces to be attached to the virtual machine"
+        }
+      },
+      "description": "NetworkProfile - describes the network configuration the virtual machine"
+    },
+    "VirtualMachinePropertiesNetworkProfileNetworkInterfacesItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID - Resource Id of the network interface"
+        }
+      }
+    },
+    "VirtualMachinePropertiesOsProfile": {
+      "type": "object",
+      "properties": {
+        "adminPassword": {
+          "type": "string",
+          "description": "AdminPassword - admin password"
+        },
+        "adminUsername": {
+          "type": "string",
+          "description": "AdminUsername - admin username"
+        },
+        "computerName": {
+          "type": "string",
+          "description": "ComputerName - name of the compute"
+        },
+        "linuxConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesOsProfileLinuxConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "LinuxConfiguration - linux specific configuration values for the virtual machine"
+        },
+        "osType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Linux",
+                "Windows"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "OsType - string specifying whether the OS is Linux or Windows."
+        },
+        "windowsConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesOsProfileWindowsConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Windows Configuration for the virtual machine "
+        }
+      },
+      "description": "OsProfile - describes the configuration of the operating system and sets login data"
+    },
+    "VirtualMachinePropertiesOsProfileLinuxConfiguration": {
+      "type": "object",
+      "properties": {
+        "disablePasswordAuthentication": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DisablePasswordAuthentication - whether password authentication should be disabled"
+        },
+        "provisionVMAgent": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process."
+        },
+        "ssh": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesOsProfileLinuxConfigurationSsh"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SSH - contains settings related to ssh configuration"
+        }
+      },
+      "description": "LinuxConfiguration - linux specific configuration values for the virtual machine"
+    },
+    "VirtualMachinePropertiesOsProfileLinuxConfigurationSsh": {
+      "type": "object",
+      "properties": {
+        "publicKeys": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualMachinePropertiesOsProfileLinuxConfigurationSshPublicKeysItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "PublicKeys - The list of SSH public keys used to authenticate with linux based VMs."
+        }
+      },
+      "description": "SSH - contains settings related to ssh configuration"
+    },
+    "VirtualMachinePropertiesOsProfileLinuxConfigurationSshPublicKeysItem": {
+      "type": "object",
+      "properties": {
+        "keyData": {
+          "type": "string",
+          "description": "KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)."
+        },
+        "path": {
+          "type": "string",
+          "description": "Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys"
+        }
+      }
+    },
+    "VirtualMachinePropertiesOsProfileWindowsConfiguration": {
+      "type": "object",
+      "properties": {
+        "enableAutomaticUpdates": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to EnableAutomaticUpdates on the machine"
+        },
+        "provisionVMAgent": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process."
+        },
+        "ssh": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesOsProfileWindowsConfigurationSsh"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SSH Configuration"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "TimeZone for the virtual machine"
+        }
+      },
+      "description": "Windows Configuration for the virtual machine "
+    },
+    "VirtualMachinePropertiesOsProfileWindowsConfigurationSsh": {
+      "type": "object",
+      "properties": {
+        "publicKeys": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualMachinePropertiesOsProfileWindowsConfigurationSshPublicKeysItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "PublicKeys - The list of SSH public keys used to authenticate with linux based VMs."
+        }
+      },
+      "description": "SSH Configuration"
+    },
+    "VirtualMachinePropertiesOsProfileWindowsConfigurationSshPublicKeysItem": {
+      "type": "object",
+      "properties": {
+        "keyData": {
+          "type": "string",
+          "description": "KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)."
+        },
+        "path": {
+          "type": "string",
+          "description": "Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys"
+        }
+      }
+    },
+    "VirtualMachinePropertiesSecurityProfile": {
+      "type": "object",
+      "properties": {
+        "enableTPM": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uefiSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesSecurityProfileUefiSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "SecurityProfile - Specifies the security settings for the virtual machine."
+    },
+    "VirtualMachinePropertiesSecurityProfileUefiSettings": {
+      "type": "object",
+      "properties": {
+        "secureBootEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether secure boot should be enabled on the virtual machine."
+        }
+      }
+    },
+    "VirtualMachinePropertiesStorageProfile": {
+      "type": "object",
+      "properties": {
+        "dataDisks": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualMachinePropertiesStorageProfileDataDisksItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "adds data disks to the virtual machine"
+        },
+        "imageReference": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesStorageProfileImageReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Which Image to use for the virtual machine"
+        },
+        "osDisk": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachinePropertiesStorageProfileOsDisk"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "VHD to attach as OS disk"
+        },
+        "vmConfigStoragePathId": {
+          "type": "string",
+          "description": "Id of the storage container that hosts the VM configuration file"
+        }
+      },
+      "description": "StorageProfile - contains information about the disks and storage information for the virtual machine"
+    },
+    "VirtualMachinePropertiesStorageProfileDataDisksItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Resource ID of the data disk"
+        }
+      }
+    },
+    "VirtualMachinePropertiesStorageProfileImageReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Resource ID of the image"
+        }
+      },
+      "description": "Which Image to use for the virtual machine"
+    },
+    "VirtualMachinePropertiesStorageProfileOsDisk": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Resource ID of the OS disk"
+        }
+      },
+      "description": "VHD to attach as OS disk"
+    },
+    "VirtualMachineStatus": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string",
+          "description": "VirtualMachine provisioning error code"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Descriptive error message"
+        },
+        "powerState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Deallocated",
+                "Deallocating",
+                "Running",
+                "Starting",
+                "Stopped",
+                "Stopping",
+                "Unknown"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The power state of the virtual machine."
+        },
+        "provisioningStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineStatusProvisioningStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The observed state of virtual machines"
+    },
+    "VirtualMachineStatusProvisioningStatus": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "description": "The ID of the operation performed on the virtual machine"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotYetRegistered",
+                "ConnectedRecently",
+                "NotConnectedRecently",
+                "Disconnected",
+                "Error",
+                "NotSpecified",
+                "Succeeded",
+                "Failed",
+                "InProgress"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the operation performed on the virtual machine [Succeeded, Failed, InProgress]."
+        }
+      }
+    },
+    "virtualMachines_extensions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the machine extension."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MachineExtensionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a Machine Extension."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "extensions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualMachines/extensions"
+    },
+    "virtualMachines_guestAgents_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the guestAgents."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestAgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the resource properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "guestAgents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualMachines/guestAgents"
+    },
+    "virtualMachines_hybridIdentityMetadata_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-12-15-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the hybridIdentityMetadata."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HybridIdentityMetadataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the resource properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "hybridIdentityMetadata"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureStackHCI/virtualMachines/hybridIdentityMetadata"
+    },
+    "VirtualNetworkProperties": {
+      "type": "object",
+      "properties": {
+        "dhcpOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkPropertiesDhcpOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options."
+        },
+        "networkType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NAT",
+                "Transparent",
+                "L2Bridge",
+                "L2Tunnel",
+                "ICS",
+                "Private",
+                "Overlay",
+                "Internal",
+                "Mirrored"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the network."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The observed state of virtual networks"
+        },
+        "subnets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualNetworkPropertiesSubnetsItemModel"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Subnet - list of subnets under the virtual network"
+        },
+        "vmSwitchName": {
+          "type": "string",
+          "description": "name of the network switch to be used for VMs"
+        }
+      },
+      "description": "Properties under the virtual network resource"
+    },
+    "VirtualNetworkPropertiesDhcpOptions": {
+      "type": "object",
+      "properties": {
+        "dnsServers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of DNS servers IP addresses."
+        }
+      },
+      "description": "DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options."
+    },
+    "VirtualNetworkPropertiesSubnetsItem": {
+      "type": "object",
+      "properties": {
+        "addressPrefix": {
+          "type": "string",
+          "description": "Cidr for this subnet - IPv4, IPv6"
+        },
+        "addressPrefixes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AddressPrefixes - List of address prefixes for the subnet."
+        },
+        "ipAllocationMethod": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Dynamic",
+                "Static"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "IPAllocationMethod - The IP address allocation method."
+        },
+        "ipConfigurationReferences": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Componentscr63wschemasvirtualnetworkpropertiespropertiessubnetsitemspropertiespropertiespropertiesipconfigurationreferencesitems"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "IPConfigurationReferences - list of IPConfigurationReferences"
+        },
+        "ipPools": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IPPool"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "network associated pool of IP Addresses"
+        },
+        "routeTable": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Componentsi4f0mhschemasvirtualnetworkpropertiespropertiessubnetsitemspropertiespropertiespropertiesroutetable"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RouteTable for the subnet"
+        },
+        "vlan": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Vlan to use for the subnet"
+        }
+      },
+      "description": "SubnetProperties - Properties of the subnet."
+    },
+    "VirtualNetworkPropertiesSubnetsItemModel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,78}[_a-zA-Z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name - The name of the resource that is unique within a resource group. This name can be used to access the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkPropertiesSubnetsItem"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SubnetProperties - Properties of the subnet."
+        }
+      },
+      "description": "Subnet subnet in a virtual network resource."
+    },
+    "VirtualNetworkPropertiesSubnetsItemRouteTableRoutesItem": {
+      "type": "object",
+      "properties": {
+        "addressPrefix": {
+          "type": "string",
+          "description": "AddressPrefix - The destination CIDR to which the route applies."
+        },
+        "nextHopIpAddress": {
+          "type": "string",
+          "description": "NextHopIPAddress - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance."
+        }
+      },
+      "description": "RoutePropertiesFormat - Properties of the route."
+    },
+    "VirtualNetworkPropertiesSubnetsPropertiesPropertiesPropertiesPropertiesItemsItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-._a-zA-Z0-9]{0,78}[_a-zA-Z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name - name of the subnet"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkPropertiesSubnetsItemRouteTableRoutesItem"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RoutePropertiesFormat - Properties of the route."
+        }
+      },
+      "description": "Route is associated with a subnet."
+    },
+    "VirtualNetworkStatus": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string",
+          "description": "VirtualNetwork provisioning error code"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Descriptive error message"
+        },
+        "provisioningStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkStatusProvisioningStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The observed state of virtual networks"
+    },
+    "VirtualNetworkStatusProvisioningStatus": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "description": "The ID of the operation performed on the virtual network"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NotYetRegistered",
+                "ConnectedRecently",
+                "NotConnectedRecently",
+                "Disconnected",
+                "Error",
+                "NotSpecified",
+                "Succeeded",
+                "Failed",
+                "InProgress"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the operation performed on the virtual network [Succeeded, Failed, InProgress]."
+        }
+      }
+    }
+  }
+}

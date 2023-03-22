@@ -3965,6 +3965,45 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-12-01/Microsoft.AzureStackHCI.json#/resourceDefinitions/clusters_updateSummaries"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/clusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/clusters_arcSettings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/clusters_arcSettings_extensions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/galleryImages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/marketplaceGalleryImages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/networkInterfaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/storageContainers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/virtualHardDisks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/virtualMachines"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/virtualMachines_extensions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/virtualMachines_guestAgents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/virtualMachines_hybridIdentityMetadata"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.AzureStackHCI.json#/resourceDefinitions/virtualNetworks"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-02-01/Microsoft.AzureStackHCI.json#/resourceDefinitions/clusters"
         },
         {
