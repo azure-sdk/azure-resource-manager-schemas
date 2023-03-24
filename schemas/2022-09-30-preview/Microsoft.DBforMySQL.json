@@ -1,0 +1,44 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-09-30-preview/Microsoft.DBforMySQL.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.DBforMySQL",
+  "description": "Microsoft DBforMySQL Resource Types",
+  "resourceDefinitions": {
+    "flexibleServers_backups": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-09-30-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the backup."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DBforMySQL/flexibleServers/backups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.DBforMySQL/flexibleServers/backups"
+    }
+  },
+  "definitions": {}
+}
