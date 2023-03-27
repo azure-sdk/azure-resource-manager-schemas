@@ -24800,6 +24800,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.RecoveryServices.Backup.json#/resourceDefinitions/vaults_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-15/Microsoft.RecoveryServices.Backup.json#/resourceDefinitions/vaults_backupstorageconfig"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-02-01/Microsoft.RecoveryServices.Backup.json#/resourceDefinitions/vaults_backupconfig"
         },
         {
