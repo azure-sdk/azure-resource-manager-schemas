@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.DocumentDB.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-03-15-preview/Microsoft.DocumentDB.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.DocumentDB",
   "description": "Microsoft DocumentDB Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -99,7 +99,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -148,7 +148,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -292,7 +292,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -377,7 +377,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -456,7 +456,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -532,7 +532,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -608,7 +608,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -687,7 +687,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -763,7 +763,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -802,7 +802,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -871,7 +871,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -953,7 +953,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1032,7 +1032,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1108,7 +1108,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1184,7 +1184,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1266,7 +1266,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1345,7 +1345,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1421,7 +1421,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1497,7 +1497,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -1536,7 +1536,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -1575,7 +1575,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -1610,7 +1610,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -1649,7 +1649,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -1690,7 +1690,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1775,7 +1775,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -1814,7 +1814,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1902,7 +1902,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -1971,7 +1971,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -2047,7 +2047,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -2116,7 +2116,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -2185,7 +2185,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -2261,7 +2261,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -2300,7 +2300,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -2339,7 +2339,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -2418,7 +2418,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -2494,7 +2494,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "location": {
@@ -2573,7 +2573,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -2898,7 +2898,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -4212,7 +4212,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4281,7 +4281,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4350,7 +4350,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4421,7 +4421,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4492,7 +4492,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4561,7 +4561,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4632,7 +4632,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -4671,7 +4671,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4740,7 +4740,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4809,7 +4809,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4878,7 +4878,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -4949,7 +4949,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5020,7 +5020,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5089,7 +5089,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5158,7 +5158,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5229,7 +5229,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5300,7 +5300,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -5339,7 +5339,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -5378,7 +5378,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -5408,7 +5408,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -5447,7 +5447,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -5488,7 +5488,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5557,7 +5557,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -5596,7 +5596,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5665,7 +5665,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5734,7 +5734,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5805,7 +5805,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5874,7 +5874,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -5943,7 +5943,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -6014,7 +6014,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -6053,7 +6053,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -6092,7 +6092,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -6161,7 +6161,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "identity": {
@@ -7043,6 +7043,24 @@
       },
       "description": "Identity for the resource."
     },
+    "MaterializedViewDefinition": {
+      "type": "object",
+      "properties": {
+        "definition": {
+          "type": "string",
+          "description": "The definition should be an SQL query which would be used to fetch data from the source container to populate into the Materialized View container."
+        },
+        "sourceCollectionId": {
+          "type": "string",
+          "description": "The name of the source container on which the Materialized View will be created."
+        }
+      },
+      "required": [
+        "definition",
+        "sourceCollectionId"
+      ],
+      "description": "Materialized View definition for the container."
+    },
     "MongoClusterProperties": {
       "type": "object",
       "properties": {
@@ -7144,7 +7162,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-03-01-preview"
+            "2023-03-15-preview"
           ]
         },
         "name": {
@@ -8109,6 +8127,17 @@
             }
           ],
           "description": "Cosmos DB indexing policy"
+        },
+        "materializedViewDefinition": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaterializedViewDefinition"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Materialized View definition for the container."
         },
         "partitionKey": {
           "oneOf": [
