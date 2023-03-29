@@ -13,24 +13,22 @@
             "2023-03-01-preview"
           ]
         },
-        "identity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Managed service identity (system assigned and/or user assigned identities)"
-        },
         "location": {
           "type": "string",
           "description": "The geo-location where the resource lives"
         },
         "name": {
-          "type": "string",
-          "description": "The name of the RedisEnterprise cluster."
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-z0-9][-a-z0-9]*",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of cluster"
         },
         "properties": {
           "oneOf": [
@@ -41,7 +39,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Properties of RedisEnterprise clusters, as opposed to general resource properties like location, tags"
+          "description": "Properties of a RedisEnterprise cluster"
         },
         "resources": {
           "type": "array",
@@ -65,7 +63,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "SKU parameters supplied to the create RedisEnterprise operation."
+          "description": "SKU parameters supplied to the create RedisEnterprise operation"
         },
         "tags": {
           "oneOf": [
@@ -87,20 +85,6 @@
           "enum": [
             "Microsoft.Cache/redisEnterprise"
           ]
-        },
-        "zones": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The Availability Zones where this cluster will be deployed."
         }
       },
       "required": [
@@ -123,19 +107,28 @@
           ]
         },
         "name": {
-          "type": "string",
-          "description": "The name of the database."
-        },
-        "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/DatabaseProperties"
+              "type": "string",
+              "pattern": "[a-z0-9][-a-z0-9]*",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Properties of RedisEnterprise databases, as opposed to general resource properties like location, tags"
+          "description": "Name of database"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabasePropertiesCreateOrUpdate"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of a Database on a RedisEnterprise cluster"
         },
         "type": {
           "type": "string",
@@ -162,8 +155,17 @@
           ]
         },
         "name": {
-          "type": "string",
-          "description": "The name of the private endpoint connection associated with the Azure resource"
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-z0-9][-a-z0-9]*",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of private endpoint connection"
         },
         "properties": {
           "oneOf": [
@@ -174,7 +176,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Properties of the PrivateEndpointConnectProperties."
+          "description": "Properties of a PrivateEndpointConnection on a RedisEnterprise cluster"
         },
         "type": {
           "type": "string",
@@ -196,18 +198,7 @@
     "ClusterProperties": {
       "type": "object",
       "properties": {
-        "encryption": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ClusterPropertiesEncryption"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Encryption-at-rest configuration for the cluster."
-        },
-        "minimumTlsVersion": {
+        "minTlsVersion": {
           "oneOf": [
             {
               "type": "string",
@@ -221,75 +212,12 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The minimum TLS version for the cluster to support, e.g. '1.2'."
+          "description": "The minimum TLS version for the cluster to support, e.g. the default of '1.2'."
         }
       },
-      "description": "Properties of RedisEnterprise clusters, as opposed to general resource properties like location, tags"
+      "description": "Properties of a RedisEnterprise cluster"
     },
-    "ClusterPropertiesEncryption": {
-      "type": "object",
-      "properties": {
-        "customerManagedKeyEncryption": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ClusterPropertiesEncryptionCustomerManagedKeyEncryption"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption."
-        }
-      },
-      "description": "Encryption-at-rest configuration for the cluster."
-    },
-    "ClusterPropertiesEncryptionCustomerManagedKeyEncryption": {
-      "type": "object",
-      "properties": {
-        "keyEncryptionKeyIdentity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ClusterPropertiesEncryptionCustomerManagedKeyEncryptionKeyEncryptionKeyIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault."
-        },
-        "keyEncryptionKeyUrl": {
-          "type": "string",
-          "description": "Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78"
-        }
-      },
-      "description": "All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption."
-    },
-    "ClusterPropertiesEncryptionCustomerManagedKeyEncryptionKeyEncryptionKeyIdentity": {
-      "type": "object",
-      "properties": {
-        "identityType": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "systemAssignedIdentity",
-                "userAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Only userAssignedIdentity is supported in this API version; other types may be supported in the future."
-        },
-        "userAssignedIdentityResourceId": {
-          "type": "string",
-          "description": "User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId."
-        }
-      },
-      "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault."
-    },
-    "DatabaseProperties": {
+    "DatabasePropertiesCreateOrUpdate": {
       "type": "object",
       "properties": {
         "clientProtocol": {
@@ -306,21 +234,6 @@
             }
           ],
           "description": "Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted."
-        },
-        "clusteringPolicy": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "EnterpriseCluster",
-                "OSSCluster"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Clustering policy - default is OSSCluster. Specified at create time."
         },
         "evictionPolicy": {
           "oneOf": [
@@ -343,31 +256,6 @@
           ],
           "description": "Redis eviction policy - default is VolatileLRU."
         },
-        "geoReplication": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DatabasePropertiesGeoReplication"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Optional set of properties to configure geo replication for this database."
-        },
-        "modules": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Module"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Optional set of redis modules to enable in this database - modules can only be added at creation time."
-        },
         "persistence": {
           "oneOf": [
             {
@@ -388,101 +276,13 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "TCP port of the database endpoint. Specified at create time. Defaults to an available port."
-        }
-      },
-      "description": "Properties of RedisEnterprise databases, as opposed to general resource properties like location, tags"
-    },
-    "DatabasePropertiesGeoReplication": {
-      "type": "object",
-      "properties": {
-        "groupNickname": {
-          "type": "string",
-          "description": "Name for the group of linked database resources"
-        },
-        "linkedDatabases": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LinkedDatabase"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of database resources to link with this database"
-        }
-      },
-      "description": "Optional set of properties to configure geo replication for this database."
-    },
-    "LinkedDatabase": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID of a database resource to link with this database."
-        }
-      },
-      "description": "Specifies details of a linked database resource."
-    },
-    "ManagedServiceIdentity": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "SystemAssigned",
-                "UserAssigned",
-                "SystemAssigned, UserAssigned"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "userAssignedIdentities": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/UserAssignedIdentity"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+          "description": "Port number for the database to listen on. E.g. 10000."
         }
       },
       "required": [
-        "type"
+        "persistence"
       ],
-      "description": "Managed service identity (system assigned and/or user assigned identities)"
-    },
-    "Module": {
-      "type": "object",
-      "properties": {
-        "args": {
-          "type": "string",
-          "description": "Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "description": "Specifies configuration of a redis module"
+      "description": "Properties of a Database on a RedisEnterprise cluster"
     },
     "Persistence": {
       "type": "object",
@@ -496,7 +296,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Sets whether AOF is enabled."
+          "description": "Sets whether AOF is enabled. Defaults to false."
         },
         "aofFrequency": {
           "oneOf": [
@@ -522,7 +322,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Sets whether RDB is enabled."
+          "description": "Sets whether RDB is enabled. Defaults to false."
         },
         "rdbFrequency": {
           "oneOf": [
@@ -541,12 +341,21 @@
           "description": "Sets the frequency at which a snapshot of the database is created."
         }
       },
+      "required": [
+        "aofEnabled",
+        "rdbEnabled"
+      ],
       "description": "Persistence-related configuration for the RedisEnterprise database"
     },
     "PrivateEndpoint": {
       "type": "object",
-      "properties": {},
-      "description": "The Private Endpoint resource."
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ARM resource id of the private endpoint resource"
+        }
+      },
+      "description": "The private endpoint resource."
     },
     "PrivateEndpointConnectionProperties": {
       "type": "object",
@@ -560,7 +369,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The Private Endpoint resource."
+          "description": "The private endpoint resource."
         },
         "privateLinkServiceConnectionState": {
           "oneOf": [
@@ -572,29 +381,12 @@
             }
           ],
           "description": "A collection of information about the state of the connection between service consumer and provider."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Succeeded",
-                "Creating",
-                "Deleting",
-                "Failed"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioning state of the private endpoint connection resource."
         }
       },
       "required": [
         "privateLinkServiceConnectionState"
       ],
-      "description": "Properties of the PrivateEndpointConnectProperties."
+      "description": "Properties of a PrivateEndpointConnection on a RedisEnterprise cluster"
     },
     "PrivateLinkServiceConnectionState": {
       "type": "object",
@@ -612,8 +404,8 @@
             {
               "type": "string",
               "enum": [
-                "Pending",
                 "Approved",
+                "Pending",
                 "Rejected"
               ]
             },
@@ -624,6 +416,11 @@
           "description": "Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service."
         }
       },
+      "required": [
+        "actionsRequired",
+        "description",
+        "status"
+      ],
       "description": "A collection of information about the state of the connection between service consumer and provider."
     },
     "redisEnterprise_databases_childResource": {
@@ -636,19 +433,28 @@
           ]
         },
         "name": {
-          "type": "string",
-          "description": "The name of the database."
-        },
-        "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/DatabaseProperties"
+              "type": "string",
+              "pattern": "[a-z0-9][-a-z0-9]*",
+              "minLength": 1
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Properties of RedisEnterprise databases, as opposed to general resource properties like location, tags"
+          "description": "Name of database"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabasePropertiesCreateOrUpdate"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of a Database on a RedisEnterprise cluster"
         },
         "type": {
           "type": "string",
@@ -675,8 +481,17 @@
           ]
         },
         "name": {
-          "type": "string",
-          "description": "The name of the private endpoint connection associated with the Azure resource"
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-z0-9][-a-z0-9]*",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of private endpoint connection"
         },
         "properties": {
           "oneOf": [
@@ -687,7 +502,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Properties of the PrivateEndpointConnectProperties."
+          "description": "Properties of a PrivateEndpointConnection on a RedisEnterprise cluster"
         },
         "type": {
           "type": "string",
@@ -710,7 +525,8 @@
         "capacity": {
           "oneOf": [
             {
-              "type": "integer"
+              "type": "integer",
+              "minimum": 2
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -740,14 +556,10 @@
         }
       },
       "required": [
+        "capacity",
         "name"
       ],
-      "description": "SKU parameters supplied to the create RedisEnterprise operation."
-    },
-    "UserAssignedIdentity": {
-      "type": "object",
-      "properties": {},
-      "description": "User assigned identity properties"
+      "description": "SKU parameters supplied to the create RedisEnterprise operation"
     }
   }
 }
