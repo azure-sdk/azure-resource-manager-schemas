@@ -4003,7 +4003,8 @@
           "description": "Specifies the identifier key of the storage account for vulnerability assessment scan results. If 'StorageContainerSasKey' isn't specified, storageAccountAccessKey is required."
         },
         "storageContainerPath": {
-          "type": "string",
+          "type": "object",
+          "properties": {},
           "description": "A blob storage container path to hold the scan results (e.g. https://myStorage.blob.core.windows.net/VaScans/)."
         },
         "storageContainerSasKey": {
@@ -4019,17 +4020,6 @@
     "Sku": {
       "type": "object",
       "properties": {
-        "capacity": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
-        },
         "name": {
           "type": "string",
           "description": "The SKU name"
@@ -4556,14 +4546,8 @@
       "type": "object",
       "properties": {
         "azureADOnlyAuthentication": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "object",
+          "properties": {},
           "description": "Enable or Disable AzureADOnlyAuthentication on All Workspace subresource"
         },
         "cspWorkspaceAdminProperties": {
