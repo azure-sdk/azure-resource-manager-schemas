@@ -16,13 +16,13 @@
         "identity": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedServiceIdentity"
+              "$ref": "#/definitions/SystemAssignedOrUserAssignedServiceIdentity"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Managed service identity (system assigned and/or user assigned identities)"
+          "description": "Type of managed service identity (system assigned or user assigned identities - but not system assigned and user assigned identities)"
         },
         "location": {
           "type": "string",
@@ -92,7 +92,7 @@
       "type": "object",
       "properties": {}
     },
-    "ManagedServiceIdentity": {
+    "SystemAssignedOrUserAssignedServiceIdentity": {
       "type": "object",
       "properties": {
         "type": {
@@ -102,8 +102,7 @@
               "enum": [
                 "None",
                 "SystemAssigned",
-                "UserAssigned",
-                "SystemAssigned,UserAssigned"
+                "UserAssigned"
               ]
             },
             {
@@ -130,7 +129,7 @@
       "required": [
         "type"
       ],
-      "description": "Managed service identity (system assigned and/or user assigned identities)"
+      "description": "Type of managed service identity (system assigned or user assigned identities - but not system assigned and user assigned identities)"
     },
     "SystemData": {
       "type": "object",
