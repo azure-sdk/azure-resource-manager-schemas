@@ -5752,10 +5752,10 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/CronTrigger"
+          "$ref": "#/definitions/RecurrenceTrigger"
         },
         {
-          "$ref": "#/definitions/RecurrenceTrigger"
+          "$ref": "#/definitions/CronTrigger"
         }
       ],
       "properties": {
