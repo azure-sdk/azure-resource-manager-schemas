@@ -12437,6 +12437,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.DocumentDB.json#/resourceDefinitions/mongoClusters_firewallRules"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15-preview/Microsoft.DocumentDB.json#/resourceDefinitions/cassandraClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15-preview/Microsoft.DocumentDB.json#/resourceDefinitions/cassandraClusters_dataCenters"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-04-01/Microsoft.DomainRegistration.json#/resourceDefinitions/domains"
         },
         {
