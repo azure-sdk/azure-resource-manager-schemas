@@ -1308,7 +1308,6 @@
       },
       "required": [
         "endpointNames",
-        "isEnabled",
         "name",
         "source"
       ],
