@@ -16466,6 +16466,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-06-03-preview/Microsoft.Monitor.json#/resourceDefinitions/accounts"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-03/Microsoft.Monitor.json#/resourceDefinitions/accounts"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2017-08-15/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts"
         },
         {
