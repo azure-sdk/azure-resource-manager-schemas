@@ -918,14 +918,14 @@
           "oneOf": [
             {
               "type": "integer",
-              "minimum": 1,
+              "minimum": 0,
               "maximum": 146000
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The immutability period for the blobs in the container since the policy creation, in days."
+          "description": "The immutability period for the blobs in the container since the policy creation in days. 0 is returned when state is disabled."
         },
         "state": {
           "oneOf": [
@@ -994,7 +994,6 @@
         }
       },
       "required": [
-        "domainGuid",
         "domainName"
       ],
       "description": "Settings properties for Active Directory (AD)."
@@ -1786,14 +1785,14 @@
           "oneOf": [
             {
               "type": "integer",
-              "minimum": 1,
+              "minimum": 0,
               "maximum": 365
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365."
+          "description": "Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365. 0 will be returned when policy is disabled."
         },
         "enabled": {
           "oneOf": [
@@ -3295,14 +3294,14 @@
           "oneOf": [
             {
               "type": "integer",
-              "minimum": 1,
+              "minimum": 0,
               "maximum": 365
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days."
+          "description": "how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days. 0 will be retruned when policy is disabled"
         },
         "enabled": {
           "oneOf": [
