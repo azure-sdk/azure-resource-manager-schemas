@@ -3333,6 +3333,21 @@
           ],
           "description": "Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'. 'Ldap' is in preview."
         },
+        "azureConnectionMethod": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Vpn"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Which connection method Managed Cassandra should use to conenct to Azure resources it needs. 'None' is the deafukt which means conenct directly, 'Vpn' will connect through a VPN endpoint for added security and simplicity."
+        },
         "cassandraAuditLoggingEnabled": {
           "oneOf": [
             {
