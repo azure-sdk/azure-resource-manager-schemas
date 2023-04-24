@@ -30,6 +30,7 @@
         },
         "location": {
           "type": "string",
+          "minLength": 1,
           "description": "The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed."
         },
         "name": {
@@ -150,6 +151,17 @@
           ],
           "description": "The properties of the bandwidth schedule."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -195,6 +207,17 @@
             }
           ],
           "description": "The properties of proactive log collection settings."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -242,6 +265,17 @@
           ],
           "description": "The properties of remote support settings."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -288,6 +322,17 @@
           ],
           "description": "Order properties."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -306,6 +351,9 @@
     "dataBoxEdgeDevices_roles": {
       "type": "object",
       "oneOf": [
+        {
+          "$ref": "#/definitions/ASEKubernetesRole"
+        },
         {
           "$ref": "#/definitions/CloudEdgeManagementRole"
         },
@@ -343,6 +391,17 @@
             ]
           }
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -374,6 +433,17 @@
         "name": {
           "type": "string",
           "description": "The addon name."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -420,6 +490,17 @@
           ],
           "description": "Metrics properties"
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -459,6 +540,17 @@
           ],
           "description": "The share properties."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -497,6 +589,17 @@
             }
           ],
           "description": "The storage account credential properties."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -547,6 +650,17 @@
             ]
           }
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -586,6 +700,17 @@
           ],
           "description": "The container properties."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -621,6 +746,17 @@
         "name": {
           "type": "string",
           "description": "The trigger name."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -660,6 +796,17 @@
           ],
           "description": "The user properties."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -698,6 +845,7 @@
         },
         "country": {
           "type": "string",
+          "minLength": 1,
           "description": "The country name."
         },
         "postalCode": {
@@ -744,20 +892,28 @@
     "ArcAddonProperties": {
       "type": "object",
       "properties": {
+        "customLocationsObjectId": {
+          "type": "string",
+          "description": "Arc Custom Locations ObjectId"
+        },
         "resourceGroupName": {
           "type": "string",
+          "minLength": 1,
           "description": "Arc resource group name"
         },
         "resourceLocation": {
           "type": "string",
+          "minLength": 1,
           "description": "Arc resource location"
         },
         "resourceName": {
           "type": "string",
+          "minLength": 1,
           "description": "Arc resource Name"
         },
         "subscriptionId": {
           "type": "string",
+          "minLength": 1,
           "description": "Arc resource subscription Id"
         }
       },
@@ -768,6 +924,121 @@
         "subscriptionId"
       ],
       "description": "Arc addon properties."
+    },
+    "ASEKubernetesRole": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "ASEKubernetes"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ASEKubernetesRoleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kubernetes role properties."
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "description": "ASEKubernetes Role"
+    },
+    "ASEKubernetesRoleCompute": {
+      "type": "object",
+      "properties": {},
+      "description": "ASEKubernetes role compute resource"
+    },
+    "ASEKubernetesRoleProperties": {
+      "type": "object",
+      "properties": {
+        "kubernetesRoleResources": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ASEKubernetesRoleResources"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ASEKubernetes Role resources"
+        },
+        "roleStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Role status."
+        }
+      },
+      "required": [
+        "kubernetesRoleResources",
+        "roleStatus"
+      ],
+      "description": "Kubernetes role properties."
+    },
+    "ASEKubernetesRoleResources": {
+      "type": "object",
+      "properties": {
+        "compute": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ASEKubernetesRoleCompute"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ASEKubernetes role compute resource"
+        },
+        "storage": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ASEKubernetesRoleStorage"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ASEKubernetes role Storage resource"
+        }
+      },
+      "description": "ASEKubernetes Role resources"
+    },
+    "ASEKubernetesRoleStorage": {
+      "type": "object",
+      "properties": {
+        "endpoints": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MountPointMap"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Mount points of shares in role(s)."
+        }
+      },
+      "description": "ASEKubernetes role Storage resource"
     },
     "AsymmetricEncryptedSecret": {
       "type": "object",
@@ -794,6 +1065,7 @@
         },
         "value": {
           "type": "string",
+          "minLength": 1,
           "description": "The value of the secret."
         }
       },
@@ -825,6 +1097,7 @@
       "properties": {
         "containerName": {
           "type": "string",
+          "minLength": 1,
           "description": "Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob)."
         },
         "dataFormat": {
@@ -845,6 +1118,7 @@
         },
         "storageAccountCredentialId": {
           "type": "string",
+          "minLength": 1,
           "description": "ID of the storage account credential used to access storage."
         }
       },
@@ -894,10 +1168,12 @@
         },
         "start": {
           "type": "string",
+          "format": "date-span",
           "description": "The start time of the schedule in UTC."
         },
         "stop": {
           "type": "string",
+          "format": "date-span",
           "description": "The stop time of the schedule in UTC."
         }
       },
@@ -930,6 +1206,7 @@
         },
         "client": {
           "type": "string",
+          "minLength": 1,
           "description": "IP of the client."
         }
       },
@@ -968,6 +1245,17 @@
     "CloudEdgeManagementRoleProperties": {
       "type": "object",
       "properties": {
+        "edgeProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EdgeProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details about Edge Profile for the resource"
+        },
         "roleStatus": {
           "oneOf": [
             {
@@ -988,6 +1276,11 @@
         "roleStatus"
       ],
       "description": "CloudEdgeManagement Role properties."
+    },
+    "CniConfig": {
+      "type": "object",
+      "properties": {},
+      "description": "Cni configuration"
     },
     "ComputeResource": {
       "type": "object",
@@ -1021,15 +1314,35 @@
       ],
       "description": "Compute infrastructure Resource"
     },
+    "ComputeVersionInformation": {
+      "type": "object",
+      "properties": {
+        "azureArcVersion": {
+          "type": "string",
+          "description": "Azure Arc Version"
+        },
+        "iotEdgeVersion": {
+          "type": "string",
+          "description": "IOTEdge Version"
+        },
+        "kubernetesVersion": {
+          "type": "string",
+          "description": "Kubernetes Version"
+        }
+      },
+      "description": "This contains the compute information"
+    },
     "ContactDetails": {
       "type": "object",
       "properties": {
         "companyName": {
           "type": "string",
+          "minLength": 1,
           "description": "The name of the company."
         },
         "contactPerson": {
           "type": "string",
+          "minLength": 1,
           "description": "The contact person name."
         },
         "emailList": {
@@ -1048,6 +1361,7 @@
         },
         "phone": {
           "type": "string",
+          "minLength": 1,
           "description": "The phone number."
         }
       },
@@ -1077,6 +1391,17 @@
             }
           ],
           "description": "DataFormat for Container."
+        },
+        "refreshDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RefreshDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Fields for tracking refresh job on the share or container."
         }
       },
       "required": [
@@ -1087,6 +1412,17 @@
     "DataBoxEdgeDeviceProperties": {
       "type": "object",
       "properties": {
+        "computeVersionInformation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComputeVersionInformation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This contains the compute information"
+        },
         "dataResidency": {
           "oneOf": [
             {
@@ -1097,6 +1433,28 @@
             }
           ],
           "description": "Wraps data-residency related information for edge-resource and this should be used with ARM layer."
+        },
+        "edgeProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EdgeProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details about Edge Profile for the resource"
+        },
+        "resourceMoveDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceMoveDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Fields for tracking resource move"
         }
       },
       "description": "The properties of the Data Box Edge/Gateway device."
@@ -1124,6 +1482,17 @@
             }
           ],
           "description": "The properties of the bandwidth schedule."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -1166,6 +1535,17 @@
           ],
           "description": "The properties of proactive log collection settings."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1206,6 +1586,17 @@
             }
           ],
           "description": "The properties of remote support settings."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -1248,6 +1639,17 @@
           ],
           "description": "Order properties."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1281,6 +1683,17 @@
           "type": "string",
           "description": "The addon name."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1298,6 +1711,9 @@
     "dataBoxEdgeDevices_roles_childResource": {
       "type": "object",
       "oneOf": [
+        {
+          "$ref": "#/definitions/ASEKubernetesRole"
+        },
         {
           "$ref": "#/definitions/CloudEdgeManagementRole"
         },
@@ -1321,6 +1737,17 @@
         "name": {
           "type": "string",
           "description": "The role name."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -1362,6 +1789,17 @@
           ],
           "description": "Metrics properties"
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1400,6 +1838,17 @@
             }
           ],
           "description": "The share properties."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -1440,6 +1889,17 @@
           ],
           "description": "The storage account credential properties."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1478,6 +1938,17 @@
             }
           ],
           "description": "The storage account properties."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -1518,6 +1989,17 @@
           ],
           "description": "The container properties."
         },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1553,6 +2035,17 @@
         "name": {
           "type": "string",
           "description": "The trigger name."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -1591,6 +2084,17 @@
             }
           ],
           "description": "The user properties."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provides details about resource creation and updation time"
         },
         "type": {
           "type": "string",
@@ -1648,6 +2152,75 @@
       },
       "description": "The properties of remote support settings."
     },
+    "EdgeProfile": {
+      "type": "object",
+      "properties": {
+        "subscription": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EdgeProfileSubscription"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Subscription details for the Edge Profile"
+        }
+      },
+      "description": "Details about Edge Profile for the resource"
+    },
+    "EdgeProfileSubscription": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ARM ID of the subscription"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SubscriptionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "registrationDate": {
+          "type": "string"
+        },
+        "registrationId": {
+          "type": "string",
+          "description": "Edge Subscription Registration ID"
+        },
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Registered",
+                "Warned",
+                "Suspended",
+                "Deleted",
+                "Unregistered"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "subscriptionId": {
+          "type": "string"
+        }
+      },
+      "description": "Subscription details for the Edge Profile"
+    },
+    "EtcdInfo": {
+      "type": "object",
+      "properties": {},
+      "description": "Etcd configuration"
+    },
     "FileEventTrigger": {
       "type": "object",
       "properties": {
@@ -1680,6 +2253,7 @@
       "properties": {
         "shareId": {
           "type": "string",
+          "minLength": 1,
           "description": "File share ID."
         }
       },
@@ -1730,6 +2304,7 @@
       "properties": {
         "imageRepositoryUrl": {
           "type": "string",
+          "minLength": 1,
           "description": "Image repository url (e.g.: mcr.microsoft.com)."
         },
         "password": {
@@ -1745,6 +2320,7 @@
         },
         "userName": {
           "type": "string",
+          "minLength": 1,
           "description": "Repository user name."
         }
       },
@@ -1770,10 +2346,12 @@
         },
         "deviceId": {
           "type": "string",
+          "minLength": 1,
           "description": "ID of the IoT device/edge device."
         },
         "ioTHostHub": {
           "type": "string",
+          "minLength": 1,
           "description": "Host name for the IoT hub associated to the device."
         },
         "ioTHostHubId": {
@@ -1792,6 +2370,7 @@
       "properties": {
         "imageName": {
           "type": "string",
+          "minLength": 1,
           "description": "Name of the IoT edge agent image."
         },
         "imageRepository": {
@@ -1807,6 +2386,7 @@
         },
         "tag": {
           "type": "string",
+          "minLength": 1,
           "description": "Image Tag."
         }
       },
@@ -1945,8 +2525,20 @@
     "KubernetesClusterInfo": {
       "type": "object",
       "properties": {
+        "etcdInfo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EtcdInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Etcd configuration"
+        },
         "version": {
           "type": "string",
+          "minLength": 1,
           "description": "Kubernetes cluster version"
         }
       },
@@ -1986,6 +2578,7 @@
       "properties": {
         "vmProfile": {
           "type": "string",
+          "minLength": 1,
           "description": "VM profile"
         }
       },
@@ -1993,6 +2586,34 @@
         "vmProfile"
       ],
       "description": "Kubernetes role compute resource"
+    },
+    "KubernetesRoleNetwork": {
+      "type": "object",
+      "properties": {
+        "cniConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CniConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cni configuration"
+        },
+        "loadBalancerConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadBalancerConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Load balancer configuration"
+        }
+      },
+      "description": "Kubernetes role network resource"
     },
     "KubernetesRoleProperties": {
       "type": "object",
@@ -2032,7 +2653,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Kubernetes role resources"
+          "description": "Kubernetes role resoures"
         },
         "roleStatus": {
           "oneOf": [
@@ -2072,6 +2693,17 @@
           ],
           "description": "Kubernetes role compute resource"
         },
+        "network": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KubernetesRoleNetwork"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kubernetes role network resource"
+        },
         "storage": {
           "oneOf": [
             {
@@ -2087,7 +2719,7 @@
       "required": [
         "compute"
       ],
-      "description": "Kubernetes role resources"
+      "description": "Kubernetes role resoures"
     },
     "KubernetesRoleStorage": {
       "type": "object",
@@ -2108,6 +2740,11 @@
         }
       },
       "description": "Kubernetes role storage resource"
+    },
+    "LoadBalancerConfig": {
+      "type": "object",
+      "properties": {},
+      "description": "Load balancer configuration"
     },
     "MECRole": {
       "type": "object",
@@ -2205,6 +2842,7 @@
         },
         "resourceId": {
           "type": "string",
+          "minLength": 1,
           "description": "The Resource ID on which the metrics should be pushed."
         }
       },
@@ -2251,6 +2889,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "description": "The counter name."
         }
       },
@@ -2287,10 +2926,12 @@
       "properties": {
         "sourceName": {
           "type": "string",
+          "minLength": 1,
           "description": "The dimension value."
         },
         "sourceType": {
           "type": "string",
+          "minLength": 1,
           "description": "The dimension type."
         }
       },
@@ -2328,6 +2969,7 @@
       "properties": {
         "shareId": {
           "type": "string",
+          "minLength": 1,
           "description": "ID of the share mounted to the role VM."
         }
       },
@@ -2349,6 +2991,17 @@
             }
           ],
           "description": "Contains all the contact details of the customer."
+        },
+        "currentStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OrderStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents a single status change."
         },
         "shipmentType": {
           "oneOf": [
@@ -2378,10 +3031,61 @@
           "description": "The shipping address of the customer."
         }
       },
-      "required": [
-        "contactInformation"
-      ],
       "description": "Order properties."
+    },
+    "OrderStatus": {
+      "type": "object",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "Comments related to this status change."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Untracked",
+                "AwaitingFulfilment",
+                "AwaitingPreparation",
+                "AwaitingShipment",
+                "Shipped",
+                "Arriving",
+                "Delivered",
+                "ReplacementRequested",
+                "LostDevice",
+                "Declined",
+                "ReturnInitiated",
+                "AwaitingReturnShipment",
+                "ShippedBack",
+                "CollectedAtMicrosoft",
+                "AwaitingPickup",
+                "PickupCompleted",
+                "AwaitingDrop"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the order as per the allowed status types."
+        },
+        "trackingInformation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrackingInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tracking courier information."
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "description": "Represents a single status change."
     },
     "PeriodicTimerEventTrigger": {
       "type": "object",
@@ -2452,6 +3156,7 @@
       "properties": {
         "schedule": {
           "type": "string",
+          "format": "date-span",
           "description": "Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds."
         },
         "startTime": {
@@ -2584,11 +3289,39 @@
       },
       "description": "Msi identity details of the resource"
     },
+    "ResourceMoveDetails": {
+      "type": "object",
+      "properties": {
+        "operationInProgress": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "ResourceMoveInProgress",
+                "ResourceMoveFailed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Denotes whether move operation is in progress."
+        },
+        "operationInProgressLockTimeoutInUTC": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Denotes the timeout of the operation to finish"
+        }
+      },
+      "description": "Fields for tracking resource move"
+    },
     "RoleSinkInfo": {
       "type": "object",
       "properties": {
         "roleId": {
           "type": "string",
+          "minLength": 1,
           "description": "Compute role ID."
         }
       },
@@ -2690,6 +3423,7 @@
             {
               "type": "string",
               "enum": [
+                "Online",
                 "Offline",
                 "Unknown",
                 "OK",
@@ -2818,6 +3552,7 @@
         },
         "alias": {
           "type": "string",
+          "minLength": 1,
           "description": "Alias for the storage account."
         },
         "blobDomainName": {
@@ -2909,6 +3644,47 @@
       ],
       "description": "The storage account properties."
     },
+    "SubscriptionProperties": {
+      "type": "object",
+      "properties": {
+        "locationPlacementId": {
+          "type": "string"
+        },
+        "quotaId": {
+          "type": "string"
+        },
+        "registeredFeatures": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubscriptionRegisteredFeatures"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serializedDetails": {
+          "type": "string"
+        },
+        "tenantId": {
+          "type": "string"
+        }
+      }
+    },
+    "SubscriptionRegisteredFeatures": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    },
     "SymmetricKey": {
       "type": "object",
       "properties": {
@@ -2925,6 +3701,33 @@
         }
       },
       "description": "Symmetric key for authentication."
+    },
+    "SystemData": {
+      "type": "object",
+      "properties": {},
+      "description": "Provides details about resource creation and updation time"
+    },
+    "TrackingInfo": {
+      "type": "object",
+      "properties": {
+        "carrierName": {
+          "type": "string",
+          "description": "Name of the carrier used in the delivery."
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Serial number of the device being tracked."
+        },
+        "trackingId": {
+          "type": "string",
+          "description": "Tracking ID of the shipment."
+        },
+        "trackingUrl": {
+          "type": "string",
+          "description": "Tracking URL of the shipment."
+        }
+      },
+      "description": "Tracking courier information."
     },
     "UserAccessRight": {
       "type": "object",
@@ -2947,6 +3750,7 @@
         },
         "userId": {
           "type": "string",
+          "minLength": 1,
           "description": "User ID (already existing in the device)."
         }
       },
@@ -2987,9 +3791,6 @@
           "description": "Type of the user."
         }
       },
-      "required": [
-        "userType"
-      ],
       "description": "The user properties."
     }
   }
