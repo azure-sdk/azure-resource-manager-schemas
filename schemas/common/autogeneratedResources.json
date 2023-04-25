@@ -5069,9 +5069,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-10-01-preview/Microsoft.Chaos.json#/resourceDefinitions/experiments"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.Chaos.json#/resourceDefinitions/experiments"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts"
         },
         {
