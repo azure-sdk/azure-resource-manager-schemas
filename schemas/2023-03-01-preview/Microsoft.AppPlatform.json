@@ -453,20 +453,35 @@
             "2023-03-01-preview"
           ]
         },
-        "identity": {
+        "extendedLocation": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedIdentityProperties"
+              "$ref": "#/definitions/ExtendedLocation"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Managed identity properties retrieved from ARM request headers."
+          "description": "The complex type of the extended location."
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
         },
         "location": {
           "type": "string",
-          "description": "The GEO location of the application, always the same with its parent resource"
+          "description": "The geo-location where the resource lives"
+        },
+        "managedBy": {
+          "type": "string",
+          "description": "The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource."
         },
         "name": {
           "type": "string",
@@ -475,13 +490,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/AppResourceProperties"
+              "$ref": "#/definitions/ContainerAppProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "App resource properties payload"
+          "description": "ContainerApp resource specific properties"
         },
         "resources": {
           "type": "array",
@@ -499,16 +514,20 @@
             ]
           }
         },
-        "systemData": {
+        "tags": {
           "oneOf": [
             {
-              "$ref": "#/definitions/SystemData"
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
+          "description": "Resource tags."
         },
         "type": {
           "type": "string",
@@ -519,6 +538,7 @@
       },
       "required": [
         "apiVersion",
+        "location",
         "name",
         "properties",
         "type"
@@ -1776,186 +1796,6 @@
       "properties": {},
       "description": "Application Live View properties payload"
     },
-    "AppResourceProperties": {
-      "type": "object",
-      "properties": {
-        "addonConfigs": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "properties": {}
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Collection of addons"
-        },
-        "customPersistentDisks": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/CustomPersistentDiskResource"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Collection of persistent disk resources list and a possible link for next page."
-        },
-        "enableEndToEndTLS": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicate if end to end TLS is enabled."
-        },
-        "httpsOnly": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicate if only https is allowed."
-        },
-        "ingressSettings": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/IngressSettings"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "App ingress settings payload."
-        },
-        "loadedCertificates": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LoadedCertificate"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Collection of loaded certificate resources list and a possible link for next page."
-        },
-        "persistentDisk": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PersistentDisk"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Persistent disk payload"
-        },
-        "public": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether the App exposes public endpoint"
-        },
-        "secrets": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Secret"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Collection of auth secrets"
-        },
-        "temporaryDisk": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TemporaryDisk"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Temporary disk payload"
-        },
-        "vnetAddons": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AppVNetAddons"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Additional App settings in vnet injection instance"
-        }
-      },
-      "description": "App resource properties payload"
-    },
-    "AppVNetAddons": {
-      "type": "object",
-      "properties": {
-        "publicEndpoint": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether the App in vnet injection instance exposes endpoint which could be accessed from internet."
-        }
-      },
-      "description": "Additional App settings in vnet injection instance"
-    },
-    "AzureFileVolume": {
-      "type": "object",
-      "properties": {
-        "shareName": {
-          "type": "string",
-          "description": "The share name of the Azure File share."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "AzureFileVolume"
-          ]
-        }
-      },
-      "required": [
-        "type"
-      ],
-      "description": "The properties of the Azure File volume. Azure File shares are mounted as volumes."
-    },
     "BindingResourceProperties": {
       "type": "object",
       "properties": {
@@ -2060,6 +1900,8 @@
             {
               "type": "string",
               "enum": [
+                "Disabled",
+                "SniEnabled",
                 "ApplicationInsights",
                 "ApacheSkyWalking",
                 "AppDynamics",
@@ -2458,6 +2300,88 @@
       },
       "description": "The settings of config server."
     },
+    "Configuration": {
+      "type": "object",
+      "properties": {
+        "activeRevisionsMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Multiple",
+                "Single"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ActiveRevisionsMode controls how active revisions are handled for the Container app:\n<list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>."
+        },
+        "dapr": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Dapr"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App Dapr configuration."
+        },
+        "ingress": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Ingress"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App Ingress configuration."
+        },
+        "maxInactiveRevisions": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional. Max inactive revisions a Container App can have."
+        },
+        "registries": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RegistryCredentials"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of private container registry credentials for containers used by the Container app"
+        },
+        "secrets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SecretModel"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of secrets used by a Container app"
+        }
+      },
+      "description": "Non versioned Container App configuration properties that define the mutable settings of a Container app"
+    },
     "ConfigurationServiceGitProperty": {
       "type": "object",
       "properties": {
@@ -2611,6 +2535,351 @@
       },
       "description": "The settings of Application Configuration Service."
     },
+    "Container": {
+      "type": "object",
+      "properties": {
+        "args": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container start command arguments."
+        },
+        "command": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container start command."
+        },
+        "env": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentVar"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container environment variables."
+        },
+        "image": {
+          "type": "string",
+          "description": "Container image tag."
+        },
+        "name": {
+          "type": "string",
+          "description": "Custom container name."
+        },
+        "probes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ContainerAppProbe"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of probes for the container."
+        },
+        "resources": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerResources"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App container resource requirements."
+        },
+        "volumeMounts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VolumeMount"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container volume mounts."
+        }
+      },
+      "description": "Container App container definition"
+    },
+    "ContainerAppProbe": {
+      "type": "object",
+      "properties": {
+        "failureThreshold": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1. Maximum value is 10."
+        },
+        "httpGet": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerAppProbeHttpGet"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "HTTPGet specifies the http request to perform."
+        },
+        "initialDelaySeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of seconds after the container has started before liveness probes are initiated. Minimum value is 1. Maximum value is 60."
+        },
+        "periodSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. Maximum value is 240."
+        },
+        "successThreshold": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1. Maximum value is 10."
+        },
+        "tcpSocket": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerAppProbeTcpSocket"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported."
+        },
+        "terminationGracePeriodSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is an alpha field and requires enabling ProbeTerminationGracePeriod feature gate. Maximum value is 3600 seconds (1 hour)"
+        },
+        "timeoutSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. Maximum value is 240."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Liveness",
+                "Readiness",
+                "Startup",
+                "AzureFileVolume"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of probe."
+        }
+      },
+      "description": "Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic."
+    },
+    "ContainerAppProbeHttpGet": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead."
+        },
+        "httpHeaders": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ContainerAppProbeHttpGetHttpHeadersItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Custom headers to set in the request. HTTP allows repeated headers."
+        },
+        "path": {
+          "type": "string",
+          "description": "Path to access on the HTTP server."
+        },
+        "port": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
+        },
+        "scheme": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "HTTP",
+                "HTTPS"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scheme to use for connecting to the host. Defaults to HTTP."
+        }
+      },
+      "required": [
+        "port"
+      ],
+      "description": "HTTPGet specifies the http request to perform."
+    },
+    "ContainerAppProbeHttpGetHttpHeadersItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The header field name"
+        },
+        "value": {
+          "type": "string",
+          "description": "The header field value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "description": "HTTPHeader describes a custom header to be used in HTTP probes"
+    },
+    "ContainerAppProbeTcpSocket": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "description": "Optional: Host name to connect to, defaults to the pod IP."
+        },
+        "port": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
+        }
+      },
+      "required": [
+        "port"
+      ],
+      "description": "TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported."
+    },
+    "ContainerAppProperties": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Configuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Non versioned Container App configuration properties that define the mutable settings of a Container app"
+        },
+        "environmentId": {
+          "type": "string",
+          "description": "Resource ID of environment."
+        },
+        "managedEnvironmentId": {
+          "type": "string",
+          "description": "Deprecated. Resource ID of the Container App's environment."
+        },
+        "template": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Template"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App versioned application definition.\nDefines the desired state of an immutable revision.\nAny changes to this section Will result in a new revision being created"
+        },
+        "workloadProfileName": {
+          "type": "string",
+          "description": "Workload profile name for container apps to execute on."
+        }
+      },
+      "description": "ContainerApp resource specific properties"
+    },
     "ContainerProbeSettings": {
       "type": "object",
       "properties": {
@@ -2688,6 +2957,27 @@
       ],
       "description": "Container registry resource payload."
     },
+    "ContainerResources": {
+      "type": "object",
+      "properties": {
+        "cpu": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Required CPU in cores, e.g. 0.5"
+        },
+        "memory": {
+          "type": "string",
+          "description": "Required memory, e.g. \"250Mb\""
+        }
+      },
+      "description": "Container App container resource requirements."
+    },
     "ContentCertificateProperties": {
       "type": "object",
       "properties": {
@@ -2706,6 +2996,93 @@
         "type"
       ],
       "description": "Properties of certificate imported from key vault."
+    },
+    "CorsPolicy": {
+      "type": "object",
+      "properties": {
+        "allowCredentials": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether the resource allows credentials"
+        },
+        "allowedHeaders": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the content for the access-control-allow-headers header"
+        },
+        "allowedMethods": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the content for the access-control-allow-methods header"
+        },
+        "allowedOrigins": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the content for the access-control-allow-origins header"
+        },
+        "exposeHeaders": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the content for the access-control-expose-headers header "
+        },
+        "maxAge": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the content for the access-control-max-age header"
+        }
+      },
+      "required": [
+        "allowedOrigins"
+      ],
+      "description": "Cross-Origin-Resource-Sharing policy"
     },
     "CustomContainer": {
       "type": "object",
@@ -2790,6 +3167,45 @@
       ],
       "description": "Custom container user source info"
     },
+    "CustomDomain": {
+      "type": "object",
+      "properties": {
+        "bindingType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "SniEnabled",
+                "ApplicationInsights",
+                "ApacheSkyWalking",
+                "AppDynamics",
+                "Dynatrace",
+                "NewRelic",
+                "ElasticAPM",
+                "CACertificates"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Custom Domain binding type."
+        },
+        "certificateId": {
+          "type": "string",
+          "description": "Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment."
+        },
+        "name": {
+          "type": "string",
+          "description": "Hostname."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Custom Domain of a Container App"
+    },
     "CustomDomainProperties": {
       "type": "object",
       "properties": {
@@ -2845,85 +3261,6 @@
       ],
       "description": "Customized accelerator properties payload"
     },
-    "CustomPersistentDiskProperties": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/AzureFileVolume"
-        }
-      ],
-      "properties": {
-        "enableSubPath": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "If set to true, it will create and mount a dedicated directory for every individual app instance."
-        },
-        "mountOptions": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "These are the mount options for a persistent disk."
-        },
-        "mountPath": {
-          "type": "string",
-          "description": "The mount path of the persistent disk."
-        },
-        "readOnly": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates whether the persistent disk is a readOnly one."
-        }
-      },
-      "required": [
-        "mountPath"
-      ],
-      "description": "Custom persistent disk resource payload."
-    },
-    "CustomPersistentDiskResource": {
-      "type": "object",
-      "properties": {
-        "customPersistentDiskProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomPersistentDiskProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Custom persistent disk resource payload."
-        },
-        "storageId": {
-          "type": "string",
-          "description": "The resource id of Azure Spring Apps Storage resource."
-        }
-      },
-      "required": [
-        "storageId"
-      ],
-      "description": "Custom persistent disk resource payload."
-    },
     "CustomScaleRule": {
       "type": "object",
       "properties": {
@@ -2962,6 +3299,104 @@
         }
       },
       "description": "Azure Spring Apps App Instance Custom scaling rule."
+    },
+    "Dapr": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "Dapr application identifier"
+        },
+        "appPort": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tells Dapr which port your application is listening on"
+        },
+        "appProtocol": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "http",
+                "grpc"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http."
+        },
+        "enableApiLogging": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enables API logging for the Dapr sidecar"
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Boolean indicating if the Dapr side car is enabled"
+        },
+        "httpMaxRequestSize": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Increasing max size of request body http and grpc servers parameter in MB to handle uploading of big files. Default is 4 MB."
+        },
+        "httpReadBufferSize": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB."
+        },
+        "logLevel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "info",
+                "debug",
+                "warn",
+                "error"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info."
+        }
+      },
+      "description": "Container App Dapr configuration."
     },
     "DeploymentResourceProperties": {
       "type": "object",
@@ -3254,6 +3689,24 @@
       },
       "description": "Single sign-on related configuration"
     },
+    "EnvironmentVar": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Environment variable name."
+        },
+        "secretRef": {
+          "type": "string",
+          "description": "Name of the Container App secret from which to pull the environment variable value."
+        },
+        "value": {
+          "type": "string",
+          "description": "Non-secret environment variable value."
+        }
+      },
+      "description": "Container App container environment variable."
+    },
     "Error": {
       "type": "object",
       "properties": {
@@ -3296,6 +3749,30 @@
         "type"
       ],
       "description": "ExecAction describes a \"run in container\" action."
+    },
+    "ExtendedLocation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the extended location."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CustomLocation"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the extended location."
+        }
+      },
+      "description": "The complex type of the extended location."
     },
     "GatewayApiMetadataProperties": {
       "type": "object",
@@ -3977,6 +4454,155 @@
       },
       "description": "Credential of the image registry"
     },
+    "Ingress": {
+      "type": "object",
+      "properties": {
+        "allowInsecure": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections"
+        },
+        "clientCertificateMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ignore",
+                "accept",
+                "require"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate."
+        },
+        "corsPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CorsPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cross-Origin-Resource-Sharing policy"
+        },
+        "customDomains": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CustomDomain"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "custom domain bindings for Container Apps' hostnames."
+        },
+        "exposedPort": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Exposed Port in containers for TCP traffic from ingress"
+        },
+        "external": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Bool indicating if app exposes an external http endpoint"
+        },
+        "ipSecurityRestrictions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IpSecurityRestrictionRule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Rules to restrict incoming IP address."
+        },
+        "stickySessions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IngressStickySessions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Sticky Sessions for Single Revision Mode"
+        },
+        "targetPort": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Target Port in containers for traffic from ingress"
+        },
+        "traffic": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TrafficWeight"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Traffic weights for app's revisions"
+        },
+        "transport": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "auto",
+                "http",
+                "http2",
+                "tcp"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Ingress transport protocol."
+        }
+      },
+      "description": "Container App Ingress configuration."
+    },
     "IngressConfig": {
       "type": "object",
       "properties": {
@@ -3994,90 +4620,31 @@
       },
       "description": "Ingress configuration payload for Azure Spring Apps resource."
     },
-    "IngressSettings": {
+    "IngressStickySessions": {
       "type": "object",
       "properties": {
-        "backendProtocol": {
+        "affinity": {
           "oneOf": [
             {
               "type": "string",
               "enum": [
-                "GRPC",
-                "Default"
+                "sticky",
+                "none"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "How ingress should communicate with this app backend service."
-        },
-        "clientAuth": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/IngressSettingsClientAuth"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Client-Certification Authentication."
-        },
-        "readTimeoutInSeconds": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Ingress read time out in seconds."
-        },
-        "sendTimeoutInSeconds": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Ingress send time out in seconds."
-        },
-        "sessionAffinity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Cookie",
-                "None"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Type of the affinity, set this to Cookie to enable session affinity."
-        },
-        "sessionCookieMaxAge": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Time in seconds until the cookie expires."
+          "description": "Sticky Session Affinity."
         }
       },
-      "description": "App ingress settings payload."
+      "description": "Sticky Sessions for Single Revision Mode"
     },
-    "IngressSettingsClientAuth": {
+    "InitContainer": {
       "type": "object",
       "properties": {
-        "certificates": {
+        "args": {
           "oneOf": [
             {
               "type": "array",
@@ -4089,10 +4656,109 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Collection of certificate resource id."
+          "description": "Container start command arguments."
+        },
+        "command": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container start command."
+        },
+        "env": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentVar"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container environment variables."
+        },
+        "image": {
+          "type": "string",
+          "description": "Container image tag."
+        },
+        "name": {
+          "type": "string",
+          "description": "Custom container name."
+        },
+        "resources": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerResources"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App container resource requirements."
+        },
+        "volumeMounts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VolumeMount"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container volume mounts."
         }
       },
-      "description": "Client-Certification Authentication."
+      "description": "Container App init container definition"
+    },
+    "IpSecurityRestrictionRule": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Allow",
+                "Deny"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allow or Deny rules to determine for incoming IP. Note: Rules can only consist of ALL Allow or ALL Deny."
+        },
+        "description": {
+          "type": "string",
+          "description": "Describe the IP restriction rule that is being sent to the container-app. This is an optional field."
+        },
+        "ipAddressRange": {
+          "type": "string",
+          "description": "CIDR notation to match incoming IP address"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name for the IP restriction rule."
+        }
+      },
+      "required": [
+        "action",
+        "ipAddressRange",
+        "name"
+      ],
+      "description": "Rule to restrict incoming IP address."
     },
     "JarUploadedUserSourceInfo": {
       "type": "object",
@@ -4158,42 +4824,9 @@
       ],
       "description": "Properties of certificate imported from key vault."
     },
-    "LoadedCertificate": {
+    "ManagedServiceIdentity": {
       "type": "object",
       "properties": {
-        "loadTrustStore": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicate whether the certificate will be loaded into default trust store, only work for Java runtime."
-        },
-        "resourceId": {
-          "type": "string",
-          "description": "Resource Id of loaded certificate"
-        }
-      },
-      "required": [
-        "resourceId"
-      ],
-      "description": "Loaded certificate payload"
-    },
-    "ManagedIdentityProperties": {
-      "type": "object",
-      "properties": {
-        "principalId": {
-          "type": "string",
-          "description": "Principal Id of system-assigned managed identity."
-        },
-        "tenantId": {
-          "type": "string",
-          "description": "Tenant Id of system-assigned managed identity."
-        },
         "type": {
           "oneOf": [
             {
@@ -4208,15 +4841,14 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "Type of the managed identity."
+          ]
         },
         "userAssignedIdentities": {
           "oneOf": [
             {
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/definitions/UserAssignedManagedIdentity"
+                "$ref": "#/definitions/UserAssignedIdentity"
               },
               "properties": {}
             },
@@ -4224,10 +4856,13 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "User-assigned managed identities in key-value map. The key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
         }
       },
-      "description": "Managed identity properties retrieved from ARM request headers."
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
     },
     "MarketplaceResource": {
       "type": "object",
@@ -4367,29 +5002,6 @@
       },
       "description": "Service network profile payload"
     },
-    "PersistentDisk": {
-      "type": "object",
-      "properties": {
-        "mountPath": {
-          "type": "string",
-          "description": "Mount path of the persistent disk"
-        },
-        "sizeInGB": {
-          "oneOf": [
-            {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 50
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Size of the persistent disk in GB"
-        }
-      },
-      "description": "Persistent disk payload"
-    },
     "Probe": {
       "type": "object",
       "properties": {
@@ -4528,6 +5140,28 @@
       },
       "description": "Azure Spring Apps App Instance Azure Queue based scaling rule."
     },
+    "RegistryCredentials": {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "string",
+          "description": "A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'"
+        },
+        "passwordSecretRef": {
+          "type": "string",
+          "description": "The name of the Secret that contains the registry login password"
+        },
+        "server": {
+          "type": "string",
+          "description": "Container Registry Server"
+        },
+        "username": {
+          "type": "string",
+          "description": "Container Registry Username"
+        }
+      },
+      "description": "Container App Private Registry"
+    },
     "ResourceRequests": {
       "type": "object",
       "properties": {
@@ -4653,9 +5287,17 @@
       },
       "description": "Auth Secrets for Azure Spring Apps App Instance Scale Rule"
     },
-    "Secret": {
+    "SecretModel": {
       "type": "object",
       "properties": {
+        "identity": {
+          "type": "string",
+          "description": "Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity."
+        },
+        "keyVaultUrl": {
+          "type": "string",
+          "description": "Azure Key Vault URL pointing to the secret referenced by the container app."
+        },
         "name": {
           "type": "string",
           "description": "Secret Name."
@@ -4666,6 +5308,20 @@
         }
       },
       "description": "Secret definition."
+    },
+    "SecretVolumeItem": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path to project secret to. If no path is provided, path defaults to name of secret listed in secretRef."
+        },
+        "secretRef": {
+          "type": "string",
+          "description": "Name of the Container App secret from which to pull the secret value."
+        }
+      },
+      "description": "Secret to be added to volume."
     },
     "ServiceVNetAddons": {
       "type": "object",
@@ -5089,20 +5745,35 @@
             "2023-03-01-preview"
           ]
         },
-        "identity": {
+        "extendedLocation": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedIdentityProperties"
+              "$ref": "#/definitions/ExtendedLocation"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Managed identity properties retrieved from ARM request headers."
+          "description": "The complex type of the extended location."
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
         },
         "location": {
           "type": "string",
-          "description": "The GEO location of the application, always the same with its parent resource"
+          "description": "The geo-location where the resource lives"
+        },
+        "managedBy": {
+          "type": "string",
+          "description": "The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource."
         },
         "name": {
           "type": "string",
@@ -5111,24 +5782,28 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/AppResourceProperties"
+              "$ref": "#/definitions/ContainerAppProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "App resource properties payload"
+          "description": "ContainerApp resource specific properties"
         },
-        "systemData": {
+        "tags": {
           "oneOf": [
             {
-              "$ref": "#/definitions/SystemData"
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
+          "description": "Resource tags."
         },
         "type": {
           "type": "string",
@@ -5139,6 +5814,7 @@
       },
       "required": [
         "apiVersion",
+        "location",
         "name",
         "properties",
         "type"
@@ -6253,29 +6929,105 @@
       ],
       "description": "TCPSocketAction describes an action based on opening a socket"
     },
-    "TemporaryDisk": {
+    "Template": {
       "type": "object",
       "properties": {
-        "mountPath": {
-          "type": "string",
-          "default": "/tmp",
-          "description": "Mount path of the temporary disk"
-        },
-        "sizeInGB": {
+        "containers": {
           "oneOf": [
             {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 5
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Container"
+              }
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Size of the temporary disk in GB"
+          "description": "List of container definitions for the Container App."
+        },
+        "initContainers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InitContainer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of specialized containers that run before app containers."
+        },
+        "revisionSuffix": {
+          "type": "string",
+          "description": "User friendly suffix that is appended to the revision name"
+        },
+        "scale": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Scale"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Spring Apps scaling configurations."
+        },
+        "volumes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Volume"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of volume definitions for the Container App."
         }
       },
-      "description": "Temporary disk payload"
+      "description": "Container App versioned application definition.\nDefines the desired state of an immutable revision.\nAny changes to this section Will result in a new revision being created"
+    },
+    "TrafficWeight": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Associates a traffic label with a revision"
+        },
+        "latestRevision": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates that the traffic weight belongs to a latest stable revision"
+        },
+        "revisionName": {
+          "type": "string",
+          "description": "Name of a revision"
+        },
+        "weight": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Traffic weight assigned to a revision"
+        }
+      },
+      "description": "Traffic weight assigned to a revision"
     },
     "TriggeredBuildResult": {
       "type": "object",
@@ -6317,10 +7069,10 @@
       ],
       "description": "Source with uploaded location"
     },
-    "UserAssignedManagedIdentity": {
+    "UserAssignedIdentity": {
       "type": "object",
       "properties": {},
-      "description": "The details of the user-assigned managed identity assigned to an App."
+      "description": "User assigned identity properties"
     },
     "UserSourceInfo": {
       "type": "object",
@@ -6342,6 +7094,65 @@
         }
       },
       "description": "Source information for a deployment"
+    },
+    "Volume": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Volume name."
+        },
+        "secrets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SecretVolumeItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of secrets to be added in volume. If no secrets are provided, all secrets in collection will be added to volume."
+        },
+        "storageName": {
+          "type": "string",
+          "description": "Name of storage resource. No need to provide for EmptyDir and Secret."
+        },
+        "storageType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AzureFile",
+                "EmptyDir",
+                "Secret",
+                "StorageAccount"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage type for the volume. If not provided, use EmptyDir."
+        }
+      },
+      "description": "Volume definitions for the Container App."
+    },
+    "VolumeMount": {
+      "type": "object",
+      "properties": {
+        "mountPath": {
+          "type": "string",
+          "description": "Path within the container at which the volume should be mounted.Must not contain ':'."
+        },
+        "volumeName": {
+          "type": "string",
+          "description": "This must match the Name of a Volume."
+        }
+      },
+      "description": "Volume mount for the Container App."
     }
   }
 }
