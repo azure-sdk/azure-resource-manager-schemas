@@ -343,7 +343,8 @@
                 "TheLastMonth",
                 "TheLastBillingMonth",
                 "WeekToDate",
-                "Custom"
+                "Custom",
+                "TheLast7Days"
               ]
             },
             {
