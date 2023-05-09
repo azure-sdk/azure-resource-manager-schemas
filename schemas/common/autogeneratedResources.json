@@ -16652,39 +16652,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-02-01-preview/Microsoft.ManagedNetworkFabric.json#/resourceDefinitions/routePolicies"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2017-01-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-05-01/Microsoft.Maps.json#/resourceDefinitions/accounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-02-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-02-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts_creators"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-02-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts_privateAtlases"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-02-01/Microsoft.Maps.json#/resourceDefinitions/accounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-02-01/Microsoft.Maps.json#/resourceDefinitions/accounts_creators"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-07-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-07-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts_creators"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts_creators"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2015-10-01/Microsoft.Media.json#/resourceDefinitions/mediaservices"
         },
         {
