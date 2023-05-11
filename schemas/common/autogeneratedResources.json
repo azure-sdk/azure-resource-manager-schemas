@@ -25055,42 +25055,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.NetworkFunction.json#/resourceDefinitions/azureTrafficCollectors_collectorPolicies"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2014-09-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2014-09-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_AuthorizationRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2014-09-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_notificationHubs"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2014-09-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_notificationHubs_AuthorizationRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2016-03-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2016-03-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_AuthorizationRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2016-03-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_notificationHubs"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2016-03-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_notificationHubs_AuthorizationRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-04-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-04-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_AuthorizationRules"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-04-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_notificationHubs"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-04-01/Microsoft.NotificationHubs.json#/resourceDefinitions/namespaces_notificationHubs_AuthorizationRules"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2020-01-01/Microsoft.OffAzure.json#/resourceDefinitions/HyperVSites"
         },
         {
