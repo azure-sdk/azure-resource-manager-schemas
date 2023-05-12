@@ -9109,6 +9109,21 @@
           ],
           "description": "The Client id used for cross tenant CMK scenario"
         },
+        "isIPv6Enabled": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not IPv6 firewall rule is enabled for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'."
+        },
         "keyId": {
           "type": "string",
           "description": "A CMK URI of the key to use for encryption."
