@@ -29170,6 +29170,22 @@
           "properties": {},
           "description": "Spark configuration properties, which will override the 'conf' of the notebook you provide."
         },
+        "configurationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Customized",
+                "Artifact"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the spark config."
+        },
         "driverSize": {
           "type": "object",
           "properties": {},
@@ -29211,6 +29227,22 @@
           ],
           "description": "Notebook parameters."
         },
+        "sparkConfig": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Spark configuration property."
+        },
         "sparkPool": {
           "oneOf": [
             {
@@ -29221,6 +29253,17 @@
             }
           ],
           "description": "Big data pool reference type."
+        },
+        "targetSparkConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SparkConfigurationParametrizationReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Spark configuration reference."
         }
       },
       "required": [
