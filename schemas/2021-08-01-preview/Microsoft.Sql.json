@@ -1205,6 +1205,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/servers_elasticPools_childResource"
+              },
+              {
                 "$ref": "#/definitions/servers_extendedAuditingSettings_childResource"
               },
               {
@@ -1212,9 +1215,6 @@
               },
               {
                 "$ref": "#/definitions/servers_databases_childResource"
-              },
-              {
-                "$ref": "#/definitions/servers_elasticPools_childResource"
               },
               {
                 "$ref": "#/definitions/servers_encryptionProtector_childResource"
