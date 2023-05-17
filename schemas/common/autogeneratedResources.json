@@ -6473,6 +6473,21 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-03/Microsoft.Compute.json#/resourceDefinitions/galleries"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-03/Microsoft.Compute.json#/resourceDefinitions/galleries_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-03/Microsoft.Compute.json#/resourceDefinitions/galleries_applications_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-03/Microsoft.Compute.json#/resourceDefinitions/galleries_images"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-03/Microsoft.Compute.json#/resourceDefinitions/galleries_images_versions"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-09-04/Microsoft.Compute.json#/resourceDefinitions/cloudServices"
         },
         {
@@ -6522,54 +6537,6 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/availabilitySets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/capacityReservationGroups"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/capacityReservationGroups_capacityReservations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/hostGroups"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/hostGroups_hosts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/images"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/proximityPlacementGroups"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/restorePointCollections"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/restorePointCollections_restorePoints"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/sshPublicKeys"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachines_runCommands"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachineScaleSets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2020-12-01-preview/Microsoft.ConfidentialLedger.json#/resourceDefinitions/ledgers"
