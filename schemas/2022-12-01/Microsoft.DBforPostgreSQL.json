@@ -773,16 +773,14 @@
       "properties": {
         "delegatedSubnetResourceId": {
           "type": "string",
-          "default": "",
-          "description": "delegated subnet arm resource id."
+          "description": "Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone."
         },
         "privateDnsZoneArmResourceId": {
           "type": "string",
-          "default": "",
-          "description": "private dns zone arm resource id."
+          "description": "Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone."
         }
       },
-      "description": "Network properties of a server"
+      "description": "Network properties of a server."
     },
     "ServerProperties": {
       "type": "object",
@@ -884,7 +882,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Network properties of a server"
+          "description": "Network properties of a server."
         },
         "pointInTimeUTC": {
           "type": "string",
