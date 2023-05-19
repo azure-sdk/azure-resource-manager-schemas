@@ -1,0 +1,512 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-02-01-preview/Microsoft.Sql.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Sql",
+  "description": "Microsoft Sql Resource Types",
+  "resourceDefinitions": {
+    "managedInstances": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Active Directory identity configuration for a resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$",
+              "minLength": 1,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the managed instance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a managed instance."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An ARM Resource SKU."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/managedInstances"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/managedInstances"
+    }
+  },
+  "definitions": {
+    "ManagedInstanceExternalAdministrator": {
+      "type": "object",
+      "properties": {
+        "administratorType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ActiveDirectory"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the sever administrator."
+        },
+        "azureADOnlyAuthentication": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Active Directory only Authentication enabled."
+        },
+        "login": {
+          "type": "string",
+          "description": "Login name of the server administrator."
+        },
+        "principalType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Group",
+                "Application"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Principal Type of the sever administrator."
+        },
+        "sid": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SID (object ID) of the server administrator."
+        },
+        "tenantId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tenant ID of the administrator."
+        }
+      },
+      "description": "Properties of a active directory administrator."
+    },
+    "ManagedInstanceProperties": {
+      "type": "object",
+      "properties": {
+        "administratorLogin": {
+          "type": "string",
+          "description": "Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation)."
+        },
+        "administratorLoginPassword": {
+          "type": "string",
+          "description": "The administrator login password (required for managed instance creation)."
+        },
+        "administrators": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedInstanceExternalAdministrator"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of a active directory administrator."
+        },
+        "collation": {
+          "type": "string",
+          "description": "Collation of the managed instance."
+        },
+        "dnsZonePartner": {
+          "type": "string",
+          "description": "The resource id of another managed instance whose DNS zone this managed instance will share after creation."
+        },
+        "hybridSecondaryUsage": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Active",
+                "Passive"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR)."
+        },
+        "instancePoolId": {
+          "type": "string",
+          "description": "The Id of the instance pool this managed server belongs to."
+        },
+        "isGeneralPurposeV2": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not this is a GPv2 variant of General Purpose edition."
+        },
+        "keyId": {
+          "type": "string",
+          "description": "A CMK URI of the key to use for encryption."
+        },
+        "licenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "LicenseIncluded",
+                "BasePrice"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses)."
+        },
+        "maintenanceConfigurationId": {
+          "type": "string",
+          "description": "Specifies maintenance configuration id to apply to this managed instance."
+        },
+        "managedInstanceCreateMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "PointInTimeRestore"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the mode of database creation.\r\n\r\nDefault: Regular instance creation.\r\n\r\nRestore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified."
+        },
+        "minimalTlsVersion": {
+          "type": "string",
+          "description": "Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'"
+        },
+        "primaryUserAssignedIdentityId": {
+          "type": "string",
+          "description": "The resource id of a user assigned identity to be used by default."
+        },
+        "proxyOverride": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Proxy",
+                "Redirect",
+                "Default"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connection type used for connecting to the instance."
+        },
+        "publicDataEndpointEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not the public data endpoint is enabled."
+        },
+        "requestedBackupStorageRedundancy": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Geo",
+                "Local",
+                "Zone",
+                "GeoZone"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)."
+        },
+        "restorePointInTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database."
+        },
+        "servicePrincipal": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServicePrincipal"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The managed instance's service principal configuration for a resource."
+        },
+        "sourceManagedInstanceId": {
+          "type": "string",
+          "description": "The resource identifier of the source managed instance associated with create operation of this instance."
+        },
+        "storageIOps": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores."
+        },
+        "storageSizeInGB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores."
+        },
+        "storageThroughputMBps": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores."
+        },
+        "subnetId": {
+          "type": "string",
+          "description": "Subnet resource ID for the managed instance."
+        },
+        "timezoneId": {
+          "type": "string",
+          "description": "Id of the timezone. Allowed values are timezones supported by Windows.\r\nWindows keeps details on supported timezones, including the id, in registry under\r\nKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones.\r\nYou can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.\r\nList of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.\r\nAn example of valid timezone id is \"Pacific Standard Time\" or \"W. Europe Standard Time\"."
+        },
+        "vCores": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80."
+        },
+        "zoneRedundant": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not the multi-az is enabled."
+        }
+      },
+      "description": "The properties of a managed instance."
+    },
+    "ResourceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource."
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource ids of the user assigned identities to use"
+        }
+      },
+      "description": "Azure Active Directory identity configuration for a resource."
+    },
+    "ServicePrincipal": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Service principal type."
+        }
+      },
+      "description": "The managed instance's service principal configuration for a resource."
+    },
+    "Sku": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Capacity of the particular SKU."
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU, typically, a letter + Number code, e.g. P3."
+        },
+        "size": {
+          "type": "string",
+          "description": "Size of the particular SKU"
+        },
+        "tier": {
+          "type": "string",
+          "description": "The tier or edition of the particular SKU, e.g. Basic, Premium."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "An ARM Resource SKU."
+    },
+    "UserIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "Azure Active Directory identity configuration for a resource."
+    }
+  }
+}
