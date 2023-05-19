@@ -1,0 +1,97 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-02-01-preview/Microsoft.Sql.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Sql",
+  "description": "Microsoft Sql Resource Types",
+  "resourceDefinitions": {
+    "servers_databases_backupLongTermRetentionPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-02-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy name. Should always be Default."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LongTermRetentionPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of a long term retention policy"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies"
+    }
+  },
+  "definitions": {
+    "LongTermRetentionPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "makeBackupsImmutable": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The setting whether to make LTR backups immutable"
+        },
+        "monthlyRetention": {
+          "type": "string",
+          "description": "The monthly retention policy for an LTR backup in an ISO 8601 format."
+        },
+        "weeklyRetention": {
+          "type": "string",
+          "description": "The weekly retention policy for an LTR backup in an ISO 8601 format."
+        },
+        "weekOfYear": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The week of year to take the yearly backup in an ISO 8601 format."
+        },
+        "yearlyRetention": {
+          "type": "string",
+          "description": "The yearly retention policy for an LTR backup in an ISO 8601 format."
+        }
+      },
+      "description": "Properties of a long term retention policy"
+    }
+  }
+}
