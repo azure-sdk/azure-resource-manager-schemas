@@ -1,16 +1,155 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.App.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-05-02-preview/Microsoft.App.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.App",
   "description": "Microsoft App Resource Types",
   "resourceDefinitions": {
+    "builders": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-02-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._\\(\\)]+$",
+              "minLength": 2,
+              "maxLength": 32
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the builder."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuilderProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The builder properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/builders_builds_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/builders"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/builders"
+    },
+    "builders_builds": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-02-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._\\(\\)]+$",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of a build."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuildProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The build properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/builders/builds"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/builders/builds"
+    },
     "connectedEnvironments": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "extendedLocation": {
@@ -96,7 +235,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "location": {
@@ -155,7 +294,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -194,7 +333,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -233,7 +372,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "extendedLocation": {
@@ -250,7 +389,7 @@
         "identity": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedServiceIdentity"
+              "$ref": "#/definitions/ManagedServiceIdentityModel"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -331,7 +470,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -370,7 +509,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -409,13 +548,13 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "identity": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedServiceIdentity"
+              "$ref": "#/definitions/ManagedServiceIdentityModel"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -437,7 +576,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Name of the Container Apps Job."
+          "description": "Job Name"
         },
         "properties": {
           "oneOf": [
@@ -487,7 +626,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "kind": {
@@ -569,7 +708,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "location": {
@@ -628,7 +767,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -667,7 +806,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "location": {
@@ -726,7 +865,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -1160,6 +1299,10 @@
           "type": "string",
           "description": "Client Secret."
         },
+        "kind": {
+          "type": "string",
+          "description": "Kind of auth github does for deploying the template"
+        },
         "subscriptionId": {
           "type": "string",
           "description": "Subscription Id."
@@ -1241,6 +1384,156 @@
         }
       },
       "description": "The configuration settings of the registration for the Azure Static Web Apps provider"
+    },
+    "BuildConfiguration": {
+      "type": "object",
+      "properties": {
+        "baseOs": {
+          "type": "string",
+          "description": "Base OS used to build and run the app."
+        },
+        "environmentVariables": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentVariable"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of environment variables to be passed to the build and application runtime."
+        },
+        "platform": {
+          "type": "string",
+          "description": "Platform to be used to build and run the app."
+        },
+        "platformVersion": {
+          "type": "string",
+          "description": "Platform version to be used to build and run the app."
+        },
+        "preBuildSteps": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PreBuildStep"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of steps to perform before the build."
+        }
+      },
+      "description": "Configuration of the build."
+    },
+    "BuilderProperties": {
+      "type": "object",
+      "properties": {
+        "containerRegistries": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ContainerRegistries"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of mappings of container registries and the managed identity used to connect to it."
+        },
+        "environmentId": {
+          "type": "string",
+          "description": "Resource ID of the container apps environment that the builder is associated with."
+        }
+      },
+      "required": [
+        "environmentId"
+      ],
+      "description": "The builder properties."
+    },
+    "builders_builds_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-02-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._\\(\\)]+$",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of a build."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuildProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The build properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "builds"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/builders/builds"
+    },
+    "BuildProperties": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuildConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration of the build."
+        },
+        "destinationContainerRegistry": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerRegistryWithCustomImage"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container registry that the final image will be uploaded to."
+        }
+      },
+      "description": "The build properties."
     },
     "CertificateProperties": {
       "type": "object",
@@ -1356,6 +1649,17 @@
             }
           ],
           "description": "Collection of secrets used by a Container app"
+        },
+        "service": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Service"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container App to be a dev service"
         }
       },
       "description": "Non versioned Container App configuration properties that define the mutable settings of a Container app"
@@ -1408,7 +1712,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "location": {
@@ -1467,7 +1771,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -1506,7 +1810,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -1889,7 +2193,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -1928,7 +2232,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -1960,6 +2264,41 @@
         "type"
       ],
       "description": "Microsoft.App/containerApps/sourcecontrols"
+    },
+    "ContainerRegistries": {
+      "type": "object",
+      "properties": {
+        "containerRegistryServer": {
+          "type": "string",
+          "description": "Login server of the container registry."
+        },
+        "identityResourceId": {
+          "type": "string",
+          "description": "Resource ID of the managed identity."
+        }
+      },
+      "required": [
+        "containerRegistryServer",
+        "identityResourceId"
+      ],
+      "description": "Model representing a mapping from a container registry to the identity used to connect to it."
+    },
+    "ContainerRegistryWithCustomImage": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "type": "string",
+          "description": "Full name that the final image should be uploaded as, including both image name and tag."
+        },
+        "server": {
+          "type": "string",
+          "description": "Login server of the container registry that the final image should be uploaded to. Builder resource needs to have this container registry defined along with an identity to use to access it."
+        }
+      },
+      "required": [
+        "server"
+      ],
+      "description": "Container registry that the final image will be uploaded to."
     },
     "ContainerResources": {
       "type": "object",
@@ -2476,6 +2815,24 @@
       },
       "description": "Container App container environment variable."
     },
+    "EnvironmentVariable": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Environment variable name."
+        },
+        "value": {
+          "type": "string",
+          "description": "Environment variable value."
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "description": "Model representing an environment variable."
+    },
     "ExtendedLocation": {
       "type": "object",
       "properties": {
@@ -2630,6 +2987,10 @@
           "type": "string",
           "description": "Context path"
         },
+        "githubPersonalAccessToken": {
+          "type": "string",
+          "description": "One time Github PAT to configure github environment"
+        },
         "image": {
           "type": "string",
           "description": "Image name"
@@ -2754,6 +3115,37 @@
         }
       },
       "description": "The configuration settings of the Google provider."
+    },
+    "HttpGet": {
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string",
+          "description": "Name of the file that the request should be saved to."
+        },
+        "headers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of headers to send with the request."
+        },
+        "url": {
+          "type": "string",
+          "description": "URL to make HTTP GET request against."
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "description": "Model representing a http get request."
     },
     "HttpScaleRule": {
       "type": "object",
@@ -3229,6 +3621,17 @@
     "JobConfiguration": {
       "type": "object",
       "properties": {
+        "eventTriggerConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobConfigurationEventTriggerConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Trigger configuration of an event driven job."
+        },
         "manualTriggerConfig": {
           "oneOf": [
             {
@@ -3323,6 +3726,45 @@
         "triggerType"
       ],
       "description": "Non versioned Container Apps Job configuration properties"
+    },
+    "JobConfigurationEventTriggerConfig": {
+      "type": "object",
+      "properties": {
+        "parallelism": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of parallel replicas of a job that can run at a given time."
+        },
+        "replicaCompletionCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Minimum number of successful replica completions before overall job completion."
+        },
+        "scale": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobScale"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scaling configurations for event driven jobs."
+        }
+      },
+      "description": "Trigger configuration of an event driven job."
     },
     "JobConfigurationManualTriggerConfig": {
       "type": "object",
@@ -3422,6 +3864,94 @@
         }
       },
       "description": "Container Apps Job resource specific properties."
+    },
+    "JobScale": {
+      "type": "object",
+      "properties": {
+        "maxExecutions": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "100"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Maximum number of job executions that are created for a trigger, default 100."
+        },
+        "minExecutions": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "0"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Minimum number of job executions that are created for a trigger, default 0"
+        },
+        "pollingInterval": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Interval to check each event source in seconds. Defaults to 30s"
+        },
+        "rules": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JobScaleRule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scaling rules."
+        }
+      },
+      "description": "Scaling configurations for event driven jobs."
+    },
+    "JobScaleRule": {
+      "type": "object",
+      "properties": {
+        "auth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScaleRuleAuth"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Authentication secrets for the scale rule."
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {},
+          "description": "Metadata properties to describe the scale rule."
+        },
+        "name": {
+          "type": "string",
+          "description": "Scale Rule Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of the scale rule\neg: azure-servicebus, redis etc."
+        }
+      },
+      "description": "Scaling rule."
     },
     "JobTemplate": {
       "type": "object",
@@ -3703,6 +4233,17 @@
           ],
           "description": "Configuration properties Keda component"
         },
+        "peerAuthentication": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedEnvironmentPropertiesPeerAuthentication"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Peer authentication settings for the Managed Environment"
+        },
         "vnetConfiguration": {
           "oneOf": [
             {
@@ -3742,6 +4283,23 @@
       },
       "description": "Managed environment resource specific properties"
     },
+    "ManagedEnvironmentPropertiesPeerAuthentication": {
+      "type": "object",
+      "properties": {
+        "mtls": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Mtls"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration properties for mutual TLS authentication"
+        }
+      },
+      "description": "Peer authentication settings for the Managed Environment"
+    },
     "ManagedEnvironmentStorageProperties": {
       "type": "object",
       "properties": {
@@ -3765,7 +4323,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "location": {
@@ -3824,7 +4382,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -3863,7 +4421,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "location": {
@@ -3922,7 +4480,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-01-preview"
+            "2023-05-02-preview"
           ]
         },
         "name": {
@@ -3994,6 +4552,63 @@
         "type"
       ],
       "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "ManagedServiceIdentityModel": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "Mtls": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Boolean indicating whether the mutual TLS authentication is enabled"
+        }
+      },
+      "description": "Configuration properties for mutual TLS authentication"
     },
     "Nonce": {
       "type": "object",
@@ -4121,6 +4736,41 @@
         }
       },
       "description": "The configuration settings of the app registration for the custom Open ID Connect provider."
+    },
+    "PreBuildStep": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the pre-build step."
+        },
+        "httpGet": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HttpGet"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing a http get request."
+        },
+        "scripts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of custom commands to run."
+        }
+      },
+      "description": "Model representing a pre-build step."
     },
     "QueueScaleRule": {
       "type": "object",
@@ -4299,14 +4949,14 @@
       "properties": {
         "secretRef": {
           "type": "string",
-          "description": "Name of the Container App secret from which to pull the auth params."
+          "description": "Name of the secret from which to pull the auth params."
         },
         "triggerParameter": {
           "type": "string",
           "description": "Trigger Parameter that uses the secret"
         }
       },
-      "description": "Auth Secrets for Container App Scale Rule"
+      "description": "Auth Secrets for Scale Rule"
     },
     "Secret": {
       "type": "object",
@@ -4343,6 +4993,33 @@
         }
       },
       "description": "Secret to be added to volume."
+    },
+    "Service": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Dev ContainerApp service type"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Container App to be a dev service"
+    },
+    "ServiceBind": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the service bind"
+        },
+        "serviceId": {
+          "type": "string",
+          "description": "Resource id of the target service"
+        }
+      },
+      "description": "Configuration to bind a ContainerApp to a dev ContainerApp Service"
     },
     "SourceControlProperties": {
       "type": "object",
@@ -4449,6 +5126,31 @@
             }
           ],
           "description": "Container App scaling configurations."
+        },
+        "serviceBinds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceBind"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of container app services bound to the app"
+        },
+        "terminationGracePeriodSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds."
         },
         "volumes": {
           "oneOf": [
@@ -4587,6 +5289,10 @@
     "Volume": {
       "type": "object",
       "properties": {
+        "mountOptions": {
+          "type": "string",
+          "description": "Mount options used while mounting the AzureFile. Must be a comma-separated string."
+        },
         "name": {
           "type": "string",
           "description": "Volume name."
@@ -4634,6 +5340,10 @@
         "mountPath": {
           "type": "string",
           "description": "Path within the container at which the volume should be mounted.Must not contain ':'."
+        },
+        "subPath": {
+          "type": "string",
+          "description": "Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root)."
         },
         "volumeName": {
           "type": "string",
