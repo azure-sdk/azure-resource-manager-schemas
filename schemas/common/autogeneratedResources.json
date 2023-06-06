@@ -33275,6 +33275,54 @@
           "$ref": "https://schema.management.azure.com/schemas/2020-12-16-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
         },
         {
@@ -33285,6 +33333,180 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_externalTestTools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_externalTestTools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_externalTestTools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-11-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_draftPackages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_externalTestTools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_draftPackages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_externalTestTools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-11-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_draftPackages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_draftPackages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_externalTestTools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-12-15-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_actionRequests"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_draftPackages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_actionRequests"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_customerEvents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_draftPackages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.TestBase.json#/resourceDefinitions/testBaseAccounts_packages_favoriteProcesses"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2017-02-28-preview/Microsoft.TimeSeriesInsights.json#/resourceDefinitions/environments"
