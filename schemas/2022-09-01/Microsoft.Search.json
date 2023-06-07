@@ -22,7 +22,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Identity for the resource."
+          "description": "Details about the search service identity. A null value indicates that the search service has no identity assigned."
         },
         "location": {
           "type": "string",
@@ -252,20 +252,37 @@
               "type": "string",
               "enum": [
                 "None",
-                "SystemAssigned"
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned, UserAssigned"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The identity type."
+          "description": "The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service."
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedManagedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of user identities associated with the search service. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
         }
       },
       "required": [
         "type"
       ],
-      "description": "Identity for the resource."
+      "description": "Details about the search service identity. A null value indicates that the search service has no identity assigned."
     },
     "IpRule": {
       "type": "object",
@@ -658,6 +675,11 @@
         }
       },
       "description": "Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits."
+    },
+    "UserAssignedManagedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "The details of the user assigned managed identity assigned to the search service."
     }
   }
 }
