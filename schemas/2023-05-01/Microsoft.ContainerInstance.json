@@ -850,7 +850,6 @@
       },
       "required": [
         "keyName",
-        "keyVersion",
         "vaultBaseUrl"
       ],
       "description": "The container group encryption properties."
