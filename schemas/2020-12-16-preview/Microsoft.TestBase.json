@@ -38,9 +38,6 @@
             "oneOf": [
               {
                 "$ref": "#/definitions/testBaseAccounts_packages_childResource"
-              },
-              {
-                "$ref": "#/definitions/testBaseAccounts_customerEvents_childResource"
               }
             ]
           }
@@ -86,56 +83,6 @@
         "type"
       ],
       "description": "Microsoft.TestBase/testBaseAccounts"
-    },
-    "testBaseAccounts_customerEvents": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2020-12-16-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The resource name of the Test Base Customer event."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomerEventProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A notification events subscribed to be received by customer."
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.TestBase/testBaseAccounts/customerEvents"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.TestBase/testBaseAccounts/customerEvents"
     },
     "testBaseAccounts_packages": {
       "type": "object",
@@ -389,54 +336,6 @@
       ],
       "description": "The command used in the test"
     },
-    "CustomerEventProperties": {
-      "type": "object",
-      "properties": {
-        "eventName": {
-          "type": "string",
-          "description": "The name of the event subscribed to."
-        },
-        "receivers": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/NotificationEventReceiver"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The notification event receivers."
-        }
-      },
-      "required": [
-        "eventName",
-        "receivers"
-      ],
-      "description": "A notification events subscribed to be received by customer."
-    },
-    "DistributionGroupListReceiverValue": {
-      "type": "object",
-      "properties": {
-        "distributionGroups": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The list of distribution groups."
-        }
-      },
-      "description": "The user object receiver value."
-    },
     "FavoriteProcessProperties": {
       "type": "object",
       "properties": {
@@ -449,66 +348,6 @@
         "actualProcessName"
       ],
       "description": "Properties of a favorite process identifier."
-    },
-    "NotificationEventReceiver": {
-      "type": "object",
-      "properties": {
-        "receiverType": {
-          "type": "string",
-          "description": "The type of the notification event receiver."
-        },
-        "receiverValue": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/NotificationReceiverValue"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A notification event receiver value."
-        }
-      },
-      "description": "A notification event receivers."
-    },
-    "NotificationReceiverValue": {
-      "type": "object",
-      "properties": {
-        "distributionGroupListReceiverValue": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DistributionGroupListReceiverValue"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The user object receiver value."
-        },
-        "subscriptionReceiverValue": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SubscriptionReceiverValue"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The subscription role receiver value."
-        },
-        "userObjectReceiverValue": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/UserObjectReceiverValue"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The user object receiver value."
-        }
-      },
-      "description": "A notification event receiver value."
     },
     "PackageProperties": {
       "type": "object",
@@ -586,24 +425,6 @@
         "version"
       ],
       "description": "The properties of the Test Base Package."
-    },
-    "SubscriptionReceiverValue": {
-      "type": "object",
-      "properties": {
-        "role": {
-          "type": "string",
-          "description": "The role of the notification receiver."
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "The subscription id of the notification receiver."
-        },
-        "subscriptionName": {
-          "type": "string",
-          "description": "The subscription name of the notification receiver."
-        }
-      },
-      "description": "The subscription role receiver value."
     },
     "SystemData": {
       "type": "object",
@@ -810,6 +631,7 @@
             {
               "type": "string",
               "enum": [
+                "Basic",
                 "Standard"
               ]
             },
@@ -825,56 +647,6 @@
         "tier"
       ],
       "description": "Describes a Test Base Account SKU."
-    },
-    "testBaseAccounts_customerEvents_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2020-12-16-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The resource name of the Test Base Customer event."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomerEventProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A notification events subscribed to be received by customer."
-        },
-        "systemData": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Metadata pertaining to creation and last modification of the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "customerEvents"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.TestBase/testBaseAccounts/customerEvents"
     },
     "testBaseAccounts_packages_childResource": {
       "type": "object",
@@ -995,26 +767,6 @@
         "type"
       ],
       "description": "Microsoft.TestBase/testBaseAccounts/packages/favoriteProcesses"
-    },
-    "UserObjectReceiverValue": {
-      "type": "object",
-      "properties": {
-        "userObjectIds": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "user object ids."
-        }
-      },
-      "description": "The user object receiver value."
     }
   }
 }
