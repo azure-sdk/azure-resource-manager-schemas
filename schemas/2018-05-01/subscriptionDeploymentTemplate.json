@@ -969,15 +969,6 @@
               "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.CostManagement.json#/unknown_resourceDefinitions/views"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2020-02-01-preview/Microsoft.Datadog.json#/subscription_resourceDefinitions/agreements"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/2021-03-01/Microsoft.Datadog.json#/subscription_resourceDefinitions/agreements"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/2022-06-01/Microsoft.Datadog.json#/subscription_resourceDefinitions/agreements"
-            },
-            {
               "$ref": "https://schema.management.azure.com/schemas/2017-06-15-preview/Microsoft.EventGrid.json#/unknown_resourceDefinitions/eventSubscriptions"
             },
             {
