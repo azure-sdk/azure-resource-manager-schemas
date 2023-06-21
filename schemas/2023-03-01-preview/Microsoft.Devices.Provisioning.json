@@ -47,10 +47,6 @@
           ],
           "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope"
         },
-        "resourcegroup": {
-          "type": "string",
-          "description": "The resource group of the resource."
-        },
         "resources": {
           "type": "array",
           "items": {
