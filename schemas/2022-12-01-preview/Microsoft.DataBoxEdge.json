@@ -1097,6 +1097,10 @@
             }
           ],
           "description": "Wraps data-residency related information for edge-resource and this should be used with ARM layer."
+        },
+        "licenseState": {
+          "type": "string",
+          "description": "State of the license"
         }
       },
       "description": "The properties of the Data Box Edge/Gateway device."
