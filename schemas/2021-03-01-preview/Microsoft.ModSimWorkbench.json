@@ -1,0 +1,1005 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.ModSimWorkbench.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.ModSimWorkbench",
+  "description": "Microsoft ModSimWorkbench Resource Types",
+  "resourceDefinitions": {
+    "workbenches": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "the workbench name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkbenchPropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Workbench properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/workbenches_chambers_childResource"
+              }
+            ]
+          }
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ModSimWorkbench/workbenches"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches"
+    },
+    "workbenches_chambers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the chamber."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ChamberPropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Chamber properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/workbenches_chambers_connectors_childResource"
+              },
+              {
+                "$ref": "#/definitions/workbenches_chambers_workloads_childResource"
+              },
+              {
+                "$ref": "#/definitions/workbenches_chambers_storages_childResource"
+              }
+            ]
+          }
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ModSimWorkbench/workbenches/chambers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches/chambers"
+    },
+    "workbenches_chambers_connectors": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the connector."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorPropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connector properties."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ModSimWorkbench/workbenches/chambers/connectors"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches/chambers/connectors"
+    },
+    "workbenches_chambers_storages": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the storage."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StoragePropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage properties."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ModSimWorkbench/workbenches/chambers/storages"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches/chambers/storages"
+    },
+    "workbenches_chambers_workloads": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the workload."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadPropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Workload properties."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ModSimWorkbench/workbenches/chambers/workloads"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches/chambers/workloads"
+    }
+  },
+  "definitions": {
+    "AppOidc": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string",
+          "description": "Client Id"
+        },
+        "secretUri": {
+          "type": "string",
+          "description": "Client secret"
+        }
+      },
+      "description": "Workbench properties."
+    },
+    "ChamberPropertiesFormat": {
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Validating",
+                "Processing",
+                "Deleting",
+                "Accepted",
+                "Canceled",
+                "Completed",
+                "Succeeded",
+                "Failed",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the status of the Chamber at the time the operation was called."
+        }
+      },
+      "description": "Chamber properties."
+    },
+    "ConnectorPropertiesFormat": {
+      "type": "object",
+      "properties": {
+        "accessConfigurations": {
+          "type": "object",
+          "properties": {},
+          "description": "Gets or sets the Access Configuration."
+        },
+        "networkAcls": {
+          "type": "object",
+          "properties": {},
+          "description": "Specifies set of source IP address ranges to allow access the ModSim Workbench workbench."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Validating",
+                "Processing",
+                "Deleting",
+                "Accepted",
+                "Canceled",
+                "Completed",
+                "Succeeded",
+                "Failed",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the status of the connector at the time the operation was called."
+        },
+        "remoteDesktop": {
+          "type": "object",
+          "properties": {},
+          "description": "Gets or sets the Remote Desktop."
+        }
+      },
+      "description": "Connector properties."
+    },
+    "StoragePropertiesFormat": {
+      "type": "object",
+      "properties": {
+        "capacityAllocated": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provisioned size of the ModSim Workbench chamber storage in terabytes"
+        },
+        "capacityUsed": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Capacity used in the SDW Private Storage volume in gigabytes."
+        },
+        "dataPipelineInboundPath": {
+          "type": "string",
+          "description": "Directory for the ModSim Workbench chamber data pipeline inbound."
+        },
+        "dataPipelineOutboundPath": {
+          "type": "string",
+          "description": "Directory for the ModSim Workbench chamber data pipeline outbound."
+        },
+        "localMountPath": {
+          "type": "string",
+          "description": "Directory where the SDW Private Storage volume mounted."
+        },
+        "performanceTier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "Premium",
+                "Ultra"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies performance tier of the ModSim Workbench chamber storage."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Validating",
+                "Processing",
+                "Deleting",
+                "Accepted",
+                "Canceled",
+                "Completed",
+                "Succeeded",
+                "Failed",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the status of the storage at the time the operation was called."
+        }
+      },
+      "description": "Storage properties."
+    },
+    "SystemData": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that created the resource."
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource last modification (UTC)"
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that last modified the resource."
+        }
+      },
+      "description": "Metadata pertaining to creation and last modification of the resource."
+    },
+    "workbenches_chambers_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the chamber."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ChamberPropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Chamber properties."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "chambers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches/chambers"
+    },
+    "workbenches_chambers_connectors_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the connector."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorPropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connector properties."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "connectors"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches/chambers/connectors"
+    },
+    "workbenches_chambers_storages_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the storage."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StoragePropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage properties."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "storages"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches/chambers/storages"
+    },
+    "workbenches_chambers_workloads_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the workload."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadPropertiesFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Workload properties."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "workloads"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ModSimWorkbench/workbenches/chambers/workloads"
+    },
+    "WorkbenchPropertiesFormat": {
+      "type": "object",
+      "properties": {
+        "addressSpace": {
+          "type": "string",
+          "description": "this is an extension of IPAddress which includes logic related to Classes Interdomain Routing (CIDR) formatted IP Addresses.  \r\nE.g. 192.168.0.0/24, most people's default class C RFC 1918 IP space for their home router"
+        },
+        "appOidc": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AppOidc"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Workbench properties."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Validating",
+                "Processing",
+                "Deleting",
+                "Accepted",
+                "Canceled",
+                "Completed",
+                "Succeeded",
+                "Failed",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the status of the workbench at the time the operation was called."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Name of SKU."
+        }
+      },
+      "required": [
+        "appOidc"
+      ],
+      "description": "Workbench properties."
+    },
+    "WorkloadPropertiesFormat": {
+      "type": "object",
+      "properties": {
+        "edaType": {
+          "type": "string",
+          "description": "Gets or sets the edaType."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Validating",
+                "Processing",
+                "Deleting",
+                "Accepted",
+                "Canceled",
+                "Completed",
+                "Succeeded",
+                "Failed",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the status of the workload at the time the operation was called."
+        },
+        "vmSize": {
+          "type": "string",
+          "description": "Gets or sets the VmSize."
+        }
+      },
+      "description": "Workload properties."
+    }
+  }
+}
