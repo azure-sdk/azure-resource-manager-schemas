@@ -158,6 +158,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.AlertsManagement.json#/resourceDefinitions/actionRules"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.AlertsManagement.json#/resourceDefinitions/smartDetectorAlertRules"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2016-05-16/Microsoft.AnalysisServices.json#/resourceDefinitions/servers"
         },
         {
