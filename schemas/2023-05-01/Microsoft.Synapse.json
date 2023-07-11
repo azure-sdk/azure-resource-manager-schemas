@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-06-01-preview/Microsoft.Synapse.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.Synapse.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Synapse",
   "description": "Microsoft Synapse Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "location": {
@@ -69,7 +69,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "identity": {
@@ -107,16 +107,16 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/workspaces_integrationRuntimes_childResource"
-              },
-              {
-                "$ref": "#/definitions/workspaces_kustoPools_childResource"
+                "$ref": "#/definitions/workspaces_azureADOnlyAuthentications_childResource"
               },
               {
                 "$ref": "#/definitions/workspaces_bigDataPools_childResource"
               },
               {
                 "$ref": "#/definitions/workspaces_firewallRules_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_integrationRuntimes_childResource"
               },
               {
                 "$ref": "#/definitions/workspaces_keys_childResource"
@@ -153,12 +153,6 @@
               },
               {
                 "$ref": "#/definitions/workspaces_managedIdentitySqlControlSettings_childResource"
-              },
-              {
-                "$ref": "#/definitions/workspaces_trustedServiceByPassConfiguration_childResource"
-              },
-              {
-                "$ref": "#/definitions/workspaces_azureADOnlyAuthentications_childResource"
               }
             ]
           }
@@ -200,7 +194,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -246,7 +240,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -293,7 +287,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -317,7 +311,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Azure Active Directory Only Authentication properties"
+          "description": "Properties of a active directory only authentication."
         },
         "type": {
           "type": "string",
@@ -340,7 +334,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "location": {
@@ -399,7 +393,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -446,7 +440,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -493,7 +487,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -540,7 +534,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -579,7 +573,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -618,7 +612,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -651,315 +645,13 @@
       ],
       "description": "Microsoft.Synapse/workspaces/keys"
     },
-    "workspaces_kustoPools": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Kusto pool."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/KustoPoolProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the Kusto pool properties."
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/workspaces_kustoPools_attachedDatabaseConfigurations_childResource"
-              },
-              {
-                "$ref": "#/definitions/workspaces_kustoPools_databases_childResource"
-              },
-              {
-                "$ref": "#/definitions/workspaces_kustoPools_principalAssignments_childResource"
-              }
-            ]
-          }
-        },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AzureSku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Azure SKU definition."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Synapse/workspaces/kustoPools"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "location",
-        "name",
-        "properties",
-        "sku",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools"
-    },
-    "workspaces_kustoPools_attachedDatabaseConfigurations": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Resource location."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the attached database configuration."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AttachedDatabaseConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the an attached database configuration properties of kind specific."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Synapse/workspaces/kustoPools/attachedDatabaseConfigurations"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/attachedDatabaseConfigurations"
-    },
-    "workspaces_kustoPools_databases": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/ReadWriteDatabase"
-        },
-        {
-          "$ref": "#/definitions/ReadOnlyFollowingDatabase"
-        }
-      ],
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Resource location."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the database in the Kusto pool."
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/workspaces_kustoPools_databases_dataConnections_childResource"
-              },
-              {
-                "$ref": "#/definitions/workspaces_kustoPools_databases_principalAssignments_childResource"
-              }
-            ]
-          }
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Synapse/workspaces/kustoPools/databases"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/databases"
-    },
-    "workspaces_kustoPools_databases_dataConnections": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/EventHubDataConnection"
-        },
-        {
-          "$ref": "#/definitions/IotHubDataConnection"
-        },
-        {
-          "$ref": "#/definitions/EventGridDataConnection"
-        }
-      ],
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Resource location."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the data connection."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Synapse/workspaces/kustoPools/databases/dataConnections"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/databases/dataConnections"
-    },
-    "workspaces_kustoPools_databases_principalAssignments": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Kusto principalAssignment."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DatabasePrincipalProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A class representing database principal property."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Synapse/workspaces/kustoPools/databases/principalAssignments"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/databases/principalAssignments"
-    },
-    "workspaces_kustoPools_principalAssignments": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Kusto principalAssignment."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ClusterPrincipalProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A class representing cluster principal property."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Synapse/workspaces/kustoPools/principalAssignments"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/principalAssignments"
-    },
     "workspaces_managedIdentitySqlControlSettings": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1005,7 +697,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1044,7 +736,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1091,7 +783,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1137,7 +829,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "location": {
@@ -1244,7 +936,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1291,7 +983,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1348,7 +1040,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1387,7 +1079,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1434,7 +1126,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1481,7 +1173,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1527,7 +1219,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1573,7 +1265,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1620,7 +1312,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1667,7 +1359,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1714,7 +1406,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1761,7 +1453,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1811,7 +1503,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1860,7 +1552,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1893,47 +1585,13 @@
       ],
       "description": "Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers"
     },
-    "workspaces_trustedServiceByPassConfiguration": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^.*/default$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration"
-    },
     "workspaces_vulnerabilityAssessments": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -1997,72 +1655,6 @@
         }
       },
       "description": "Workspace active directory administrator properties"
-    },
-    "AttachedDatabaseConfigurationProperties": {
-      "type": "object",
-      "properties": {
-        "clusterResourceId": {
-          "type": "string",
-          "description": "The resource id of the kusto pool where the databases you would like to attach reside."
-        },
-        "databaseName": {
-          "type": "string",
-          "description": "The name of the database which you would like to attach, use * if you want to follow all current and future databases."
-        },
-        "defaultPrincipalsModificationKind": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Union",
-                "Replace",
-                "None"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The default principals modification kind."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Running",
-                "Creating",
-                "Deleting",
-                "Succeeded",
-                "Failed",
-                "Moving",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioned state of the resource."
-        },
-        "tableLevelSharingProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TableLevelSharingProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Tables that will be included and excluded in the follower database"
-        }
-      },
-      "required": [
-        "clusterResourceId",
-        "databaseName",
-        "defaultPrincipalsModificationKind"
-      ],
-      "description": "Class representing the an attached database configuration properties of kind specific."
     },
     "AutoPauseProperties": {
       "type": "object",
@@ -2143,66 +1735,13 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Azure Active Directory Only Authentication enabled"
+          "description": "Azure Active Directory only Authentication enabled."
         }
       },
       "required": [
         "azureADOnlyAuthentication"
       ],
-      "description": "Azure Active Directory Only Authentication properties"
-    },
-    "AzureSku": {
-      "type": "object",
-      "properties": {
-        "capacity": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The number of instances of the cluster."
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Compute optimized",
-                "Storage optimized"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "SKU name."
-        },
-        "size": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Extra small",
-                "Small",
-                "Medium",
-                "Large"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "SKU size."
-        }
-      },
-      "required": [
-        "name",
-        "size"
-      ],
-      "description": "Azure SKU definition."
+      "description": "Properties of a active directory only authentication."
     },
     "BigDataPoolResourceProperties": {
       "type": "object",
@@ -2376,76 +1915,6 @@
       },
       "description": "Properties of a Big Data pool powered by Apache Spark"
     },
-    "ClusterPrincipalProperties": {
-      "type": "object",
-      "properties": {
-        "principalId": {
-          "type": "string",
-          "description": "The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name."
-        },
-        "principalType": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "App",
-                "Group",
-                "User"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Principal type."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Running",
-                "Creating",
-                "Deleting",
-                "Succeeded",
-                "Failed",
-                "Moving",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioned state of the resource."
-        },
-        "role": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "AllDatabasesAdmin",
-                "AllDatabasesViewer"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Cluster principal role."
-        },
-        "tenantId": {
-          "type": "string",
-          "description": "The tenant id of the principal"
-        }
-      },
-      "required": [
-        "principalId",
-        "principalType",
-        "role"
-      ],
-      "description": "A class representing cluster principal property."
-    },
     "CmdkeySetup": {
       "type": "object",
       "properties": {
@@ -2585,97 +2054,6 @@
       ],
       "properties": {},
       "description": "The base definition of the custom setup."
-    },
-    "DatabasePrincipalProperties": {
-      "type": "object",
-      "properties": {
-        "principalId": {
-          "type": "string",
-          "description": "The principal ID assigned to the database principal. It can be a user email, application ID, or security group name."
-        },
-        "principalType": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "App",
-                "Group",
-                "User"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Principal type."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Running",
-                "Creating",
-                "Deleting",
-                "Succeeded",
-                "Failed",
-                "Moving",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioned state of the resource."
-        },
-        "role": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Admin",
-                "Ingestor",
-                "Monitor",
-                "User",
-                "UnrestrictedViewer",
-                "Viewer"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Database principal role."
-        },
-        "tenantId": {
-          "type": "string",
-          "description": "The tenant id of the principal"
-        }
-      },
-      "required": [
-        "principalId",
-        "principalType",
-        "role"
-      ],
-      "description": "A class representing database principal property."
-    },
-    "DatabaseStatistics": {
-      "type": "object",
-      "properties": {
-        "size": {
-          "oneOf": [
-            {
-              "type": "number"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The database size - the total size of compressed data and index in bytes."
-        }
-      },
-      "description": "A class that contains database statistics information."
     },
     "DataLakeStorageAccountDetails": {
       "type": "object",
@@ -2980,272 +2358,6 @@
       ],
       "description": "Environment variable custom setup type properties."
     },
-    "EventGridConnectionProperties": {
-      "type": "object",
-      "properties": {
-        "blobStorageEventType": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Microsoft.Storage.BlobCreated",
-                "Microsoft.Storage.BlobRenamed"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of blob storage event type to process."
-        },
-        "consumerGroup": {
-          "type": "string",
-          "description": "The event hub consumer group."
-        },
-        "dataFormat": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "MULTIJSON",
-                "JSON",
-                "CSV",
-                "TSV",
-                "SCSV",
-                "SOHSV",
-                "PSV",
-                "TXT",
-                "RAW",
-                "SINGLEJSON",
-                "AVRO",
-                "TSVE",
-                "PARQUET",
-                "ORC",
-                "APACHEAVRO",
-                "W3CLOGFILE"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The data format of the message. Optionally the data format can be added to each message."
-        },
-        "eventHubResourceId": {
-          "type": "string",
-          "description": "The resource ID where the event grid is configured to send events."
-        },
-        "ignoreFirstRecord": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file"
-        },
-        "mappingRuleName": {
-          "type": "string",
-          "description": "The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Running",
-                "Creating",
-                "Deleting",
-                "Succeeded",
-                "Failed",
-                "Moving",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioned state of the resource."
-        },
-        "storageAccountResourceId": {
-          "type": "string",
-          "description": "The resource ID of the storage account where the data resides."
-        },
-        "tableName": {
-          "type": "string",
-          "description": "The table where the data should be ingested. Optionally the table information can be added to each message."
-        }
-      },
-      "required": [
-        "consumerGroup",
-        "eventHubResourceId",
-        "storageAccountResourceId"
-      ],
-      "description": "Class representing the Kusto event grid connection properties."
-    },
-    "EventGridDataConnection": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "enum": [
-            "EventGrid"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/EventGridConnectionProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the Kusto event grid connection properties."
-        }
-      },
-      "required": [
-        "kind"
-      ],
-      "description": "Class representing an Event Grid data connection."
-    },
-    "EventHubConnectionProperties": {
-      "type": "object",
-      "properties": {
-        "compression": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "GZip"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The event hub messages compression type."
-        },
-        "consumerGroup": {
-          "type": "string",
-          "description": "The event hub consumer group."
-        },
-        "dataFormat": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "MULTIJSON",
-                "JSON",
-                "CSV",
-                "TSV",
-                "SCSV",
-                "SOHSV",
-                "PSV",
-                "TXT",
-                "RAW",
-                "SINGLEJSON",
-                "AVRO",
-                "TSVE",
-                "PARQUET",
-                "ORC",
-                "APACHEAVRO",
-                "W3CLOGFILE"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The data format of the message. Optionally the data format can be added to each message."
-        },
-        "eventHubResourceId": {
-          "type": "string",
-          "description": "The resource ID of the event hub to be used to create a data connection."
-        },
-        "eventSystemProperties": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "System properties of the event hub"
-        },
-        "managedIdentityResourceId": {
-          "type": "string",
-          "description": "The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub."
-        },
-        "mappingRuleName": {
-          "type": "string",
-          "description": "The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Running",
-                "Creating",
-                "Deleting",
-                "Succeeded",
-                "Failed",
-                "Moving",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioned state of the resource."
-        },
-        "tableName": {
-          "type": "string",
-          "description": "The table where the data should be ingested. Optionally the table information can be added to each message."
-        }
-      },
-      "required": [
-        "consumerGroup",
-        "eventHubResourceId"
-      ],
-      "description": "Class representing the Kusto event hub connection properties."
-    },
-    "EventHubDataConnection": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "enum": [
-            "EventHub"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/EventHubConnectionProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the Kusto event hub connection properties."
-        }
-      },
-      "required": [
-        "kind"
-      ],
-      "description": "Class representing an event hub data connection."
-    },
     "ExtendedServerBlobAuditingPolicyProperties": {
       "type": "object",
       "properties": {
@@ -3273,6 +2385,17 @@
             }
           ],
           "description": "Specifies whether audit events are sent to Azure Monitor. \r\nIn order to send the events to Azure Monitor, specify 'state' as 'Enabled' and 'isAzureMonitorTargetEnabled' as true.\r\n\r\nWhen using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.\r\nNote that for server level audit you should use the 'master' database as {databaseName}.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n"
+        },
+        "isDevopsAuditEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.\r\nIn order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true\r\n\r\nWhen using REST API to configure auditing, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should also be created.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n"
         },
         "isStorageSecondaryKeyInUse": {
           "oneOf": [
@@ -3592,6 +2715,16 @@
       },
       "description": "The compute resource properties for managed integration runtime."
     },
+    "IntegrationRuntimeCustomerVirtualNetwork": {
+      "type": "object",
+      "properties": {
+        "subnetId": {
+          "type": "string",
+          "description": "The ID of subnet to which Azure-SSIS integration runtime will join."
+        }
+      },
+      "description": "The definition and properties of virtual network to which Azure-SSIS integration runtime will join."
+    },
     "IntegrationRuntimeCustomSetupScriptProperties": {
       "type": "object",
       "properties": {
@@ -3631,17 +2764,6 @@
             }
           ],
           "description": "Unmatched properties from the message are deserialized this collection"
-        },
-        "cleanup": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true."
         },
         "computeType": {
           "oneOf": [
@@ -3924,126 +3046,6 @@
       },
       "description": "VNet properties for managed integration runtime."
     },
-    "IotHubConnectionProperties": {
-      "type": "object",
-      "properties": {
-        "consumerGroup": {
-          "type": "string",
-          "description": "The iot hub consumer group."
-        },
-        "dataFormat": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "MULTIJSON",
-                "JSON",
-                "CSV",
-                "TSV",
-                "SCSV",
-                "SOHSV",
-                "PSV",
-                "TXT",
-                "RAW",
-                "SINGLEJSON",
-                "AVRO",
-                "TSVE",
-                "PARQUET",
-                "ORC",
-                "APACHEAVRO",
-                "W3CLOGFILE"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The data format of the message. Optionally the data format can be added to each message."
-        },
-        "eventSystemProperties": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "System properties of the iot hub"
-        },
-        "iotHubResourceId": {
-          "type": "string",
-          "description": "The resource ID of the Iot hub to be used to create a data connection."
-        },
-        "mappingRuleName": {
-          "type": "string",
-          "description": "The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Running",
-                "Creating",
-                "Deleting",
-                "Succeeded",
-                "Failed",
-                "Moving",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioned state of the resource."
-        },
-        "sharedAccessPolicyName": {
-          "type": "string",
-          "description": "The name of the share access policy"
-        },
-        "tableName": {
-          "type": "string",
-          "description": "The table where the data should be ingested. Optionally the table information can be added to each message."
-        }
-      },
-      "required": [
-        "consumerGroup",
-        "iotHubResourceId",
-        "sharedAccessPolicyName"
-      ],
-      "description": "Class representing the Kusto Iot hub connection properties."
-    },
-    "IotHubDataConnection": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "enum": [
-            "IotHub"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/IotHubConnectionProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the Kusto Iot hub connection properties."
-        }
-      },
-      "required": [
-        "kind"
-      ],
-      "description": "Class representing an iot hub data connection."
-    },
     "IpFirewallRuleProperties": {
       "type": "object",
       "properties": {
@@ -4093,71 +3095,6 @@
         }
       },
       "description": "Key properties"
-    },
-    "KustoPoolProperties": {
-      "type": "object",
-      "properties": {
-        "enablePurge": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A boolean value that indicates if the purge operations are enabled."
-        },
-        "enableStreamingIngest": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A boolean value that indicates if the streaming ingest is enabled."
-        },
-        "optimizedAutoscale": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OptimizedAutoscale"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A class that contains the optimized auto scale definition."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Running",
-                "Creating",
-                "Deleting",
-                "Succeeded",
-                "Failed",
-                "Moving",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioned state of the resource."
-        },
-        "workspaceUID": {
-          "type": "string",
-          "description": "The workspace unique identifier."
-        }
-      },
-      "description": "Class representing the Kusto pool properties."
     },
     "LibraryInfo": {
       "type": "object",
@@ -4454,7 +3391,7 @@
         },
         "referenceName": {
           "type": "string",
-          "description": "The reference name of the managed virtual network."
+          "description": "The reference name of the managed virtual network"
         },
         "type": {
           "type": "string",
@@ -4476,6 +3413,17 @@
             }
           ],
           "description": "The compute resource properties for managed integration runtime."
+        },
+        "customerVirtualNetwork": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IntegrationRuntimeCustomerVirtualNetwork"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The definition and properties of virtual network to which Azure-SSIS integration runtime will join."
         },
         "ssisProperties": {
           "oneOf": [
@@ -4546,65 +3494,20 @@
             }
           ],
           "description": "Indicates whether the metadata sync is enabled or disabled"
+        },
+        "syncIntervalInMinutes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Sync Interval in minutes."
         }
       },
       "description": "Metadata Sync Config properties"
-    },
-    "OptimizedAutoscale": {
-      "type": "object",
-      "properties": {
-        "isEnabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A boolean value that indicate if the optimized autoscale feature is enabled or not."
-        },
-        "maximum": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Maximum allowed instances count."
-        },
-        "minimum": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Minimum allowed instances count."
-        },
-        "version": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The version of the template defined, for instance 1."
-        }
-      },
-      "required": [
-        "isEnabled",
-        "maximum",
-        "minimum",
-        "version"
-      ],
-      "description": "A class that contains the optimized auto scale definition."
     },
     "PrivateEndpoint": {
       "type": "object",
@@ -4689,116 +3592,6 @@
         }
       },
       "description": "Purview Configuration"
-    },
-    "ReadOnlyFollowingDatabase": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "enum": [
-            "ReadOnlyFollowing"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ReadOnlyFollowingDatabaseProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the Kusto database properties."
-        }
-      },
-      "required": [
-        "kind"
-      ],
-      "description": "Class representing a read only following database."
-    },
-    "ReadOnlyFollowingDatabaseProperties": {
-      "type": "object",
-      "properties": {
-        "hotCachePeriod": {
-          "type": "string",
-          "format": "duration",
-          "description": "The time the data should be kept in cache for fast queries in TimeSpan."
-        }
-      },
-      "description": "Class representing the Kusto database properties."
-    },
-    "ReadWriteDatabase": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "enum": [
-            "ReadWrite"
-          ]
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ReadWriteDatabaseProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the Kusto database properties."
-        }
-      },
-      "required": [
-        "kind"
-      ],
-      "description": "Class representing a read write database."
-    },
-    "ReadWriteDatabaseProperties": {
-      "type": "object",
-      "properties": {
-        "hotCachePeriod": {
-          "type": "string",
-          "format": "duration",
-          "description": "The time the data should be kept in cache for fast queries in TimeSpan."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Running",
-                "Creating",
-                "Deleting",
-                "Succeeded",
-                "Failed",
-                "Moving",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioned state of the resource."
-        },
-        "softDeletePeriod": {
-          "type": "string",
-          "format": "duration",
-          "description": "The time the data should be kept before it stops being accessible to queries in TimeSpan."
-        },
-        "statistics": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DatabaseStatistics"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A class that contains database statistics information."
-        }
-      },
-      "description": "Class representing the Kusto database properties."
     },
     "SecretBase": {
       "type": "object",
@@ -5197,7 +3990,7 @@
         "recurringScans": {
           "oneOf": [
             {
-              "$ref": "#/definitions/VulnerabilityAssessmentRecurringScansProperties"
+              "$ref": "#/definitions/VulnerabilityAssessmentRecurringScansPropertiesModel"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5297,7 +4090,8 @@
         "isAzureMonitorTargetEnabled": {
           "oneOf": [
             {
-              "type": "boolean"
+              "type": "boolean",
+              "default": false
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5373,6 +4167,7 @@
       "properties": {
         "collation": {
           "type": "string",
+          "default": "",
           "description": "Collation mode"
         },
         "createMode": {
@@ -5518,96 +4313,6 @@
       ],
       "description": "Properties of a Sql pool vulnerability assessment rule baseline."
     },
-    "TableLevelSharingProperties": {
-      "type": "object",
-      "properties": {
-        "externalTablesToExclude": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of external tables exclude from the follower database"
-        },
-        "externalTablesToInclude": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of external tables to include in the follower database"
-        },
-        "materializedViewsToExclude": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of materialized views exclude from the follower database"
-        },
-        "materializedViewsToInclude": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of materialized views to include in the follower database"
-        },
-        "tablesToExclude": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of tables to exclude from the follower database"
-        },
-        "tablesToInclude": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of tables to include in the follower database"
-        }
-      },
-      "description": "Tables that will be included and excluded in the follower database"
-    },
     "TransparentDataEncryptionProperties": {
       "type": "object",
       "properties": {
@@ -5645,6 +4350,49 @@
       "description": "Virtual Network Profile"
     },
     "VulnerabilityAssessmentRecurringScansProperties": {
+      "type": "object",
+      "properties": {
+        "emails": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies an array of e-mail addresses to which the scan notification is sent."
+        },
+        "emailSubscriptionAdmins": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies that the schedule scan notification will be is sent to the subscription administrators."
+        },
+        "isEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Recurring scans state."
+        }
+      },
+      "description": "Properties of a Vulnerability Assessment recurring scans."
+    },
+    "VulnerabilityAssessmentRecurringScansPropertiesModel": {
       "type": "object",
       "properties": {
         "emails": {
@@ -6011,7 +4759,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6052,7 +4800,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6094,7 +4842,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6113,7 +4861,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Azure Active Directory Only Authentication properties"
+          "description": "Properties of a active directory only authentication."
         },
         "type": {
           "type": "string",
@@ -6136,7 +4884,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "location": {
@@ -6195,7 +4943,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6237,7 +4985,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6279,7 +5027,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6321,7 +5069,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6360,7 +5108,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6399,7 +5147,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6432,286 +5180,13 @@
       ],
       "description": "Microsoft.Synapse/workspaces/keys"
     },
-    "workspaces_kustoPools_attachedDatabaseConfigurations_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Resource location."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the attached database configuration."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AttachedDatabaseConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the an attached database configuration properties of kind specific."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "attachedDatabaseConfigurations"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/attachedDatabaseConfigurations"
-    },
-    "workspaces_kustoPools_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Kusto pool."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/KustoPoolProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Class representing the Kusto pool properties."
-        },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AzureSku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Azure SKU definition."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "kustoPools"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "location",
-        "name",
-        "properties",
-        "sku",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools"
-    },
-    "workspaces_kustoPools_databases_childResource": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/ReadWriteDatabase"
-        },
-        {
-          "$ref": "#/definitions/ReadOnlyFollowingDatabase"
-        }
-      ],
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Resource location."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the database in the Kusto pool."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "databases"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/databases"
-    },
-    "workspaces_kustoPools_databases_dataConnections_childResource": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/EventHubDataConnection"
-        },
-        {
-          "$ref": "#/definitions/IotHubDataConnection"
-        },
-        {
-          "$ref": "#/definitions/EventGridDataConnection"
-        }
-      ],
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Resource location."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the data connection."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "dataConnections"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/databases/dataConnections"
-    },
-    "workspaces_kustoPools_databases_principalAssignments_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Kusto principalAssignment."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DatabasePrincipalProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A class representing database principal property."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "principalAssignments"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/databases/principalAssignments"
-    },
-    "workspaces_kustoPools_principalAssignments_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the Kusto principalAssignment."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ClusterPrincipalProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A class representing cluster principal property."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "principalAssignments"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/kustoPools/principalAssignments"
-    },
     "workspaces_managedIdentitySqlControlSettings_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6752,7 +5227,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6791,7 +5266,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6833,7 +5308,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6874,7 +5349,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -6916,7 +5391,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "location": {
@@ -6986,7 +5461,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7028,7 +5503,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7067,7 +5542,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7109,7 +5584,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7151,7 +5626,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7192,7 +5667,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7233,7 +5708,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7275,7 +5750,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7317,7 +5792,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7359,7 +5834,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7398,7 +5873,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
@@ -7431,42 +5906,13 @@
       ],
       "description": "Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers"
     },
-    "workspaces_trustedServiceByPassConfiguration_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2021-06-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "enum": [
-            "default"
-          ]
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "trustedServiceByPassConfiguration"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration"
-    },
     "workspaces_vulnerabilityAssessments_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-06-01-preview"
+            "2023-05-01"
           ]
         },
         "name": {
