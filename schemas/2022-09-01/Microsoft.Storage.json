@@ -3127,7 +3127,18 @@
           "description": "The name of resource, normally the container name or the file share name, used by the local user."
         },
         "service": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "blob",
+                "file"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The service used by the local user, e.g. blob, file."
         }
       },
