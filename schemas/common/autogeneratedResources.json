@@ -9512,6 +9512,27 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.DataProtection.json#/resourceDefinitions/resourceGuards"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2021-02-16-preview/Microsoft.DataReplication.json#/resourceDefinitions/replicationFabrics"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-02-16-preview/Microsoft.DataReplication.json#/resourceDefinitions/replicationFabrics_fabricAgents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-02-16-preview/Microsoft.DataReplication.json#/resourceDefinitions/replicationVaults"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-02-16-preview/Microsoft.DataReplication.json#/resourceDefinitions/replicationVaults_alertSettings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-02-16-preview/Microsoft.DataReplication.json#/resourceDefinitions/replicationVaults_protectedItems"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-02-16-preview/Microsoft.DataReplication.json#/resourceDefinitions/replicationVaults_replicationExtensions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-02-16-preview/Microsoft.DataReplication.json#/resourceDefinitions/replicationVaults_replicationPolicies"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-11-01-preview/Microsoft.DataShare.json#/resourceDefinitions/accounts"
         },
         {
