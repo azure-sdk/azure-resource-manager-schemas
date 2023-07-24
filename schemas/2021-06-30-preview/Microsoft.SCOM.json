@@ -1,0 +1,339 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-06-30-preview/Microsoft.SCOM.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Scom",
+  "description": "Microsoft Scom Resource Types",
+  "resourceDefinitions": {
+    "managedInstances": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-06-30-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the SCOM monitoring instance"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MonitoringInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a SCOM instance resource"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Scom/managedInstances"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Scom/managedInstances"
+    }
+  },
+  "definitions": {
+    "AzureHybridBenefitProperties": {
+      "type": "object",
+      "properties": {
+        "scomLicenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "AzureHybridBenefit"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SCOM license type. Maximize savings by using license you already own."
+        },
+        "sqlServerLicenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "AzureHybridBenefit"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SQL Server license type. Maximize savings by using Azure Hybrid Benefit for SQL Server with license you already own."
+        },
+        "windowsServerLicenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "AzureHybridBenefit"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies that the image or disk that is being used was licensed on-premises. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)."
+        }
+      },
+      "description": "The properties to maximize savings by using Azure Hybrid Benefit"
+    },
+    "DatabaseInstanceProperties": {
+      "type": "object",
+      "properties": {
+        "databaseInstanceId": {
+          "type": "string",
+          "description": "Resource Id of existing database instance"
+        }
+      },
+      "description": "The properties of database instance"
+    },
+    "DomainControllerProperties": {
+      "type": "object",
+      "properties": {
+        "dnsServer": {
+          "type": "string",
+          "description": "IP address of DNS server "
+        },
+        "domainName": {
+          "type": "string",
+          "description": "Fully qualified domain name"
+        }
+      },
+      "description": "The properties of domain controller to which SCOM and SQL servers join for AuthN/AuthZ"
+    },
+    "DomainUserCredentials": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string",
+          "description": "Domain user password "
+        },
+        "userName": {
+          "type": "string",
+          "description": "Domain user name "
+        }
+      },
+      "description": "Domain user name and password"
+    },
+    "MonitoringInstanceProperties": {
+      "type": "object",
+      "properties": {
+        "actionAccountCredentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DomainUserCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Domain user name and password"
+        },
+        "azureHybridBenefit": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureHybridBenefitProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties to maximize savings by using Azure Hybrid Benefit"
+        },
+        "dasAccountCredentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DomainUserCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Domain user name and password"
+        },
+        "databaseInstance": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of database instance"
+        },
+        "dataReaderAccountCredentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DomainUserCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Domain user name and password"
+        },
+        "dataWriterAccountCredentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DomainUserCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Domain user name and password"
+        },
+        "domainController": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DomainControllerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of domain controller to which SCOM and SQL servers join for AuthN/AuthZ"
+        },
+        "domainUserCredentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DomainUserCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Domain user name and password"
+        },
+        "productVersion": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "2019"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SCOM product version to be installed on instance."
+        },
+        "vNetSubnetId": {
+          "type": "string",
+          "description": "Virtual Network subnet id on which Aquila instance will be provisioned"
+        }
+      },
+      "description": "The properties of a SCOM instance resource"
+    },
+    "SystemData": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that created the resource."
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource last modification (UTC)"
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that last modified the resource."
+        }
+      },
+      "description": "Metadata pertaining to creation and last modification of the resource."
+    }
+  }
+}
