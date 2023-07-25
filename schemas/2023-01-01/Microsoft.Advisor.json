@@ -31,6 +31,16 @@
           ],
           "description": "Configuration data properties"
         },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/configurations_v2_childResource"
+              }
+            ]
+          }
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -45,6 +55,53 @@
         "type"
       ],
       "description": "Microsoft.Advisor/configurations"
+    },
+    "configurations_v2": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/duration$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Advisor configuration name. Value must be 'duration'"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigDataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration data properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Advisor/configurations/v2"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Advisor/configurations/v2"
     }
   },
   "subscription_resourceDefinitions": {
@@ -75,6 +132,16 @@
           ],
           "description": "Configuration data properties"
         },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/configurations_v2_childResource"
+              }
+            ]
+          }
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -89,6 +156,53 @@
         "type"
       ],
       "description": "Microsoft.Advisor/configurations"
+    },
+    "configurations_v2": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/duration$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Advisor configuration name. Value must be 'duration'"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigDataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration data properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Advisor/configurations/v2"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Advisor/configurations/v2"
     }
   },
   "unknown_resourceDefinitions": {
@@ -188,17 +302,60 @@
                 "5",
                 "10",
                 "15",
-                "20"
+                "20",
+                "100"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Minimum percentage threshold for Advisor low CPU utilization evaluation. Valid only for subscriptions. Valid values: 5 (default), 10, 15 or 20."
+          "description": "Minimum percentage threshold for Advisor low CPU utilization evaluation. Valid only for subscriptions. Valid values: 5, 10, 15, 20 or 100 (default)."
         }
       },
       "description": "Configuration data properties"
+    },
+    "configurations_v2_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "duration"
+          ],
+          "description": "Advisor configuration name. Value must be 'duration'"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigDataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration data properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "v2"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Advisor/configurations/v2"
     },
     "DigestConfig": {
       "type": "object",
