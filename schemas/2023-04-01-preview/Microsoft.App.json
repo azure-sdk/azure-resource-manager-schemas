@@ -3336,7 +3336,7 @@
             {
               "type": "string",
               "enum": [
-                "Schedule",
+                "Scheduled",
                 "Event",
                 "Manual"
               ]
