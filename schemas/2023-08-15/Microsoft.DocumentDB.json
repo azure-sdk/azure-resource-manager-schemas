@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-04-15/Microsoft.DocumentDB.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-08-15/Microsoft.DocumentDB.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.DocumentDB",
   "description": "Microsoft DocumentDB Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "identity": {
@@ -99,7 +99,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -148,7 +148,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "identity": {
@@ -286,7 +286,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -357,7 +357,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -425,7 +425,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -490,7 +490,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -555,7 +555,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -626,7 +626,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -694,7 +694,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -759,7 +759,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -824,7 +824,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -895,7 +895,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -963,7 +963,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1028,7 +1028,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1093,7 +1093,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -1132,7 +1132,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -1171,7 +1171,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -1206,7 +1206,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -1245,7 +1245,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -1286,7 +1286,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1360,7 +1360,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -1399,7 +1399,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1476,7 +1476,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1534,7 +1534,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1599,7 +1599,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1657,7 +1657,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1715,7 +1715,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1780,7 +1780,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -1819,7 +1819,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -1858,7 +1858,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -1926,7 +1926,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -2256,7 +2256,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -3271,6 +3271,17 @@
           ],
           "description": "Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account."
         },
+        "enableBurstCapacity": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account"
+        },
         "enableCassandraConnector": {
           "oneOf": [
             {
@@ -3473,7 +3484,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -3531,7 +3542,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -3589,7 +3600,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -3649,7 +3660,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -3709,7 +3720,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -3767,7 +3778,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -3825,7 +3836,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -3885,7 +3896,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -3945,7 +3956,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4003,7 +4014,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4061,7 +4072,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4121,7 +4132,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4181,7 +4192,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -4220,7 +4231,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -4259,7 +4270,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -4289,7 +4300,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -4328,7 +4339,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -4369,7 +4380,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4427,7 +4438,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -4466,7 +4477,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4524,7 +4535,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4582,7 +4593,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4642,7 +4653,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4700,7 +4711,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4758,7 +4769,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4818,7 +4829,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -4857,7 +4868,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "name": {
@@ -4896,7 +4907,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
@@ -4954,7 +4965,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-15"
+            "2023-08-15"
           ]
         },
         "location": {
