@@ -29354,6 +29354,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2016-03-01/Microsoft.Scheduler.json#/resourceDefinitions/jobCollections_jobs"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-13-preview/Microsoft.SCOM.json#/resourceDefinitions/managedInstances"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#/resourceDefinitions/availabilitySets"
         },
         {
