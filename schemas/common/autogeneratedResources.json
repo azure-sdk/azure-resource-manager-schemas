@@ -4679,6 +4679,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2019-07-24-preview/Microsoft.AzureData.json#/resourceDefinitions/sqlServerRegistrations_sqlServers"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-20/Microsoft.AzureLargeInstance.json#/resourceDefinitions/azureLargeInstance"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-20/Microsoft.AzureLargeInstance.json#/resourceDefinitions/azureLargeStorageInstance"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs"
         },
         {
