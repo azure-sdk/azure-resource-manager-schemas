@@ -633,6 +633,20 @@
         "partnerNamespace": {
           "type": "string",
           "description": "ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "MetadataReplication"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "replication type."
         }
       },
       "description": "Properties required to the Create Or Update Alias(Disaster Recovery configurations)"
@@ -1004,7 +1018,8 @@
         "zoneRedundant": {
           "oneOf": [
             {
-              "type": "boolean"
+              "type": "boolean",
+              "default": false
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1710,6 +1725,20 @@
     "PrivateEndpointConnectionProperties": {
       "type": "object",
       "properties": {
+        "groupId": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of group IDs."
+        },
         "privateEndpoint": {
           "oneOf": [
             {
