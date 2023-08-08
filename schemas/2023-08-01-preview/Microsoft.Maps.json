@@ -1,0 +1,113 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-08-01-preview/Microsoft.Maps.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Maps",
+  "description": "Microsoft Maps Resource Types",
+  "resourceDefinitions": {
+    "accounts_creators": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the Maps Creator instance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreatorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Creator resource properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Maps/accounts/creators"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Maps/accounts/creators"
+    }
+  },
+  "definitions": {
+    "CreatorProperties": {
+      "type": "object",
+      "properties": {
+        "consumedStorageUnitSizeInBytes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The consumed storage unit size in bytes for the creator resource."
+        },
+        "storageUnits": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage units to be allocated. Integer values from 1 to 100, inclusive."
+        },
+        "totalStorageUnitSizeInBytes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The total allocated storage unit size in bytes for the creator resource."
+        }
+      },
+      "required": [
+        "storageUnits"
+      ],
+      "description": "Creator resource properties"
+    }
+  }
+}
