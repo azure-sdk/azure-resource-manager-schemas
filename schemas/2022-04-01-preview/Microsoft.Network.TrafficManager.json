@@ -215,17 +215,43 @@
   "subscription_resourceDefinitions": {
     "trafficManagerUserMetricsKeys": {
       "type": "object",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "default"
+              ]
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "description": "Microsoft.Network/trafficManagerUserMetricsKeys"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "trafficManagerUserMetricsKeys"
+              ]
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "description": "Microsoft.Network/trafficManagerUserMetricsKeys"
+        }
+      ],
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
             "2022-04-01-preview"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "enum": [
-            "default"
           ]
         },
         "type": {
@@ -237,7 +263,6 @@
       },
       "required": [
         "apiVersion",
-        "name",
         "type"
       ],
       "description": "Microsoft.Network/trafficManagerUserMetricsKeys"
