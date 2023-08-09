@@ -18203,6 +18203,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Migrate.json#/resourceDefinitions/migrateProjects_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2017-11-11-preview/Microsoft.Migrate.Migrate.json#/resourceDefinitions/projects"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2017-11-11-preview/Microsoft.Migrate.Migrate.json#/resourceDefinitions/projects_groups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2017-11-11-preview/Microsoft.Migrate.Migrate.json#/resourceDefinitions/projects_groups_assessments"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-02-02/Microsoft.Migrate.Migrate.json#/resourceDefinitions/projects"
         },
         {
