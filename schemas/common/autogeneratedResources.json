@@ -9467,6 +9467,27 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-03-30-preview/Microsoft.DataMigration.json#/resourceDefinitions/sqlMigrationServices"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-15-preview/Microsoft.DataMigration.json#/resourceDefinitions/migrationServices"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-15-preview/Microsoft.DataMigration.json#/resourceDefinitions/services"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-15-preview/Microsoft.DataMigration.json#/resourceDefinitions/services_projects"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-15-preview/Microsoft.DataMigration.json#/resourceDefinitions/services_projects_files"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-15-preview/Microsoft.DataMigration.json#/resourceDefinitions/services_projects_tasks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-15-preview/Microsoft.DataMigration.json#/resourceDefinitions/services_serviceTasks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-15-preview/Microsoft.DataMigration.json#/resourceDefinitions/sqlMigrationServices"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2021-01-01/Microsoft.DataProtection.json#/resourceDefinitions/backupVaults"
         },
         {
