@@ -1917,6 +1917,9 @@
           "$ref": "#/definitions/AzureFabricCreationInput"
         },
         {
+          "$ref": "#/definitions/HyperVSiteFabricCreationInput"
+        },
+        {
           "$ref": "#/definitions/InMageRcmFabricCreationInput"
         },
         {
@@ -1925,6 +1928,25 @@
       ],
       "properties": {},
       "description": "Fabric provider specific settings."
+    },
+    "HyperVReplicaAzureContainerMappingInput": {
+      "type": "object",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "enum": [
+            "HyperVReplicaAzure"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The Location."
+        }
+      },
+      "required": [
+        "instanceType"
+      ],
+      "description": "HyperVReplicaAzure container mapping input."
     },
     "HyperVReplicaAzureDiskInputDetails": {
       "type": "object",
@@ -2367,6 +2389,25 @@
         "instanceType"
       ],
       "description": "Hyper-V Replica specific policy Input."
+    },
+    "HyperVSiteFabricCreationInput": {
+      "type": "object",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "enum": [
+            "HyperVSite"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The Location."
+        }
+      },
+      "required": [
+        "instanceType"
+      ],
+      "description": "HyperVSite fabric provider specific settings."
     },
     "IdentityProviderInput": {
       "type": "object",
@@ -2904,6 +2945,26 @@
         "multiVmSyncStatus"
       ],
       "description": "VMWare Azure specific protection profile Input."
+    },
+    "InMageRcmContainerMappingInput": {
+      "type": "object",
+      "properties": {
+        "enableAgentAutoUpgrade": {
+          "type": "string",
+          "description": "A value indicating whether agent auto upgrade has to be enabled."
+        },
+        "instanceType": {
+          "type": "string",
+          "enum": [
+            "InMageRcm"
+          ]
+        }
+      },
+      "required": [
+        "enableAgentAutoUpgrade",
+        "instanceType"
+      ],
+      "description": "InMageRcm container mapping input."
     },
     "InMageRcmDiskInput": {
       "type": "object",
@@ -3781,6 +3842,12 @@
           "$ref": "#/definitions/A2AContainerMappingInput"
         },
         {
+          "$ref": "#/definitions/HyperVReplicaAzureContainerMappingInput"
+        },
+        {
+          "$ref": "#/definitions/InMageRcmContainerMappingInput"
+        },
+        {
           "$ref": "#/definitions/VMwareCbtContainerMappingInput"
         }
       ],
@@ -4063,6 +4130,10 @@
           "enum": [
             "VmmToAzure"
           ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The Location."
         }
       },
       "required": [
