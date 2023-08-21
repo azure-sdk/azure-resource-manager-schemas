@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.AppPlatform.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.AppPlatform.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.AppPlatform",
   "description": "Microsoft AppPlatform Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "location": {
@@ -45,6 +45,12 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/Spring_apms_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_eurekaServers_childResource"
+              },
+              {
                 "$ref": "#/definitions/Spring_configServers_childResource"
               },
               {
@@ -58,6 +64,12 @@
               },
               {
                 "$ref": "#/definitions/Spring_DevToolPortals_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_containerRegistries_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_buildServices_childResource"
               },
               {
                 "$ref": "#/definitions/Spring_monitoringSettings_childResource"
@@ -141,7 +153,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -212,7 +224,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -256,13 +268,71 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/apiPortals/domains"
     },
+    "Spring_apms": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the APM"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApmProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an APM"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apms"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/apms"
+    },
     "Spring_applicationAccelerators": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -333,7 +403,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -394,7 +464,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -444,7 +514,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "identity": {
@@ -525,7 +595,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -575,7 +645,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -636,7 +706,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -680,13 +750,79 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/apps/domains"
     },
+    "Spring_buildServices": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the build service resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuildServiceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Build service resource properties payload"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Spring_buildServices_builds_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_buildServices_builders_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_buildServices_agentPools_childResource"
+              }
+            ]
+          }
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppPlatform/Spring/buildServices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/buildServices"
+    },
     "Spring_buildServices_agentPools": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -736,7 +872,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -796,7 +932,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -846,7 +982,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -896,7 +1032,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -946,7 +1082,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -1003,11 +1139,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The name of Application Configuration Service."
         },
         "properties": {
@@ -1047,13 +1191,71 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/configurationServices"
     },
+    "Spring_containerRegistries": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the container registry."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerRegistryProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container registry resource payload."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppPlatform/Spring/containerRegistries"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/containerRegistries"
+    },
     "Spring_DevToolPortals": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -1097,17 +1299,82 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/DevToolPortals"
     },
+    "Spring_eurekaServers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EurekaServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Eureka server properties payload"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppPlatform/Spring/eurekaServers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/eurekaServers"
+    },
     "Spring_gateways": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The name of Spring Cloud Gateway."
         },
         "properties": {
@@ -1177,7 +1444,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -1227,7 +1494,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -1277,7 +1544,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -1334,7 +1601,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -1361,7 +1628,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -1431,6 +1698,10 @@
           "enum": [
             "BasicAuth"
           ]
+        },
+        "caCertResourceId": {
+          "type": "string",
+          "description": "Resource Id of CA certificate for https URL of Git repository."
         },
         "password": {
           "type": "string",
@@ -1502,6 +1773,10 @@
           "enum": [
             "Public"
           ]
+        },
+        "caCertResourceId": {
+          "type": "string",
+          "description": "Resource Id of CA certificate for https URL of Git repository."
         }
       },
       "required": [
@@ -1614,6 +1889,62 @@
         }
       },
       "description": "API portal properties payload"
+    },
+    "ApmProperties": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Non-sensitive properties for the APM"
+        },
+        "secrets": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Sensitive properties for the APM"
+        },
+        "type": {
+          "type": "string",
+          "description": "APM Type"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Properties of an APM"
+    },
+    "ApmReference": {
+      "type": "object",
+      "properties": {
+        "resourceId": {
+          "type": "string",
+          "description": "Resource Id of the APM"
+        }
+      },
+      "required": [
+        "resourceId"
+      ],
+      "description": "A reference to the APM"
     },
     "ApplicationAcceleratorProperties": {
       "type": "object",
@@ -1769,6 +2100,10 @@
             }
           ],
           "description": "Additional App settings in vnet injection instance"
+        },
+        "workloadProfileName": {
+          "type": "string",
+          "description": "The workload profile used for this app. Supported for Consumption + Dedicated plan."
         }
       },
       "description": "App resource properties payload"
@@ -1984,9 +2319,37 @@
           "type": "string",
           "description": "The resource id of agent pool"
         },
+        "apms": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApmReference"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of ApmReferences"
+        },
         "builder": {
           "type": "string",
           "description": "The resource id of builder to build the source code"
+        },
+        "certificates": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CertificateReference"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of CertificateReferences"
         },
         "env": {
           "oneOf": [
@@ -2094,6 +2457,32 @@
       },
       "description": "Build service agent pool size properties"
     },
+    "BuildServiceProperties": {
+      "type": "object",
+      "properties": {
+        "containerRegistry": {
+          "type": "string",
+          "description": "The resource id of the container registry used in this build service."
+        },
+        "resourceRequests": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuildServicePropertiesResourceRequests"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The runtime resource configuration of this build service."
+        }
+      },
+      "description": "Build service resource properties payload"
+    },
+    "BuildServicePropertiesResourceRequests": {
+      "type": "object",
+      "properties": {},
+      "description": "The runtime resource configuration of this build service."
+    },
     "CertificateProperties": {
       "type": "object",
       "oneOf": [
@@ -2107,12 +2496,36 @@
       "properties": {},
       "description": "Certificate resource payload."
     },
+    "CertificateReference": {
+      "type": "object",
+      "properties": {
+        "resourceId": {
+          "type": "string",
+          "description": "Resource Id of the certificate"
+        }
+      },
+      "required": [
+        "resourceId"
+      ],
+      "description": "A reference to the certificate"
+    },
     "ClusterResourceProperties": {
       "type": "object",
       "properties": {
         "infraResourceGroup": {
           "type": "string",
           "description": "The name of the resource group that contains the infrastructure resources"
+        },
+        "maintenanceScheduleConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaintenanceScheduleConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration for the planned maintenance"
         },
         "managedEnvironmentId": {
           "type": "string",
@@ -2255,6 +2668,21 @@
           ],
           "description": "The settings of config server."
         },
+        "enabledState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enabled state of the config server. This is only used in Consumption tier."
+        },
         "error": {
           "oneOf": [
             {
@@ -2309,6 +2737,25 @@
     "ConfigurationServiceGitRepository": {
       "type": "object",
       "properties": {
+        "caCertResourceId": {
+          "type": "string",
+          "description": "Resource Id of CA certificate for https URL of Git repository."
+        },
+        "gitImplementation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "go-git",
+                "libgit2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Git libraries used to support various repository providers."
+        },
         "hostKey": {
           "type": "string",
           "description": "Public sshKey of git repository."
@@ -2392,6 +2839,21 @@
     "ConfigurationServiceProperties": {
       "type": "object",
       "properties": {
+        "generation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Gen1",
+                "Gen2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The generation of the Application Configuration Service."
+        },
         "resourceRequests": {
           "oneOf": [
             {
@@ -2455,6 +2917,66 @@
         }
       },
       "description": "Container liveness and readiness probe settings"
+    },
+    "ContainerRegistryBasicCredentials": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string",
+          "description": "The password of the Container Registry."
+        },
+        "server": {
+          "type": "string",
+          "description": "The login server of the Container Registry."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "BasicAuth"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "description": "The username of the Container Registry."
+        }
+      },
+      "required": [
+        "password",
+        "server",
+        "type",
+        "username"
+      ],
+      "description": "The basic authentication properties for the container registry resource."
+    },
+    "ContainerRegistryCredentials": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ContainerRegistryBasicCredentials"
+        }
+      ],
+      "properties": {},
+      "description": "The credential for the container registry resource."
+    },
+    "ContainerRegistryProperties": {
+      "type": "object",
+      "properties": {
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerRegistryCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The credential for the container registry resource."
+        }
+      },
+      "required": [
+        "credentials"
+      ],
+      "description": "Container registry resource payload."
     },
     "ContentCertificateProperties": {
       "type": "object",
@@ -2523,7 +3045,7 @@
         },
         "languageFramework": {
           "type": "string",
-          "description": "Language framework of the container image uploaded"
+          "description": "Language framework of the container image uploaded. Supported values: \"springboot\", \"\", null."
         },
         "server": {
           "type": "string",
@@ -2789,6 +3311,20 @@
           ],
           "description": "Collection of addons"
         },
+        "apms": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApmReference"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of ApmReferences"
+        },
         "containerProbeSettings": {
           "oneOf": [
             {
@@ -2960,17 +3496,6 @@
           ],
           "description": "Indicates whether the resource exposes public endpoint"
         },
-        "resourceRequests": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DevToolPortalResourceRequests"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The resource quantity for required CPU and Memory of Dev Tool Portal"
-        },
         "ssoProperties": {
           "oneOf": [
             {
@@ -2984,11 +3509,6 @@
         }
       },
       "description": "Dev Tool Portal properties payload"
-    },
-    "DevToolPortalResourceRequests": {
-      "type": "object",
-      "properties": {},
-      "description": "The resource quantity for required CPU and Memory of Dev Tool Portal"
     },
     "DevToolPortalSsoProperties": {
       "type": "object",
@@ -3035,6 +3555,38 @@
         }
       },
       "description": "The error code compose of code and message."
+    },
+    "EurekaServerProperties": {
+      "type": "object",
+      "properties": {
+        "enabledState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enabled state of the eureka server. This is only used in Consumption tier."
+        },
+        "error": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Error"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The error code compose of code and message."
+        }
+      },
+      "description": "Eureka server properties payload"
     },
     "ExecAction": {
       "type": "object",
@@ -3226,6 +3778,20 @@
           ],
           "description": "Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default."
         },
+        "allowedOriginPatterns": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Allowed origin patterns to make cross-site requests."
+        },
         "allowedOrigins": {
           "oneOf": [
             {
@@ -3281,6 +3847,22 @@
     "GatewayProperties": {
       "type": "object",
       "properties": {
+        "addonConfigs": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of addons for Spring Cloud Gateway"
+        },
         "apiMetadataProperties": {
           "oneOf": [
             {
@@ -3312,6 +3894,17 @@
             }
           ],
           "description": "Collection of APM type used in Spring Cloud Gateway"
+        },
+        "clientAuth": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GatewayPropertiesClientAuth"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Client-Certification Authentication."
         },
         "corsProperties": {
           "oneOf": [
@@ -3383,6 +3976,41 @@
         }
       },
       "description": "Spring Cloud Gateway properties payload"
+    },
+    "GatewayPropertiesClientAuth": {
+      "type": "object",
+      "properties": {
+        "certificates": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of certificate resource Ids in Azure Spring Apps."
+        },
+        "certificateVerification": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable certificate verification or not."
+        }
+      },
+      "description": "Client-Certification Authentication."
     },
     "GatewayPropertiesEnvironmentVariables": {
       "type": "object",
@@ -3905,6 +4533,16 @@
       ],
       "description": "Loaded certificate payload"
     },
+    "MaintenanceScheduleConfiguration": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/WeeklyMaintenanceScheduleConfiguration"
+        }
+      ],
+      "properties": {},
+      "description": "Configuration for the planned maintenance"
+    },
     "ManagedIdentityProperties": {
       "type": "object",
       "properties": {
@@ -4392,6 +5030,18 @@
     "ServiceVNetAddons": {
       "type": "object",
       "properties": {
+        "dataPlanePublicEndpoint": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet."
+        },
         "logStreamPublicEndpoint": {
           "oneOf": [
             {
@@ -4463,7 +5113,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -4524,7 +5174,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -4568,13 +5218,71 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/apiPortals/domains"
     },
+    "Spring_apms_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the APM"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApmProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an APM"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "apms"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/apms"
+    },
     "Spring_applicationAccelerators_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -4635,7 +5343,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -4696,7 +5404,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -4746,7 +5454,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -4796,7 +5504,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "identity": {
@@ -4861,7 +5569,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -4922,7 +5630,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -4966,13 +5674,63 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/apps/domains"
     },
+    "Spring_buildServices_agentPools_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the build service agent pool resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuildServiceAgentPoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Build service agent pool properties"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "agentPools"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/buildServices/agentPools"
+    },
     "Spring_buildServices_builders_buildpackBindings_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5016,13 +5774,163 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings"
     },
+    "Spring_buildServices_builders_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the builder resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuilderProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "KPack Builder properties payload"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "builders"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/buildServices/builders"
+    },
+    "Spring_buildServices_builds_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the build resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuildProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Build resource properties payload"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "builds"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/buildServices/builds"
+    },
+    "Spring_buildServices_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the build service resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BuildServiceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Build service resource properties payload"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "buildServices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/buildServices"
+    },
     "Spring_certificates_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5072,7 +5980,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5124,11 +6032,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The name of Application Configuration Service."
         },
         "properties": {
@@ -5168,13 +6084,71 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/configurationServices"
     },
+    "Spring_containerRegistries_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the container registry."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerRegistryProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Container registry resource payload."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "containerRegistries"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/containerRegistries"
+    },
     "Spring_DevToolPortals_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5218,17 +6192,77 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/DevToolPortals"
     },
+    "Spring_eurekaServers_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-07-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EurekaServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Eureka server properties payload"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "eurekaServers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/eurekaServers"
+    },
     "Spring_gateways_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The name of Spring Cloud Gateway."
         },
         "properties": {
@@ -5285,7 +6319,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5335,7 +6369,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5385,7 +6419,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5437,7 +6471,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5464,7 +6498,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-01-01-preview"
+            "2023-07-01-preview"
           ]
         },
         "name": {
@@ -5786,6 +6820,56 @@
         }
       },
       "description": "Source information for a deployment"
+    },
+    "WeeklyMaintenanceScheduleConfiguration": {
+      "type": "object",
+      "properties": {
+        "day": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The day to run the maintenance job."
+        },
+        "frequency": {
+          "type": "string",
+          "enum": [
+            "Weekly"
+          ]
+        },
+        "hour": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 23
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The hour to run the maintenance job"
+        }
+      },
+      "required": [
+        "day",
+        "frequency",
+        "hour"
+      ],
+      "description": "Weekly planned maintenance"
     }
   }
 }
