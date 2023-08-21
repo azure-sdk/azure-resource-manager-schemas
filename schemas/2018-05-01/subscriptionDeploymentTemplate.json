@@ -1203,6 +1203,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.Peering.json#/subscription_resourceDefinitions/peerAsns"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.Peering.json#/subscription_resourceDefinitions/peerAsns"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.PolicyInsights.json#/subscription_resourceDefinitions/remediations"
             },
             {
