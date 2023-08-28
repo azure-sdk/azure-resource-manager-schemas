@@ -9326,48 +9326,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.DataBoxEdge.json#/resourceDefinitions/dataBoxEdgeDevices_users"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2018-04-01/Microsoft.Databricks.json#/resourceDefinitions/workspaces"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-04-01/Microsoft.Databricks.json#/resourceDefinitions/workspaces_virtualNetworkPeerings"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces_privateEndpointConnections"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces_virtualNetworkPeerings"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/accessConnectors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces_privateEndpointConnections"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces_virtualNetworkPeerings"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-10-01-preview/Microsoft.Databricks.json#/resourceDefinitions/accessConnectors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-02-01/Microsoft.Databricks.json#/resourceDefinitions/workspaces"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-02-01/Microsoft.Databricks.json#/resourceDefinitions/workspaces_privateEndpointConnections"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-02-01/Microsoft.Databricks.json#/resourceDefinitions/workspaces_virtualNetworkPeerings"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.Databricks.json#/resourceDefinitions/accessConnectors"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2016-03-30/Microsoft.DataCatalog.json#/resourceDefinitions/catalogs"
         },
         {
