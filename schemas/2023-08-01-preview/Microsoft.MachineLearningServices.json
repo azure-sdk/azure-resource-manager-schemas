@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-08-01-preview/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -125,7 +125,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -182,7 +182,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -221,7 +221,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -278,7 +278,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -317,7 +317,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -366,7 +366,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -405,7 +405,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -462,7 +462,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -501,7 +501,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -557,7 +557,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -596,7 +596,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -686,6 +686,9 @@
                 "$ref": "#/definitions/workspaces_schedules_childResource"
               },
               {
+                "$ref": "#/definitions/workspaces_serverlessEndpoints_childResource"
+              },
+              {
                 "$ref": "#/definitions/workspaces_connections_childResource"
               },
               {
@@ -743,7 +746,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -838,7 +841,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -923,7 +926,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -972,7 +975,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1011,7 +1014,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1060,7 +1063,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1099,7 +1102,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -1118,7 +1121,15 @@
           "description": "Specifies the location of the resource."
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z](?![a-zA-Z0-9-]*-\\d+$)[a-zA-Z0-9\\-]{2,23}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Name of the Azure Machine Learning compute."
         },
         "properties": {
@@ -1179,7 +1190,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1225,7 +1236,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1274,7 +1285,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1313,7 +1324,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1352,7 +1363,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1401,7 +1412,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1440,7 +1451,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1489,7 +1500,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1528,7 +1539,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1577,7 +1588,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1616,7 +1627,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1655,7 +1666,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1694,7 +1705,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1742,7 +1753,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1781,7 +1792,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -1876,7 +1887,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -1960,7 +1971,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -2007,7 +2018,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -2086,7 +2097,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -2118,6 +2129,90 @@
         "type"
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/schedules"
+    },
+    "workspaces_serverlessEndpoints": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Serverless Endpoint name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints"
     }
   },
   "definitions": {
@@ -3566,6 +3661,17 @@
         }
       },
       "description": "Command Job limit class."
+    },
+    "ComponentConfiguration": {
+      "type": "object",
+      "properties": {
+        "pipelineSettings": {
+          "type": "object",
+          "properties": {},
+          "description": "Pipeline settings, for things like ContinueRunOnStepFailure etc."
+        }
+      },
+      "description": "Used for sweep over component"
     },
     "ComponentContainer": {
       "type": "object",
@@ -7402,6 +7508,27 @@
       ],
       "description": "Model performance signal definition."
     },
+    "ModelProfile": {
+      "type": "object",
+      "properties": {
+        "modelUri": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] The model to create a serverless endpoint of"
+        }
+      },
+      "required": [
+        "modelUri"
+      ]
+    },
     "ModelVersion": {
       "type": "object",
       "properties": {
@@ -9325,7 +9452,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9372,7 +9499,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9411,7 +9538,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9458,7 +9585,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9497,7 +9624,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9536,7 +9663,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9575,7 +9702,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9622,7 +9749,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9661,7 +9788,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9707,7 +9834,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -10213,6 +10340,24 @@
         }
       },
       "description": "Secret Configuration definition."
+    },
+    "ServerlessEndpoint": {
+      "type": "object",
+      "properties": {
+        "modelProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ModelProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "modelProfile"
+      ]
     },
     "ServiceManagedResourcesSettings": {
       "type": "object",
@@ -10795,6 +10940,17 @@
     "SweepJob": {
       "type": "object",
       "properties": {
+        "componentConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComponentConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Used for sweep over component"
+        },
         "earlyTermination": {
           "oneOf": [
             {
@@ -10874,6 +11030,16 @@
             }
           ]
         },
+        "resources": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobResourceConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "samplingAlgorithm": {
           "oneOf": [
             {
@@ -10906,8 +11072,7 @@
         "jobType",
         "objective",
         "samplingAlgorithm",
-        "searchSpace",
-        "trial"
+        "searchSpace"
       ],
       "description": "Sweep job definition."
     },
@@ -11939,7 +12104,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -12024,7 +12189,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -12109,7 +12274,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12148,7 +12313,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12187,7 +12352,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12226,7 +12391,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12265,7 +12430,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -12284,7 +12449,15 @@
           "description": "Specifies the location of the resource."
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z](?![a-zA-Z0-9-]*-\\d+$)[a-zA-Z0-9\\-]{2,23}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Name of the Azure Machine Learning compute."
         },
         "properties": {
@@ -12345,7 +12518,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12391,7 +12564,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12430,7 +12603,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12469,7 +12642,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12508,7 +12681,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12547,7 +12720,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12586,7 +12759,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12625,7 +12798,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12664,7 +12837,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12703,7 +12876,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12742,7 +12915,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12781,7 +12954,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12820,7 +12993,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12858,7 +13031,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12897,7 +13070,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -12982,7 +13155,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -13066,7 +13239,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -13113,7 +13286,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -13192,7 +13365,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -13224,6 +13397,90 @@
         "type"
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/schedules"
+    },
+    "workspaces_serverlessEndpoints_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Serverless Endpoint name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "serverlessEndpoints"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints"
     }
   }
 }
