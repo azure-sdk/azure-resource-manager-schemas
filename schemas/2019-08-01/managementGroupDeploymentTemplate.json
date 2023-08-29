@@ -714,6 +714,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2022-08-01-preview/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/variables_values"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/privateLinkAssociations"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2017-11-11-preview/Microsoft.Blueprint.json#/managementGroup_resourceDefinitions/blueprints"
             },
             {
