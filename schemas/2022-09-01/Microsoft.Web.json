@@ -218,10 +218,6 @@
         {
           "type": "object",
           "properties": {
-            "kind": {
-              "type": "string",
-              "description": "Kind of resource."
-            },
             "name": {
               "oneOf": [
                 {
@@ -234,15 +230,8 @@
               ]
             },
             "properties": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/CustomDnsSuffixConfigurationProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ],
-              "description": "CustomDnsSuffixConfiguration resource specific properties"
+              "type": "object",
+              "properties": {}
             }
           },
           "required": [
@@ -254,10 +243,6 @@
         {
           "type": "object",
           "properties": {
-            "kind": {
-              "type": "string",
-              "description": "Kind of resource."
-            },
             "name": {
               "oneOf": [
                 {
@@ -270,15 +255,8 @@
               ]
             },
             "properties": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AseV3NetworkingConfigurationProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ],
-              "description": "AseV3NetworkingConfiguration resource specific properties"
+              "type": "object",
+              "properties": {}
             }
           },
           "required": [
@@ -5129,66 +5107,12 @@
     "AseV3NetworkingConfiguration": {
       "type": "object",
       "properties": {
-        "kind": {
-          "type": "string",
-          "description": "Kind of resource."
-        },
         "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AseV3NetworkingConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "AseV3NetworkingConfiguration resource specific properties"
+          "type": "object",
+          "properties": {}
         }
       },
       "description": "Full view of networking configuration for an ASE."
-    },
-    "AseV3NetworkingConfigurationProperties": {
-      "type": "object",
-      "properties": {
-        "allowNewPrivateEndpointConnections": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Property to enable and disable new private endpoint connection creation on ASE"
-        },
-        "ftpEnabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Property to enable and disable FTP on ASEV3"
-        },
-        "inboundIpAddressOverride": {
-          "type": "string",
-          "description": "Customer provided Inbound IP Address. Only able to be set on Ase create."
-        },
-        "remoteDebugEnabled": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Property to enable and disable Remote Debug on ASEV3"
-        }
-      },
-      "description": "AseV3NetworkingConfiguration resource specific properties"
     },
     "AuthPlatform": {
       "type": "object",
@@ -6399,41 +6323,12 @@
     "CustomDnsSuffixConfiguration": {
       "type": "object",
       "properties": {
-        "kind": {
-          "type": "string",
-          "description": "Kind of resource."
-        },
         "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CustomDnsSuffixConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "CustomDnsSuffixConfiguration resource specific properties"
+          "type": "object",
+          "properties": {}
         }
       },
       "description": "Full view of the custom domain suffix configuration for ASEv3."
-    },
-    "CustomDnsSuffixConfigurationProperties": {
-      "type": "object",
-      "properties": {
-        "certificateUrl": {
-          "type": "string",
-          "description": "The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix."
-        },
-        "dnsSuffix": {
-          "type": "string",
-          "description": "The default custom domain suffix to use for all sites deployed on the ASE."
-        },
-        "keyVaultReferenceIdentity": {
-          "type": "string",
-          "description": "The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available."
-        }
-      },
-      "description": "CustomDnsSuffixConfiguration resource specific properties"
     },
     "CustomOpenIdConnectProvider": {
       "type": "object",
@@ -7331,10 +7226,6 @@
         {
           "type": "object",
           "properties": {
-            "kind": {
-              "type": "string",
-              "description": "Kind of resource."
-            },
             "name": {
               "type": "string",
               "enum": [
@@ -7342,15 +7233,8 @@
               ]
             },
             "properties": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/CustomDnsSuffixConfigurationProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ],
-              "description": "CustomDnsSuffixConfiguration resource specific properties"
+              "type": "object",
+              "properties": {}
             }
           },
           "required": [
@@ -7362,10 +7246,6 @@
         {
           "type": "object",
           "properties": {
-            "kind": {
-              "type": "string",
-              "description": "Kind of resource."
-            },
             "name": {
               "type": "string",
               "enum": [
@@ -7373,15 +7253,8 @@
               ]
             },
             "properties": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AseV3NetworkingConfigurationProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ],
-              "description": "AseV3NetworkingConfiguration resource specific properties"
+              "type": "object",
+              "properties": {}
             }
           },
           "required": [
