@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Cache.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.Cache.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Cache",
   "description": "Microsoft Cache Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "identity": {
@@ -58,6 +58,12 @@
               },
               {
                 "$ref": "#/definitions/redis_privateEndpointConnections_childResource"
+              },
+              {
+                "$ref": "#/definitions/redis_accessPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/redis_accessPolicyAssignments_childResource"
               }
             ]
           }
@@ -107,13 +113,111 @@
       ],
       "description": "Microsoft.Cache/redis"
     },
+    "redis_accessPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z0-9])$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the access policy that is being added to the Redis cache."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RedisCacheAccessPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "All properties of an access policy."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Cache/redis/accessPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cache/redis/accessPolicies"
+    },
+    "redis_accessPolicyAssignments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z0-9])$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the access policy assignment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RedisCacheAccessPolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for an access policy assignment"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Cache/redis/accessPolicyAssignments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cache/redis/accessPolicyAssignments"
+    },
     "redis_firewallRules": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "name": {
@@ -152,7 +256,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "name": {
@@ -191,7 +295,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "name": {
@@ -238,7 +342,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "name": {
@@ -396,9 +500,57 @@
       },
       "description": "A collection of information about the state of the connection between service consumer and provider."
     },
+    "RedisCacheAccessPolicyAssignmentProperties": {
+      "type": "object",
+      "properties": {
+        "accessPolicyName": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z0-9])$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the access policy that is being assigned"
+        },
+        "objectId": {
+          "type": "string",
+          "description": "Object Id to assign access policy to"
+        },
+        "objectIdAlias": {
+          "type": "string",
+          "description": "User friendly name for object id. Also represents username for token based authentication"
+        }
+      },
+      "required": [
+        "accessPolicyName",
+        "objectId",
+        "objectIdAlias"
+      ],
+      "description": "Properties for an access policy assignment"
+    },
+    "RedisCacheAccessPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "permissions": {
+          "type": "string",
+          "description": "Permissions for the access policy. Learn how to configure permissions at https://aka.ms/redis/AADPreRequisites"
+        }
+      },
+      "required": [
+        "permissions"
+      ],
+      "description": "All properties of an access policy."
+    },
     "RedisCommonPropertiesRedisConfiguration": {
       "type": "object",
       "properties": {
+        "aad-enabled": {
+          "type": "string",
+          "description": "Specifies whether AAD based authentication has been enabled or disabled for the cache"
+        },
         "additionalProperties": {
           "oneOf": [
             {
@@ -617,6 +769,21 @@
             }
           ],
           "description": "A dictionary of tenant settings"
+        },
+        "updateChannel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Stable",
+                "Preview"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'."
         }
       },
       "required": [
@@ -676,13 +843,111 @@
       ],
       "description": "Create properties for a linked server"
     },
+    "redis_accessPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z0-9])$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the access policy that is being added to the Redis cache."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RedisCacheAccessPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "All properties of an access policy."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "accessPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cache/redis/accessPolicies"
+    },
+    "redis_accessPolicyAssignments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z0-9])$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the access policy assignment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RedisCacheAccessPolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for an access policy assignment"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "accessPolicyAssignments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Cache/redis/accessPolicyAssignments"
+    },
     "redis_firewallRules_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "name": {
@@ -721,7 +986,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "name": {
@@ -760,7 +1025,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "name": {
@@ -802,7 +1067,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-08-01"
           ]
         },
         "name": {
