@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-10-01/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -125,7 +125,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -182,7 +182,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -221,7 +221,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -278,7 +278,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -317,7 +317,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -366,7 +366,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -405,7 +405,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -462,7 +462,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -501,7 +501,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -557,7 +557,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -596,7 +596,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -730,7 +730,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -825,7 +825,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -910,7 +910,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -959,7 +959,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -998,7 +998,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1047,7 +1047,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1086,7 +1086,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -1166,7 +1166,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1204,7 +1204,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1253,7 +1253,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1292,7 +1292,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1331,7 +1331,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1380,7 +1380,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1419,7 +1419,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1458,7 +1458,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1506,7 +1506,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1545,7 +1545,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -1640,7 +1640,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -1724,7 +1724,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -1804,7 +1804,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -2132,232 +2132,6 @@
         }
       },
       "description": "Auto scale properties"
-    },
-    "AzureBlobDatastore": {
-      "type": "object",
-      "properties": {
-        "accountName": {
-          "type": "string",
-          "description": "Storage account name."
-        },
-        "containerName": {
-          "type": "string",
-          "description": "Storage account container name."
-        },
-        "datastoreType": {
-          "type": "string",
-          "enum": [
-            "AzureBlob"
-          ]
-        },
-        "endpoint": {
-          "type": "string",
-          "description": "Azure cloud endpoint for the storage account."
-        },
-        "protocol": {
-          "type": "string",
-          "description": "Protocol used to communicate with the storage account."
-        },
-        "serviceDataAccessAuthIdentity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "WorkspaceSystemAssignedIdentity",
-                "WorkspaceUserAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates which identity to use to authenticate service data access to customer's storage."
-        }
-      },
-      "required": [
-        "datastoreType"
-      ],
-      "description": "Azure Blob datastore configuration."
-    },
-    "AzureDataLakeGen1Datastore": {
-      "type": "object",
-      "properties": {
-        "datastoreType": {
-          "type": "string",
-          "enum": [
-            "AzureDataLakeGen1"
-          ]
-        },
-        "serviceDataAccessAuthIdentity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "WorkspaceSystemAssignedIdentity",
-                "WorkspaceUserAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates which identity to use to authenticate service data access to customer's storage."
-        },
-        "storeName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] Azure Data Lake store name."
-        }
-      },
-      "required": [
-        "datastoreType",
-        "storeName"
-      ],
-      "description": "Azure Data Lake Gen1 datastore configuration."
-    },
-    "AzureDataLakeGen2Datastore": {
-      "type": "object",
-      "properties": {
-        "accountName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] Storage account name."
-        },
-        "datastoreType": {
-          "type": "string",
-          "enum": [
-            "AzureDataLakeGen2"
-          ]
-        },
-        "endpoint": {
-          "type": "string",
-          "description": "Azure cloud endpoint for the storage account."
-        },
-        "filesystem": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] The name of the Data Lake Gen2 filesystem."
-        },
-        "protocol": {
-          "type": "string",
-          "description": "Protocol used to communicate with the storage account."
-        },
-        "serviceDataAccessAuthIdentity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "WorkspaceSystemAssignedIdentity",
-                "WorkspaceUserAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates which identity to use to authenticate service data access to customer's storage."
-        }
-      },
-      "required": [
-        "accountName",
-        "datastoreType",
-        "filesystem"
-      ],
-      "description": "Azure Data Lake Gen2 datastore configuration."
-    },
-    "AzureFileDatastore": {
-      "type": "object",
-      "properties": {
-        "accountName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] Storage account name."
-        },
-        "datastoreType": {
-          "type": "string",
-          "enum": [
-            "AzureFile"
-          ]
-        },
-        "endpoint": {
-          "type": "string",
-          "description": "Azure cloud endpoint for the storage account."
-        },
-        "fileShareName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] The name of the Azure file share that the datastore points to."
-        },
-        "protocol": {
-          "type": "string",
-          "description": "Protocol used to communicate with the storage account."
-        },
-        "serviceDataAccessAuthIdentity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "WorkspaceSystemAssignedIdentity",
-                "WorkspaceUserAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates which identity to use to authenticate service data access to customer's storage."
-        }
-      },
-      "required": [
-        "accountName",
-        "datastoreType",
-        "fileShareName"
-      ],
-      "description": "Azure File datastore configuration."
     },
     "BanditPolicy": {
       "type": "object",
@@ -3425,20 +3199,6 @@
     },
     "Datastore": {
       "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/AzureBlobDatastore"
-        },
-        {
-          "$ref": "#/definitions/AzureDataLakeGen1Datastore"
-        },
-        {
-          "$ref": "#/definitions/AzureDataLakeGen2Datastore"
-        },
-        {
-          "$ref": "#/definitions/AzureFileDatastore"
-        }
-      ],
       "properties": {
         "credentials": {
           "oneOf": [
@@ -5669,7 +5429,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5716,7 +5476,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5755,7 +5515,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5802,7 +5562,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5841,7 +5601,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5880,7 +5640,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5919,7 +5679,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5966,7 +5726,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -6005,7 +5765,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -6051,7 +5811,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7569,7 +7329,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -7654,7 +7414,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -7739,7 +7499,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7778,7 +7538,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7817,7 +7577,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7856,7 +7616,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7895,7 +7655,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -7975,7 +7735,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8013,7 +7773,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8052,7 +7812,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8091,7 +7851,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8130,7 +7890,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8169,7 +7929,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8208,7 +7968,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8247,7 +8007,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8285,7 +8045,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8324,7 +8084,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -8409,7 +8169,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -8493,7 +8253,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -8573,7 +8333,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
