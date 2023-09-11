@@ -9461,63 +9461,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-06-01/Microsoft.Datadog.json#/resourceDefinitions/monitors_tagRules"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2017-09-01-preview/Microsoft.DataFactory.json#/resourceDefinitions/factories"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-09-01-preview/Microsoft.DataFactory.json#/resourceDefinitions/factories_datasets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-09-01-preview/Microsoft.DataFactory.json#/resourceDefinitions/factories_integrationRuntimes"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-09-01-preview/Microsoft.DataFactory.json#/resourceDefinitions/factories_linkedservices"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-09-01-preview/Microsoft.DataFactory.json#/resourceDefinitions/factories_pipelines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-09-01-preview/Microsoft.DataFactory.json#/resourceDefinitions/factories_triggers"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_adfcdcs"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_credentials"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_dataflows"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_datasets"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_globalParameters"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_integrationRuntimes"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_linkedservices"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_managedVirtualNetworks"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_managedVirtualNetworks_managedPrivateEndpoints"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_pipelines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_privateEndpointConnections"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.DataFactory.json#/resourceDefinitions/factories_triggers"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json#/resourceDefinitions/accounts"
         },
         {
