@@ -4151,6 +4151,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-07-01-preview/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyExemptions"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-06-30-preview/Microsoft.Automanage.json#/resourceDefinitions/accounts"
         },
         {
@@ -30294,6 +30297,12 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.Resources.json#/unknown_resourceDefinitions/tags"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.Resources.json#/resourceDefinitions/deployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.Resources.json#/unknown_resourceDefinitions/tags"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2014-08-01-preview/Microsoft.Scheduler.json#/resourceDefinitions/jobCollections"
