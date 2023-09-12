@@ -1,16 +1,83 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-04-25-preview/Microsoft.HybridCompute.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-06-20-preview/Microsoft.HybridCompute.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.HybridCompute",
   "description": "Microsoft HybridCompute Resource Types",
   "resourceDefinitions": {
+    "licenses": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-06-20-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9-_\\.]+"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the license."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a License Profile."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.HybridCompute/licenses"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.HybridCompute/licenses"
+    },
     "machines": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-06-20-preview"
           ]
         },
         "identity": {
@@ -32,14 +99,16 @@
                 "AVS",
                 "HCI",
                 "SCVMM",
-                "VMware"
+                "VMware",
+                "EPS",
+                "GCP",
+                "AWS"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "Indicates which kind of VM fabric the instance is an instance of, such as HCI or SCVMM etc."
+          ]
         },
         "location": {
           "type": "string",
@@ -49,7 +118,7 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9-_\\.]"
+              "pattern": "[a-zA-Z0-9-_\\.]+"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -73,10 +142,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/machines_extensions_childResource"
+                "$ref": "#/definitions/machines_licenseProfiles_childResource"
               },
               {
-                "$ref": "#/definitions/machines_runCommands_childResource"
+                "$ref": "#/definitions/machines_extensions_childResource"
               }
             ]
           }
@@ -118,7 +187,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-06-20-preview"
           ]
         },
         "location": {
@@ -171,13 +240,13 @@
       ],
       "description": "Microsoft.HybridCompute/machines/extensions"
     },
-    "machines_runCommands": {
+    "machines_licenseProfiles": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-06-20-preview"
           ]
         },
         "location": {
@@ -188,24 +257,24 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9-_\\.]"
+              "pattern": "^.*/default$"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The name of the run command."
+          "description": "The name of the license profile."
         },
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/MachineRunCommandProperties"
+              "$ref": "#/definitions/LicenseProfileProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Describes the properties of a run command."
+          "description": "Describe the properties of a license profile."
         },
         "tags": {
           "oneOf": [
@@ -225,7 +294,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "Microsoft.HybridCompute/machines/runCommands"
+            "Microsoft.HybridCompute/machines/licenseProfiles"
           ]
         }
       },
@@ -236,7 +305,7 @@
         "properties",
         "type"
       ],
-      "description": "Microsoft.HybridCompute/machines/runCommands"
+      "description": "Microsoft.HybridCompute/machines/licenseProfiles"
     },
     "privateLinkScopes": {
       "type": "object",
@@ -244,7 +313,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-06-20-preview"
           ]
         },
         "location": {
@@ -313,7 +382,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-06-20-preview"
           ]
         },
         "name": {
@@ -448,6 +517,271 @@
         }
       },
       "description": "Describes properties of the IP address."
+    },
+    "License": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a License Profile."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "description": "Describes a license in a hybrid machine."
+    },
+    "LicenseDetails": {
+      "type": "object",
+      "properties": {
+        "edition": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "Datacenter"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "processors": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the number of processors."
+        },
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Activated",
+                "Deactivated"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "target": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Windows Server 2012",
+                "Windows Server 2012 R2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "pCore",
+                "vCore"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Describes the properties of a License."
+    },
+    "LicenseProfileArmEsuProperties": {
+      "type": "object",
+      "properties": {
+        "assignedLicense": {
+          "type": "string",
+          "description": "The resource id of the license."
+        }
+      },
+      "description": "Describes the properties of a License Profile ARM model."
+    },
+    "LicenseProfileMachineInstanceView": {
+      "type": "object",
+      "properties": {
+        "esuProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileMachineInstanceViewEsuProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for the Machine ESU profile."
+        }
+      },
+      "description": "License Profile Instance View in Machine Properties."
+    },
+    "LicenseProfileMachineInstanceViewEsuProperties": {
+      "type": "object",
+      "properties": {
+        "assignedLicense": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/License"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes a license in a hybrid machine."
+        },
+        "licenseAssignmentState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Assigned",
+                "NotAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the license assignment state (Assigned or NotAssigned)."
+        }
+      },
+      "description": "Properties for the Machine ESU profile."
+    },
+    "LicenseProfileProperties": {
+      "type": "object",
+      "properties": {
+        "esuProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileArmEsuProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a License Profile ARM model."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Creating",
+                "Updating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Accepted",
+                "Canceled",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioning state, which only appears in the response."
+        }
+      },
+      "description": "Describe the properties of a license profile."
+    },
+    "LicenseProperties": {
+      "type": "object",
+      "properties": {
+        "licenseDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a License."
+        },
+        "licenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ESU"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the license resource."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Creating",
+                "Updating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Accepted",
+                "Canceled",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioning state, which only appears in the response."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "Describes the tenant id."
+        }
+      },
+      "description": "Describes the properties of a License Profile."
     },
     "LocationData": {
       "type": "object",
@@ -699,6 +1033,17 @@
           ],
           "description": "Machine Extensions information (deprecated field)"
         },
+        "licenseProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileMachineInstanceView"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "License Profile Instance View in Machine Properties."
+        },
         "locationData": {
           "oneOf": [
             {
@@ -766,148 +1111,13 @@
       },
       "description": "Describes the properties of a hybrid machine."
     },
-    "MachineRunCommandProperties": {
-      "type": "object",
-      "properties": {
-        "asyncExecution": {
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Optional. If set to true, provisioning will complete as soon as script starts and will not wait for script to complete."
-        },
-        "errorBlobManagedIdentity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/RunCommandManagedIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": " Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged."
-        },
-        "errorBlobUri": {
-          "type": "string",
-          "description": "Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter."
-        },
-        "outputBlobManagedIdentity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/RunCommandManagedIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": " Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged."
-        },
-        "outputBlobUri": {
-          "type": "string",
-          "description": "Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. "
-        },
-        "parameters": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/RunCommandInputParameter"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The parameters used by the script."
-        },
-        "protectedParameters": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/RunCommandInputParameter"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The parameters used by the script."
-        },
-        "runAsPassword": {
-          "type": "string",
-          "description": "Specifies the user account password on the machine when executing the run command."
-        },
-        "runAsUser": {
-          "type": "string",
-          "description": "Specifies the user account on the machine when executing the run command."
-        },
-        "source": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/MachineRunCommandScriptSource"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Describes the script sources for run command. Use only one of script, scriptUri, commandId."
-        },
-        "timeoutInSeconds": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The timeout in seconds to execute the run command."
-        }
-      },
-      "description": "Describes the properties of a run command."
-    },
-    "MachineRunCommandScriptSource": {
-      "type": "object",
-      "properties": {
-        "commandId": {
-          "type": "string",
-          "description": "Specifies the commandId of predefined built-in script."
-        },
-        "script": {
-          "type": "string",
-          "description": "Specifies the script content to be executed on the machine."
-        },
-        "scriptUri": {
-          "type": "string",
-          "description": "Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI."
-        },
-        "scriptUriManagedIdentity": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/RunCommandManagedIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": " Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged."
-        }
-      },
-      "description": "Describes the script sources for run command. Use only one of script, scriptUri, commandId."
-    },
     "machines_extensions_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-06-20-preview"
           ]
         },
         "location": {
@@ -960,13 +1170,13 @@
       ],
       "description": "Microsoft.HybridCompute/machines/extensions"
     },
-    "machines_runCommands_childResource": {
+    "machines_licenseProfiles_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-06-20-preview"
           ]
         },
         "location": {
@@ -974,27 +1184,22 @@
           "description": "The geo-location where the resource lives"
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9-_\\.]"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
+          "type": "string",
+          "enum": [
+            "default"
           ],
-          "description": "The name of the run command."
+          "description": "The name of the license profile."
         },
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/MachineRunCommandProperties"
+              "$ref": "#/definitions/LicenseProfileProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Describes the properties of a run command."
+          "description": "Describe the properties of a license profile."
         },
         "tags": {
           "oneOf": [
@@ -1014,7 +1219,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "runCommands"
+            "licenseProfiles"
           ]
         }
       },
@@ -1025,7 +1230,7 @@
         "properties",
         "type"
       ],
-      "description": "Microsoft.HybridCompute/machines/runCommands"
+      "description": "Microsoft.HybridCompute/machines/licenseProfiles"
     },
     "NetworkInterface": {
       "type": "object",
@@ -1211,7 +1416,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-06-20-preview"
           ]
         },
         "name": {
@@ -1261,38 +1466,6 @@
         "status"
       ],
       "description": "State of the private endpoint connection."
-    },
-    "RunCommandInputParameter": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The run command parameter name."
-        },
-        "value": {
-          "type": "string",
-          "description": "The run command parameter value."
-        }
-      },
-      "required": [
-        "name",
-        "value"
-      ],
-      "description": "Describes the properties of a run command parameter."
-    },
-    "RunCommandManagedIdentity": {
-      "type": "object",
-      "properties": {
-        "clientId": {
-          "type": "string",
-          "description": "Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided."
-        },
-        "objectId": {
-          "type": "string",
-          "description": "Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided."
-        }
-      },
-      "description": " Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged."
     },
     "ServiceStatus": {
       "type": "object",
