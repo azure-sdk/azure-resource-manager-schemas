@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-10-01/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -125,7 +125,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -182,7 +182,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -221,7 +221,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -278,7 +278,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -317,7 +317,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -366,7 +366,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -405,7 +405,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -462,7 +462,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -501,7 +501,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -557,7 +557,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -596,7 +596,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -649,6 +649,9 @@
               },
               {
                 "$ref": "#/definitions/workspaces_connections_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_outboundRules_childResource"
               },
               {
                 "$ref": "#/definitions/workspaces_batchEndpoints_childResource"
@@ -730,7 +733,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -825,7 +828,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -910,7 +913,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -959,7 +962,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -998,7 +1001,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1047,7 +1050,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1086,7 +1089,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -1166,11 +1169,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Friendly name of the workspace connection"
         },
         "properties": {
@@ -1204,7 +1215,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1253,7 +1264,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1292,7 +1303,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1331,7 +1342,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1380,7 +1391,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1419,7 +1430,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1458,7 +1469,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1506,7 +1517,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -1545,7 +1556,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -1640,7 +1651,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -1718,13 +1729,60 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments"
     },
+    "workspaces_outboundRules": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-10-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the workspace managed network outbound rule"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OutboundRule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Outbound Rule for the managed network of a machine learning workspace."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/outboundRules"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/outboundRules"
+    },
     "workspaces_privateEndpointConnections": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -1804,7 +1862,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -2001,6 +2059,16 @@
           ],
           "description": "Mapping of output data bindings used in the job."
         },
+        "queueSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueueSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "resources": {
           "oneOf": [
             {
@@ -2132,232 +2200,6 @@
         }
       },
       "description": "Auto scale properties"
-    },
-    "AzureBlobDatastore": {
-      "type": "object",
-      "properties": {
-        "accountName": {
-          "type": "string",
-          "description": "Storage account name."
-        },
-        "containerName": {
-          "type": "string",
-          "description": "Storage account container name."
-        },
-        "datastoreType": {
-          "type": "string",
-          "enum": [
-            "AzureBlob"
-          ]
-        },
-        "endpoint": {
-          "type": "string",
-          "description": "Azure cloud endpoint for the storage account."
-        },
-        "protocol": {
-          "type": "string",
-          "description": "Protocol used to communicate with the storage account."
-        },
-        "serviceDataAccessAuthIdentity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "WorkspaceSystemAssignedIdentity",
-                "WorkspaceUserAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates which identity to use to authenticate service data access to customer's storage."
-        }
-      },
-      "required": [
-        "datastoreType"
-      ],
-      "description": "Azure Blob datastore configuration."
-    },
-    "AzureDataLakeGen1Datastore": {
-      "type": "object",
-      "properties": {
-        "datastoreType": {
-          "type": "string",
-          "enum": [
-            "AzureDataLakeGen1"
-          ]
-        },
-        "serviceDataAccessAuthIdentity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "WorkspaceSystemAssignedIdentity",
-                "WorkspaceUserAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates which identity to use to authenticate service data access to customer's storage."
-        },
-        "storeName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] Azure Data Lake store name."
-        }
-      },
-      "required": [
-        "datastoreType",
-        "storeName"
-      ],
-      "description": "Azure Data Lake Gen1 datastore configuration."
-    },
-    "AzureDataLakeGen2Datastore": {
-      "type": "object",
-      "properties": {
-        "accountName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] Storage account name."
-        },
-        "datastoreType": {
-          "type": "string",
-          "enum": [
-            "AzureDataLakeGen2"
-          ]
-        },
-        "endpoint": {
-          "type": "string",
-          "description": "Azure cloud endpoint for the storage account."
-        },
-        "filesystem": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] The name of the Data Lake Gen2 filesystem."
-        },
-        "protocol": {
-          "type": "string",
-          "description": "Protocol used to communicate with the storage account."
-        },
-        "serviceDataAccessAuthIdentity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "WorkspaceSystemAssignedIdentity",
-                "WorkspaceUserAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates which identity to use to authenticate service data access to customer's storage."
-        }
-      },
-      "required": [
-        "accountName",
-        "datastoreType",
-        "filesystem"
-      ],
-      "description": "Azure Data Lake Gen2 datastore configuration."
-    },
-    "AzureFileDatastore": {
-      "type": "object",
-      "properties": {
-        "accountName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] Storage account name."
-        },
-        "datastoreType": {
-          "type": "string",
-          "enum": [
-            "AzureFile"
-          ]
-        },
-        "endpoint": {
-          "type": "string",
-          "description": "Azure cloud endpoint for the storage account."
-        },
-        "fileShareName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "[a-zA-Z0-9_]",
-              "minLength": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] The name of the Azure file share that the datastore points to."
-        },
-        "protocol": {
-          "type": "string",
-          "description": "Protocol used to communicate with the storage account."
-        },
-        "serviceDataAccessAuthIdentity": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "None",
-                "WorkspaceSystemAssignedIdentity",
-                "WorkspaceUserAssignedIdentity"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Indicates which identity to use to authenticate service data access to customer's storage."
-        }
-      },
-      "required": [
-        "accountName",
-        "datastoreType",
-        "fileShareName"
-      ],
-      "description": "Azure File datastore configuration."
     },
     "BanditPolicy": {
       "type": "object",
@@ -3040,6 +2882,16 @@
           ],
           "description": "Mapping of output data bindings used in the job."
         },
+        "queueSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueueSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "resources": {
           "oneOf": [
             {
@@ -3425,20 +3277,6 @@
     },
     "Datastore": {
       "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/AzureBlobDatastore"
-        },
-        {
-          "$ref": "#/definitions/AzureDataLakeGen1Datastore"
-        },
-        {
-          "$ref": "#/definitions/AzureDataLakeGen2Datastore"
-        },
-        {
-          "$ref": "#/definitions/AzureFileDatastore"
-        }
-      ],
       "properties": {
         "credentials": {
           "oneOf": [
@@ -4011,6 +3849,24 @@
         }
       }
     },
+    "FqdnOutboundRule": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "FQDN"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "FQDN Outbound Rule for the managed network of a machine learning workspace."
+    },
     "GridSamplingAlgorithm": {
       "type": "object",
       "properties": {
@@ -4502,6 +4358,82 @@
       "required": [
         "authType"
       ]
+    },
+    "ManagedNetworkProvisionStatus": {
+      "type": "object",
+      "properties": {
+        "sparkReady": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Inactive",
+                "Active"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Status of the Provisioning for the managed network of a machine learning workspace."
+    },
+    "ManagedNetworkSettings": {
+      "type": "object",
+      "properties": {
+        "isolationMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "AllowInternetOutbound",
+                "AllowOnlyApprovedOutbound"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "outboundRules": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/OutboundRule"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedNetworkProvisionStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the Provisioning for the managed network of a machine learning workspace."
+        }
+      },
+      "description": "Managed Network settings for a machine learning workspace."
     },
     "ManagedOnlineDeployment": {
       "type": "object",
@@ -5208,6 +5140,52 @@
       "properties": {},
       "description": "Online deployment scaling configuration."
     },
+    "OutboundRule": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/PrivateEndpointOutboundRule"
+        },
+        {
+          "$ref": "#/definitions/ServiceTagOutboundRule"
+        },
+        {
+          "$ref": "#/definitions/FqdnOutboundRule"
+        }
+      ],
+      "properties": {
+        "category": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Required",
+                "Recommended",
+                "UserDefined"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Inactive",
+                "Active"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Outbound Rule for the managed network of a machine learning workspace."
+    },
     "OutputPathAssetReference": {
       "type": "object",
       "properties": {
@@ -5378,6 +5356,69 @@
       ],
       "description": "Properties of the PrivateEndpointConnectProperties."
     },
+    "PrivateEndpointDestination": {
+      "type": "object",
+      "properties": {
+        "serviceResourceId": {
+          "type": "string",
+          "format": "arm-id"
+        },
+        "sparkEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sparkStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Inactive",
+                "Active"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "subresourceTarget": {
+          "type": "string"
+        }
+      },
+      "description": "Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace."
+    },
+    "PrivateEndpointOutboundRule": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointDestination"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "PrivateEndpoint"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Private Endpoint Outbound Rule for the managed network of a machine learning workspace."
+    },
     "PrivateEndpointResource": {
       "type": "object",
       "properties": {
@@ -5492,6 +5533,40 @@
         "distributionType"
       ],
       "description": "PyTorch distribution configuration."
+    },
+    "QueueSettings": {
+      "type": "object",
+      "properties": {
+        "jobTier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Null",
+                "Spot",
+                "Basic",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Controls the compute job tier."
+        },
+        "priority": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Controls the priority of the job on a compute."
+        }
+      }
     },
     "RandomSamplingAlgorithm": {
       "type": "object",
@@ -5669,7 +5744,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5716,7 +5791,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5755,7 +5830,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5802,7 +5877,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5841,7 +5916,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5880,7 +5955,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5919,7 +5994,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -5966,7 +6041,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -6005,7 +6080,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -6051,7 +6126,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -6573,6 +6648,61 @@
       },
       "description": "Datastore Service Principal secrets."
     },
+    "ServiceTagDestination": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Allow",
+                "Deny"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "portRanges": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "serviceTag": {
+          "type": "string"
+        }
+      },
+      "description": "Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace."
+    },
+    "ServiceTagOutboundRule": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceTagDestination"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "ServiceTag"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Service Tag Outbound Rule for the managed network of a machine learning workspace."
+    },
     "SharedPrivateLinkResource": {
       "type": "object",
       "properties": {
@@ -6774,6 +6904,16 @@
             }
           ],
           "description": "Mapping of output data bindings used in the job."
+        },
+        "queueSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueueSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "samplingAlgorithm": {
           "oneOf": [
@@ -7501,6 +7641,17 @@
           "type": "string",
           "description": "ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created"
         },
+        "managedNetwork": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedNetworkSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed Network settings for a machine learning workspace."
+        },
         "primaryUserAssignedIdentity": {
           "type": "string",
           "description": "The user assigned identity resource id that represents the workspace identity."
@@ -7569,7 +7720,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -7654,7 +7805,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -7739,7 +7890,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7778,7 +7929,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7817,7 +7968,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7856,7 +8007,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -7895,7 +8046,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -7975,11 +8126,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Friendly name of the workspace connection"
         },
         "properties": {
@@ -8013,7 +8172,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8052,7 +8211,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8091,7 +8250,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8130,7 +8289,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8169,7 +8328,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8208,7 +8367,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8247,7 +8406,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8285,7 +8444,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
@@ -8324,7 +8483,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -8409,7 +8568,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -8487,13 +8646,60 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments"
     },
+    "workspaces_outboundRules_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-10-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the workspace managed network outbound rule"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OutboundRule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Outbound Rule for the managed network of a machine learning workspace."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "outboundRules"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/outboundRules"
+    },
     "workspaces_privateEndpointConnections_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "identity": {
@@ -8573,7 +8779,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-01"
+            "2023-10-01"
           ]
         },
         "name": {
