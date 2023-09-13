@@ -7556,19 +7556,7 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.ContainerInstance.json#/resourceDefinitions/containerGroups"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2016-06-27-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2017-03-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-06-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-06-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_replications"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2017-06-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_webhooks"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2017-10-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries"
@@ -7578,12 +7566,6 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2017-10-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_webhooks"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-02-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_buildTasks"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-02-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_buildTasks_steps"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_tasks"
