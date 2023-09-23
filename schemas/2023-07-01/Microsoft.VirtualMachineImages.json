@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-07-01/Microsoft.VirtualMachineImages.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.VirtualMachineImages.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.VirtualMachineImages",
   "description": "Microsoft VirtualMachineImages Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-07-01"
+            "2023-07-01"
           ]
         },
         "identity": {
@@ -99,7 +99,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-07-01"
+            "2023-07-01"
           ]
         },
         "name": {
@@ -669,6 +669,17 @@
           ],
           "description": "The distribution targets where the image output needs to go to."
         },
+        "errorHandling": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ImageTemplatePropertiesErrorHandling"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Error handling options upon a build failure"
+        },
         "optimize": {
           "oneOf": [
             {
@@ -723,6 +734,42 @@
         "source"
       ],
       "description": "Describes the properties of an image template"
+    },
+    "ImageTemplatePropertiesErrorHandling": {
+      "type": "object",
+      "properties": {
+        "onCustomizerError": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "cleanup",
+                "abort"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If there is a customizer error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a customizer error and this field is set to 'abort', the build VM will be preserved."
+        },
+        "onValidationError": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "cleanup",
+                "abort"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved."
+        }
+      },
+      "description": "Error handling options upon a build failure"
     },
     "ImageTemplatePropertiesOptimize": {
       "type": "object",
@@ -1038,7 +1085,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-07-01"
+            "2023-07-01"
           ]
         },
         "name": {
