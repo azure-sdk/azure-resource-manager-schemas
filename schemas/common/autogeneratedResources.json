@@ -10511,6 +10511,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_administrators"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_advancedThreatProtectionSettings"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_configurations"
         },
         {
