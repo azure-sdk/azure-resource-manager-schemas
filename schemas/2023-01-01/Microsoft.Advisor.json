@@ -188,14 +188,15 @@
                 "5",
                 "10",
                 "15",
-                "20"
+                "20",
+                "100"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Minimum percentage threshold for Advisor low CPU utilization evaluation. Valid only for subscriptions. Valid values: 5 (default), 10, 15 or 20."
+          "description": "Minimum percentage threshold for Advisor low CPU utilization evaluation. Valid only for subscriptions. Valid values: 5, 10, 15, 20 or 100 (default)."
         }
       },
       "description": "Configuration data properties"
