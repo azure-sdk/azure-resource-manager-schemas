@@ -19871,66 +19871,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-07-01/Microsoft.Network.DnsResolver.json#/resourceDefinitions/dnsResolvers_outboundEndpoints"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2018-08-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2018-08-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-03-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-04-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-05-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-10-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-11-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/NetworkExperimentProfiles"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-11-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/NetworkExperimentProfiles_Experiments"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-01-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-01-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors_rulesEngines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-04-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-04-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors_rulesEngines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-04-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors_rulesEngines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-11-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/frontDoors_rulesEngines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-05-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2015-05-01-preview/Microsoft.Network.NRP.json#/resourceDefinitions/applicationGateways"
         },
         {
