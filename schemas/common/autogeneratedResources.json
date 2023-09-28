@@ -27875,6 +27875,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Network.TrafficManager.json#/resourceDefinitions/trafficmanagerprofiles_NestedEndpoints"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-15/Microsoft.NetworkAnalytics.json#/resourceDefinitions/dataProducts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-15/Microsoft.NetworkAnalytics.json#/resourceDefinitions/dataProducts_dataTypes"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-12-12-preview/Microsoft.NetworkCloud.json#/resourceDefinitions/bareMetalMachines"
         },
         {
