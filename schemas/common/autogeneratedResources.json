@@ -19025,6 +19025,18 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Migrate.Migrate.json#/resourceDefinitions/modernizeProjects_workloadInstances"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Migrate.Migrate.json#/resourceDefinitions/migrateProjects"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Migrate.Migrate.json#/resourceDefinitions/migrateProjects_privateEndpointConnectionProxies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Migrate.Migrate.json#/resourceDefinitions/migrateProjects_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Migrate.Migrate.json#/resourceDefinitions/migrateProjects_solutions"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.Migrate.MigrateProjects.json#/resourceDefinitions/migrateProjects"
         },
         {
