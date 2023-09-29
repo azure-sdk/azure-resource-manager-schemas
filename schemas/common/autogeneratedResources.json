@@ -30965,6 +30965,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.Search.json#/resourceDefinitions/searchServices_sharedPrivateLinkResources"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.Search.json#/resourceDefinitions/searchServices"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.Search.json#/resourceDefinitions/searchServices_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.Search.json#/resourceDefinitions/searchServices_sharedPrivateLinkResources"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-06-01-preview/Microsoft.Security.json#/resourceDefinitions/locations_jitNetworkAccessPolicies"
         },
         {
