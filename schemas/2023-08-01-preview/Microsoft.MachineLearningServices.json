@@ -1,16 +1,107 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-08-01-preview/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
   "resourceDefinitions": {
+    "capacityReserverationGroups": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CapacityReservationGroup"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/capacityReserverationGroups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/capacityReserverationGroups"
+    },
     "registries": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -125,7 +216,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -182,7 +273,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -221,7 +312,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -278,7 +369,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -317,7 +408,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -366,7 +457,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -405,7 +496,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -462,7 +553,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -501,7 +592,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -557,7 +648,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -596,7 +687,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -671,6 +762,9 @@
                 "$ref": "#/definitions/workspaces_featurestoreEntities_childResource"
               },
               {
+                "$ref": "#/definitions/workspaces_inferencePools_childResource"
+              },
+              {
                 "$ref": "#/definitions/workspaces_jobs_childResource"
               },
               {
@@ -686,6 +780,9 @@
                 "$ref": "#/definitions/workspaces_schedules_childResource"
               },
               {
+                "$ref": "#/definitions/workspaces_serverlessEndpoints_childResource"
+              },
+              {
                 "$ref": "#/definitions/workspaces_connections_childResource"
               },
               {
@@ -693,6 +790,9 @@
               },
               {
                 "$ref": "#/definitions/workspaces_privateEndpointConnections_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_standbypools_childResource"
               }
             ]
           }
@@ -743,7 +843,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -838,7 +938,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -923,7 +1023,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -972,7 +1072,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1011,7 +1111,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1060,7 +1160,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1099,7 +1199,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -1118,7 +1218,15 @@
           "description": "Specifies the location of the resource."
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z](?![a-zA-Z0-9-]*-\\d+$)[a-zA-Z0-9\\-]{2,23}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Name of the Azure Machine Learning compute."
         },
         "properties": {
@@ -1179,7 +1287,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1225,7 +1333,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1274,7 +1382,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1313,7 +1421,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1352,7 +1460,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1401,7 +1509,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1440,7 +1548,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1489,7 +1597,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1528,7 +1636,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1577,7 +1685,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1610,13 +1718,297 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/featurestoreEntities/versions"
     },
+    "workspaces_inferencePools": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of InferencePool"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InferencePool"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Inference pool configuration"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/workspaces_inferencePools_endpoints_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_inferencePools_groups_childResource"
+              }
+            ]
+          }
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/inferencePools"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/inferencePools"
+    },
+    "workspaces_inferencePools_endpoints": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "InferenceEndpoint name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InferenceEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "InferenceEndpoint configuration"
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/inferencePools/endpoints"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/inferencePools/endpoints"
+    },
+    "workspaces_inferencePools_groups": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "InferenceGroup name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InferenceGroup"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Inference group configuration"
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/inferencePools/groups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/inferencePools/groups"
+    },
     "workspaces_jobs": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1655,7 +2047,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1694,7 +2086,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1742,7 +2134,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1781,7 +2173,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -1876,7 +2268,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -1960,7 +2352,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -1984,7 +2376,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Outbound Rule for the managed network of a machine learning workspace."
+          "description": "Outbound rule for the managed network of a machine learning workspace."
         },
         "type": {
           "type": "string",
@@ -2007,7 +2399,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -2086,7 +2478,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -2118,6 +2510,157 @@
         "type"
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/schedules"
+    },
+    "workspaces_serverlessEndpoints": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Serverless Endpoint name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints"
+    },
+    "workspaces_standbypools": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of Standby Pool"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StandbyPoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a standby pool."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/standbypools"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/standbypools"
     }
   },
   "definitions": {
@@ -2207,6 +2750,19 @@
         }
       },
       "description": "Details of ACR account to be used for the Registry"
+    },
+    "AdditionalErrorInfo": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "type": "string",
+          "description": "JSON-serialized string containing additional information of the type of error that occured."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of error that occured (e.g., PolicyViolation, SecurityViolation)."
+        }
+      }
     },
     "AllFeatures": {
       "type": "object",
@@ -2551,20 +3107,6 @@
         }
       },
       "description": "Auto scale properties"
-    },
-    "AzMonMonitoringAlertNotificationSettings": {
-      "type": "object",
-      "properties": {
-        "alertNotificationType": {
-          "type": "string",
-          "enum": [
-            "AzureMonitor"
-          ]
-        }
-      },
-      "required": [
-        "alertNotificationType"
-      ]
     },
     "AzureDevOpsWebhook": {
       "type": "object",
@@ -3006,6 +3548,35 @@
       ],
       "description": "Configuration settings for Docker build context"
     },
+    "CapacityReservationGroup": {
+      "type": "object",
+      "properties": {
+        "offer": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessOffer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "reservedCapacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Specifies the amount of capacity to reserve."
+        }
+      },
+      "required": [
+        "reservedCapacity"
+      ]
+    },
     "CategoricalDataDriftMetricThreshold": {
       "type": "object",
       "properties": {
@@ -3214,6 +3785,50 @@
         "metric",
         "modelType"
       ]
+    },
+    "CloudError": {
+      "type": "object",
+      "properties": {
+        "additionalInfo": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdditionalErrorInfo"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "code": {
+          "type": "string",
+          "description": "The error code parsed from the body of the http error response."
+        },
+        "details": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CloudError"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of invalid fields send in request, in case of validation error."
+        },
+        "message": {
+          "type": "string",
+          "description": "The error message parsed from the body of the http error response."
+        },
+        "target": {
+          "type": "string",
+          "description": "The target of the error."
+        }
+      }
     },
     "CodeConfiguration": {
       "type": "object",
@@ -3566,6 +4181,17 @@
         }
       },
       "description": "Command Job limit class."
+    },
+    "ComponentConfiguration": {
+      "type": "object",
+      "properties": {
+        "pipelineSettings": {
+          "type": "object",
+          "properties": {},
+          "description": "Pipeline settings, for things like ContinueRunOnStepFailure etc."
+        }
+      },
+      "description": "Used for sweep over component"
     },
     "ComponentContainer": {
       "type": "object",
@@ -4241,6 +4867,16 @@
           ],
           "description": "A dictionary that maps feature names to their respective data types."
         },
+        "featureImportanceSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeatureImportanceSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "features": {
           "oneOf": [
             {
@@ -4428,6 +5064,16 @@
             }
           ],
           "description": "A dictionary that maps feature names to their respective data types."
+        },
+        "featureImportanceSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeatureImportanceSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "features": {
           "oneOf": [
@@ -4839,31 +5485,6 @@
       },
       "description": "Early termination policies enable canceling poor-performing runs before they complete"
     },
-    "EmailMonitoringAlertNotificationSettings": {
-      "type": "object",
-      "properties": {
-        "alertNotificationType": {
-          "type": "string",
-          "enum": [
-            "Email"
-          ]
-        },
-        "emailNotificationSetting": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/NotificationSetting"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Configuration for notification."
-        }
-      },
-      "required": [
-        "alertNotificationType"
-      ]
-    },
     "EncryptionProperty": {
       "type": "object",
       "properties": {
@@ -5158,6 +5779,35 @@
     "FeatureAttributionDriftMonitoringSignal": {
       "type": "object",
       "properties": {
+        "featureDataTypeOverride": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "enum": [
+                  "Numerical",
+                  "Categorical"
+                ]
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A dictionary that maps feature names to their respective data types."
+        },
+        "featureImportanceSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FeatureImportanceSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "metricThreshold": {
           "oneOf": [
             {
@@ -5238,6 +5888,30 @@
       "required": [
         "metric"
       ]
+    },
+    "FeatureImportanceSettings": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "Enabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The mode of operation for computing feature importance."
+        },
+        "targetColumn": {
+          "type": "string",
+          "description": "The name of the target column within the input data asset."
+        }
+      }
     },
     "FeaturesetContainer": {
       "type": "object",
@@ -5750,7 +6424,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Gets or sets the target data for computing metrics."
+          "description": "Gets or sets the production data for computing metrics."
         },
         "samplingRate": {
           "oneOf": [
@@ -5761,7 +6435,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "[Required] The sample rate of the target data, should be greater than 0 and at most 1."
+          "description": "[Required] The sample rate of the production data, should be greater than 0 and at most 1."
         },
         "signalType": {
           "type": "string",
@@ -5781,7 +6455,7 @@
       ],
       "description": "Generation safety quality monitoring signal definition."
     },
-    "GenerationTokenStatisticsMetricThreshold": {
+    "GenerationTokenUsageMetricThreshold": {
       "type": "object",
       "properties": {
         "metric": {
@@ -5815,7 +6489,7 @@
       ],
       "description": "Generation token statistics metric threshold definition."
     },
-    "GenerationTokenStatisticsSignal": {
+    "GenerationTokenUsageSignal": {
       "type": "object",
       "properties": {
         "metricThresholds": {
@@ -5823,7 +6497,7 @@
             {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/GenerationTokenStatisticsMetricThreshold"
+                "$ref": "#/definitions/GenerationTokenUsageMetricThreshold"
               }
             },
             {
@@ -5835,13 +6509,16 @@
         "productionData": {
           "oneOf": [
             {
-              "$ref": "#/definitions/MonitoringInputDataBase"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MonitoringInputDataBase"
+              }
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Monitoring input data base definition."
+          "description": "Gets or sets the production data for computing metrics."
         },
         "samplingRate": {
           "oneOf": [
@@ -5852,7 +6529,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "[Required] The sample rate of the target data, should be greater than 0 and at most 1."
+          "description": "[Required] The sample rate of the production data, should be greater than 0 and at most 1."
         },
         "signalType": {
           "type": "string",
@@ -5866,7 +6543,7 @@
         "samplingRate",
         "signalType"
       ],
-      "description": "Generation token statistics signal definition."
+      "description": "Generation token usage signal definition."
     },
     "GridSamplingAlgorithm": {
       "type": "object",
@@ -6065,6 +6742,200 @@
           ]
         }
       }
+    },
+    "InferenceEndpoint": {
+      "type": "object",
+      "properties": {
+        "authMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AAD"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Authentication mode for the endpoint."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the resource."
+        },
+        "groupId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Group within the same pool with which this endpoint needs to be associated with."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property dictionary. Properties can be added, but not removed or altered."
+        }
+      },
+      "required": [
+        "authMode",
+        "groupId"
+      ],
+      "description": "InferenceEndpoint configuration"
+    },
+    "InferenceGroup": {
+      "type": "object",
+      "properties": {
+        "bonusExtraCapacity": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "0"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Capacity to be used from the pool's reserved capacity.\r\noptional"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the resource."
+        },
+        "metadata": {
+          "type": "string",
+          "description": "Metadata for the inference group."
+        },
+        "priority": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "0"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property dictionary. Properties can be added, but not removed or altered."
+        }
+      },
+      "description": "Inference group configuration"
+    },
+    "InferencePool": {
+      "type": "object",
+      "properties": {
+        "codeConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CodeConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration for a scoring code asset."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the resource."
+        },
+        "environmentConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PoolEnvironmentConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment configuration options."
+        },
+        "modelConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PoolModelConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model configuration options."
+        },
+        "nodeSkuType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Compute instance type."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property dictionary. Properties can be added, but not removed or altered."
+        },
+        "requestConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RequestConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scoring requests configuration."
+        }
+      },
+      "required": [
+        "nodeSkuType"
+      ],
+      "description": "Inference pool configuration"
     },
     "IntellectualProperty": {
       "type": "object",
@@ -6900,7 +7771,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Status for the managed network of a machine learning workspace."
         }
       },
       "description": "Status of the Provisioning for the managed network of a machine learning workspace."
@@ -6921,7 +7793,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Isolation mode for the managed network of a machine learning workspace."
         },
         "outboundRules": {
           "oneOf": [
@@ -7374,7 +8247,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "[Required] The data produced by the production service which drift will be calculated for."
+          "description": "[Required] The data produced by the production service which performance will be calculated for."
         },
         "referenceData": {
           "oneOf": [
@@ -7544,10 +8417,10 @@
     "MonitorDefinition": {
       "type": "object",
       "properties": {
-        "alertNotificationSetting": {
+        "alertNotificationSettings": {
           "oneOf": [
             {
-              "$ref": "#/definitions/MonitoringAlertNotificationSettingsBase"
+              "$ref": "#/definitions/MonitorNotificationSettings"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -7597,17 +8470,24 @@
         "signals"
       ]
     },
-    "MonitoringAlertNotificationSettingsBase": {
+    "MonitorEmailNotificationSettings": {
       "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/AzMonMonitoringAlertNotificationSettings"
-        },
-        {
-          "$ref": "#/definitions/EmailMonitoringAlertNotificationSettings"
+      "properties": {
+        "emails": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This is the email recipient list which has a limitation of 499 characters in total."
         }
-      ],
-      "properties": {}
+      }
     },
     "MonitoringDataSegment": {
       "type": "object",
@@ -7654,10 +8534,10 @@
           "$ref": "#/definitions/FixedInputData"
         },
         {
-          "$ref": "#/definitions/StaticInputData"
+          "$ref": "#/definitions/RollingInputData"
         },
         {
-          "$ref": "#/definitions/TrailingInputData"
+          "$ref": "#/definitions/StaticInputData"
         }
       ],
       "properties": {
@@ -7739,7 +8619,7 @@
           "$ref": "#/definitions/GenerationSafetyQualityMonitoringSignal"
         },
         {
-          "$ref": "#/definitions/GenerationTokenStatisticsSignal"
+          "$ref": "#/definitions/GenerationTokenUsageSignal"
         },
         {
           "$ref": "#/definitions/ModelPerformanceSignal"
@@ -7749,14 +8629,17 @@
         }
       ],
       "properties": {
-        "mode": {
+        "notificationTypes": {
           "oneOf": [
             {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "Enabled"
-              ]
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "AmlNotification",
+                  "AzureMonitor"
+                ]
+              }
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -7865,6 +8748,21 @@
         }
       },
       "description": "Monitoring workspace connection definition."
+    },
+    "MonitorNotificationSettings": {
+      "type": "object",
+      "properties": {
+        "emailNotificationSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MonitorEmailNotificationSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      }
     },
     "MonitorServerlessSparkCompute": {
       "type": "object",
@@ -8590,7 +9488,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Category of a managed network outbound rule of a machine learning workspace."
         },
         "status": {
           "oneOf": [
@@ -8604,10 +9503,11 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Type of a managed network outbound rule of a machine learning workspace."
         }
       },
-      "description": "Outbound Rule for the managed network of a machine learning workspace."
+      "description": "Outbound rule for the managed network of a machine learning workspace."
     },
     "OutputPathAssetReference": {
       "type": "object",
@@ -8726,6 +9626,74 @@
       ],
       "description": "Pipeline Job definition: defines generic to MFE attributes."
     },
+    "PoolEnvironmentConfiguration": {
+      "type": "object",
+      "properties": {
+        "environmentId": {
+          "type": "string",
+          "description": "ARM resource ID of the environment specification for the inference pool."
+        },
+        "environmentVariables": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment variables configuration for the inference pool."
+        },
+        "livenessProbe": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProbeSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Deployment container liveness/readiness probe configuration."
+        },
+        "readinessProbe": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProbeSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Deployment container liveness/readiness probe configuration."
+        },
+        "startupProbe": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProbeSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Deployment container liveness/readiness probe configuration."
+        }
+      },
+      "description": "Environment configuration options."
+    },
+    "PoolModelConfiguration": {
+      "type": "object",
+      "properties": {
+        "modelId": {
+          "type": "string",
+          "description": "The URI path to the model."
+        }
+      },
+      "description": "Model configuration options."
+    },
     "PredictionDriftMetricThresholdBase": {
       "type": "object",
       "oneOf": [
@@ -8752,6 +9720,25 @@
     "PredictionDriftMonitoringSignal": {
       "type": "object",
       "properties": {
+        "featureDataTypeOverride": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "enum": [
+                  "Numerical",
+                  "Categorical"
+                ]
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A dictionary that maps feature names to their respective data types."
+        },
         "metricThresholds": {
           "oneOf": [
             {
@@ -8765,21 +9752,6 @@
             }
           ],
           "description": "[Required] A list of metrics to calculate and their associated thresholds."
-        },
-        "modelType": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Classification",
-                "Regression"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "[Required] The type of the model monitored."
         },
         "productionData": {
           "oneOf": [
@@ -8812,7 +9784,6 @@
       },
       "required": [
         "metricThresholds",
-        "modelType",
         "productionData",
         "referenceData",
         "signalType"
@@ -8866,7 +9837,8 @@
       "type": "object",
       "properties": {
         "serviceResourceId": {
-          "type": "string"
+          "type": "string",
+          "format": "arm-id"
         },
         "sparkEnabled": {
           "oneOf": [
@@ -8890,7 +9862,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Type of a managed network Outbound Rule of a machine learning workspace."
         },
         "subresourceTarget": {
           "type": "string"
@@ -9325,7 +10298,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9372,7 +10345,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9411,7 +10384,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9458,7 +10431,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9497,7 +10470,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9536,7 +10509,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9575,7 +10548,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9622,7 +10595,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9661,7 +10634,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9707,7 +10680,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -9973,6 +10946,30 @@
         "modelType"
       ]
     },
+    "RequestConfiguration": {
+      "type": "object",
+      "properties": {
+        "maxConcurrentRequestsPerInstance": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "1"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of maximum concurrent requests per node allowed per deployment. Defaults to 1."
+        },
+        "requestTimeout": {
+          "type": "string",
+          "default": "PT5S",
+          "format": "duration",
+          "description": "The scoring timeout in ISO 8601 format.\r\nDefaults to 5000ms."
+        }
+      },
+      "description": "Scoring requests configuration."
+    },
     "RequestLogging": {
       "type": "object",
       "properties": {
@@ -9991,6 +10988,37 @@
           "description": "For payload logging, we only collect payload by default. If customers also want to collect the specified headers, they can set them in captureHeaders so that backend will collect those headers along with payload."
         }
       }
+    },
+    "RollingInputData": {
+      "type": "object",
+      "properties": {
+        "inputDataType": {
+          "type": "string",
+          "enum": [
+            "Rolling"
+          ]
+        },
+        "preprocessingComponentId": {
+          "type": "string",
+          "description": "The ARM resource ID of the component resource used to preprocess the data."
+        },
+        "windowOffset": {
+          "type": "string",
+          "format": "duration",
+          "description": "[Required] The time offset between the end of the data window and the monitor's current run time."
+        },
+        "windowSize": {
+          "type": "string",
+          "format": "duration",
+          "description": "[Required] The size of the trailing data window."
+        }
+      },
+      "required": [
+        "inputDataType",
+        "windowOffset",
+        "windowSize"
+      ],
+      "description": "Rolling input data definition."
     },
     "Route": {
       "type": "object",
@@ -10214,6 +11242,137 @@
       },
       "description": "Secret Configuration definition."
     },
+    "ServerlessComputeSettings": {
+      "type": "object",
+      "properties": {
+        "serverlessComputeCustomSubnet": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource ID of an existing virtual network subnet in which serverless compute nodes should be deployed"
+        },
+        "serverlessComputeNoPublicIP": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The flag to signal if serverless compute nodes deployed in custom vNet would have no public IP addresses for a workspace with private endpoint"
+        }
+      }
+    },
+    "ServerlessEndpoint": {
+      "type": "object",
+      "properties": {
+        "authMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Key",
+                "AAD"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the authentication mode for the Serverless endpoint."
+        },
+        "capacityReservation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessEndpointCapacityReservation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "offer": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessOffer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "offer"
+      ]
+    },
+    "ServerlessEndpointCapacityReservation": {
+      "type": "object",
+      "properties": {
+        "capacityReservationGroupId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Specifies a capacity reservation group ID to allocate capacity from."
+        },
+        "endpointReservedCapacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies a capacity amount to reserve for this endpoint within the parent capacity reservation group."
+        }
+      },
+      "required": [
+        "capacityReservationGroupId"
+      ]
+    },
+    "ServerlessOffer": {
+      "type": "object",
+      "properties": {
+        "offerName": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] The name of the Serverless Offer"
+        },
+        "publisher": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_]",
+              "minLength": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "[Required] Publisher name of the Serverless Offer"
+        }
+      },
+      "required": [
+        "offerName",
+        "publisher"
+      ]
+    },
     "ServiceManagedResourcesSettings": {
       "type": "object",
       "properties": {
@@ -10339,7 +11498,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "The action enum for networking rule."
         },
         "portRanges": {
           "type": "string"
@@ -10546,6 +11706,21 @@
           "type": "string",
           "description": "The ARM resource ID of the Environment specification for the job."
         },
+        "environmentVariables": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment variables included in the job."
+        },
         "files": {
           "oneOf": [
             {
@@ -10735,6 +11910,66 @@
         }
       }
     },
+    "StandbyPoolProperties": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of virtual machines (VMs) in the standby pool."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the standby pool."
+        },
+        "standbyAvailableInstances": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StandbyPoolResourceStatus"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The current status of all virtual machine (VM) instances in the standby pool."
+        },
+        "vmSize": {
+          "type": "string",
+          "description": "The virtual machine (VM) size of the VMs in the standby pool."
+        }
+      },
+      "description": "The properties of a standby pool."
+    },
+    "StandbyPoolResourceStatus": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CloudError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "type": "string",
+          "description": "Human-readable status of the resource."
+        }
+      },
+      "description": "The status of a resource within a standby pool."
+    },
     "StaticInputData": {
       "type": "object",
       "properties": {
@@ -10795,6 +12030,17 @@
     "SweepJob": {
       "type": "object",
       "properties": {
+        "componentConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComponentConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Used for sweep over component"
+        },
         "earlyTermination": {
           "oneOf": [
             {
@@ -10868,6 +12114,16 @@
           "oneOf": [
             {
               "$ref": "#/definitions/QueueSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobResourceConfiguration"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -11230,37 +12486,6 @@
         "filterType"
       ]
     },
-    "TrailingInputData": {
-      "type": "object",
-      "properties": {
-        "inputDataType": {
-          "type": "string",
-          "enum": [
-            "Trailing"
-          ]
-        },
-        "preprocessingComponentId": {
-          "type": "string",
-          "description": "The ARM resource ID of the component resource used to preprocess the data."
-        },
-        "windowOffset": {
-          "type": "string",
-          "format": "duration",
-          "description": "[Required] The time offset between the end of the data window and the monitor's current run time."
-        },
-        "windowSize": {
-          "type": "string",
-          "format": "duration",
-          "description": "[Required] The size of the trailing data window."
-        }
-      },
-      "required": [
-        "inputDataType",
-        "windowOffset",
-        "windowSize"
-      ],
-      "description": "Trailing input data definition."
-    },
     "TrialComponent": {
       "type": "object",
       "properties": {
@@ -11615,6 +12840,17 @@
           "type": "string",
           "format": "date-time"
         },
+        "isSharedToAll": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "whether this connection will be shared to all the project workspace under the hub"
+        },
         "metadata": {
           "type": "object",
           "properties": {}
@@ -11852,6 +13088,16 @@
           ],
           "description": "Whether requests from Public Network are allowed."
         },
+        "serverlessComputeSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessComputeSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "serviceManagedResourcesSettings": {
           "oneOf": [
             {
@@ -11939,7 +13185,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -12024,7 +13270,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -12109,7 +13355,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12148,7 +13394,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12187,7 +13433,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12226,7 +13472,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12265,7 +13511,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -12284,7 +13530,15 @@
           "description": "Specifies the location of the resource."
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z](?![a-zA-Z0-9-]*-\\d+$)[a-zA-Z0-9\\-]{2,23}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Name of the Azure Machine Learning compute."
         },
         "properties": {
@@ -12345,7 +13599,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12391,7 +13645,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12430,7 +13684,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12469,7 +13723,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12508,7 +13762,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12547,7 +13801,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12586,7 +13840,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12625,7 +13879,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12664,7 +13918,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12703,7 +13957,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12736,13 +13990,284 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/featurestoreEntities/versions"
     },
+    "workspaces_inferencePools_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of InferencePool"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InferencePool"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Inference pool configuration"
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "inferencePools"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/inferencePools"
+    },
+    "workspaces_inferencePools_endpoints_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "InferenceEndpoint name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InferenceEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "InferenceEndpoint configuration"
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "endpoints"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/inferencePools/endpoints"
+    },
+    "workspaces_inferencePools_groups_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "InferenceGroup name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InferenceGroup"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Inference group configuration"
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "groups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/inferencePools/groups"
+    },
     "workspaces_jobs_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12781,7 +14306,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12820,7 +14345,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12858,7 +14383,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -12897,7 +14422,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -12982,7 +14507,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -13066,7 +14591,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -13090,7 +14615,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Outbound Rule for the managed network of a machine learning workspace."
+          "description": "Outbound rule for the managed network of a machine learning workspace."
         },
         "type": {
           "type": "string",
@@ -13113,7 +14638,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "identity": {
@@ -13192,7 +14717,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-01-preview"
+            "2023-08-01-preview"
           ]
         },
         "name": {
@@ -13224,6 +14749,157 @@
         "type"
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/schedules"
+    },
+    "workspaces_serverlessEndpoints_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Serverless Endpoint name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "serverlessEndpoints"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints"
+    },
+    "workspaces_standbypools_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-08-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of Standby Pool"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StandbyPoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a standby pool."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "standbypools"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/standbypools"
     }
   }
 }
