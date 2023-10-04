@@ -7658,6 +7658,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.ContainerInstance.json#/resourceDefinitions/containerGroups"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-15-preview/Microsoft.ContainerInstance.json#/resourceDefinitions/containerGroupProfiles"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-15-preview/Microsoft.ContainerInstance.json#/resourceDefinitions/containerGroups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-15-preview/Microsoft.ContainerInstance.json#/resourceDefinitions/containerScaleSets"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2016-06-27-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries"
         },
         {
