@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-08-08/Microsoft.Automation.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-05-15-preview/Microsoft.Automation.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Automation",
   "description": "Microsoft Automation Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "identity": {
@@ -83,16 +83,10 @@
                 "$ref": "#/definitions/automationAccounts_jobSchedules_childResource"
               },
               {
-                "$ref": "#/definitions/automationAccounts_modules_childResource"
-              },
-              {
-                "$ref": "#/definitions/automationAccounts_python2Packages_childResource"
-              },
-              {
-                "$ref": "#/definitions/automationAccounts_python3Packages_childResource"
-              },
-              {
                 "$ref": "#/definitions/automationAccounts_runbooks_childResource"
+              },
+              {
+                "$ref": "#/definitions/automationAccounts_runtimeEnvironments_childResource"
               },
               {
                 "$ref": "#/definitions/automationAccounts_schedules_childResource"
@@ -142,7 +136,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -181,7 +175,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "location": {
@@ -239,7 +233,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -278,7 +272,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -317,7 +311,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -356,7 +350,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -405,7 +399,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -444,7 +438,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -482,7 +476,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -523,71 +517,13 @@
       ],
       "description": "Microsoft.Automation/automationAccounts/jobSchedules"
     },
-    "automationAccounts_modules": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-08-08"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Gets or sets the location of the resource."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of module."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ModuleCreateOrUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The parameters supplied to the create or update module properties."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the tags attached to the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Automation/automationAccounts/modules"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Automation/automationAccounts/modules"
-    },
     "automationAccounts_nodeConfigurations": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -635,121 +571,13 @@
       ],
       "description": "Microsoft.Automation/automationAccounts/nodeConfigurations"
     },
-    "automationAccounts_python2Packages": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-08-08"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of python package."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PythonPackageCreateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The parameters supplied to the create or update module properties."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the tags attached to the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Automation/automationAccounts/python2Packages"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Automation/automationAccounts/python2Packages"
-    },
-    "automationAccounts_python3Packages": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-08-08"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of python package."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PythonPackageCreateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The parameters supplied to the create or update module properties."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the tags attached to the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Automation/automationAccounts/python3Packages"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Automation/automationAccounts/python3Packages"
-    },
     "automationAccounts_runbooks": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "location": {
@@ -874,6 +702,10 @@
             "runOn": {
               "type": "string",
               "description": "Gets or sets the runOn which specifies the group name where the job is to be executed."
+            },
+            "runtimeEnvironment": {
+              "type": "string",
+              "description": "The runtime Environment Name on which job needs to be tested"
             }
           },
           "required": [
@@ -886,7 +718,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "type": {
@@ -902,13 +734,90 @@
       ],
       "description": "Microsoft.Automation/automationAccounts/runbooks/draft"
     },
+    "automationAccounts_runtimeEnvironments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The Azure Region where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z-_0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Runtime Environment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RuntimeEnvironmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Runtime Environment properties."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Automation/automationAccounts/runtimeEnvironments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Automation/automationAccounts/runtimeEnvironments"
+    },
     "automationAccounts_schedules": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -947,7 +856,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -996,7 +905,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1043,7 +952,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1219,7 +1128,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1258,7 +1167,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "location": {
@@ -1316,7 +1225,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1355,7 +1264,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1394,7 +1303,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1433,7 +1342,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1472,7 +1381,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1511,7 +1420,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1558,7 +1467,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1590,71 +1499,13 @@
       ],
       "description": "Microsoft.Automation/automationAccounts/jobs"
     },
-    "automationAccounts_modules_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-08-08"
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Gets or sets the location of the resource."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of module."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ModuleCreateOrUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The parameters supplied to the create or update module properties."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the tags attached to the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "modules"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Automation/automationAccounts/modules"
-    },
     "automationAccounts_nodeConfigurations_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1702,121 +1553,13 @@
       ],
       "description": "Microsoft.Automation/automationAccounts/nodeConfigurations"
     },
-    "automationAccounts_python2Packages_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-08-08"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of python package."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PythonPackageCreateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The parameters supplied to the create or update module properties."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the tags attached to the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "python2Packages"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Automation/automationAccounts/python2Packages"
-    },
-    "automationAccounts_python3Packages_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-08-08"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of python package."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PythonPackageCreateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The parameters supplied to the create or update module properties."
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the tags attached to the resource."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "python3Packages"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.Automation/automationAccounts/python3Packages"
-    },
     "automationAccounts_runbooks_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "location": {
@@ -1921,6 +1664,10 @@
             "runOn": {
               "type": "string",
               "description": "Gets or sets the runOn which specifies the group name where the job is to be executed."
+            },
+            "runtimeEnvironment": {
+              "type": "string",
+              "description": "The runtime Environment Name on which job needs to be tested"
             }
           },
           "required": [
@@ -1933,7 +1680,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "type": {
@@ -1949,13 +1696,90 @@
       ],
       "description": "Microsoft.Automation/automationAccounts/runbooks/draft"
     },
+    "automationAccounts_runtimeEnvironments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The Azure Region where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z-_0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Runtime Environment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RuntimeEnvironmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Runtime Environment properties."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "runtimeEnvironments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Automation/automationAccounts/runtimeEnvironments"
+    },
     "automationAccounts_schedules_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -1994,7 +1818,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -2033,7 +1857,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -2080,7 +1904,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-08-08"
+            "2023-05-15-preview"
           ]
         },
         "name": {
@@ -2263,7 +2087,7 @@
         },
         "uri": {
           "type": "string",
-          "description": "Gets or sets the uri of the runbook content."
+          "description": "Gets or sets the uri of the Package content."
         },
         "version": {
           "type": "string",
@@ -2742,46 +2566,6 @@
       },
       "description": "Settings concerning key vault encryption for a configuration store."
     },
-    "ModuleCreateOrUpdateProperties": {
-      "type": "object",
-      "properties": {
-        "contentLink": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ContentLink"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Definition of the content link."
-        }
-      },
-      "required": [
-        "contentLink"
-      ],
-      "description": "The parameters supplied to the create or update module properties."
-    },
-    "PythonPackageCreateProperties": {
-      "type": "object",
-      "properties": {
-        "contentLink": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ContentLink"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Definition of the content link."
-        }
-      },
-      "required": [
-        "contentLink"
-      ],
-      "description": "The parameters supplied to the create or update module properties."
-    },
     "RunAsCredentialAssociationProperty": {
       "type": "object",
       "properties": {
@@ -2864,25 +2648,12 @@
           "description": "Definition of the content link."
         },
         "runbookType": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Script",
-                "Graph",
-                "PowerShellWorkflow",
-                "PowerShell",
-                "GraphPowerShellWorkflow",
-                "GraphPowerShell",
-                "Python2",
-                "Python3"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the type of the runbook."
+          "type": "string",
+          "description": "Type of the runbook."
+        },
+        "runtimeEnvironment": {
+          "type": "string",
+          "description": "Environment of the runbook."
         }
       },
       "required": [
@@ -2991,6 +2762,67 @@
         }
       },
       "description": "Definition of the runbook parameter type."
+    },
+    "RuntimeEnvironmentProperties": {
+      "type": "object",
+      "properties": {
+        "defaultPackages": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets default packages of Runtime Environment."
+        },
+        "description": {
+          "type": "string",
+          "description": "Gets or sets the description."
+        },
+        "runtime": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RuntimeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Runtime properties."
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        }
+      },
+      "description": "Runtime Environment properties."
+    },
+    "RuntimeProperties": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "description": "Language of Runtime Environment"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of Language"
+        }
+      },
+      "description": "Runtime properties."
     },
     "ScheduleAssociationProperty": {
       "type": "object",
@@ -3221,6 +3053,64 @@
         "commitId"
       ],
       "description": "Definition of create source control sync job properties."
+    },
+    "SystemData": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that created the resource."
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource last modification (UTC)"
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that last modified the resource."
+        }
+      },
+      "description": "Metadata pertaining to creation and last modification of the resource."
     },
     "UserAssignedIdentitiesProperties": {
       "type": "object",
