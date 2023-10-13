@@ -1,0 +1,206 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.ProgrammableConnectivity.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.ProgrammableConnectivity",
+  "description": "Microsoft ProgrammableConnectivity Resource Types",
+  "resourceDefinitions": {
+    "gateways": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-11-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Programmable Connectivity Gateway Name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GatewayProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "APC Gateway properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ProgrammableConnectivity/gateways"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ProgrammableConnectivity/gateways"
+    },
+    "openApiGateways": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-11-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "APC OpenAPI Gateway Name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OpenApiGatewayProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "APC Gateway properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ProgrammableConnectivity/openApiGateways"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ProgrammableConnectivity/openApiGateways"
+    }
+  },
+  "definitions": {
+    "GatewayProperties": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "string",
+          "description": "SKU of the Azure Programmable Connectivity resource"
+        }
+      },
+      "required": [
+        "sku"
+      ],
+      "description": "APC Gateway properties"
+    },
+    "OpenApiGatewayProperties": {
+      "type": "object",
+      "properties": {
+        "accountType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AzureManaged",
+                "UserManaged"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the account the user has with the Operator's Network API infrastructure. AzureManaged | UserManaged."
+        },
+        "features": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of features the user has selected for the current operator in the country provided in the Offering."
+        },
+        "gatewayId": {
+          "type": "string",
+          "description": "APC Gateway resource ID linked to this Open API Gateway."
+        },
+        "openApiGatewayOfferingId": {
+          "type": "string",
+          "description": "Reference to the Open API Gateway Offering Resource ID"
+        }
+      },
+      "required": [
+        "accountType",
+        "features",
+        "gatewayId",
+        "openApiGatewayOfferingId"
+      ],
+      "description": "APC Gateway properties"
+    }
+  }
+}

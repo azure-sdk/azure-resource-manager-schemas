@@ -28679,6 +28679,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.ProfessionalService.json#/resourceDefinitions/resources"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.ProgrammableConnectivity.json#/resourceDefinitions/gateways"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.ProgrammableConnectivity.json#/resourceDefinitions/openApiGateways"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-12-01-preview/Microsoft.Purview.json#/resourceDefinitions/accounts"
         },
         {
