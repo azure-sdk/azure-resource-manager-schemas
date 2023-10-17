@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-11-02-preview/Microsoft.ContainerService.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-07-02-preview/Microsoft.ContainerService.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.ContainerService",
   "description": "Microsoft ContainerService Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "extendedLocation": {
@@ -131,7 +131,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "location": {
@@ -200,7 +200,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "name": {
@@ -249,7 +249,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "name": {
@@ -288,7 +288,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "name": {
@@ -327,7 +327,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "name": {
@@ -376,7 +376,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "location": {
@@ -525,9 +525,43 @@
       },
       "description": "Network settings of an agent pool."
     },
+    "AgentPoolSecurityProfile": {
+      "type": "object",
+      "properties": {
+        "sshAccess": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "LocalUser",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SSH access method of an agent pool."
+        }
+      },
+      "description": "The security settings of an agent pool."
+    },
     "AgentPoolUpgradeSettings": {
       "type": "object",
       "properties": {
+        "drainTimeoutInMinutes": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1440
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes."
+        },
         "maxSurge": {
           "type": "string",
           "description": "This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade"
@@ -593,6 +627,23 @@
       },
       "description": "Azure Key Vault key management service settings for the security profile."
     },
+    "ClusterUpgradeSettings": {
+      "type": "object",
+      "properties": {
+        "overrideSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UpgradeOverrideSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Settings for overrides when upgrading a cluster."
+        }
+      },
+      "description": "Settings for upgrading a cluster."
+    },
     "ContainerServiceLinuxProfile": {
       "type": "object",
       "properties": {
@@ -641,33 +692,6 @@
             }
           ],
           "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr."
-        },
-        "dockerBridgeCidr": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
-              "default": "172.17.0.1/16"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range."
-        },
-        "ebpfDataplane": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "cilium"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The eBPF dataplane used for building the Kubernetes network."
         },
         "ipFamilies": {
           "oneOf": [
@@ -724,6 +748,17 @@
           ],
           "description": "The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs."
         },
+        "monitoring": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkMonitoring"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This addon can be used to configure network monitoring and generate network monitoring data in Prometheus format"
+        },
         "natGatewayProfile": {
           "oneOf": [
             {
@@ -734,6 +769,21 @@
             }
           ],
           "description": "Profile of the managed cluster NAT gateway."
+        },
+        "networkDataplane": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "azure",
+                "cilium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Network dataplane used in the Kubernetes cluster."
         },
         "networkMode": {
           "oneOf": [
@@ -771,7 +821,7 @@
             {
               "type": "string",
               "enum": [
-                "Overlay"
+                "overlay"
               ]
             },
             {
@@ -786,7 +836,8 @@
               "type": "string",
               "enum": [
                 "calico",
-                "azure"
+                "azure",
+                "cilium"
               ]
             },
             {
@@ -1055,6 +1106,36 @@
       ],
       "description": "For example, between '2022-12-23' and '2023-01-05'."
     },
+    "DelegatedResource": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "The source resource location - internal use only."
+        },
+        "referralResource": {
+          "type": "string",
+          "description": "The delegation id of the referral delegation (optional) - internal use only."
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "The ARM resource id of the delegated resource - internal use only."
+        },
+        "tenantId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The tenant id of the delegated resource - internal use only."
+        }
+      },
+      "description": "Delegated resource properties - internal use only."
+    },
     "ExtendedLocation": {
       "type": "object",
       "properties": {
@@ -1118,8 +1199,7 @@
         }
       },
       "required": [
-        "level",
-        "version"
+        "level"
       ],
       "description": "The Guardrails profile."
     },
@@ -1136,6 +1216,197 @@
         }
       },
       "description": "Contains the IPTag associated with the object."
+    },
+    "IstioCertificateAuthority": {
+      "type": "object",
+      "properties": {
+        "plugin": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IstioPluginCertificateAuthority"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Plugin certificates information for Service Mesh."
+        }
+      },
+      "description": "Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca"
+    },
+    "IstioComponents": {
+      "type": "object",
+      "properties": {
+        "egressGateways": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IstioEgressGateway"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Istio egress gateways."
+        },
+        "ingressGateways": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IstioIngressGateway"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Istio ingress gateways."
+        }
+      },
+      "description": "Istio components configuration."
+    },
+    "IstioEgressGateway": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable the egress gateway."
+        },
+        "nodeSelector": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NodeSelector for scheduling the egress gateway."
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "description": "Istio egress gateway configuration."
+    },
+    "IstioIngressGateway": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable the ingress gateway."
+        },
+        "mode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "External",
+                "Internal"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Mode of an ingress gateway."
+        }
+      },
+      "required": [
+        "enabled",
+        "mode"
+      ],
+      "description": "Istio ingress gateway configuration. For now, we support up to one external ingress gateway named `aks-istio-ingressgateway-external` and one internal ingress gateway named `aks-istio-ingressgateway-internal`."
+    },
+    "IstioPluginCertificateAuthority": {
+      "type": "object",
+      "properties": {
+        "certChainObjectName": {
+          "type": "string",
+          "description": "Certificate chain object name in Azure Key Vault."
+        },
+        "certObjectName": {
+          "type": "string",
+          "description": "Intermediate certificate object name in Azure Key Vault."
+        },
+        "keyObjectName": {
+          "type": "string",
+          "description": "Intermediate certificate private key object name in Azure Key Vault."
+        },
+        "keyVaultId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource ID of the Key Vault."
+        },
+        "rootCertObjectName": {
+          "type": "string",
+          "description": "Root certificate object name in Azure Key Vault."
+        }
+      },
+      "description": "Plugin certificates information for Service Mesh."
+    },
+    "IstioServiceMesh": {
+      "type": "object",
+      "properties": {
+        "certificateAuthority": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IstioCertificateAuthority"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca"
+        },
+        "components": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IstioComponents"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Istio components configuration."
+        },
+        "revisions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade"
+        }
+      },
+      "description": "Istio service mesh configuration."
     },
     "KubeletConfig": {
       "type": "object",
@@ -1426,7 +1697,7 @@
         },
         "clientAppID": {
           "type": "string",
-          "description": "The client AAD application ID."
+          "description": "(DEPRECATED) The client AAD application ID. Learn more at https://aka.ms/aks/aad-legacy."
         },
         "enableAzureRBAC": {
           "oneOf": [
@@ -1452,11 +1723,11 @@
         },
         "serverAppID": {
           "type": "string",
-          "description": "The server AAD application ID."
+          "description": "(DEPRECATED) The server AAD application ID. Learn more at https://aka.ms/aks/aad-legacy."
         },
         "serverAppSecret": {
           "type": "string",
-          "description": "The server AAD application secret."
+          "description": "(DEPRECATED) The server AAD application secret. Learn more at https://aka.ms/aks/aad-legacy."
         },
         "tenantID": {
           "type": "string",
@@ -1813,8 +2084,9 @@
               "type": "string",
               "enum": [
                 "Ubuntu",
-                "CBLMariner",
                 "Mariner",
+                "AzureLinux",
+                "CBLMariner",
                 "Windows2019",
                 "Windows2022"
               ]
@@ -1903,6 +2175,17 @@
             }
           ],
           "description": "The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'."
+        },
+        "securityProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentPoolSecurityProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The security settings of an agent pool."
         },
         "spotMaxPrice": {
           "oneOf": [
@@ -2298,8 +2581,9 @@
               "type": "string",
               "enum": [
                 "Ubuntu",
-                "CBLMariner",
                 "Mariner",
+                "AzureLinux",
+                "CBLMariner",
                 "Windows2019",
                 "Windows2022"
               ]
@@ -2388,6 +2672,17 @@
             }
           ],
           "description": "The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'."
+        },
+        "securityProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentPoolSecurityProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The security settings of an agent pool."
         },
         "spotMaxPrice": {
           "oneOf": [
@@ -2595,6 +2890,17 @@
     "ManagedClusterAzureMonitorProfile": {
       "type": "object",
       "properties": {
+        "logs": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterAzureMonitorProfileLogs"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Logs profile for the Azure Monitor Infrastructure and Application Logs. Collect out-of-the-box Kubernetes infrastructure & application logs to send to Azure Monitor. See aka.ms/AzureMonitorContainerInsights for an overview."
+        },
         "metrics": {
           "oneOf": [
             {
@@ -2608,6 +2914,73 @@
         }
       },
       "description": "Prometheus addon profile for the container service cluster"
+    },
+    "ManagedClusterAzureMonitorProfileAppMonitoring": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if Application Monitoring enabled or not."
+        }
+      },
+      "description": "Application Monitoring Profile for Kubernetes Application Container. Collects application logs, metrics and traces through auto-instrumentation of the application using Azure Monitor OpenTelemetry based SDKs. See aka.ms/AzureMonitorApplicationMonitoring for an overview."
+    },
+    "ManagedClusterAzureMonitorProfileAppMonitoringOpenTelemetryMetrics": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if Application Monitoring Open Telemetry Metrics is enabled or not."
+        }
+      },
+      "description": "Application Monitoring Open Telemetry Metrics Profile for Kubernetes Application Container Metrics. Collects OpenTelemetry metrics through auto-instrumentation of the application using Azure Monitor OpenTelemetry based SDKs. See aka.ms/AzureMonitorApplicationMonitoring for an overview."
+    },
+    "ManagedClusterAzureMonitorProfileContainerInsights": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if Azure Monitor Container Insights Logs Addon is enabled or not."
+        },
+        "logAnalyticsWorkspaceResourceId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Fully Qualified ARM Resource Id of Azure Log Analytics Workspace for storing Azure Monitor Container Insights Logs."
+        },
+        "windowsHostLogs": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterAzureMonitorProfileWindowsHostLogs"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Windows Host Logs Profile for Kubernetes Windows Nodes Log Collection. Collects ETW, Event Logs and Text logs etc. See aka.ms/AzureMonitorContainerInsights for an overview."
+        }
+      },
+      "description": "Azure Monitor Container Insights Profile for Kubernetes Events, Inventory and Container stdout & stderr logs etc. See aka.ms/AzureMonitorContainerInsights for an overview."
     },
     "ManagedClusterAzureMonitorProfileKubeStateMetrics": {
       "type": "object",
@@ -2623,9 +2996,48 @@
       },
       "description": "Kube State Metrics for prometheus addon profile for the container service cluster"
     },
+    "ManagedClusterAzureMonitorProfileLogs": {
+      "type": "object",
+      "properties": {
+        "appMonitoring": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterAzureMonitorProfileAppMonitoring"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Application Monitoring Profile for Kubernetes Application Container. Collects application logs, metrics and traces through auto-instrumentation of the application using Azure Monitor OpenTelemetry based SDKs. See aka.ms/AzureMonitorApplicationMonitoring for an overview."
+        },
+        "containerInsights": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterAzureMonitorProfileContainerInsights"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Monitor Container Insights Profile for Kubernetes Events, Inventory and Container stdout & stderr logs etc. See aka.ms/AzureMonitorContainerInsights for an overview."
+        }
+      },
+      "description": "Logs profile for the Azure Monitor Infrastructure and Application Logs. Collect out-of-the-box Kubernetes infrastructure & application logs to send to Azure Monitor. See aka.ms/AzureMonitorContainerInsights for an overview."
+    },
     "ManagedClusterAzureMonitorProfileMetrics": {
       "type": "object",
       "properties": {
+        "appMonitoringOpenTelemetryMetrics": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterAzureMonitorProfileAppMonitoringOpenTelemetryMetrics"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Application Monitoring Open Telemetry Metrics Profile for Kubernetes Application Container Metrics. Collects OpenTelemetry metrics through auto-instrumentation of the application using Azure Monitor OpenTelemetry based SDKs. See aka.ms/AzureMonitorApplicationMonitoring for an overview."
+        },
         "enabled": {
           "oneOf": [
             {
@@ -2653,6 +3065,40 @@
         "enabled"
       ],
       "description": "Metrics profile for the prometheus service addon"
+    },
+    "ManagedClusterAzureMonitorProfileWindowsHostLogs": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if Windows Host Log Collection is enabled or not for Azure Monitor Container Insights Logs Addon."
+        }
+      },
+      "description": "Windows Host Logs Profile for Kubernetes Windows Nodes Log Collection. Collects ETW, Event Logs and Text logs etc. See aka.ms/AzureMonitorContainerInsights for an overview."
+    },
+    "ManagedClusterCostAnalysis": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Managed Cluster sku.tier must be set to 'Standard' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis."
+        }
+      },
+      "description": "The cost analysis configuration for the cluster"
     },
     "ManagedClusterHTTPProxyConfig": {
       "type": "object",
@@ -2689,6 +3135,21 @@
     "ManagedClusterIdentity": {
       "type": "object",
       "properties": {
+        "delegatedResources": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/DelegatedResource"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of delegated resources. The delegated resources dictionary keys will be source resource internal ids - internal use only."
+        },
         "type": {
           "oneOf": [
             {
@@ -2743,10 +3204,19 @@
     "ManagedClusterIngressProfileWebAppRouting": {
       "type": "object",
       "properties": {
-        "dnsZoneResourceId": {
-          "type": "string",
-          "format": "arm-id",
-          "description": "Resource ID of the DNS Zone to be associated with the web app. Used only when Web App Routing is enabled."
+        "dnsZoneResourceIds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource IDs of the public DNS zones to be associated with the Web App Routing add-on. Used only when Web App Routing is enabled. All public DNS zones must be in the same resource group."
         },
         "enabled": {
           "oneOf": [
@@ -2962,6 +3432,23 @@
         }
       },
       "description": "Profile of the managed outbound IP resources of the managed cluster."
+    },
+    "ManagedClusterMetricsProfile": {
+      "type": "object",
+      "properties": {
+        "costAnalysis": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterCostAnalysis"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The cost analysis configuration for the cluster"
+        }
+      },
+      "description": "The metrics profile for the ManagedCluster."
     },
     "ManagedClusterNATGatewayProfile": {
       "type": "object",
@@ -3388,6 +3875,17 @@
           ],
           "description": "Profile for Linux VMs in the container service cluster."
         },
+        "metricsProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterMetricsProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The metrics profile for the ManagedCluster."
+        },
         "networkProfile": {
           "oneOf": [
             {
@@ -3477,6 +3975,17 @@
           ],
           "description": "Security profile for the container service cluster."
         },
+        "serviceMeshProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceMeshProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Service mesh profile for a managed cluster."
+        },
         "servicePrincipalProfile": {
           "oneOf": [
             {
@@ -3498,6 +4007,32 @@
             }
           ],
           "description": "Storage profile for the container service cluster."
+        },
+        "supportPlan": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "KubernetesOfficial",
+                "AKSLongTermSupport"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'."
+        },
+        "upgradeSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterUpgradeSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Settings for upgrading a cluster."
         },
         "windowsProfile": {
           "oneOf": [
@@ -3703,7 +4238,18 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "ImageCleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile."
+          "description": "Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile."
+        },
+        "imageIntegrity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterSecurityProfileImageIntegrity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Image integrity related settings for the security profile."
         },
         "nodeRestriction": {
           "oneOf": [
@@ -3725,7 +4271,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Workload Identity settings for the security profile."
+          "description": "Workload identity settings for the security profile."
         }
       },
       "description": "Security profile for the container service cluster."
@@ -3781,7 +4327,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Whether to enable ImageCleaner on AKS cluster."
+          "description": "Whether to enable Image Cleaner on AKS cluster."
         },
         "intervalHours": {
           "oneOf": [
@@ -3792,10 +4338,27 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "ImageCleaner scanning interval."
+          "description": "Image Cleaner scanning interval in hours."
         }
       },
-      "description": "ImageCleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile."
+      "description": "Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile."
+    },
+    "ManagedClusterSecurityProfileImageIntegrity": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to enable image integrity. The default value is false."
+        }
+      },
+      "description": "Image integrity related settings for the security profile."
     },
     "ManagedClusterSecurityProfileNodeRestriction": {
       "type": "object",
@@ -3826,10 +4389,10 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Whether to enable Workload Identity"
+          "description": "Whether to enable workload identity."
         }
       },
-      "description": "Workload Identity settings for the security profile."
+      "description": "Workload identity settings for the security profile."
     },
     "ManagedClusterServicePrincipalProfile": {
       "type": "object",
@@ -3856,7 +4419,7 @@
             {
               "type": "string",
               "enum": [
-                "Basic"
+                "Base"
               ]
             },
             {
@@ -3870,7 +4433,8 @@
             {
               "type": "string",
               "enum": [
-                "Paid",
+                "Premium",
+                "Standard",
                 "Free"
               ]
             },
@@ -3878,7 +4442,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details."
+          "description": "If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details."
         }
       },
       "description": "The SKU of a Managed Cluster."
@@ -4053,7 +4617,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "name": {
@@ -4102,7 +4666,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "name": {
@@ -4141,7 +4705,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "name": {
@@ -4180,7 +4744,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-11-02-preview"
+            "2023-07-02-preview"
           ]
         },
         "name": {
@@ -4327,21 +4891,6 @@
     "ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscaler": {
       "type": "object",
       "properties": {
-        "controlledValues": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "RequestsAndLimits",
-                "RequestsOnly"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Controls which resource value autoscaler will change. Default value is RequestsAndLimits."
-        },
         "enabled": {
           "oneOf": [
             {
@@ -4353,34 +4902,32 @@
             }
           ],
           "description": "Whether to enable VPA. Default value is false."
-        },
-        "updateMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Off",
-                "Initial",
-                "Recreate",
-                "Auto"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Each update mode level is a superset of the lower levels. Off<Initial<Recreate<=Auto. For example: if UpdateMode is Initial, it means VPA sets the recommended resources in the VerticalPodAutoscaler Custom Resource (from UpdateMode Off) and also assigns resources on pod creation (from Initial). The default value is Off."
         }
       },
       "required": [
-        "controlledValues",
-        "enabled",
-        "updateMode"
+        "enabled"
       ]
     },
     "ManagedServiceIdentityUserAssignedIdentitiesValue": {
       "type": "object",
       "properties": {}
+    },
+    "NetworkMonitoring": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enable or disable the network monitoring plugin on the cluster"
+        }
+      },
+      "description": "This addon can be used to configure network monitoring and generate network monitoring data in Prometheus format"
     },
     "NetworkProfileForSnapshot": {
       "type": "object",
@@ -4436,7 +4983,7 @@
             {
               "type": "string",
               "enum": [
-                "Overlay"
+                "overlay"
               ]
             },
             {
@@ -4451,7 +4998,8 @@
               "type": "string",
               "enum": [
                 "calico",
-                "azure"
+                "azure",
+                "cilium"
               ]
             },
             {
@@ -4758,6 +5306,41 @@
       },
       "description": "One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule."
     },
+    "ServiceMeshProfile": {
+      "type": "object",
+      "properties": {
+        "istio": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IstioServiceMesh"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Istio service mesh configuration."
+        },
+        "mode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Istio",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Mode of the service mesh."
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "description": "Service mesh profile for a managed cluster."
+    },
     "SnapshotProperties": {
       "type": "object",
       "properties": {
@@ -4975,7 +5558,9 @@
         "netIpv4TcpkeepaliveIntvl": {
           "oneOf": [
             {
-              "type": "integer"
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 90
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5041,7 +5626,9 @@
         "netNetfilterNfConntrackBuckets": {
           "oneOf": [
             {
-              "type": "integer"
+              "type": "integer",
+              "minimum": 65536,
+              "maximum": 524288
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5052,7 +5639,9 @@
         "netNetfilterNfConntrackMax": {
           "oneOf": [
             {
-              "type": "integer"
+              "type": "integer",
+              "minimum": 131072,
+              "maximum": 2097152
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5179,6 +5768,28 @@
         "sourceResourceId"
       ],
       "description": "Properties for trusted access role binding"
+    },
+    "UpgradeOverrideSettings": {
+      "type": "object",
+      "properties": {
+        "forceUpgrade": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution."
+        },
+        "until": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect."
+        }
+      },
+      "description": "Settings for overrides when upgrading a cluster."
     },
     "UserAssignedIdentity": {
       "type": "object",
