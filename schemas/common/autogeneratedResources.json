@@ -19403,6 +19403,39 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Migrate.Migrate.json#/resourceDefinitions/migrateProjects_solutions"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_groups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_groups_assessments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_groups_avsAssessments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_groups_sqlAssessments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_hypervcollectors"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_importcollectors"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_servercollectors"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_sqlcollectors"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_vmwarecollectors"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.Migrate.MigrateProjects.json#/resourceDefinitions/migrateProjects"
         },
         {
