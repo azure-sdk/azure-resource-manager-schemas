@@ -16412,21 +16412,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-03-15-preview/Microsoft.HybridCompute.json#/resourceDefinitions/privateLinkScopes_privateEndpointConnections"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2023-04-25-preview/Microsoft.HybridCompute.json#/resourceDefinitions/machines"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-04-25-preview/Microsoft.HybridCompute.json#/resourceDefinitions/machines_extensions"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-04-25-preview/Microsoft.HybridCompute.json#/resourceDefinitions/machines_runCommands"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-04-25-preview/Microsoft.HybridCompute.json#/resourceDefinitions/privateLinkScopes"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-04-25-preview/Microsoft.HybridCompute.json#/resourceDefinitions/privateLinkScopes_privateEndpointConnections"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2023-06-20-preview/Microsoft.HybridCompute.json#/resourceDefinitions/licenses"
         },
         {
@@ -16443,6 +16428,27 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-06-20-preview/Microsoft.HybridCompute.json#/resourceDefinitions/privateLinkScopes_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-03-preview/Microsoft.HybridCompute.json#/resourceDefinitions/licenses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-03-preview/Microsoft.HybridCompute.json#/resourceDefinitions/machines"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-03-preview/Microsoft.HybridCompute.json#/resourceDefinitions/machines_extensions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-03-preview/Microsoft.HybridCompute.json#/resourceDefinitions/machines_licenseProfiles"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-03-preview/Microsoft.HybridCompute.json#/resourceDefinitions/machines_runCommands"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-03-preview/Microsoft.HybridCompute.json#/resourceDefinitions/privateLinkScopes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-03-preview/Microsoft.HybridCompute.json#/resourceDefinitions/privateLinkScopes_privateEndpointConnections"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.HybridContainerService.json#/resourceDefinitions/provisionedClusters"

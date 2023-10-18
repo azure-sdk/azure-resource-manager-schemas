@@ -1,16 +1,83 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-04-25-preview/Microsoft.HybridCompute.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-10-03-preview/Microsoft.HybridCompute.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.HybridCompute",
   "description": "Microsoft HybridCompute Resource Types",
   "resourceDefinitions": {
+    "licenses": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-10-03-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9-_\\.]+"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the license."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a License Profile."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.HybridCompute/licenses"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.HybridCompute/licenses"
+    },
     "machines": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-10-03-preview"
           ]
         },
         "identity": {
@@ -32,14 +99,16 @@
                 "AVS",
                 "HCI",
                 "SCVMM",
-                "VMware"
+                "VMware",
+                "EPS",
+                "GCP",
+                "AWS"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "Indicates which kind of VM fabric the instance is an instance of, such as HCI or SCVMM etc."
+          ]
         },
         "location": {
           "type": "string",
@@ -49,7 +118,7 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9-_\\.]"
+              "pattern": "[a-zA-Z0-9-_\\.]+"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -72,6 +141,9 @@
           "type": "array",
           "items": {
             "oneOf": [
+              {
+                "$ref": "#/definitions/machines_licenseProfiles_childResource"
+              },
               {
                 "$ref": "#/definitions/machines_extensions_childResource"
               },
@@ -118,7 +190,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-10-03-preview"
           ]
         },
         "location": {
@@ -171,13 +243,13 @@
       ],
       "description": "Microsoft.HybridCompute/machines/extensions"
     },
-    "machines_runCommands": {
+    "machines_licenseProfiles": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-10-03-preview"
           ]
         },
         "location": {
@@ -188,7 +260,74 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9-_\\.]"
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the license profile."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describe the properties of a license profile."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.HybridCompute/machines/licenseProfiles"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.HybridCompute/machines/licenseProfiles"
+    },
+    "machines_runCommands": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-10-03-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "[a-zA-Z0-9-_\\.]+"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -244,7 +383,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-10-03-preview"
           ]
         },
         "location": {
@@ -313,7 +452,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-10-03-preview"
           ]
         },
         "name": {
@@ -448,6 +587,380 @@
         }
       },
       "description": "Describes properties of the IP address."
+    },
+    "License": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a License Profile."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "description": "Describes a license in a hybrid machine."
+    },
+    "LicenseDetails": {
+      "type": "object",
+      "properties": {
+        "edition": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "Datacenter"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "processors": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the number of processors."
+        },
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Activated",
+                "Deactivated"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "target": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Windows Server 2012",
+                "Windows Server 2012 R2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "pCore",
+                "vCore"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Describes the properties of a License."
+    },
+    "LicenseProfileArmEsuProperties": {
+      "type": "object",
+      "properties": {
+        "assignedLicense": {
+          "type": "string",
+          "description": "The resource id of the license."
+        }
+      },
+      "description": "Describes the properties of a License Profile ARM model."
+    },
+    "LicenseProfileArmProductProfileProperties": {
+      "type": "object",
+      "properties": {
+        "productFeatures": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductFeature"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of product features."
+        },
+        "productType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "WindowsServer",
+                "WindowsIoTEnterprise"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates the product type of the license."
+        },
+        "subscriptionStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Enabling",
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates the subscription status of the product."
+        }
+      },
+      "description": "Describes the properties of a Product License Profile ARM model."
+    },
+    "LicenseProfileMachineInstanceView": {
+      "type": "object",
+      "properties": {
+        "esuProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileMachineInstanceViewEsuProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for the Machine ESU profile."
+        },
+        "licenseStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unlicensed",
+                "Licensed",
+                "OOBGrace",
+                "OOTGrace",
+                "NonGenuineGrace",
+                "Notification",
+                "ExtendedGrace"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates the license status of the OS."
+        }
+      },
+      "description": "License Profile Instance View in Machine Properties."
+    },
+    "LicenseProfileMachineInstanceViewEsuProperties": {
+      "type": "object",
+      "properties": {
+        "assignedLicense": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/License"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes a license in a hybrid machine."
+        },
+        "licenseAssignmentState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Assigned",
+                "NotAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the license assignment state (Assigned or NotAssigned)."
+        }
+      },
+      "description": "Properties for the Machine ESU profile."
+    },
+    "LicenseProfileProperties": {
+      "type": "object",
+      "properties": {
+        "esuProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileArmEsuProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a License Profile ARM model."
+        },
+        "productProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileArmProductProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a Product License Profile ARM model."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Creating",
+                "Updating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Accepted",
+                "Canceled",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioning state, which only appears in the response."
+        },
+        "softwareAssurance": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfilePropertiesSoftwareAssurance"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Describe the properties of a license profile."
+    },
+    "LicenseProfilePropertiesSoftwareAssurance": {
+      "type": "object",
+      "properties": {
+        "softwareAssuranceCustomer": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies if this machine is licensed as part of a Software Assurance agreement."
+        }
+      }
+    },
+    "LicenseProperties": {
+      "type": "object",
+      "properties": {
+        "licenseDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of a License."
+        },
+        "licenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ESU"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the license resource."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Creating",
+                "Updating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Accepted",
+                "Canceled",
+                "Deleted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioning state, which only appears in the response."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "Describes the tenant id."
+        }
+      },
+      "description": "Describes the properties of a License Profile."
     },
     "LocationData": {
       "type": "object",
@@ -699,6 +1212,17 @@
           ],
           "description": "Machine Extensions information (deprecated field)"
         },
+        "licenseProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileMachineInstanceView"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "License Profile Instance View in Machine Properties."
+        },
         "locationData": {
           "oneOf": [
             {
@@ -907,7 +1431,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-10-03-preview"
           ]
         },
         "location": {
@@ -960,13 +1484,75 @@
       ],
       "description": "Microsoft.HybridCompute/machines/extensions"
     },
+    "machines_licenseProfiles_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-10-03-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ],
+          "description": "The name of the license profile."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LicenseProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describe the properties of a license profile."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "licenseProfiles"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.HybridCompute/machines/licenseProfiles"
+    },
     "machines_runCommands_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-10-03-preview"
           ]
         },
         "location": {
@@ -977,7 +1563,7 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "[a-zA-Z0-9-_\\.]"
+              "pattern": "[a-zA-Z0-9-_\\.]+"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1211,7 +1797,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-04-25-preview"
+            "2023-10-03-preview"
           ]
         },
         "name": {
@@ -1261,6 +1847,33 @@
         "status"
       ],
       "description": "State of the private endpoint connection."
+    },
+    "ProductFeature": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Product feature name."
+        },
+        "subscriptionStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Enabling",
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates the current status of the product features."
+        }
+      },
+      "description": "Product Feature"
     },
     "RunCommandInputParameter": {
       "type": "object",
