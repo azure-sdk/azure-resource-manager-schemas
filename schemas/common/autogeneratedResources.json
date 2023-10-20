@@ -16733,6 +16733,21 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-03-15-preview/Microsoft.Insights.json#/resourceDefinitions/scheduledQueryRules"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-14-preview/Microsoft.IntegrationSpaces.json#/resourceDefinitions/spaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-14-preview/Microsoft.IntegrationSpaces.json#/resourceDefinitions/spaces_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-14-preview/Microsoft.IntegrationSpaces.json#/resourceDefinitions/spaces_applications_businessProcesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-14-preview/Microsoft.IntegrationSpaces.json#/resourceDefinitions/spaces_applications_resources"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-14-preview/Microsoft.IntegrationSpaces.json#/resourceDefinitions/spaces_infrastructureResources"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01/Microsoft.IotCentral.json#/resourceDefinitions/iotApps"
         },
         {
