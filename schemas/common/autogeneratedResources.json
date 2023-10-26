@@ -37496,30 +37496,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.VideoIndexer.json#/resourceDefinitions/accounts"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2018-02-01-preview/Microsoft.VirtualMachineImages.json#/resourceDefinitions/imageTemplates"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-02-01-preview/Microsoft.VirtualMachineImages.json#/resourceDefinitions/imageTemplates"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2019-05-01-preview/Microsoft.VirtualMachineImages.json#/resourceDefinitions/imageTemplates"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2020-02-14/Microsoft.VirtualMachineImages.json#/resourceDefinitions/imageTemplates"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-10-01/Microsoft.VirtualMachineImages.json#/resourceDefinitions/imageTemplates"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-02-14/Microsoft.VirtualMachineImages.json#/resourceDefinitions/imageTemplates"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-07-01/Microsoft.VirtualMachineImages.json#/resourceDefinitions/imageTemplates"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-07-01/Microsoft.VirtualMachineImages.json#/resourceDefinitions/imageTemplates_triggers"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2014-04-01-preview/Microsoft.VisualStudio.json#/resourceDefinitions/account"
         },
         {
