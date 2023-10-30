@@ -9050,6 +9050,18 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/views"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.CostManagement.json#/unknown_resourceDefinitions/budgets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.CostManagement.json#/unknown_resourceDefinitions/exports"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.CostManagement.json#/unknown_resourceDefinitions/scheduledActions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.CostManagement.json#/unknown_resourceDefinitions/views"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.CustomProviders.json#/resourceDefinitions/resourceProviders"
         },
         {
