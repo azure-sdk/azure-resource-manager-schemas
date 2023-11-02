@@ -16949,6 +16949,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-03-15-preview/Microsoft.Insights.json#/resourceDefinitions/scheduledQueryRules"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Insights.json#/resourceDefinitions/privateLinkScopes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Insights.json#/resourceDefinitions/privateLinkScopes_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Insights.json#/resourceDefinitions/privateLinkScopes_scopedResources"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-11-14-preview/Microsoft.IntegrationSpaces.json#/resourceDefinitions/spaces"
         },
         {
