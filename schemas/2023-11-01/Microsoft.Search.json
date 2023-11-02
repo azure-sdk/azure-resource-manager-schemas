@@ -302,7 +302,7 @@
       "properties": {
         "groupId": {
           "type": "string",
-          "description": "The group id from the provider of resource the private link service connection is for."
+          "description": "The group ID from the provider of resource the private link service connection is for."
         },
         "privateEndpoint": {
           "oneOf": [
@@ -353,7 +353,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "The resource id of the private endpoint resource from Microsoft.Network provider."
+          "description": "The resource ID of the private endpoint resource from Microsoft.Network provider."
         }
       },
       "description": "The private endpoint resource from Microsoft.Network provider."
@@ -597,11 +597,11 @@
       "properties": {
         "groupId": {
           "type": "string",
-          "description": "The group id from the provider of resource the shared private link resource is for."
+          "description": "The group ID from the provider of resource the shared private link resource is for."
         },
         "privateLinkResourceId": {
           "type": "string",
-          "description": "The resource id of the resource the shared private link resource is for."
+          "description": "The resource ID of the resource the shared private link resource is for."
         },
         "provisioningState": {
           "oneOf": [

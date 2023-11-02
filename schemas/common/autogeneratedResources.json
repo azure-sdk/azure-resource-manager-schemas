@@ -31640,9 +31640,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-05-21-preview/Microsoft.ScVmm.json#/resourceDefinitions/vmmServers_inventoryItems"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2015-02-28/Microsoft.Search.json#/resourceDefinitions/searchServices"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2015-08-19/Microsoft.Search.json#/resourceDefinitions/searchServices"
         },
         {
