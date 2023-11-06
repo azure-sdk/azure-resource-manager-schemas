@@ -16073,18 +16073,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2020-02-07-preview/Microsoft.HanaOnAzure.json#/resourceDefinitions/sapMonitors_providerInstances"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2018-10-31-preview/Microsoft.HardwareSecurityModules.json#/resourceDefinitions/dedicatedHSMs"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2021-11-30/Microsoft.HardwareSecurityModules.json#/resourceDefinitions/dedicatedHSMs"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-08-31-preview/Microsoft.HardwareSecurityModules.json#/resourceDefinitions/cloudHsmClusters"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-08-31-preview/Microsoft.HardwareSecurityModules.json#/resourceDefinitions/cloudHsmClusters_privateEndpointConnections"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2015-03-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters"
         },
         {
