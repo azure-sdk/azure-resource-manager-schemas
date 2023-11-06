@@ -14026,6 +14026,9 @@
       "type": "object",
       "oneOf": [
         {
+          "$ref": "#/definitions/ParquetReadSettings"
+        },
+        {
           "$ref": "#/definitions/DelimitedTextReadSettings"
         },
         {
@@ -14436,7 +14439,7 @@
         "connectionProperties": {
           "type": "object",
           "properties": {},
-          "description": "Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object."
+          "description": "(Deprecated) Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object."
         },
         "developerToken": {
           "oneOf": [
@@ -14458,10 +14461,31 @@
           "type": "string",
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
         },
+        "googleAdsApiVersion": {
+          "type": "object",
+          "properties": {},
+          "description": "The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/release-notes. Type: string (or Expression with resultType string)."
+        },
         "keyFilePath": {
           "type": "object",
           "properties": {},
-          "description": "The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string)."
+          "description": "(Deprecated) The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string)."
+        },
+        "loginCustomerID": {
+          "type": "object",
+          "properties": {},
+          "description": "The customer ID of the Google Ads Manager account through which you want to fetch report data of specific Customer. Type: string (or Expression with resultType string)."
+        },
+        "privateKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
         },
         "refreshToken": {
           "oneOf": [
@@ -14474,15 +14498,20 @@
           ],
           "description": "The base definition of a secret type."
         },
+        "supportLegacyDataTypes": {
+          "type": "object",
+          "properties": {},
+          "description": "Specifies whether to use the legacy data type mappings, which maps float, int32 and int64 from Google to string. Do not set this to true unless you want to keep backward compatibility with legacy driver's data type mappings. Type: boolean (or Expression with resultType boolean)."
+        },
         "trustedCertPath": {
           "type": "object",
           "properties": {},
-          "description": "The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string)."
+          "description": "(Deprecated) The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string)."
         },
         "useSystemTrustStore": {
           "type": "object",
           "properties": {},
-          "description": "Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean)."
+          "description": "(Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean)."
         }
       },
       "description": "Google AdWords service linked service properties."
@@ -22507,6 +22536,48 @@
       ],
       "description": "The data stored in Parquet format."
     },
+    "ParquetReadSettings": {
+      "type": "object",
+      "properties": {
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Unmatched properties from the message are deserialized this collection"
+        },
+        "compressionProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CompressionReadSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Compression read settings."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "ParquetReadSettings"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Parquet read settings."
+    },
     "ParquetSink": {
       "type": "object",
       "properties": {
@@ -22551,6 +22622,17 @@
           "type": "object",
           "properties": {},
           "description": "Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects)."
+        },
+        "formatSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ParquetReadSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parquet read settings."
         },
         "storeSettings": {
           "oneOf": [
