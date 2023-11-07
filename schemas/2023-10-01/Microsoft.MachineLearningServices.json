@@ -610,6 +610,9 @@
           ],
           "description": "Managed service identity (system assigned and/or user assigned identities)"
         },
+        "kind": {
+          "type": "string"
+        },
         "location": {
           "type": "string",
           "description": "Specifies the location of the resource."
@@ -5906,6 +5909,10 @@
             }
           ],
           "description": "Input Asset Delivery Mode."
+        },
+        "pathOnCompute": {
+          "type": "string",
+          "description": "Input Asset Delivery Path."
         },
         "uri": {
           "oneOf": [
