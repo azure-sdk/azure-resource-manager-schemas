@@ -464,21 +464,14 @@
             {
               "type": "string",
               "enum": [
-                "Invalid",
-                "DeviceMessages",
-                "TwinChangeEvents",
-                "DeviceLifecycleEvents",
-                "DeviceJobLifecycleEvents",
-                "DigitalTwinChangeEvents",
-                "DeviceConnectionStateEvents",
-                "MqttBrokerMessages"
+                "DeviceMessages"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The source to which the routing rule is to be applied to. For example, DeviceMessages."
+          "description": "The source to which the routing rule is to be applied to. For example, DeviceMessages"
         }
       },
       "required": [
