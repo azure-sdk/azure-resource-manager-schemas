@@ -122,6 +122,16 @@
             "2023-06-01"
           ]
         },
+        "certificateCreateOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateRequestCertificateCreateOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "name": {
           "type": "string",
           "description": "Certificate friendly name."
@@ -223,6 +233,21 @@
         }
       },
       "description": "Settings for Azure Monitor based alerts"
+    },
+    "CertificateRequestCertificateCreateOptions": {
+      "type": "object",
+      "properties": {
+        "validityInHours": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      }
     },
     "ClassicAlertSettings": {
       "type": "object",
@@ -804,6 +829,16 @@
           "type": "string",
           "enum": [
             "2023-06-01"
+          ]
+        },
+        "certificateCreateOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateRequestCertificateCreateOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
           ]
         },
         "name": {
