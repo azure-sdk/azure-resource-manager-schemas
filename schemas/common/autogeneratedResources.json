@@ -31781,6 +31781,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.Security.json#/resourceDefinitions/securityConnectors_devops_azureDevOpsOrgs_projects_repos"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.Security.json#/resourceDefinitions/securityConnectors"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2021-01-11/Microsoft.SecurityAndCompliance.json#/resourceDefinitions/privateLinkServicesForEDMUpload"
         },
         {
