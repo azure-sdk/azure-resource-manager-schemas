@@ -1,0 +1,456 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-01-10-preview/Microsoft.AzureLargeInstance.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.AzureLargeInstance",
+  "description": "Microsoft AzureLargeInstance Resource Types",
+  "resourceDefinitions": {
+    "azureLargeInstances": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-01-10-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": ".*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the AzureLargeInstance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureLargeInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of an Azure Large Instance."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureLargeInstance/azureLargeInstances"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureLargeInstance/azureLargeInstances"
+    },
+    "azureLargeStorageInstances": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-01-10-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": ".*"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the AzureLargeStorageInstance."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureLargeStorageInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the properties of an AzureLargeStorageInstance."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureLargeInstance/azureLargeStorageInstances"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureLargeInstance/azureLargeStorageInstances"
+    }
+  },
+  "definitions": {
+    "AzureLargeInstanceProperties": {
+      "type": "object",
+      "properties": {
+        "hardwareProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HardwareProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the hardware settings for the Azure Large Instance."
+        },
+        "networkProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the network settings for the Azure Large Instance disks."
+        },
+        "osProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OSProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the operating system settings for the Azure Large Instance."
+        },
+        "partnerNodeId": {
+          "type": "string",
+          "description": "ARM ID of another AzureLargeInstance that will share a network with this AzureLargeInstance"
+        },
+        "storageProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the storage settings for the Azure Large Instance disks."
+        }
+      },
+      "description": "Describes the properties of an Azure Large Instance."
+    },
+    "AzureLargeStorageInstanceProperties": {
+      "type": "object",
+      "properties": {
+        "azureLargeStorageInstanceUniqueIdentifier": {
+          "type": "string",
+          "description": "Specifies the AzureLargeStorageInstance unique ID."
+        },
+        "storageProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "described the storage properties of the azure large storage instance"
+        }
+      },
+      "description": "Describes the properties of an AzureLargeStorageInstance."
+    },
+    "Disk": {
+      "type": "object",
+      "properties": {
+        "diskSizeGB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the size of an empty data disk in gigabytes."
+        },
+        "name": {
+          "type": "string",
+          "description": "The disk name."
+        }
+      },
+      "description": "Specifies the disk information fo the Azure Large Instance"
+    },
+    "HardwareProfile": {
+      "type": "object",
+      "properties": {
+        "azureLargeInstanceSize": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "S72m",
+                "S144m",
+                "S72",
+                "S144",
+                "S192",
+                "S192m",
+                "S192xm",
+                "S96",
+                "S112",
+                "S224",
+                "S224m",
+                "S224om",
+                "S224oo",
+                "S224oom",
+                "S224ooo",
+                "S224se",
+                "S384",
+                "S384m",
+                "S384xm",
+                "S384xxm",
+                "S448",
+                "S448m",
+                "S448om",
+                "S448oo",
+                "S448oom",
+                "S448ooo",
+                "S448se",
+                "S576m",
+                "S576xm",
+                "S672",
+                "S672m",
+                "S672om",
+                "S672oo",
+                "S672oom",
+                "S672ooo",
+                "S768",
+                "S768m",
+                "S768xm",
+                "S896",
+                "S896m",
+                "S896om",
+                "S896oo",
+                "S896oom",
+                "S896ooo",
+                "S960m"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the Azure Large Instance SKU."
+        },
+        "hardwareType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Cisco_UCS",
+                "HPE",
+                "SDFLEX"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the hardware type (vendor and/or their product name)."
+        }
+      },
+      "description": "Specifies the hardware settings for the Azure Large Instance."
+    },
+    "IpAddress": {
+      "type": "object",
+      "properties": {
+        "ipAddress": {
+          "type": "string",
+          "description": "Specifies the IP address of the network interface."
+        }
+      },
+      "description": "Specifies the IP address of the network interface."
+    },
+    "NetworkProfile": {
+      "type": "object",
+      "properties": {
+        "networkInterfaces": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IpAddress"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the network interfaces for the Azure Large Instance."
+        }
+      },
+      "description": "Specifies the network settings for the Azure Large Instance disks."
+    },
+    "OSProfile": {
+      "type": "object",
+      "properties": {
+        "computerName": {
+          "type": "string",
+          "description": "Specifies the host OS name of the Azure Large Instance."
+        },
+        "sshPublicKey": {
+          "type": "string",
+          "description": "Specifies the SSH public key used to access the operating system."
+        }
+      },
+      "description": "Specifies the operating system settings for the Azure Large Instance."
+    },
+    "StorageBillingProperties": {
+      "type": "object",
+      "properties": {
+        "billingMode": {
+          "type": "string",
+          "description": "the billing mode for the storage instance"
+        },
+        "sku": {
+          "type": "string",
+          "description": "the SKU type that is provisioned"
+        }
+      },
+      "description": "Describes the billing related details of the AzureLargeStorageInstance."
+    },
+    "StorageProfile": {
+      "type": "object",
+      "properties": {
+        "osDisks": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Disk"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies information about the operating system disk used by Azure Large Instance."
+        }
+      },
+      "description": "Specifies the storage settings for the Azure Large Instance disks."
+    },
+    "StorageProperties": {
+      "type": "object",
+      "properties": {
+        "generation": {
+          "type": "string",
+          "description": "the kind of storage instance"
+        },
+        "hardwareType": {
+          "type": "string",
+          "description": "the hardware type of the storage instance"
+        },
+        "offeringType": {
+          "type": "string",
+          "description": "the offering type for which the resource is getting provisioned"
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Accepted",
+                "Creating",
+                "Updating",
+                "Failed",
+                "Succeeded",
+                "Deleting",
+                "Canceled",
+                "Migrating"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "State of provisioning of the AzureLargeStorageInstance."
+        },
+        "storageBillingProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageBillingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the billing related details of the AzureLargeStorageInstance."
+        },
+        "storageType": {
+          "type": "string",
+          "description": "the storage protocol for which the resource is getting provisioned"
+        },
+        "workloadType": {
+          "type": "string",
+          "description": "the workload for which the resource is getting provisioned"
+        }
+      },
+      "description": "described the storage properties of the azure large storage instance"
+    }
+  }
+}

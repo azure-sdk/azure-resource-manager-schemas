@@ -5246,6 +5246,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2019-07-24-preview/Microsoft.AzureData.json#/resourceDefinitions/sqlServerRegistrations_sqlServers"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-10-preview/Microsoft.AzureLargeInstance.json#/resourceDefinitions/azureLargeInstances"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-10-preview/Microsoft.AzureLargeInstance.json#/resourceDefinitions/azureLargeStorageInstances"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.AzurePlaywrightService.json#/resourceDefinitions/accounts"
         },
         {
