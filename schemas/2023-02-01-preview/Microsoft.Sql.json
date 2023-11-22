@@ -9180,7 +9180,7 @@
         },
         "minimalTlsVersion": {
           "type": "string",
-          "description": "Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'"
+          "description": "Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2', '1.3'"
         },
         "primaryUserAssignedIdentityId": {
           "type": "string",
