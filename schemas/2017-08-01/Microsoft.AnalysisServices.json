@@ -15,7 +15,7 @@
         },
         "location": {
           "type": "string",
-          "description": "Location of the Analysis Services resource."
+          "description": "The geo-location where the resource lives"
         },
         "name": {
           "oneOf": [
@@ -42,17 +42,6 @@
           ],
           "description": "Properties of Analysis Services resource."
         },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ResourceSku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Represents the SKU name and Azure pricing tier for Analysis Services resource."
-        },
         "tags": {
           "oneOf": [
             {
@@ -66,7 +55,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Key-value pairs of additional resource provisioning properties."
+          "description": "Resource tags."
         },
         "type": {
           "type": "string",
@@ -80,7 +69,6 @@
         "location",
         "name",
         "properties",
-        "sku",
         "type"
       ],
       "description": "Microsoft.AnalysisServices/servers"
@@ -90,217 +78,85 @@
     "AnalysisServicesServerProperties": {
       "type": "object",
       "properties": {
-        "asAdministrators": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ServerAdministrators"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "An array of administrator user identities."
-        },
-        "backupBlobContainerUri": {
-          "type": "string",
-          "description": "The SAS container URI to the backup container."
-        },
-        "gatewayDetails": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GatewayDetails"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The gateway details."
-        },
-        "ipV4FirewallSettings": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/IPv4FirewallSettings"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "An array of firewall rules."
-        },
-        "managedMode": {
-          "oneOf": [
-            {
-              "type": "integer",
-              "default": "1"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The managed mode of the server (0 = not managed, 1 = managed)."
-        },
-        "querypoolConnectionMode": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "All",
-                "ReadOnly"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error."
-        },
-        "serverMonitorMode": {
-          "oneOf": [
-            {
-              "type": "integer",
-              "default": "1"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The server monitor mode for AS server"
-        },
         "sku": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ResourceSku"
+              "$ref": "#/definitions/AzureResourceManagerResourceSku"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Represents the SKU name and Azure pricing tier for Analysis Services resource."
+          "description": "The SKU (Stock Keeping Unit) assigned to this resource."
         }
       },
       "description": "Properties of Analysis Services resource."
     },
-    "GatewayDetails": {
+    "AzureResourceManagerResourceSku": {
       "type": "object",
       "properties": {
-        "gatewayResourceId": {
-          "type": "string",
-          "description": "Gateway resource to be associated with the server."
-        }
-      },
-      "description": "The gateway details."
-    },
-    "IPv4FirewallRule": {
-      "type": "object",
-      "properties": {
-        "firewallRuleName": {
-          "type": "string",
-          "description": "The rule name."
-        },
-        "rangeEnd": {
-          "type": "string",
-          "description": "The end range of IPv4."
-        },
-        "rangeStart": {
-          "type": "string",
-          "description": "The start range of IPv4."
-        }
-      },
-      "description": "The detail of firewall rule."
-    },
-    "IPv4FirewallSettings": {
-      "type": "object",
-      "properties": {
-        "enablePowerBIService": {
+        "sku": {
           "oneOf": [
             {
-              "type": "boolean"
+              "$ref": "#/definitions/Sku"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The indicator of enabling PBI service."
-        },
-        "firewallRules": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/IPv4FirewallRule"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "An array of firewall rules."
+          "description": "The resource model definition representing SKU"
         }
       },
-      "description": "An array of firewall rules."
+      "description": "The SKU (Stock Keeping Unit) assigned to this resource."
     },
-    "ResourceSku": {
+    "Sku": {
       "type": "object",
       "properties": {
         "capacity": {
           "oneOf": [
             {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 8,
-              "default": "1"
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The number of instances in the read only query pool."
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
         },
         "name": {
           "type": "string",
-          "description": "Name of the SKU level."
+          "description": "The name of the SKU. Ex - P3. It is typically a letter+number code"
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. "
         },
         "tier": {
           "oneOf": [
             {
               "type": "string",
               "enum": [
-                "Development",
+                "Free",
                 "Basic",
-                "Standard"
+                "Standard",
+                "Premium",
+                "Development"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "The name of the Azure pricing tier to which the SKU applies."
+          ]
         }
       },
       "required": [
         "name"
       ],
-      "description": "Represents the SKU name and Azure pricing tier for Analysis Services resource."
-    },
-    "ServerAdministrators": {
-      "type": "object",
-      "properties": {
-        "members": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "An array of administrator user identities."
-        }
-      },
-      "description": "An array of administrator user identities."
+      "description": "The resource model definition representing SKU"
     }
   }
 }
