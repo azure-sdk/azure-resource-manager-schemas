@@ -146,8 +146,15 @@
           "type": "string"
         },
         "name": {
-          "type": "string",
-          "description": "The name of configuration, only 'default' is supported value due to the singleton of NGINX conf"
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "oneOf": [
@@ -493,7 +500,9 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of configuration, only 'default' is supported value due to the singleton of NGINX conf"
+          "enum": [
+            "default"
+          ]
         },
         "properties": {
           "oneOf": [
