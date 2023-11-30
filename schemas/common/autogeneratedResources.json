@@ -5249,24 +5249,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.AzurePlaywrightService.json#/resourceDefinitions/accounts"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs_images"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs_products"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs_products_deviceGroups"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs_products_deviceGroups_deployments"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs_products_deviceGroups_devices"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2016-01-01/Microsoft.AzureStack.json#/resourceDefinitions/registrations"
         },
         {
