@@ -4337,6 +4337,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-01-01/Microsoft.Authorization.Resources.json#/resourceDefinitions/locks"
         },
         {
