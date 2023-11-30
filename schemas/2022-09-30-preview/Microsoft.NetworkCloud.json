@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-12-12-preview/Microsoft.NetworkCloud.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-09-30-preview/Microsoft.NetworkCloud.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.NetworkCloud",
   "description": "Microsoft NetworkCloud Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -87,7 +87,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -164,7 +164,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "location": {
@@ -191,7 +191,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "ClusterManagerProperties represents the properties of a cluster manager"
         },
         "tags": {
           "oneOf": [
@@ -230,7 +231,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -269,22 +270,6 @@
             }
           ]
         },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/clusters_bareMetalMachineKeySets_childResource"
-              },
-              {
-                "$ref": "#/definitions/clusters_bmcKeySets_childResource"
-              },
-              {
-                "$ref": "#/definitions/clusters_metricsConfigurations_childResource"
-              }
-            ]
-          }
-        },
         "tags": {
           "oneOf": [
             {
@@ -317,244 +302,13 @@
       ],
       "description": "Microsoft.NetworkCloud/clusters"
     },
-    "clusters_bareMetalMachineKeySets": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-_]{0,28}[a-zA-Z0-9])$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the bare metal machine key set."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/BareMetalMachineKeySetProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets"
-    },
-    "clusters_bmcKeySets": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-_]{0,28}[a-zA-Z0-9])$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the baseboard management controller key set."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/BmcKeySetProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.NetworkCloud/clusters/bmcKeySets"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/clusters/bmcKeySets"
-    },
-    "clusters_metricsConfigurations": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^default$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the metrics configuration for the cluster."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ClusterMetricsConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.NetworkCloud/clusters/metricsConfigurations"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/clusters/metricsConfigurations"
-    },
     "defaultCniNetworks": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -631,7 +385,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -652,7 +406,7 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9])$"
+              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-_]{0,28}[a-zA-Z0-9])$"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -708,7 +462,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -785,7 +539,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -862,7 +616,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -939,7 +693,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -1016,7 +770,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -1093,7 +847,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2022-12-12-preview"
+            "2022-09-30-preview"
           ]
         },
         "extendedLocation": {
@@ -1132,16 +886,6 @@
             }
           ]
         },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/virtualMachines_consoles_childResource"
-              }
-            ]
-          }
-        },
         "tags": {
           "oneOf": [
             {
@@ -1173,160 +917,6 @@
         "type"
       ],
       "description": "Microsoft.NetworkCloud/virtualMachines"
-    },
-    "virtualMachines_consoles": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^default$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the virtual machine console."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ConsoleProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.NetworkCloud/virtualMachines/consoles"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/virtualMachines/consoles"
-    },
-    "volumes": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9]{0,28}[a-zA-Z0-9])$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the volume."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/VolumeProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.NetworkCloud/volumes"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/volumes"
     }
   },
   "definitions": {
@@ -1392,15 +982,7 @@
           "description": "The free-form additional information about the machine, e.g. an asset tag."
         },
         "machineName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9]{0,62}[a-zA-Z0-9])$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "The user-provided name for the bare metal machine created from this specification.\nIf not provided, the machine name will be generated programmatically."
         },
         "rackSlot": {
@@ -1428,83 +1010,6 @@
         "bootMacAddress",
         "rackSlot",
         "serialNumber"
-      ]
-    },
-    "BareMetalMachineKeySetProperties": {
-      "type": "object",
-      "properties": {
-        "azureGroupId": {
-          "type": "string",
-          "description": "The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access."
-        },
-        "expiration": {
-          "type": "string",
-          "format": "date-time",
-          "description": "The date and time after which the users in this key set will be removed from the bare metal machines."
-        },
-        "jumpHostsAllowed": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users."
-        },
-        "osGroupName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([A-Za-z]([A-Za-z0-9]*))$",
-              "maxLength": 32
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the group that users will be assigned to on the operating system of the machines."
-        },
-        "privilegeLevel": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Standard",
-                "Superuser"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The access level allowed for the users in this key set."
-        },
-        "userList": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/KeySetUser"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The unique list of permitted users."
-        }
-      },
-      "required": [
-        "azureGroupId",
-        "expiration",
-        "jumpHostsAllowed",
-        "privilegeLevel",
-        "userList"
       ]
     },
     "BareMetalMachineProperties": {
@@ -1556,7 +1061,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "including information acquired from the model/sku information and from the ironic inspector."
         },
         "hardwareValidationStatus": {
           "oneOf": [
@@ -1643,16 +1149,8 @@
           "description": "The ASN (Autonomous System Number) of the BGP peer."
         },
         "password": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]{0,80}$",
-              "maxLength": 80
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
+          "maxLength": 80,
           "description": "The password for this peering neighbor. It defaults to no password if not specified."
         },
         "peerIp": {
@@ -1663,55 +1161,6 @@
       "required": [
         "asNumber",
         "peerIp"
-      ]
-    },
-    "BmcKeySetProperties": {
-      "type": "object",
-      "properties": {
-        "azureGroupId": {
-          "type": "string",
-          "description": "The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access."
-        },
-        "expiration": {
-          "type": "string",
-          "format": "date-time",
-          "description": "The date and time after which the users in this key set will be removed from the baseboard management controllers."
-        },
-        "privilegeLevel": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "ReadOnly",
-                "Administrator"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The access level allowed for the users in this key set."
-        },
-        "userList": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/KeySetUser"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The unique list of permitted users."
-        }
-      },
-      "required": [
-        "azureGroupId",
-        "expiration",
-        "privilegeLevel",
-        "userList"
       ]
     },
     "CloudServicesNetworkProperties": {
@@ -1729,24 +1178,12 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint."
-        },
-        "enableDefaultEgressEndpoints": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "True",
-                "False"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The indicator of whether the platform default endpoints are allowed for the egress traffic."
+          "description": "The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint for\na common purpose."
         }
-      }
+      },
+      "required": [
+        "additionalEgressEndpoints"
+      ]
     },
     "ClusterCapacity": {
       "type": "object",
@@ -1860,7 +1297,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource."
+          "description": "The Azure availability zones within the region that will be used to support the cluster manager resource. For example, [\"1\",\"2\",\"3\"]."
         },
         "fabricControllerId": {
           "type": "string",
@@ -1878,47 +1315,13 @@
         },
         "vmSize": {
           "type": "string",
-          "description": "Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource."
+          "description": "The size of the Azure virtual machines to use for hosting the cluster manager resource."
         }
       },
       "required": [
         "fabricControllerId"
-      ]
-    },
-    "ClusterMetricsConfigurationProperties": {
-      "type": "object",
-      "properties": {
-        "collectionInterval": {
-          "oneOf": [
-            {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 1440
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The interval in minutes by which metrics will be collected."
-        },
-        "enabledMetrics": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics."
-        }
-      },
-      "required": [
-        "collectionInterval"
-      ]
+      ],
+      "description": "ClusterManagerProperties represents the properties of a cluster manager"
     },
     "ClusterProperties": {
       "type": "object",
@@ -1981,16 +1384,6 @@
           "type": "string",
           "description": "The current runtime version of the cluster."
         },
-        "computeDeploymentThreshold": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ValidationThreshold"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "computeRackDefinitions": {
           "oneOf": [
             {
@@ -2025,239 +1418,9 @@
         "analyticsWorkspaceId",
         "clusterType",
         "clusterVersion",
+        "computeRackDefinitions",
         "networkFabricId"
       ]
-    },
-    "clusters_bareMetalMachineKeySets_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-_]{0,28}[a-zA-Z0-9])$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the bare metal machine key set."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/BareMetalMachineKeySetProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "bareMetalMachineKeySets"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets"
-    },
-    "clusters_bmcKeySets_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-_]{0,28}[a-zA-Z0-9])$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the baseboard management controller key set."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/BmcKeySetProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "bmcKeySets"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/clusters/bmcKeySets"
-    },
-    "clusters_metricsConfigurations_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^default$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the metrics configuration for the cluster."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ClusterMetricsConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "metricsConfigurations"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/clusters/metricsConfigurations"
     },
     "CniBgpConfiguration": {
       "type": "object",
@@ -2291,16 +1454,8 @@
           "description": "The list of prefix community advertisement properties. Each prefix community specifies a prefix, and the\ncommunities that should be associated with that prefix when it is announced."
         },
         "nodeMeshPassword": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]{0,80}$",
-              "maxLength": 80
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
+          "maxLength": 80,
           "description": "The password of the Calico node mesh. It defaults to a randomly-generated string when not provided."
         },
         "serviceExternalPrefixes": {
@@ -2331,7 +1486,13 @@
           ],
           "description": "The subnet blocks in CIDR format for Kubernetes load balancers. Load balancer IPs will only be advertised if they\nare within one of these blocks."
         }
-      }
+      },
+      "required": [
+        "bgpPeers",
+        "communityAdvertisements",
+        "serviceExternalPrefixes",
+        "serviceLoadBalancerPrefixes"
+      ]
     },
     "CommunityAdvertisement": {
       "type": "object",
@@ -2358,45 +1519,6 @@
       "required": [
         "communities",
         "subnetPrefix"
-      ]
-    },
-    "ConsoleProperties": {
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "True",
-                "False"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The indicator of whether the console access is enabled."
-        },
-        "expiration": {
-          "type": "string",
-          "format": "date-time",
-          "description": "The date and time after which the key will be disallowed access."
-        },
-        "sshPublicKey": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SshPublicKey"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "enabled",
-        "sshPublicKey"
       ]
     },
     "DefaultCniNetworkProperties": {
@@ -2464,7 +1586,7 @@
       "properties": {
         "category": {
           "type": "string",
-          "description": "The descriptive category name of endpoints accessible by the AKS agent node. For example, azure-resource-management, API server, etc. The platform egress endpoints provided by default will use the category 'default'."
+          "description": "The descriptive category name of endpoints accessible by the AKS agent node, e.g. azure-resource-management, API server, etc."
         },
         "endpoints": {
           "oneOf": [
@@ -2508,7 +1630,8 @@
         }
       },
       "required": [
-        "domainName"
+        "domainName",
+        "port"
       ]
     },
     "ExtendedLocation": {
@@ -2530,7 +1653,8 @@
     },
     "HardwareInventory": {
       "type": "object",
-      "properties": {}
+      "properties": {},
+      "description": "including information acquired from the model/sku information and from the ironic inspector."
     },
     "HardwareValidationStatus": {
       "type": "object",
@@ -2563,7 +1687,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The number of control plane node VMs."
+          "description": "The number of VMs requested for the control plane nodes."
         },
         "hybridAksProvisionedClusterId": {
           "type": "string",
@@ -2578,7 +1702,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The number of worker node VMs."
+          "description": "The number of VMs requested for the worker nodes."
         }
       },
       "required": [
@@ -2612,34 +1736,6 @@
         "username"
       ]
     },
-    "KeySetUser": {
-      "type": "object",
-      "properties": {
-        "azureUserName": {
-          "type": "string",
-          "description": "The Azure Active Directory user name (email name)."
-        },
-        "description": {
-          "type": "string",
-          "maxLength": 256,
-          "description": "The free-form description for this user."
-        },
-        "sshPublicKey": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SshPublicKey"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "azureUserName",
-        "sshPublicKey"
-      ]
-    },
     "L2NetworkProperties": {
       "type": "object",
       "properties": {
@@ -2648,28 +1744,20 @@
             {
               "type": "string",
               "enum": [
-                "DPDK",
-                "SRIOV",
-                "OSDevice"
+                "HostDevice",
+                "MACVLAN",
+                "DPDK"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The network plugin type for Hybrid AKS."
+          "description": "The network plugin type for Hybrid AKS, defaults to \"HostDevice\"."
         },
         "interfaceName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9@._-]*$",
-              "maxLength": 12
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
+          "maxLength": 12,
           "description": "The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine."
         },
         "l2IsolationDomainId": {
@@ -2704,28 +1792,20 @@
             {
               "type": "string",
               "enum": [
-                "DPDK",
-                "SRIOV",
-                "OSDevice"
+                "HostDevice",
+                "MACVLAN",
+                "DPDK"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The network plugin type for Hybrid AKS."
+          "description": "The network plugin type for Hybrid AKS, defaults to \"HostDevice\"."
         },
         "interfaceName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9@._-]*$",
-              "maxLength": 12
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
+          "maxLength": 12,
           "description": "The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine."
         },
         "ipAllocationType": {
@@ -2835,7 +1915,6 @@
         },
         "networkAttachmentName": {
           "type": "string",
-          "maxLength": 15,
           "description": "The associated network's interface name.\nIf specified, the network attachment name has a maximum length of 15 characters and must be unique to this virtual machine.\nIf the user doesn’t specify this value, the default interface name of the network resource will be used.\nFor a CloudServicesNetwork resource, this name will be ignored."
         }
       },
@@ -2859,7 +1938,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The strategy for creating the OS disk."
+          "description": "CreateOption represents the strategy for creating the OS disk."
         },
         "deleteOption": {
           "oneOf": [
@@ -2873,7 +1952,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The strategy for deleting the OS disk."
+          "description": "DeleteOption represents the strategy for deleting the OS disk."
         },
         "diskSizeGB": {
           "oneOf": [
@@ -2895,16 +1974,8 @@
       "type": "object",
       "properties": {
         "availabilityZone": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]{1,10}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The zone name used for this rack when created."
+          "type": "string",
+          "description": "The zone name used for this rack when created"
         },
         "bareMetalMachineConfigurationData": {
           "oneOf": [
@@ -2955,9 +2026,11 @@
         }
       },
       "required": [
+        "bareMetalMachineConfigurationData",
         "networkRackId",
         "rackSerialNumber",
-        "rackSkuId"
+        "rackSkuId",
+        "storageApplianceConfigurationData"
       ]
     },
     "RackProperties": {
@@ -3030,7 +2103,6 @@
       "properties": {
         "keyData": {
           "type": "string",
-          "minLength": 1,
           "description": "The public ssh key of the user."
         }
       },
@@ -3069,15 +2141,7 @@
           "description": "The serial number of the appliance."
         },
         "storageApplianceName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([a-zA-Z0-9][a-zA-Z0-9-_]{0,28}[a-zA-Z0-9])$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "The user-provided name for the storage appliance that will be created from this specification."
         }
       },
@@ -3146,20 +2210,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "volumeAttachments": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The resource IDs of volumes that are requested to be attached to the virtual machine."
         }
       },
       "required": [
@@ -3174,28 +2224,20 @@
             {
               "type": "string",
               "enum": [
-                "DPDK",
-                "SRIOV",
-                "OSDevice"
+                "HostDevice",
+                "MACVLAN",
+                "DPDK"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The network plugin type for Hybrid AKS."
+          "description": "The network plugin type for Hybrid AKS, defaults to \"HostDevice\"."
         },
         "interfaceName": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9@._-]*$",
-              "maxLength": 12
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
+          "maxLength": 12,
           "description": "The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine."
         },
         "isolationDomainIds": {
@@ -3230,58 +2272,6 @@
       "required": [
         "isolationDomainIds",
         "vlans"
-      ]
-    },
-    "ValidationThreshold": {
-      "type": "object",
-      "properties": {
-        "grouping": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "PerCluster",
-                "PerRack"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Selection of how the type evaluation is applied to the cluster calculation."
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "CountSuccess",
-                "PercentSuccess"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Selection of how the threshold should be evaluated."
-        },
-        "value": {
-          "oneOf": [
-            {
-              "type": "integer",
-              "minimum": 0
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The numeric threshold value."
-        }
-      },
-      "required": [
-        "grouping",
-        "type",
-        "value"
       ]
     },
     "VirtualMachinePlacementHint": {
@@ -3412,7 +2402,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine."
+          "description": "The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine."
         },
         "memorySizeGB": {
           "oneOf": [
@@ -3470,7 +2460,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername."
+          "description": "A list of ssh public keys. Each key will be added to the virtual machine using the cloud-init\nssh_authorized_keys mechanism for the adminUsername"
         },
         "storageProfile": {
           "oneOf": [
@@ -3499,22 +2489,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Field Deprecated, use virtualizationModel instead. The type of the virtio interface."
-        },
-        "vmDeviceModel": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "T1",
-                "T2"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The type of the device model to use."
+          "description": "The type of the virtio interface."
         },
         "vmImage": {
           "type": "string",
@@ -3536,105 +2511,11 @@
         "cloudServicesNetworkAttachment",
         "cpuCores",
         "memorySizeGB",
+        "networkAttachments",
+        "placementHints",
+        "sshPublicKeys",
         "storageProfile",
         "vmImage"
-      ]
-    },
-    "virtualMachines_consoles_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2022-12-12-preview"
-          ]
-        },
-        "extendedLocation": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ExtendedLocation"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "location": {
-          "type": "string",
-          "description": "The geo-location where the resource lives"
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^default$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The name of the virtual machine console."
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ConsoleProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Resource tags."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "consoles"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "extendedLocation",
-        "location",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.NetworkCloud/virtualMachines/consoles"
-    },
-    "VolumeProperties": {
-      "type": "object",
-      "properties": {
-        "sizeMiB": {
-          "oneOf": [
-            {
-              "type": "integer",
-              "minimum": 1
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The size of the allocation for this volume in Mebibytes."
-        }
-      },
-      "required": [
-        "sizeMiB"
       ]
     }
   }
