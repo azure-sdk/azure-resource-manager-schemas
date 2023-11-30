@@ -203,6 +203,30 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.ApiCenter.json#/resourceDefinitions/services_workspaces_environments"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ApiCenter.json#/resourceDefinitions/services"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ApiCenter.json#/resourceDefinitions/services_metadataSchemas"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ApiCenter.json#/resourceDefinitions/services_workspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ApiCenter.json#/resourceDefinitions/services_workspaces_apis"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ApiCenter.json#/resourceDefinitions/services_workspaces_apis_deployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ApiCenter.json#/resourceDefinitions/services_workspaces_apis_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ApiCenter.json#/resourceDefinitions/services_workspaces_apis_versions_definitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ApiCenter.json#/resourceDefinitions/services_workspaces_environments"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2016-07-07/Microsoft.ApiManagement.json#/resourceDefinitions/service"
         },
         {
