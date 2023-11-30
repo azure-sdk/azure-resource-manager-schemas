@@ -215,10 +215,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/services_workspaces_apis_versions_childResource"
+                "$ref": "#/definitions/services_workspaces_apis_deployments_childResource"
               },
               {
-                "$ref": "#/definitions/services_workspaces_apis_deployments_childResource"
+                "$ref": "#/definitions/services_workspaces_apis_versions_childResource"
               }
             ]
           }
@@ -450,8 +450,19 @@
           ]
         },
         "customProperties": {
-          "type": "object",
-          "properties": {},
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The custom metadata defined for API catalog entities."
         },
         "description": {
@@ -551,7 +562,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Current lifecycle stage of the API."
         },
         "title": {
           "type": "string",
@@ -581,8 +593,6 @@
         },
         "url": {
           "type": "string",
-          "maxLength": 200,
-          "format": "uri",
           "description": "URL for the contact."
         }
       }
@@ -591,8 +601,19 @@
       "type": "object",
       "properties": {
         "customProperties": {
-          "type": "object",
-          "properties": {},
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The custom metadata defined for API catalog entities."
         },
         "definitionId": {
@@ -616,7 +637,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Server"
         },
         "state": {
           "oneOf": [
@@ -630,7 +652,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "State of API deployment."
         },
         "title": {
           "type": "string",
@@ -658,18 +681,31 @@
           ],
           "description": "Base runtime URLs for this deployment."
         }
-      }
+      },
+      "description": "Server"
     },
     "EnvironmentProperties": {
       "type": "object",
       "properties": {
         "customProperties": {
-          "type": "object",
-          "properties": {},
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The custom metadata defined for API catalog entities."
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "Description."
         },
         "kind": {
           "oneOf": [
@@ -776,8 +812,6 @@
         },
         "url": {
           "type": "string",
-          "maxLength": 200,
-          "format": "uri",
           "description": "URL pointing to the documentation."
         }
       },
@@ -791,8 +825,6 @@
       "properties": {
         "identifier": {
           "type": "string",
-          "maxLength": 50,
-          "format": "uri",
           "description": "SPDX license information for the API. The identifier field is mutually exclusive of the URL field."
         },
         "name": {
@@ -802,8 +834,6 @@
         },
         "url": {
           "type": "string",
-          "maxLength": 200,
-          "format": "uri",
           "description": "URL pointing to the license details. The URL field is mutually exclusive of the identifier field."
         }
       },
@@ -820,6 +850,7 @@
                 "None",
                 "SystemAssigned",
                 "UserAssigned",
+                "SystemAssigned, UserAssigned",
                 "SystemAssigned,UserAssigned"
               ]
             },
@@ -940,23 +971,7 @@
     },
     "ServiceProperties": {
       "type": "object",
-      "properties": {
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Succeeded",
-                "Failed",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
+      "properties": {},
       "description": "The properties of the service."
     },
     "services_metadataSchemas_childResource": {
@@ -1251,8 +1266,6 @@
       "properties": {
         "url": {
           "type": "string",
-          "maxLength": 200,
-          "format": "uri",
           "description": "URL pointing to the terms of service."
         }
       },
