@@ -22,7 +22,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide."
+          "description": "Managed service identity (user assigned identities)"
         },
         "location": {
           "type": "string",
@@ -105,7 +105,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide."
+          "description": "Managed service identity (user assigned identities)"
         },
         "name": {
           "type": "string",
@@ -201,7 +201,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide."
+          "description": "Managed service identity (user assigned identities)"
         },
         "location": {
           "type": "string",
@@ -592,7 +592,7 @@
         },
         "resourceGroup": {
           "type": "string",
-          "description": "The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input."
+          "description": "The name of file share resource group. The app rg is used in case of missing input."
         },
         "storageAccountName": {
           "type": "string",
@@ -602,7 +602,7 @@
       "required": [
         "configurationType"
       ],
-      "description": "Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn’t need to pre-created."
+      "description": "Gets or sets the file share configuration for file share created with the VIS case."
     },
     "DatabaseConfiguration": {
       "type": "object",
@@ -940,7 +940,7 @@
           ]
         }
       },
-      "description": "The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS."
+      "description": "The disk sku."
     },
     "DiskVolumeConfiguration": {
       "type": "object",
@@ -976,7 +976,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS."
+          "description": "The disk sku."
         }
       },
       "description": "The disk configuration required for the selected volume."
@@ -1367,7 +1367,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide."
+          "description": "Managed service identity (user assigned identities)"
         },
         "name": {
           "type": "string",
@@ -1463,7 +1463,7 @@
         "id",
         "privateEndpointId"
       ],
-      "description": "Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow."
+      "description": "Gets or sets the file share configuration for externally mounted cases."
     },
     "MsSqlServerProviderInstanceProperties": {
       "type": "object",
@@ -2455,7 +2455,7 @@
         "subnetId",
         "virtualMachineConfiguration"
       ],
-      "description": "Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)"
+      "description": "Gets or sets the single server configuration."
     },
     "SingleServerCustomResourceNames": {
       "type": "object",
@@ -2506,7 +2506,7 @@
       "required": [
         "configurationType"
       ],
-      "description": "Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required."
+      "description": "Gets or sets the skip file share configuration"
     },
     "SoftwareConfiguration": {
       "type": "object",
@@ -2678,7 +2678,7 @@
         "databaseServer",
         "deploymentType"
       ],
-      "description": "Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)"
+      "description": "Gets or sets the three tier SAP configuration."
     },
     "ThreeTierCustomResourceNames": {
       "type": "object",
@@ -2791,7 +2791,7 @@
       "required": [
         "type"
       ],
-      "description": "A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide."
+      "description": "Managed service identity (user assigned identities)"
     },
     "VirtualMachineConfiguration": {
       "type": "object",

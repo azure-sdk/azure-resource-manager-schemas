@@ -1,16 +1,224 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Workloads.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Workloads",
   "description": "Microsoft Workloads Resource Types",
   "resourceDefinitions": {
+    "connectors": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-15-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserAssignedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the connector resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the connector resource properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/connectors_acssBackups_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Workloads/connectors"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Workloads/connectors"
+    },
+    "connectors_acssBackups": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the backup connection resource of virtual instance for SAP."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ACSSBackupConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the backup connection properties for a virtual instance for SAP."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Workloads/connectors/acssBackups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Workloads/connectors/acssBackups"
+    },
+    "insights": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Workload Insights instance name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InsightInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Insight Instance properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Workloads/insights"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Workloads/insights"
+    },
     "monitors": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "identity": {
@@ -90,7 +298,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "identity": {
@@ -140,7 +348,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "identity": {
@@ -246,7 +454,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "name": {
@@ -292,7 +500,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "identity": {
@@ -378,7 +586,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "location": {
@@ -437,7 +645,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "location": {
@@ -496,7 +704,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "location": {
@@ -551,6 +759,23 @@
     }
   },
   "definitions": {
+    "ACSSBackupConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "backupData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Information about the recovery services vault and backup policy used for backup."
+        }
+      },
+      "description": "Defines the backup connection properties for a virtual instance for SAP."
+    },
     "ApplicationServerConfiguration": {
       "type": "object",
       "properties": {
@@ -587,6 +812,311 @@
         "virtualMachineConfiguration"
       ],
       "description": "Gets or sets the application server configuration."
+    },
+    "AzureIaaSVMProtectionPolicy": {
+      "type": "object",
+      "properties": {
+        "instantRPDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InstantRPAdditionalDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Instant recovery point additional details."
+        },
+        "instantRpRetentionRangeInDays": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Instant RP retention policy range in days"
+        },
+        "policyType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "V1",
+                "V2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy type."
+        },
+        "protectedItemsCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of items associated with this policy."
+        },
+        "resourceGuardOperationRequests": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ResourceGuard Operation Requests"
+        },
+        "retentionPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base class for retention policy."
+        },
+        "schedulePolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchedulePolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base class for backup schedule."
+        },
+        "tieringPolicy": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/TieringPolicy"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tiering policy to automatically move RPs to another tier\r\nKey is Target Tier, defined in RecoveryPointTierType enum.\r\nTiering policy specifies the criteria to move RP to the target tier."
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "Time zone optional input as string. For example: \"Pacific Standard Time\"."
+        }
+      },
+      "description": "IaaS VM workload-specific backup policy."
+    },
+    "AzureLogAnalyticsDataFeed": {
+      "type": "object",
+      "properties": {
+        "dataFeedType": {
+          "type": "string",
+          "enum": [
+            "AzureLogAnalyticsDataFeed"
+          ]
+        },
+        "dataStore": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureLogAnalyticsDataStore"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Analytics in data store."
+        },
+        "details": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureLogAnalyticsDataFeedDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of Azure LogAnalytics datafeed."
+        }
+      },
+      "required": [
+        "dataFeedType",
+        "details"
+      ],
+      "description": "Azure LogAnalytics datafeed."
+    },
+    "AzureLogAnalyticsDataFeedDetails": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Kusto query to pull data from Log Analytics"
+        }
+      },
+      "description": "Details of Azure LogAnalytics datafeed."
+    },
+    "AzureLogAnalyticsDataStore": {
+      "type": "object",
+      "properties": {
+        "dataStoreType": {
+          "type": "string",
+          "enum": [
+            "AzureLogAnalyticsDataStore"
+          ]
+        },
+        "workspaceArmId": {
+          "type": "string",
+          "description": "The ARM ID of the Log Analytics Workspace."
+        }
+      },
+      "required": [
+        "dataStoreType",
+        "workspaceArmId"
+      ],
+      "description": "Azure Analytics in data store."
+    },
+    "AzureVmWorkloadProtectionPolicy": {
+      "type": "object",
+      "properties": {
+        "makePolicyConsistent": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Fix the policy inconsistency"
+        },
+        "protectedItemsCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of items associated with this policy."
+        },
+        "resourceGuardOperationRequests": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ResourceGuard Operation Requests"
+        },
+        "settings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Settings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Common settings field for backup management"
+        },
+        "subProtectionPolicy": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubProtectionPolicy"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of sub-protection policies which includes schedule and retention"
+        },
+        "workLoadType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "VM",
+                "FileFolder",
+                "AzureSqlDb",
+                "SQLDB",
+                "Exchange",
+                "Sharepoint",
+                "VMwareVM",
+                "SystemState",
+                "Client",
+                "GenericDataSource",
+                "SQLDataBase",
+                "AzureFileShare",
+                "SAPHanaDatabase",
+                "SAPAseDatabase",
+                "SAPHanaDBInstance"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of workload for the backup management."
+        }
+      },
+      "description": "Azure VM (Mercury) workload-specific backup policy."
+    },
+    "BackupData": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/VMBackupData"
+        },
+        {
+          "$ref": "#/definitions/HanaBackupData"
+        },
+        {
+          "$ref": "#/definitions/SqlBackupData"
+        }
+      ],
+      "properties": {
+        "recoveryServicesVault": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryServicesVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of the recovery services vault used for backup."
+        }
+      },
+      "required": [
+        "recoveryServicesVault"
+      ],
+      "description": "Information about the recovery services vault and backup policy used for backup."
     },
     "BackupProfile": {
       "type": "object",
@@ -694,28 +1224,197 @@
       ],
       "description": "Gets or sets the central server configuration."
     },
-    "CreateAndMountFileShareConfiguration": {
+    "ColumnDetail": {
       "type": "object",
       "properties": {
-        "configurationType": {
+        "alias": {
           "type": "string",
-          "enum": [
-            "CreateAndMount"
-          ]
+          "description": "Column Alias."
         },
-        "resourceGroup": {
-          "type": "string",
-          "description": "The name of file share resource group. The app rg is used in case of missing input."
+        "columnType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "string",
+                "integer",
+                "timestamp",
+                "date-time",
+                "date",
+                "float",
+                "boolean"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Column type."
         },
-        "storageAccountName": {
+        "name": {
           "type": "string",
-          "description": "The name of file share storage account name . A custom name is used in case of missing input."
+          "description": "Column name."
         }
       },
       "required": [
-        "configurationType"
+        "columnType",
+        "name"
       ],
-      "description": "Gets or sets the file share configuration for file share created with the VIS case."
+      "description": "Detail of the dataset column."
+    },
+    "ConnectorProperties": {
+      "type": "object",
+      "properties": {
+        "managedResourceGroupConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedRGConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed resource group configuration"
+        },
+        "sourceResourceId": {
+          "type": "string",
+          "description": "Defines the ID of the connector's source resource."
+        }
+      },
+      "required": [
+        "sourceResourceId"
+      ],
+      "description": "Defines the connector resource properties."
+    },
+    "connectors_acssBackups_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-10-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the backup connection resource of virtual instance for SAP."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ACSSBackupConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the backup connection properties for a virtual instance for SAP."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "acssBackups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Workloads/connectors/acssBackups"
+    },
+    "DailyRetentionFormat": {
+      "type": "object",
+      "properties": {
+        "daysOfTheMonth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Day"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of days of the month."
+        }
+      },
+      "description": "Daily retention format."
+    },
+    "DailyRetentionSchedule": {
+      "type": "object",
+      "properties": {
+        "retentionDuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention duration."
+        },
+        "retentionTimes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention times of retention policy."
+        }
+      },
+      "description": "Daily retention schedule."
+    },
+    "DailySchedule": {
+      "type": "object",
+      "properties": {
+        "scheduleRunTimes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of times of day this schedule has to be run."
+        }
+      },
+      "description": "Daily schedule."
     },
     "DatabaseConfiguration": {
       "type": "object",
@@ -734,17 +1433,6 @@
             }
           ],
           "description": "The database type."
-        },
-        "diskConfiguration": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DiskConfiguration"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The Disk Configuration Details."
         },
         "instanceCount": {
           "oneOf": [
@@ -901,6 +1589,184 @@
       ],
       "description": "Workload database profile"
     },
+    "DataFeed": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AzureLogAnalyticsDataFeed"
+        }
+      ],
+      "properties": {
+        "dataFeedClass": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Raw",
+                "Anomaly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Classification of the datafeed, ex Raw, Anomaly."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the datafeed."
+        },
+        "schema": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataFeedSchema"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schema of the dataFeed."
+        },
+        "trigger": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Trigger"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Trigger of the datafeed."
+        }
+      },
+      "required": [
+        "dataFeedClass",
+        "name"
+      ],
+      "description": "DataFeed for an instance."
+    },
+    "DataFeedSchema": {
+      "type": "object",
+      "properties": {
+        "datasets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Dataset"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of dataset in the datafeed."
+        }
+      },
+      "description": "Schema of the dataFeed."
+    },
+    "Dataset": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/StaticDataset"
+        }
+      ],
+      "properties": {
+        "dimensionColumns": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ColumnDetail"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of dimension columns."
+        },
+        "impactCategory": {
+          "type": "string",
+          "description": "Category of impact generated from the data."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the dataset."
+        },
+        "resourceIdColumns": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ColumnDetail"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource identifier columns."
+        },
+        "timestampColumn": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ColumnDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Detail of the dataset column."
+        }
+      },
+      "required": [
+        "impactCategory",
+        "name",
+        "resourceIdColumns",
+        "timestampColumn"
+      ],
+      "description": "Dataset in the datafeed."
+    },
+    "DataStore": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AzureLogAnalyticsDataStore"
+        }
+      ],
+      "properties": {},
+      "description": "Output data store for the datafeed."
+    },
+    "Day": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Date of the month"
+        },
+        "isLast": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether Date is last date of month"
+        }
+      },
+      "description": "Day of the week."
+    },
     "DB2ProviderInstanceProperties": {
       "type": "object",
       "properties": {
@@ -937,31 +1803,36 @@
         "sapSid": {
           "type": "string",
           "description": "Gets or sets the SAP System Identifier"
-        },
-        "sslCertificateUri": {
-          "type": "string",
-          "description": "Gets or sets the blob URI to SSL certificate for the DB2 Database."
-        },
-        "sslPreference": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "RootCertificate",
-                "ServerCertificate"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "required": [
         "providerType"
       ],
       "description": "Gets or sets the DB2 provider properties."
+    },
+    "DBBackupPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the DB backup policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureVmWorkloadProtectionPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure VM (Mercury) workload-specific backup policy."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the policy properties for database backup."
     },
     "DeployerVmPackages": {
       "type": "object",
@@ -1089,27 +1960,6 @@
       ],
       "description": "Discovery Details."
     },
-    "DiskConfiguration": {
-      "type": "object",
-      "properties": {
-        "diskVolumeConfigurations": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/DiskVolumeConfiguration"
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup']."
-        }
-      },
-      "description": "The Disk Configuration Details."
-    },
     "DiskInfo": {
       "type": "object",
       "properties": {
@@ -1146,70 +1996,6 @@
       ],
       "description": "Disk resource creation details"
     },
-    "DiskSku": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Standard_LRS",
-                "Premium_LRS",
-                "StandardSSD_LRS",
-                "UltraSSD_LRS",
-                "Premium_ZRS",
-                "StandardSSD_ZRS",
-                "PremiumV2_LRS"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "description": "The disk sku."
-    },
-    "DiskVolumeConfiguration": {
-      "type": "object",
-      "properties": {
-        "count": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The total number of disks required for the concerned volume."
-        },
-        "sizeGB": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The disk size in GB."
-        },
-        "sku": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DiskSku"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The disk sku."
-        }
-      },
-      "description": "The disk configuration required for the selected volume."
-    },
     "EnqueueReplicationServerProperties": {
       "type": "object",
       "properties": {},
@@ -1220,40 +2006,25 @@
       "properties": {},
       "description": "Defines the SAP Enqueue Server properties."
     },
-    "ExternalInstallationSoftwareConfiguration": {
+    "ExistingRecoveryServicesVault": {
       "type": "object",
       "properties": {
-        "centralServerVmId": {
+        "id": {
           "type": "string",
-          "description": "The resource ID of the virtual machine containing the central server instance."
+          "description": "The resource ID of the recovery services vault that has been created."
         },
-        "softwareInstallationType": {
+        "vaultType": {
           "type": "string",
           "enum": [
-            "External"
+            "Existing"
           ]
         }
       },
       "required": [
-        "softwareInstallationType"
+        "id",
+        "vaultType"
       ],
-      "description": "The SAP Software configuration Input when the software is installed externally outside the service."
-    },
-    "FileShareConfiguration": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/SkipFileShareConfiguration"
-        },
-        {
-          "$ref": "#/definitions/CreateAndMountFileShareConfiguration"
-        },
-        {
-          "$ref": "#/definitions/MountFileShareConfiguration"
-        }
-      ],
-      "properties": {},
-      "description": "File Share configuration details, populated with information on storage configuration mounted on the VIS. The createAndMount option is selected in case of missing input."
+      "description": "Existing recovery services vault."
     },
     "FileshareProfile": {
       "type": "object",
@@ -1314,6 +2085,49 @@
       "properties": {},
       "description": "Defines the SAP Gateway Server properties."
     },
+    "HanaBackupData": {
+      "type": "object",
+      "properties": {
+        "backupPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DBBackupPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the policy properties for database backup."
+        },
+        "backupType": {
+          "type": "string",
+          "enum": [
+            "HANA"
+          ]
+        },
+        "hdbuserstoreKeyName": {
+          "type": "string",
+          "description": "Name of the HANA Database User Store Key."
+        },
+        "sslConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SSLConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specify the HANA database TLS/SSL properties which will be used for enabling Azure Backup for this database. You need to specify these details if you have enabled secure communication for your HANA database."
+        }
+      },
+      "required": [
+        "backupPolicy",
+        "backupType",
+        "hdbuserstoreKeyName"
+      ],
+      "description": "Defines the HANA Backup data for a virtual instance for SAP."
+    },
     "HanaDbProviderInstanceProperties": {
       "type": "object",
       "properties": {
@@ -1355,28 +2169,9 @@
           "type": "string",
           "description": "Gets or sets the database sql port."
         },
-        "sslCertificateUri": {
-          "type": "string",
-          "description": "Gets or sets the blob URI to SSL certificate for the DB."
-        },
         "sslHostNameInCertificate": {
           "type": "string",
           "description": "Gets or sets the hostname(s) in the SSL certificate."
-        },
-        "sslPreference": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "RootCertificate",
-                "ServerCertificate"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "required": [
@@ -1426,6 +2221,39 @@
       ],
       "description": "Gets or sets the HA software configuration."
     },
+    "HourlySchedule": {
+      "type": "object",
+      "properties": {
+        "interval": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Interval at which backup needs to be triggered. For hourly the value\r\n can be 4/6/8/12"
+        },
+        "scheduleWindowDuration": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "To specify duration of the backup window"
+        },
+        "scheduleWindowStartTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "To specify start time of the backup window"
+        }
+      },
+      "description": "Hourly schedule."
+    },
     "ImageReference": {
       "type": "object",
       "properties": {
@@ -1472,6 +2300,95 @@
         "appResourceGroup"
       ],
       "description": "Deploy SAP Infrastructure Details."
+    },
+    "InsightInstanceProperties": {
+      "type": "object",
+      "properties": {
+        "outputDataStores": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataStore"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of output datastores."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Accepted",
+                "Creating",
+                "Updating",
+                "Failed",
+                "Succeeded",
+                "Deleting",
+                "Migrating"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourcesDiscoveryDataFeeds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataFeed"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of dataFeeds for an instance."
+        },
+        "telemetryDataFeeds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataFeed"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of dataFeeds for an instance."
+        },
+        "workloadProvider": {
+          "type": "string",
+          "description": "The telemetry provider for the workload instance."
+        },
+        "workloadType": {
+          "type": "string",
+          "description": "Type of the workload instance."
+        }
+      },
+      "description": "Insight Instance properties"
+    },
+    "InstantRPAdditionalDetails": {
+      "type": "object",
+      "properties": {
+        "azureBackupRGNamePrefix": {
+          "type": "string",
+          "description": "Azure backup resource group name prefix."
+        },
+        "azureBackupRGNameSuffix": {
+          "type": "string",
+          "description": "Azure backup resource group name suffix."
+        }
+      },
+      "description": "Instant recovery point additional details."
     },
     "LinuxConfiguration": {
       "type": "object",
@@ -1520,6 +2437,106 @@
         "osType"
       ],
       "description": "Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)."
+    },
+    "LogSchedulePolicy": {
+      "type": "object",
+      "properties": {
+        "scheduleFrequencyInMins": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Frequency of the log schedule operation of this policy in minutes."
+        },
+        "schedulePolicyType": {
+          "type": "string",
+          "enum": [
+            "LogSchedulePolicy"
+          ]
+        }
+      },
+      "required": [
+        "schedulePolicyType"
+      ],
+      "description": "Log policy schedule."
+    },
+    "LongTermRetentionPolicy": {
+      "type": "object",
+      "properties": {
+        "dailySchedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DailyRetentionSchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Daily retention schedule."
+        },
+        "monthlySchedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MonthlyRetentionSchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Monthly retention schedule."
+        },
+        "retentionPolicyType": {
+          "type": "string",
+          "enum": [
+            "LongTermRetentionPolicy"
+          ]
+        },
+        "weeklySchedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WeeklyRetentionSchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Weekly retention schedule."
+        },
+        "yearlySchedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/YearlyRetentionSchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Yearly retention schedule."
+        }
+      },
+      "required": [
+        "retentionPolicyType"
+      ],
+      "description": "Long term retention policy."
+    },
+    "LongTermSchedulePolicy": {
+      "type": "object",
+      "properties": {
+        "schedulePolicyType": {
+          "type": "string",
+          "enum": [
+            "LongTermSchedulePolicy"
+          ]
+        }
+      },
+      "required": [
+        "schedulePolicyType"
+      ],
+      "description": "Long term policy schedule."
     },
     "ManagedRGConfiguration": {
       "type": "object",
@@ -1590,7 +2607,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "identity": {
@@ -1634,30 +2651,74 @@
       ],
       "description": "Microsoft.Workloads/monitors/providerInstances"
     },
-    "MountFileShareConfiguration": {
+    "MonthlyRetentionSchedule": {
       "type": "object",
       "properties": {
-        "configurationType": {
-          "type": "string",
-          "enum": [
-            "Mount"
-          ]
+        "retentionDuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention duration."
         },
-        "id": {
-          "type": "string",
-          "description": "The fileshare resource ID"
+        "retentionScheduleDaily": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DailyRetentionFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Daily retention format."
         },
-        "privateEndpointId": {
-          "type": "string",
-          "description": "The private endpoint resource ID"
+        "retentionScheduleFormatType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "Daily",
+                "Weekly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention schedule format type for monthly retention policy."
+        },
+        "retentionScheduleWeekly": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WeeklyRetentionFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Weekly retention format."
+        },
+        "retentionTimes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention times of retention policy."
         }
       },
-      "required": [
-        "configurationType",
-        "id",
-        "privateEndpointId"
-      ],
-      "description": "Gets or sets the file share configuration for externally mounted cases."
+      "description": "Monthly retention schedule."
     },
     "MsSqlServerProviderInstanceProperties": {
       "type": "object",
@@ -1691,25 +2752,6 @@
         "sapSid": {
           "type": "string",
           "description": "Gets or sets the SAP System Identifier"
-        },
-        "sslCertificateUri": {
-          "type": "string",
-          "description": "Gets or sets the blob URI to SSL certificate for the SQL Database."
-        },
-        "sslPreference": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "RootCertificate",
-                "ServerCertificate"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "required": [
@@ -1792,6 +2834,31 @@
         "loadBalancerType"
       ],
       "description": "Network profile"
+    },
+    "NewRecoveryServicesVault": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the recovery services vault has to be created."
+        },
+        "resourceGroup": {
+          "type": "string",
+          "description": "The name of the resource group where the recovery services vault has to be created."
+        },
+        "vaultType": {
+          "type": "string",
+          "enum": [
+            "New"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "resourceGroup",
+        "vaultType"
+      ],
+      "description": "New recovery services vault."
     },
     "NodeProfile": {
       "type": "object",
@@ -2189,7 +3256,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "name": {
@@ -2248,25 +3315,6 @@
         "sid": {
           "type": "string",
           "description": "Gets or sets the cluster sid."
-        },
-        "sslCertificateUri": {
-          "type": "string",
-          "description": "Gets or sets the blob URI to SSL certificate for the HA cluster exporter."
-        },
-        "sslPreference": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "RootCertificate",
-                "ServerCertificate"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "required": [
@@ -2285,25 +3333,6 @@
           "type": "string",
           "enum": [
             "PrometheusOS"
-          ]
-        },
-        "sslCertificateUri": {
-          "type": "string",
-          "description": "Gets or sets the blob URI to SSL certificate for the prometheus node exporter."
-        },
-        "sslPreference": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "RootCertificate",
-                "ServerCertificate"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
           ]
         }
       },
@@ -2353,6 +3382,67 @@
       ],
       "properties": {},
       "description": "Gets or sets the provider specific properties."
+    },
+    "RecoveryServicesVaultProperties": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/NewRecoveryServicesVault"
+        },
+        {
+          "$ref": "#/definitions/ExistingRecoveryServicesVault"
+        }
+      ],
+      "properties": {},
+      "description": "The properties of the recovery services vault used for backup."
+    },
+    "RetentionDuration": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Count of duration types. Retention duration is obtained by the counting the duration type Count times.\r\nFor example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks."
+        },
+        "durationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "Days",
+                "Weeks",
+                "Months",
+                "Years"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention duration type of retention policy."
+        }
+      },
+      "description": "Retention duration."
+    },
+    "RetentionPolicy": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/LongTermRetentionPolicy"
+        },
+        {
+          "$ref": "#/definitions/SimpleRetentionPolicy"
+        }
+      ],
+      "properties": {},
+      "description": "Base class for retention policy."
     },
     "SAPApplicationServerProperties": {
       "type": "object",
@@ -2529,25 +3619,6 @@
         "sapUsername": {
           "type": "string",
           "description": "Gets or sets the SAP user name."
-        },
-        "sslCertificateUri": {
-          "type": "string",
-          "description": "Gets or sets the blob URI to SSL certificate for the SAP system."
-        },
-        "sslPreference": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "RootCertificate",
-                "ServerCertificate"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "required": [
@@ -2623,7 +3694,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "location": {
@@ -2682,7 +3753,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "location": {
@@ -2741,7 +3812,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2021-12-01-preview"
+            "2022-10-15-preview"
           ]
         },
         "location": {
@@ -2793,6 +3864,75 @@
         "type"
       ],
       "description": "Microsoft.Workloads/sapVirtualInstances/databaseInstances"
+    },
+    "SchedulePolicy": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/SimpleSchedulePolicy"
+        },
+        {
+          "$ref": "#/definitions/SimpleSchedulePolicyV2"
+        },
+        {
+          "$ref": "#/definitions/LongTermSchedulePolicy"
+        },
+        {
+          "$ref": "#/definitions/LogSchedulePolicy"
+        }
+      ],
+      "properties": {},
+      "description": "Base class for backup schedule."
+    },
+    "ScheduleTrigger": {
+      "type": "object",
+      "properties": {
+        "granularity": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "seconds"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Ingestion frequency granularity."
+        },
+        "startFrom": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time from when the datafeed ingestion should begin."
+        },
+        "triggerType": {
+          "type": "string",
+          "enum": [
+            "ScheduleTrigger"
+          ]
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 60,
+              "maximum": 31536000
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Value of the ingestion granularity."
+        }
+      },
+      "required": [
+        "granularity",
+        "startFrom",
+        "triggerType",
+        "value"
+      ],
+      "description": "Schedule trigger of the datafeed."
     },
     "SearchProfile": {
       "type": "object",
@@ -2915,6 +4055,220 @@
       ],
       "description": "The SAP Software configuration Input when the software is to be installed by service."
     },
+    "Settings": {
+      "type": "object",
+      "properties": {
+        "isCompression": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Workload compression flag. This has been added so that 'isSqlCompression'\r\nwill be deprecated once clients upgrade to consider this flag."
+        },
+        "issqlcompression": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SQL compression flag"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\"."
+        }
+      },
+      "description": "Common settings field for backup management"
+    },
+    "SimpleRetentionPolicy": {
+      "type": "object",
+      "properties": {
+        "retentionDuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention duration."
+        },
+        "retentionPolicyType": {
+          "type": "string",
+          "enum": [
+            "SimpleRetentionPolicy"
+          ]
+        }
+      },
+      "required": [
+        "retentionPolicyType"
+      ],
+      "description": "Simple policy retention."
+    },
+    "SimpleSchedulePolicy": {
+      "type": "object",
+      "properties": {
+        "hourlySchedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HourlySchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Hourly schedule."
+        },
+        "schedulePolicyType": {
+          "type": "string",
+          "enum": [
+            "SimpleSchedulePolicy"
+          ]
+        },
+        "scheduleRunDays": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of days of week this schedule has to be run."
+        },
+        "scheduleRunFrequency": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "Daily",
+                "Weekly",
+                "Hourly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Frequency of the schedule operation of this policy."
+        },
+        "scheduleRunTimes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of times of day this schedule has to be run."
+        },
+        "scheduleWeeklyFrequency": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "At every number weeks this schedule has to be run."
+        }
+      },
+      "required": [
+        "schedulePolicyType"
+      ],
+      "description": "Simple policy schedule."
+    },
+    "SimpleSchedulePolicyV2": {
+      "type": "object",
+      "properties": {
+        "dailySchedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DailySchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Daily schedule."
+        },
+        "hourlySchedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HourlySchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Hourly schedule."
+        },
+        "schedulePolicyType": {
+          "type": "string",
+          "enum": [
+            "SimpleSchedulePolicyV2"
+          ]
+        },
+        "scheduleRunFrequency": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "Daily",
+                "Weekly",
+                "Hourly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Frequency of the schedule operation of this policy."
+        },
+        "weeklySchedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WeeklySchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Weekly schedule."
+        }
+      },
+      "required": [
+        "schedulePolicyType"
+      ],
+      "description": "The V2 policy schedule for IaaS that supports hourly backups."
+    },
     "SingleServerConfiguration": {
       "type": "object",
       "properties": {
@@ -2932,17 +4286,6 @@
             }
           ],
           "description": "The database type."
-        },
-        "dbDiskConfiguration": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DiskConfiguration"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The Disk Configuration Details."
         },
         "deploymentType": {
           "type": "string",
@@ -2993,21 +4336,6 @@
         }
       },
       "description": "Workload website profile"
-    },
-    "SkipFileShareConfiguration": {
-      "type": "object",
-      "properties": {
-        "configurationType": {
-          "type": "string",
-          "enum": [
-            "Skip"
-          ]
-        }
-      },
-      "required": [
-        "configurationType"
-      ],
-      "description": "Gets or sets the skip file share configuration"
     },
     "Sku": {
       "type": "object",
@@ -3065,13 +4393,37 @@
         },
         {
           "$ref": "#/definitions/SAPInstallWithoutOSConfigSoftwareConfiguration"
-        },
-        {
-          "$ref": "#/definitions/ExternalInstallationSoftwareConfiguration"
         }
       ],
       "properties": {},
       "description": "The SAP Software configuration Input."
+    },
+    "SqlBackupData": {
+      "type": "object",
+      "properties": {
+        "backupPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DBBackupPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the policy properties for database backup."
+        },
+        "backupType": {
+          "type": "string",
+          "enum": [
+            "SQL"
+          ]
+        }
+      },
+      "required": [
+        "backupPolicy",
+        "backupType"
+      ],
+      "description": "Defines the SQL Backup data for a virtual instance for SAP."
     },
     "SshConfiguration": {
       "type": "object",
@@ -3117,22 +4469,117 @@
       },
       "description": "Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed."
     },
-    "StorageConfiguration": {
+    "SSLConfiguration": {
       "type": "object",
       "properties": {
-        "transportFileShareConfiguration": {
+        "sslCryptoProvider": {
           "oneOf": [
             {
-              "$ref": "#/definitions/FileShareConfiguration"
+              "type": "string",
+              "enum": [
+                "commoncrypto",
+                "openssl"
+              ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "File Share configuration details, populated with information on storage configuration mounted on the VIS. The createAndMount option is selected in case of missing input."
+          "description": "Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files."
+        },
+        "sslHostNameInCertificate": {
+          "type": "string",
+          "description": "Specify the hostname as mentioned in the SSL certificate. If this argument is not provided, it is automatically determined by searching in the SSL certificate."
+        },
+        "sslKeyStore": {
+          "type": "string",
+          "description": "Specify the name of the keystore file that contains the client's identity (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files."
+        },
+        "sslTrustStore": {
+          "type": "string",
+          "description": "Specify the name of the trust store file that contains the server’s public certificates (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files."
         }
       },
-      "description": "Gets or sets the storage configuration."
+      "description": "Specify the HANA database TLS/SSL properties which will be used for enabling Azure Backup for this database. You need to specify these details if you have enabled secure communication for your HANA database."
+    },
+    "StaticDataset": {
+      "type": "object",
+      "properties": {
+        "datasetType": {
+          "type": "string",
+          "enum": [
+            "StaticDataset"
+          ]
+        }
+      },
+      "required": [
+        "datasetType"
+      ],
+      "description": "Static Dataset."
+    },
+    "SubProtectionPolicy": {
+      "type": "object",
+      "properties": {
+        "policyType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "Full",
+                "Differential",
+                "Log",
+                "CopyOnlyFull",
+                "Incremental",
+                "SnapshotFull",
+                "SnapshotCopyOnlyFull"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of backup policy type."
+        },
+        "retentionPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base class for retention policy."
+        },
+        "schedulePolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchedulePolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base class for backup schedule."
+        },
+        "tieringPolicy": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/TieringPolicy"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tiering policy to automatically move RPs to another tier.\r\nKey is Target Tier, defined in RecoveryPointTierType enum.\r\nTiering policy specifies the criteria to move RP to the target tier."
+        }
+      },
+      "description": "Sub-protection policy which includes schedule and retention"
     },
     "ThreeTierConfiguration": {
       "type": "object",
@@ -3197,17 +4644,6 @@
             }
           ],
           "description": "Defines the network configuration type for SAP system infrastructure that is being deployed "
-        },
-        "storageConfiguration": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/StorageConfiguration"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or sets the storage configuration."
         }
       },
       "required": [
@@ -3217,6 +4653,68 @@
         "deploymentType"
       ],
       "description": "Gets or sets the three tier SAP configuration."
+    },
+    "TieringPolicy": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of days/weeks/months/years to retain backups in current tier before tiering.\r\nUsed only if TieringMode is set to TierAfter"
+        },
+        "durationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "Days",
+                "Weeks",
+                "Months",
+                "Years"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention duration type: days/weeks/months/years\r\nUsed only if TieringMode is set to TierAfter."
+        },
+        "tieringMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "TierRecommended",
+                "TierAfter",
+                "DoNotTier"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tiering Mode to control automatic tiering of recovery points. Supported values are:\r\n1. TierRecommended: Tier all recovery points recommended to be tiered\r\n2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.\r\n3. DoNotTier: Do not tier any recovery points."
+        }
+      },
+      "description": "Tiering Policy for a target tier.\r\nIf the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier"
+    },
+    "Trigger": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ScheduleTrigger"
+        }
+      ],
+      "properties": {},
+      "description": "Trigger of the datafeed."
     },
     "UserAssignedIdentity": {
       "type": "object",
@@ -3317,6 +4815,57 @@
       ],
       "description": "Defines the virtual machine configuration."
     },
+    "VMBackupData": {
+      "type": "object",
+      "properties": {
+        "backupPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VMBackupPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the policy properties for virtual machine backup."
+        },
+        "backupType": {
+          "type": "string",
+          "enum": [
+            "VM"
+          ]
+        }
+      },
+      "required": [
+        "backupPolicy",
+        "backupType"
+      ],
+      "description": "Defines the VM Backup data for a virtual instance for SAP."
+    },
+    "VMBackupPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the VM Backup policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureIaaSVMProtectionPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "IaaS VM workload-specific backup policy."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the policy properties for virtual machine backup."
+    },
     "VmssNodesProfile": {
       "type": "object",
       "properties": {
@@ -3396,6 +4945,154 @@
       ],
       "description": "VMSS profile"
     },
+    "WeeklyRetentionFormat": {
+      "type": "object",
+      "properties": {
+        "daysOfTheWeek": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of days of the week."
+        },
+        "weeksOfTheMonth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "First",
+                  "Second",
+                  "Third",
+                  "Fourth",
+                  "Last",
+                  "Invalid"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of weeks of month."
+        }
+      },
+      "description": "Weekly retention format."
+    },
+    "WeeklyRetentionSchedule": {
+      "type": "object",
+      "properties": {
+        "daysOfTheWeek": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of days of week for weekly retention policy."
+        },
+        "retentionDuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention duration."
+        },
+        "retentionTimes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention times of retention policy."
+        }
+      },
+      "description": "Weekly retention schedule."
+    },
+    "WeeklySchedule": {
+      "type": "object",
+      "properties": {
+        "scheduleRunDays": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schedule run days."
+        },
+        "scheduleRunTimes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of times of day this schedule has to be run."
+        }
+      },
+      "description": "Weekly schedule."
+    },
     "WindowsConfiguration": {
       "type": "object",
       "properties": {
@@ -3444,6 +5141,104 @@
         "version"
       ],
       "description": "WordPress instance properties"
+    },
+    "YearlyRetentionSchedule": {
+      "type": "object",
+      "properties": {
+        "monthsOfYear": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Invalid",
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of months of year of yearly retention policy."
+        },
+        "retentionDuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention duration."
+        },
+        "retentionScheduleDaily": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DailyRetentionFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Daily retention format."
+        },
+        "retentionScheduleFormatType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Invalid",
+                "Daily",
+                "Weekly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention schedule format for yearly retention policy."
+        },
+        "retentionScheduleWeekly": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WeeklyRetentionFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Weekly retention format."
+        },
+        "retentionTimes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention times of retention policy."
+        }
+      },
+      "description": "Yearly retention schedule."
     }
   }
 }

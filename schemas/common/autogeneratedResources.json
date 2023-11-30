@@ -41693,6 +41693,39 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Workloads.json#/resourceDefinitions/sapVirtualInstances_databaseInstances"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/connectors"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/connectors_acssBackups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/insights"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/monitors"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/monitors_providerInstances"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/phpWorkloads"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/phpWorkloads_wordpressInstances"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/sapVirtualInstances"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/sapVirtualInstances_applicationInstances"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/sapVirtualInstances_centralInstances"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-15-preview/Microsoft.Workloads.json#/resourceDefinitions/sapVirtualInstances_databaseInstances"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.Workloads.json#/resourceDefinitions/monitors"
         },
         {
