@@ -75,7 +75,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group."
+          "description": "The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group."
         }
       },
       "required": [
