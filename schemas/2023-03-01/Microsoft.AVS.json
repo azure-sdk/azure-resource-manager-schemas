@@ -16,17 +16,17 @@
         "identity": {
           "oneOf": [
             {
-              "$ref": "#/definitions/PrivateCloudIdentity"
+              "$ref": "#/definitions/ManagedServiceIdentity"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Identity for the virtual machine."
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
         },
         "location": {
           "type": "string",
-          "description": "Resource location"
+          "description": "The geo-location where the resource lives"
         },
         "name": {
           "oneOf": [
@@ -56,25 +56,46 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/privateClouds_clusters_childResource"
-              },
-              {
-                "$ref": "#/definitions/privateClouds_hcxEnterpriseSites_childResource"
+                "$ref": "#/definitions/privateClouds_addons_childResource"
               },
               {
                 "$ref": "#/definitions/privateClouds_authorizations_childResource"
               },
               {
-                "$ref": "#/definitions/privateClouds_globalReachConnections_childResource"
-              },
-              {
                 "$ref": "#/definitions/privateClouds_cloudLinks_childResource"
               },
               {
-                "$ref": "#/definitions/privateClouds_addons_childResource"
+                "$ref": "#/definitions/privateClouds_clusters_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_dhcpConfigurations_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_dnsServices_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_dnsZones_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_globalReachConnections_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_hcxEnterpriseSites_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_portMirroringProfiles_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_publicIPs_childResource"
               },
               {
                 "$ref": "#/definitions/privateClouds_scriptExecutions_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_segments_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_vmGroups_childResource"
               }
             ]
           }
@@ -103,7 +124,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Resource tags"
+          "description": "Resource tags."
         },
         "type": {
           "type": "string",
@@ -114,9 +135,9 @@
       },
       "required": [
         "apiVersion",
+        "location",
         "name",
         "properties",
-        "sku",
         "type"
       ],
       "description": "Microsoft.AVS/privateClouds"
@@ -189,6 +210,17 @@
           ],
           "description": "Name of the ExpressRoute Circuit Authorization in the private cloud"
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpressRouteAuthorizationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of an ExpressRoute Circuit Authorization resource"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -199,6 +231,7 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.AVS/privateClouds/authorizations"
@@ -317,7 +350,6 @@
         "apiVersion",
         "name",
         "properties",
-        "sku",
         "type"
       ],
       "description": "Microsoft.AVS/privateClouds/clusters"
@@ -416,6 +448,123 @@
       ],
       "description": "Microsoft.AVS/privateClouds/clusters/placementPolicies"
     },
+    "privateClouds_dhcpConfigurations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX DHCP identifier. Generally the same as the DHCP display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkDhcpEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base class for WorkloadNetworkDhcpServer and WorkloadNetworkDhcpRelay to inherit from"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AVS/privateClouds/dhcpConfigurations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/dhcpConfigurations"
+    },
+    "privateClouds_dnsServices": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkDnsServiceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX DNS Service Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AVS/privateClouds/dnsServices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/dnsServices"
+    },
+    "privateClouds_dnsZones": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkDnsZoneProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX DNS Zone Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AVS/privateClouds/dnsZones"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/dnsZones"
+    },
     "privateClouds_globalReachConnections": {
       "type": "object",
       "properties": {
@@ -484,6 +633,17 @@
           ],
           "description": "Name of the HCX Enterprise Site in the private cloud"
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HcxEnterpriseSiteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of an HCX Enterprise Site"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -494,9 +654,88 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.AVS/privateClouds/hcxEnterpriseSites"
+    },
+    "privateClouds_portMirroringProfiles": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkPortMirroringProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX Port Mirroring Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AVS/privateClouds/portMirroringProfiles"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/portMirroringProfiles"
+    },
+    "privateClouds_publicIPs": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkPublicIPProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX Public IP Block Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AVS/privateClouds/publicIPs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/publicIPs"
     },
     "privateClouds_scriptExecutions": {
       "type": "object",
@@ -545,202 +784,7 @@
       ],
       "description": "Microsoft.AVS/privateClouds/scriptExecutions"
     },
-    "privateClouds_workloadNetworks_dhcpConfigurations": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2023-03-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "NSX DHCP identifier. Generally the same as the DHCP display name"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/WorkloadNetworkDhcpEntity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Base class for WorkloadNetworkDhcpServer and WorkloadNetworkDhcpRelay to inherit from"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations"
-    },
-    "privateClouds_workloadNetworks_dnsServices": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2023-03-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/WorkloadNetworkDnsServiceProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "NSX DNS Service Properties"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AVS/privateClouds/workloadNetworks/dnsServices"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AVS/privateClouds/workloadNetworks/dnsServices"
-    },
-    "privateClouds_workloadNetworks_dnsZones": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2023-03-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/WorkloadNetworkDnsZoneProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "NSX DNS Zone Properties"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AVS/privateClouds/workloadNetworks/dnsZones"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AVS/privateClouds/workloadNetworks/dnsZones"
-    },
-    "privateClouds_workloadNetworks_portMirroringProfiles": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2023-03-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/WorkloadNetworkPortMirroringProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "NSX Port Mirroring Properties"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles"
-    },
-    "privateClouds_workloadNetworks_publicIPs": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2023-03-01"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's display name"
-        },
-        "properties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/WorkloadNetworkPublicIPProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "NSX Public IP Block Properties"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.AVS/privateClouds/workloadNetworks/publicIPs"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "properties",
-        "type"
-      ],
-      "description": "Microsoft.AVS/privateClouds/workloadNetworks/publicIPs"
-    },
-    "privateClouds_workloadNetworks_segments": {
+    "privateClouds_segments": {
       "type": "object",
       "properties": {
         "apiVersion": {
@@ -767,7 +811,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "Microsoft.AVS/privateClouds/workloadNetworks/segments"
+            "Microsoft.AVS/privateClouds/segments"
           ]
         }
       },
@@ -777,9 +821,9 @@
         "properties",
         "type"
       ],
-      "description": "Microsoft.AVS/privateClouds/workloadNetworks/segments"
+      "description": "Microsoft.AVS/privateClouds/segments"
     },
-    "privateClouds_workloadNetworks_vmGroups": {
+    "privateClouds_vmGroups": {
       "type": "object",
       "properties": {
         "apiVersion": {
@@ -806,7 +850,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "Microsoft.AVS/privateClouds/workloadNetworks/vmGroups"
+            "Microsoft.AVS/privateClouds/vmGroups"
           ]
         }
       },
@@ -816,7 +860,7 @@
         "properties",
         "type"
       ],
-      "description": "Microsoft.AVS/privateClouds/workloadNetworks/vmGroups"
+      "description": "Microsoft.AVS/privateClouds/vmGroups"
     }
   },
   "definitions": {
@@ -863,16 +907,16 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/AddonSrmProperties"
-        },
-        {
-          "$ref": "#/definitions/AddonVrProperties"
+          "$ref": "#/definitions/AddonArcProperties"
         },
         {
           "$ref": "#/definitions/AddonHcxProperties"
         },
         {
-          "$ref": "#/definitions/AddonArcProperties"
+          "$ref": "#/definitions/AddonSrmProperties"
+        },
+        {
+          "$ref": "#/definitions/AddonVrProperties"
         }
       ],
       "properties": {},
@@ -924,49 +968,6 @@
       ],
       "description": "The properties of a vSphere Replication (VR) addon"
     },
-    "AvailabilityProperties": {
-      "type": "object",
-      "properties": {
-        "secondaryZone": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The secondary availability zone for the private cloud"
-        },
-        "strategy": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "SingleZone",
-                "DualZone"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The availability strategy for the private cloud."
-        },
-        "zone": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The primary availability zone for the private cloud"
-        }
-      },
-      "description": "The properties describing private cloud availability zone distribution"
-    },
     "Circuit": {
       "type": "object",
       "properties": {},
@@ -1009,25 +1010,6 @@
             }
           ],
           "description": "The hosts"
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Succeeded",
-                "Failed",
-                "Cancelled",
-                "Deleting",
-                "Updating",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The state of the cluster provisioning."
         }
       },
       "description": "The properties of a cluster"
@@ -1093,55 +1075,15 @@
       ],
       "description": "An iSCSI volume from Microsoft.StoragePool provider"
     },
-    "Encryption": {
+    "ExpressRouteAuthorizationProperties": {
       "type": "object",
       "properties": {
-        "keyVaultProperties": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/EncryptionKeyVaultProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "An Encryption Key"
-        },
-        "status": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Enabled",
-                "Disabled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Status of customer managed encryption key."
+        "expressRouteId": {
+          "type": "string",
+          "description": "The ID of the ExpressRoute Circuit"
         }
       },
-      "description": "The properties of customer managed encryption key"
-    },
-    "EncryptionKeyVaultProperties": {
-      "type": "object",
-      "properties": {
-        "keyName": {
-          "type": "string",
-          "description": "The name of the key."
-        },
-        "keyVaultUrl": {
-          "type": "string",
-          "description": "The URL of the vault."
-        },
-        "keyVersion": {
-          "type": "string",
-          "description": "The version of the key."
-        }
-      },
-      "description": "An Encryption Key"
+      "description": "The properties of an ExpressRoute Circuit Authorization resource"
     },
     "GlobalReachConnectionProperties": {
       "type": "object",
@@ -1161,112 +1103,50 @@
       },
       "description": "The properties of a global reach connection"
     },
-    "IdentitySource": {
+    "HcxEnterpriseSiteProperties": {
       "type": "object",
-      "properties": {
-        "alias": {
-          "type": "string",
-          "description": "The domain's NetBIOS name"
-        },
-        "baseGroupDN": {
-          "type": "string",
-          "description": "The base distinguished name for groups"
-        },
-        "baseUserDN": {
-          "type": "string",
-          "description": "The base distinguished name for users"
-        },
-        "domain": {
-          "type": "string",
-          "description": "The domain's dns name"
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the identity source"
-        },
-        "password": {
-          "type": "string",
-          "description": "The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups."
-        },
-        "primaryServer": {
-          "type": "string",
-          "description": "Primary server URL"
-        },
-        "secondaryServer": {
-          "type": "string",
-          "description": "Secondary server URL"
-        },
-        "ssl": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Enabled",
-                "Disabled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Protect LDAP communication using SSL certificate (LDAPS)."
-        },
-        "username": {
-          "type": "string",
-          "description": "The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group"
-        }
-      },
-      "description": "vCenter Single Sign On Identity Source"
+      "properties": {},
+      "description": "The properties of an HCX Enterprise Site"
     },
-    "ManagementCluster": {
+    "ManagedServiceIdentity": {
       "type": "object",
       "properties": {
-        "clusterSize": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The cluster size"
-        },
-        "hosts": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The hosts"
-        },
-        "provisioningState": {
+        "type": {
           "oneOf": [
             {
               "type": "string",
               "enum": [
-                "Succeeded",
-                "Failed",
-                "Cancelled",
-                "Deleting",
-                "Updating",
-                "Canceled"
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned, UserAssigned"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
           ],
-          "description": "The state of the cluster provisioning."
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
         }
       },
-      "description": "The properties of a management cluster"
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
     },
     "NetAppVolume": {
       "type": "object",
@@ -1285,10 +1165,10 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/VmVmPlacementPolicyProperties"
+          "$ref": "#/definitions/VmHostPlacementPolicyProperties"
         },
         {
-          "$ref": "#/definitions/VmHostPlacementPolicyProperties"
+          "$ref": "#/definitions/VmVmPlacementPolicyProperties"
         }
       ],
       "properties": {
@@ -1314,41 +1194,9 @@
       },
       "description": "Abstract placement policy properties"
     },
-    "PrivateCloudIdentity": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "SystemAssigned",
-                "None"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud."
-        }
-      },
-      "description": "Identity for the virtual machine."
-    },
     "PrivateCloudProperties": {
       "type": "object",
       "properties": {
-        "availability": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AvailabilityProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties describing private cloud availability zone distribution"
-        },
         "circuit": {
           "oneOf": [
             {
@@ -1359,71 +1207,6 @@
             }
           ],
           "description": "An ExpressRoute Circuit"
-        },
-        "encryption": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Encryption"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties of customer managed encryption key"
-        },
-        "extendedNetworkBlocks": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Array of additional networks noncontiguous with networkBlock. Networks must be unique and non-overlapping across VNet in your subscription, on-premise, and this privateCloud networkBlock attribute. Make sure the CIDR format conforms to (A.B.C.D/X)."
-        },
-        "identitySources": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/IdentitySource"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "vCenter Single Sign On Identity Sources"
-        },
-        "internet": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Enabled",
-                "Disabled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Connectivity to internet is enabled or disabled."
-        },
-        "managementCluster": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagementCluster"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The properties of a management cluster"
         },
         "networkBlock": {
           "type": "string",
@@ -1522,6 +1305,17 @@
           ],
           "description": "Name of the ExpressRoute Circuit Authorization in the private cloud"
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpressRouteAuthorizationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of an ExpressRoute Circuit Authorization resource"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1532,6 +1326,7 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.AVS/privateClouds/authorizations"
@@ -1637,7 +1432,6 @@
         "apiVersion",
         "name",
         "properties",
-        "sku",
         "type"
       ],
       "description": "Microsoft.AVS/privateClouds/clusters"
@@ -1736,6 +1530,123 @@
       ],
       "description": "Microsoft.AVS/privateClouds/clusters/placementPolicies"
     },
+    "privateClouds_dhcpConfigurations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX DHCP identifier. Generally the same as the DHCP display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkDhcpEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base class for WorkloadNetworkDhcpServer and WorkloadNetworkDhcpRelay to inherit from"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dhcpConfigurations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/dhcpConfigurations"
+    },
+    "privateClouds_dnsServices_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkDnsServiceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX DNS Service Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dnsServices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/dnsServices"
+    },
+    "privateClouds_dnsZones_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkDnsZoneProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX DNS Zone Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dnsZones"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/dnsZones"
+    },
     "privateClouds_globalReachConnections_childResource": {
       "type": "object",
       "properties": {
@@ -1804,6 +1715,17 @@
           ],
           "description": "Name of the HCX Enterprise Site in the private cloud"
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HcxEnterpriseSiteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of an HCX Enterprise Site"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1814,9 +1736,88 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.AVS/privateClouds/hcxEnterpriseSites"
+    },
+    "privateClouds_portMirroringProfiles_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkPortMirroringProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX Port Mirroring Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "portMirroringProfiles"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/portMirroringProfiles"
+    },
+    "privateClouds_publicIPs_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkPublicIPProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX Public IP Block Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "publicIPs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/publicIPs"
     },
     "privateClouds_scriptExecutions_childResource": {
       "type": "object",
@@ -1865,6 +1866,84 @@
       ],
       "description": "Microsoft.AVS/privateClouds/scriptExecutions"
     },
+    "privateClouds_segments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX Segment identifier. Generally the same as the Segment's display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkSegmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX Segment Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "segments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/segments"
+    },
+    "privateClouds_vmGroups_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "NSX VM Group identifier. Generally the same as the VM Group's display name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadNetworkVMGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NSX VM Group Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "vmGroups"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AVS/privateClouds/vmGroups"
+    },
     "PSCredentialExecutionParameter": {
       "type": "object",
       "properties": {
@@ -1892,13 +1971,13 @@
       "type": "object",
       "oneOf": [
         {
+          "$ref": "#/definitions/PSCredentialExecutionParameter"
+        },
+        {
           "$ref": "#/definitions/ScriptSecureStringExecutionParameter"
         },
         {
           "$ref": "#/definitions/ScriptStringExecutionParameter"
-        },
-        {
-          "$ref": "#/definitions/PSCredentialExecutionParameter"
         }
       ],
       "properties": {
@@ -1939,6 +2018,10 @@
               "type": "object",
               "additionalProperties": {
                 "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {}
+                },
                 "properties": {}
               },
               "properties": {}
@@ -2036,15 +2119,55 @@
     "Sku": {
       "type": "object",
       "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
         "name": {
           "type": "string",
           "description": "The name of the SKU."
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. "
+        },
+        "tier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Free",
+                "Basic",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
         "name"
       ],
       "description": "The resource model definition representing SKU"
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
     },
     "VmHostPlacementPolicyProperties": {
       "type": "object",
@@ -2187,10 +2310,10 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/WorkloadNetworkDhcpServer"
+          "$ref": "#/definitions/WorkloadNetworkDhcpRelay"
         },
         {
-          "$ref": "#/definitions/WorkloadNetworkDhcpRelay"
+          "$ref": "#/definitions/WorkloadNetworkDhcpServer"
         }
       ],
       "properties": {
