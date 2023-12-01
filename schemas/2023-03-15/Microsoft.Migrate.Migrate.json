@@ -1900,6 +1900,22 @@
           "type": "string",
           "description": "Gets or sets enterprise agreement subscription id."
         },
+        "linuxAzureHybridUseBenefit": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the user configurable setting to display the linux azure hybrid use\nbenefit."
+        },
         "percentile": {
           "oneOf": [
             {
