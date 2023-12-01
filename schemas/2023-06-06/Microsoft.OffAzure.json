@@ -18,15 +18,7 @@
           "description": "The geo-location where the resource lives"
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Site name"
         },
         "properties": {
@@ -94,15 +86,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": " Cluster ARM name"
         },
         "properties": {
@@ -141,15 +125,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": " Host name"
         },
         "properties": {
@@ -192,15 +168,7 @@
           "description": "The geo-location where the resource lives"
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Site name"
         },
         "properties": {
@@ -259,15 +227,7 @@
           "description": "The geo-location where the resource lives"
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Site name"
         },
         "properties": {
@@ -287,6 +247,9 @@
             "oneOf": [
               {
                 "$ref": "#/definitions/masterSites_privateEndpointConnections_childResource"
+              },
+              {
+                "$ref": "#/definitions/masterSites_springbootResourceLinks_childResource"
               },
               {
                 "$ref": "#/definitions/masterSites_sqlSites_childResource"
@@ -338,15 +301,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": " Private link resource name."
         },
         "properties": {
@@ -375,6 +330,45 @@
       ],
       "description": "Microsoft.OffAzure/masterSites/privateEndpointConnections"
     },
+    "masterSites_springbootResourceLinks": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-06-06"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "SpringBoot Discovery Link."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SpringBootDiscoverySiteLinkProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ARM model of discovery site link Properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/masterSites/springbootResourceLinks"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/masterSites/springbootResourceLinks"
+    },
     "masterSites_sqlSites": {
       "type": "object",
       "properties": {
@@ -385,15 +379,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "SQL site name."
         },
         "properties": {
@@ -442,15 +428,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "SQL Discovery site data source name."
         },
         "properties": {
@@ -489,15 +467,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Web app site name."
         },
         "properties": {
@@ -546,15 +516,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Data Source ARM name."
         },
         "properties": {
@@ -597,15 +559,7 @@
           "description": "The geo-location where the resource lives"
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Site name"
         },
         "properties": {
@@ -664,15 +618,7 @@
           "description": "The geo-location where the resource lives"
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Site name"
         },
         "properties": {
@@ -737,15 +683,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": " VCenters name"
         },
         "properties": {
@@ -807,26 +745,6 @@
           ],
           "description": "Gets or sets list of hosts (FQDN) currently being tracked by the cluster."
         },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Created",
-                "Updated",
-                "Running",
-                "Completed",
-                "Failed",
-                "Succeeded",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The status of the last operation."
-        },
         "runAsAccountId": {
           "type": "string",
           "description": "Gets or sets Run as account ID of the Hyper-V cluster."
@@ -840,26 +758,6 @@
         "fqdn": {
           "type": "string",
           "description": "Gets or sets the FQDN/IPAddress of the Hyper-V host."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Created",
-                "Updated",
-                "Running",
-                "Completed",
-                "Failed",
-                "Succeeded",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The status of the last operation."
         },
         "runAsAccountId": {
           "type": "string",
@@ -878,15 +776,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": " Cluster ARM name"
         },
         "properties": {
@@ -925,15 +815,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": " Host name"
         },
         "properties": {
@@ -968,26 +850,6 @@
         "discoverySolutionId": {
           "type": "string",
           "description": "Gets or sets the ARM ID of migration hub solution for SDS."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Created",
-                "Updated",
-                "Running",
-                "Completed",
-                "Failed",
-                "Succeeded",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The status of the last operation."
         }
       },
       "description": "The properties of ImportSiteResource"
@@ -1053,15 +915,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": " Private link resource name."
         },
         "properties": {
@@ -1090,6 +944,45 @@
       ],
       "description": "Microsoft.OffAzure/masterSites/privateEndpointConnections"
     },
+    "masterSites_springbootResourceLinks_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-06-06"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "SpringBoot Discovery Link."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SpringBootDiscoverySiteLinkProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ARM model of discovery site link Properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "springbootResourceLinks"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/masterSites/springbootResourceLinks"
+    },
     "masterSites_sqlSites_childResource": {
       "type": "object",
       "properties": {
@@ -1100,15 +993,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "SQL site name."
         },
         "properties": {
@@ -1147,15 +1032,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "SQL Discovery site data source name."
         },
         "properties": {
@@ -1194,15 +1071,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Web app site name."
         },
         "properties": {
@@ -1241,15 +1110,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": "Data Source ARM name."
         },
         "properties": {
@@ -1394,26 +1255,6 @@
           "type": "string",
           "description": "Gets or sets the ARM ID of migration hub solution for SDS."
         },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Created",
-                "Updated",
-                "Running",
-                "Completed",
-                "Failed",
-                "Succeeded",
-                "Canceled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The status of the last operation."
-        },
         "servicePrincipalIdentityDetails": {
           "oneOf": [
             {
@@ -1493,6 +1334,20 @@
         }
       },
       "description": "The properties of SiteResource"
+    },
+    "SpringBootDiscoverySiteLinkProperties": {
+      "type": "object",
+      "properties": {
+        "customLocationId": {
+          "type": "string",
+          "description": "Gets or sets the partner custom location ID."
+        },
+        "siteId": {
+          "type": "string",
+          "description": "Gets or sets the partner site ARM ID the master site is linked to."
+        }
+      },
+      "description": "ARM model of discovery site link Properties."
     },
     "SqlDiscoverySiteDataSourceProperties": {
       "type": "object",
@@ -1591,15 +1446,7 @@
           ]
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9-]{3,24}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
           "description": " VCenters name"
         },
         "properties": {

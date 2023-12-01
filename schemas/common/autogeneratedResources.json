@@ -29798,6 +29798,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-06-06/Microsoft.OffAzure.json#/resourceDefinitions/masterSites_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-06-06/Microsoft.OffAzure.json#/resourceDefinitions/masterSites_springbootResourceLinks"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-06-06/Microsoft.OffAzure.json#/resourceDefinitions/masterSites_sqlSites"
         },
         {
