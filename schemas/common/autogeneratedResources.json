@@ -21167,6 +21167,66 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_volumeGroups"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupVaults"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupVaults_backups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_snapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_subvolumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_volumeQuotaRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_snapshotPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_volumeGroups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_snapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_subvolumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_volumeQuotaRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_snapshotPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_volumeGroups"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-04-01-preview/Microsoft.Network.DnsResolver.json#/resourceDefinitions/dnsForwardingRulesets"
         },
         {
