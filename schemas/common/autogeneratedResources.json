@@ -20573,6 +20573,18 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-03-15/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_vmwarecollectors"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_aksAssessments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_businesscases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_groups_webAppAssessments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.Migrate.Migrate.json#/resourceDefinitions/assessmentProjects_webappcollectors"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.Migrate.MigrateProjects.json#/resourceDefinitions/migrateProjects"
         },
         {

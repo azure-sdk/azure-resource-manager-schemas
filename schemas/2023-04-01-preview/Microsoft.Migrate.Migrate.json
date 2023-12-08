@@ -1,0 +1,2328 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.Migrate.Migrate.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Migrate",
+  "description": "Microsoft Migrate Resource Types",
+  "resourceDefinitions": {
+    "assessmentProjects_aksAssessments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^<>&:\\?/#]{1,260}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AKS Assessment Name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AKSAssessmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ARM model of AKS Assessment Properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Migrate/assessmentProjects/aksAssessments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Migrate/assessmentProjects/aksAssessments"
+    },
+    "assessmentProjects_businesscases": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^<>&:\\?/#]{1,260}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Business case ARM name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BusinessCaseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property bag for an\nMicrosoft.Azure.Migrate.BusinessCaseService.Api.V20220202_preview.Resources.BusinessCase\nresource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Migrate/assessmentProjects/businesscases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Migrate/assessmentProjects/businesscases"
+    },
+    "assessmentProjects_groups_webAppAssessments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^<>&:\\?/#]{1,260}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Web app Assessment arm name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WebAppAssessmentV2Properties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Web app assessment properties class."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Migrate/assessmentProjects/groups/webAppAssessments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Migrate/assessmentProjects/groups/webAppAssessments"
+    },
+    "assessmentProjects_webappcollectors": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[^<>&:\\?/#]{1,260}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Web app collector ARM name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CollectorPropertiesBaseWithAgent"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collector properties class."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Migrate/assessmentProjects/webappcollectors"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Migrate/assessmentProjects/webappcollectors"
+    }
+  },
+  "definitions": {
+    "AKSAssessmentProperties": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssessmentScopeParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data model of Assessment Scope Parameters."
+        },
+        "settings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AKSAssessmentSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data model of AKS Assessment Settings."
+        }
+      },
+      "required": [
+        "settings"
+      ],
+      "description": "ARM model of AKS Assessment Properties."
+    },
+    "AKSAssessmentSettings": {
+      "type": "object",
+      "properties": {
+        "azureLocation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "EastAsia",
+                "SoutheastAsia",
+                "AustraliaEast",
+                "AustraliaSoutheast",
+                "BrazilSouth",
+                "CanadaCentral",
+                "CanadaEast",
+                "WestEurope",
+                "NorthEurope",
+                "CentralIndia",
+                "SouthIndia",
+                "WestIndia",
+                "JapanEast",
+                "JapanWest",
+                "KoreaCentral",
+                "KoreaSouth",
+                "UkWest",
+                "UkSouth",
+                "NorthCentralUs",
+                "EastUs",
+                "WestUs2",
+                "SouthCentralUs",
+                "CentralUs",
+                "EastUs2",
+                "WestUs",
+                "WestCentralUs",
+                "GermanyCentral",
+                "GermanyNortheast",
+                "ChinaNorth",
+                "ChinaEast",
+                "USGovArizona",
+                "USGovTexas",
+                "USGovIowa",
+                "USGovVirginia",
+                "USDoDCentral",
+                "USDoDEast",
+                "FranceCentral",
+                "AustraliaCentral",
+                "SouthAfricaNorth",
+                "FranceSouth",
+                "AustraliaCentral2",
+                "SouthAfricaWest",
+                "GermanyNorth",
+                "GermanyWestCentral",
+                "NorwayEast",
+                "NorwayWest",
+                "ChinaEast2",
+                "ChinaNorth2",
+                "SwitzerlandNorth",
+                "SwitzerlandWest",
+                "UAENorth",
+                "UAECentral",
+                "UsNatEast",
+                "UsNatWest",
+                "UsSecEast",
+                "UsSecCentral",
+                "UsSecWest",
+                "SwedenCentral",
+                "QatarCentral",
+                "EastUS2EUAP",
+                "CentralUSEUAP"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets azure location."
+        },
+        "category": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "All",
+                "ComputeOptimized",
+                "GeneralPurpose",
+                "GpuOptimized",
+                "HighPerformanceCompute",
+                "MemoryOptimized",
+                "StorageOptimized",
+                "Isolated"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets azure VM category."
+        },
+        "consolidation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Full",
+                "AsOnSource"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets consolidation type."
+        },
+        "currency": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "USD",
+                "DKK",
+                "CAD",
+                "IDR",
+                "JPY",
+                "KRW",
+                "NZD",
+                "NOK",
+                "RUB",
+                "SAR",
+                "ZAR",
+                "SEK",
+                "TRY",
+                "GBP",
+                "MXN",
+                "MYR",
+                "INR",
+                "HKD",
+                "BRL",
+                "TWD",
+                "EUR",
+                "CHF",
+                "ARS",
+                "AUD",
+                "CNY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets currency."
+        },
+        "discountPercentage": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets discount percentage."
+        },
+        "environmentType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "DevTest",
+                "Production"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets environment type."
+        },
+        "licensingProgram": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "EA"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets licensing program."
+        },
+        "performanceData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PerfDataSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data model of Performance Data Settings."
+        },
+        "pricingTier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "Free"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets pricing tier."
+        },
+        "savingsOptions": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "OneYearSavings",
+                "ThreeYearsSavings",
+                "OneYearReserved",
+                "ThreeYearsReserved"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets savings options."
+        },
+        "scalingFactor": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets scaling factor."
+        },
+        "sizingCriteria": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "PerformanceBased",
+                "AsOnPremises"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets sizing criteria."
+        }
+      },
+      "required": [
+        "azureLocation",
+        "category",
+        "consolidation",
+        "currency",
+        "environmentType",
+        "licensingProgram",
+        "pricingTier",
+        "savingsOptions",
+        "scalingFactor",
+        "sizingCriteria"
+      ],
+      "description": "Data model of AKS Assessment Settings."
+    },
+    "AppSvcContainerSettings": {
+      "type": "object",
+      "properties": {
+        "isolationRequired": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the isolation required."
+        }
+      },
+      "required": [
+        "isolationRequired"
+      ],
+      "description": "App service container settings."
+    },
+    "AppSvcNativeSettings": {
+      "type": "object",
+      "properties": {
+        "isolationRequired": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the isolation required."
+        }
+      },
+      "required": [
+        "isolationRequired"
+      ],
+      "description": "App service native settings."
+    },
+    "AssessmentScopeParameters": {
+      "type": "object",
+      "properties": {
+        "serverGroupId": {
+          "type": "string",
+          "description": "Gets or sets the server group id."
+        }
+      },
+      "description": "Data model of Assessment Scope Parameters."
+    },
+    "AzureSettings": {
+      "type": "object",
+      "properties": {
+        "avsLaborCostPercentage": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 75
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets Avs labour cost percentage."
+        },
+        "businessCaseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "OptimizeForCost",
+                "IaaSOnly",
+                "OptimizeForPaas",
+                "AVSOnly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Migration Strategy."
+        },
+        "comfortFactor": {
+          "oneOf": [
+            {
+              "type": "number",
+              "default": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets comfort factor."
+        },
+        "currency": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "USD",
+                "DKK",
+                "CAD",
+                "IDR",
+                "JPY",
+                "KRW",
+                "NZD",
+                "NOK",
+                "RUB",
+                "SAR",
+                "ZAR",
+                "SEK",
+                "TRY",
+                "GBP",
+                "MXN",
+                "MYR",
+                "INR",
+                "HKD",
+                "BRL",
+                "TWD",
+                "EUR",
+                "CHF",
+                "ARS",
+                "AUD",
+                "CNY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Business case Currency."
+        },
+        "discountPercentage": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets azure Discount percentage."
+        },
+        "iaasLaborCostPercentage": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 75
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets IaaS labour cost percentage."
+        },
+        "infrastructureGrowthRate": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 5
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets infrastructure growth rate."
+        },
+        "networkCostPercentage": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 5
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets network cost percentage."
+        },
+        "paasLaborCostPercentage": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 60
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets PaaS labour cost percentage."
+        },
+        "performanceDataEndTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets end time to use for performance."
+        },
+        "performanceDataStartTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets start time to use for performance."
+        },
+        "performanceUtilizationPercentile": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 95
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets utilization percentile for performance."
+        },
+        "perYearMigrationCompletionPercentage": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets migration completion percentage per year."
+        },
+        "savingsOption": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "RI3Year",
+                "SavingsPlan3Year"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the business case savings option type."
+        },
+        "targetLocation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "EastAsia",
+                "SoutheastAsia",
+                "AustraliaEast",
+                "AustraliaSoutheast",
+                "BrazilSouth",
+                "CanadaCentral",
+                "CanadaEast",
+                "WestEurope",
+                "NorthEurope",
+                "CentralIndia",
+                "SouthIndia",
+                "JapanEast",
+                "JapanWest",
+                "KoreaCentral",
+                "KoreaSouth",
+                "UkWest",
+                "UkSouth",
+                "NorthCentralUs",
+                "EastUs",
+                "WestUs2",
+                "SouthCentralUs",
+                "CentralUs",
+                "EastUs2",
+                "WestUs",
+                "WestCentralUs",
+                "GermanyCentral",
+                "FranceCentral",
+                "AustraliaCentral",
+                "SouthAfricaNorth",
+                "FranceSouth",
+                "AustraliaCentral2",
+                "SouthAfricaWest",
+                "GermanyNorth",
+                "GermanyWestCentral",
+                "NorwayEast",
+                "NorwayWest",
+                "SwitzerlandNorth",
+                "SwitzerlandWest",
+                "UAENorth",
+                "UAECentral",
+                "SwedenCentral",
+                "QatarCentral"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets azure location."
+        },
+        "wacc": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets wACC percentage."
+        },
+        "workloadDiscoverySource": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Appliance",
+                "Import"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Workload discovery source."
+        }
+      },
+      "required": [
+        "currency",
+        "targetLocation"
+      ],
+      "description": "Azure settings for a business case."
+    },
+    "BusinessCaseProperties": {
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the last operation."
+        },
+        "settings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Settings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Business case settings."
+        }
+      },
+      "description": "Property bag for an\nMicrosoft.Azure.Migrate.BusinessCaseService.Api.V20220202_preview.Resources.BusinessCase\nresource."
+    },
+    "CollectorAgentPropertiesBase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Gets the collector agent id."
+        },
+        "lastHeartbeatUtc": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets the collector last heartbeat time."
+        },
+        "spnDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CollectorAgentSpnPropertiesBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collector agent SPN details class."
+        },
+        "version": {
+          "type": "string",
+          "description": "Gets the collector agent version."
+        }
+      },
+      "description": "Collector agent property class."
+    },
+    "CollectorAgentSpnPropertiesBase": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "description": "Gets the AAD application id."
+        },
+        "audience": {
+          "type": "string",
+          "description": "Gets the AAD audience url."
+        },
+        "authority": {
+          "type": "string",
+          "description": "Gets the AAD authority endpoint."
+        },
+        "objectId": {
+          "type": "string",
+          "description": "Gets the object id of the AAD application."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "Gets the tenant id of the AAD application."
+        }
+      },
+      "description": "Collector agent SPN details class."
+    },
+    "CollectorPropertiesBaseWithAgent": {
+      "type": "object",
+      "properties": {
+        "agentProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CollectorAgentPropertiesBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collector agent property class."
+        },
+        "discoverySiteId": {
+          "type": "string",
+          "description": "Gets the discovery site id."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the last operation."
+        }
+      },
+      "description": "Collector properties class."
+    },
+    "ComputeSettings": {
+      "type": "object",
+      "properties": {
+        "hyperthreadCoreToMemoryRatio": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Hyperthread core to memory ratio."
+        },
+        "price": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Compute Price."
+        },
+        "sqlServerLicensing": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SqlServerLicensingSettings"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SQL Server licensing settings."
+        },
+        "virtualizationSoftwareSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualizationSoftwareSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Virtualization software settings."
+        },
+        "windowsServerLicensing": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WindowsServerLicensingSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Windows Server licensing settings."
+        }
+      },
+      "required": [
+        "hyperthreadCoreToMemoryRatio",
+        "price",
+        "sqlServerLicensing",
+        "virtualizationSoftwareSettings",
+        "windowsServerLicensing"
+      ],
+      "description": "Compute settings."
+    },
+    "DiscoveredEntityLightSummary": {
+      "type": "object",
+      "properties": {
+        "numberOfMachines": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the number of machines."
+        },
+        "numberOfServers": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the number of servers."
+        },
+        "numberOfWebApps": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the number of web apps."
+        }
+      },
+      "required": [
+        "numberOfMachines",
+        "numberOfServers",
+        "numberOfWebApps"
+      ],
+      "description": "Discovered entity light summary."
+    },
+    "EntityUptime": {
+      "type": "object",
+      "properties": {
+        "daysPerMonth": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the days per month."
+        },
+        "hoursPerDay": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the hours per day."
+        }
+      },
+      "description": "Entity Uptime."
+    },
+    "FacilitySettings": {
+      "type": "object",
+      "properties": {
+        "facilitiesCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The facilities cost."
+        }
+      },
+      "required": [
+        "facilitiesCost"
+      ],
+      "description": "Facility settings."
+    },
+    "HypervLicense": {
+      "type": "object",
+      "properties": {
+        "licenseCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cost of a licence."
+        },
+        "licenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Datacentre",
+                "Standard"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "HyperV licence type."
+        }
+      },
+      "required": [
+        "licenseCost",
+        "licenseType"
+      ],
+      "description": "Representation of a licence."
+    },
+    "HypervVirtualizationManagementSettings": {
+      "type": "object",
+      "properties": {
+        "licenseAndSupportList": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HypervLicense"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Licence and support list."
+        },
+        "numberOfPhysicalCoresPerLicense": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of physical cores per licence."
+        },
+        "softwareAssuranceCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Software Assurance Cost."
+        }
+      },
+      "required": [
+        "licenseAndSupportList",
+        "numberOfPhysicalCoresPerLicense",
+        "softwareAssuranceCost"
+      ],
+      "description": "HyperV Virtualization Management Settings."
+    },
+    "LaborSettings": {
+      "type": "object",
+      "properties": {
+        "hourlyAdminCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Hourly administrator cost."
+        },
+        "physicalServersPerAdmin": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Physical servers per administrator."
+        },
+        "virtualMachinesPerAdmin": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Virtual machines per administrator."
+        }
+      },
+      "required": [
+        "hourlyAdminCost",
+        "physicalServersPerAdmin",
+        "virtualMachinesPerAdmin"
+      ],
+      "description": "Labour settings."
+    },
+    "ManagementSettings": {
+      "type": "object",
+      "properties": {
+        "hypervVirtualizationManagementSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HypervVirtualizationManagementSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "HyperV Virtualization Management Settings."
+        },
+        "otherManagementCostsSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OtherManagementCostsSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Other Management Costs Settings."
+        },
+        "thirdPartyManagementSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ThirdPartyManagementSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Third Party Management settings."
+        },
+        "vsphereManagementSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VsphereManagementSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Vsphere management settings."
+        }
+      },
+      "required": [
+        "hypervVirtualizationManagementSettings",
+        "otherManagementCostsSettings",
+        "thirdPartyManagementSettings",
+        "vsphereManagementSettings"
+      ],
+      "description": "Management settings."
+    },
+    "NetworkSettings": {
+      "type": "object",
+      "properties": {
+        "hardwareSoftwareCostPercentage": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Network hardware and software cost percentage."
+        },
+        "maintenanceCostPercentage": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Network maintenance cost percentage."
+        }
+      },
+      "required": [
+        "hardwareSoftwareCostPercentage",
+        "maintenanceCostPercentage"
+      ],
+      "description": "Network settings."
+    },
+    "OnPremiseSettings": {
+      "type": "object",
+      "properties": {
+        "computeSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComputeSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Compute settings."
+        },
+        "facilitySettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FacilitySettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Facility settings."
+        },
+        "laborSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LaborSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Labour settings."
+        },
+        "managementSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagementSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Management settings."
+        },
+        "networkSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Network settings."
+        },
+        "securitySettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecuritySettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Security settings."
+        },
+        "storageSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage settings."
+        }
+      },
+      "required": [
+        "computeSettings",
+        "facilitySettings",
+        "laborSettings",
+        "networkSettings",
+        "securitySettings",
+        "storageSettings"
+      ],
+      "description": "On-premise settings."
+    },
+    "OtherManagementCostsSettings": {
+      "type": "object",
+      "properties": {
+        "dataProtectionCostPerServerPerYear": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data Protection Cost Per Server Per Year."
+        },
+        "monitoringCostPerServerPerYear": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Monitoring Cost Per Server Per Year."
+        },
+        "patchingCostPerServerPerYear": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Patching Cost Per Server Per Year."
+        }
+      },
+      "required": [
+        "dataProtectionCostPerServerPerYear",
+        "monitoringCostPerServerPerYear",
+        "patchingCostPerServerPerYear"
+      ],
+      "description": "Other Management Costs Settings."
+    },
+    "PerfDataSettings": {
+      "type": "object",
+      "properties": {
+        "percentile": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Percentile50",
+                "Percentile90",
+                "Percentile95",
+                "Percentile99"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets percentile utilization for performance data."
+        },
+        "perfDataEndTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets or sets perf data end time."
+        },
+        "perfDataStartTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets or sets perf data start time."
+        },
+        "timeRange": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Day",
+                "Week",
+                "Month",
+                "Custom"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets perf data time range."
+        }
+      },
+      "required": [
+        "percentile",
+        "timeRange"
+      ],
+      "description": "Data model of Performance Data Settings."
+    },
+    "SecuritySettings": {
+      "type": "object",
+      "properties": {
+        "serverSecurityCostPerServerPerYear": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Physical servers per administrator."
+        },
+        "sqlServerSecurityCostPerServerPerYear": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Virtual machines per administrator."
+        }
+      },
+      "required": [
+        "serverSecurityCostPerServerPerYear",
+        "sqlServerSecurityCostPerServerPerYear"
+      ],
+      "description": "Security settings."
+    },
+    "Settings": {
+      "type": "object",
+      "properties": {
+        "azureSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure settings for a business case."
+        },
+        "onPremiseSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OnPremiseSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "On-premise settings."
+        }
+      },
+      "required": [
+        "azureSettings"
+      ],
+      "description": "Business case settings."
+    },
+    "SqlServerLicensingSettings": {
+      "type": "object",
+      "properties": {
+        "licenseCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Licence cost."
+        },
+        "softwareAssuranceCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Software assurance (SA) cost."
+        },
+        "version": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Enterprise",
+                "Standard"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SQL Server version."
+        }
+      },
+      "required": [
+        "licenseCost",
+        "softwareAssuranceCost",
+        "version"
+      ],
+      "description": "SQL Server licensing settings."
+    },
+    "StorageSettings": {
+      "type": "object",
+      "properties": {
+        "costPerGbPerMonth": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cost per gigabyte per month."
+        },
+        "maintainanceCostPercentageToAcquisitionCost": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Maintenance cost percentage."
+        }
+      },
+      "required": [
+        "costPerGbPerMonth",
+        "maintainanceCostPercentageToAcquisitionCost"
+      ],
+      "description": "Storage settings."
+    },
+    "ThirdPartyManagementSettings": {
+      "type": "object",
+      "properties": {
+        "licenseCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "License Cost."
+        },
+        "supportCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Support Cost."
+        }
+      },
+      "required": [
+        "licenseCost",
+        "supportCost"
+      ],
+      "description": "Third Party Management settings."
+    },
+    "VirtualizationSoftwareSettings": {
+      "type": "object",
+      "properties": {
+        "licenseAndSupportList": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VsphereLicense"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Licence and support list."
+        },
+        "numberOfPhysicalCoresPerLicense": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of physical cores per licence."
+        },
+        "softwareAssuranceCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Software Assurance cost."
+        }
+      },
+      "required": [
+        "licenseAndSupportList",
+        "numberOfPhysicalCoresPerLicense",
+        "softwareAssuranceCost"
+      ],
+      "description": "Virtualization software settings."
+    },
+    "VsphereLicense": {
+      "type": "object",
+      "properties": {
+        "basicSupportCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Basic support cost."
+        },
+        "licenseCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cost of a licence."
+        },
+        "licenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "VSphereStandard",
+                "VSphereEnterprisePlus"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "VSphere licence type."
+        },
+        "productionSupportCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Production support cost."
+        }
+      },
+      "required": [
+        "basicSupportCost",
+        "licenseCost",
+        "licenseType",
+        "productionSupportCost"
+      ],
+      "description": "Representation of a vsphere licence."
+    },
+    "VsphereManagementLicense": {
+      "type": "object",
+      "properties": {
+        "basicSupportCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Basic support cost."
+        },
+        "licenseCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cost of a licence."
+        },
+        "licenseType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "VSphereServerStandard"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "VSphere licence type."
+        },
+        "productionSupportCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Production support cost."
+        }
+      },
+      "required": [
+        "basicSupportCost",
+        "licenseCost",
+        "licenseType",
+        "productionSupportCost"
+      ],
+      "description": "Representation of a vsphere management licence."
+    },
+    "VsphereManagementSettings": {
+      "type": "object",
+      "properties": {
+        "licenseAndSupportList": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VsphereManagementLicense"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Licence and support list."
+        }
+      },
+      "required": [
+        "licenseAndSupportList"
+      ],
+      "description": "Vsphere management settings."
+    },
+    "WebAppAssessmentV2Properties": {
+      "type": "object",
+      "properties": {
+        "appSvcContainerSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AppSvcContainerSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "App service container settings."
+        },
+        "appSvcNativeSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AppSvcNativeSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "App service native settings."
+        },
+        "assessmentType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "MachineAssessment",
+                "AvsAssessment",
+                "SqlAssessment",
+                "WebAppAssessment"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Assessment type of the assessment."
+        },
+        "azureLocation": {
+          "type": "string",
+          "description": "Azure Location or Azure region where to which the machines will be migrated."
+        },
+        "azureOfferCode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "MSAZR0003P",
+                "MSAZR0044P",
+                "MSAZR0059P",
+                "MSAZR0060P",
+                "MSAZR0062P",
+                "MSAZR0063P",
+                "MSAZR0064P",
+                "MSAZR0029P",
+                "MSAZR0022P",
+                "MSAZR0023P",
+                "MSAZR0148P",
+                "MSAZR0025P",
+                "MSAZR0036P",
+                "MSAZR0120P",
+                "MSAZR0121P",
+                "MSAZR0122P",
+                "MSAZR0123P",
+                "MSAZR0124P",
+                "MSAZR0125P",
+                "MSAZR0126P",
+                "MSAZR0127P",
+                "MSAZR0128P",
+                "MSAZR0129P",
+                "MSAZR0130P",
+                "MSAZR0111P",
+                "MSAZR0144P",
+                "MSAZR0149P",
+                "MSMCAZR0044P",
+                "MSMCAZR0059P",
+                "MSMCAZR0060P",
+                "MSMCAZR0063P",
+                "MSMCAZR0120P",
+                "MSMCAZR0121P",
+                "MSMCAZR0125P",
+                "MSMCAZR0128P",
+                "MSAZRDE0003P",
+                "MSAZRDE0044P",
+                "MSAZRUSGOV0003P",
+                "EA",
+                "MSAZR0243P",
+                "SavingsPlan1Year",
+                "SavingsPlan3Year"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Offer Code."
+        },
+        "azureSecurityOfferingType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NO",
+                "MDC"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets a value indicating azure security offering type."
+        },
+        "confidenceRatingInPercentage": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Confidence Rating in Percentage."
+        },
+        "currency": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "USD",
+                "DKK",
+                "CAD",
+                "IDR",
+                "JPY",
+                "KRW",
+                "NZD",
+                "NOK",
+                "RUB",
+                "SAR",
+                "ZAR",
+                "SEK",
+                "TRY",
+                "GBP",
+                "MXN",
+                "MYR",
+                "INR",
+                "HKD",
+                "BRL",
+                "TWD",
+                "EUR",
+                "CHF",
+                "ARS",
+                "AUD",
+                "CNY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Currency in which prices should be reported."
+        },
+        "discountPercentage": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Custom discount percentage."
+        },
+        "discoveredEntityLightSummary": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiscoveredEntityLightSummary"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Discovered entity light summary."
+        },
+        "eaSubscriptionId": {
+          "type": "string",
+          "description": "Gets or sets the Enterprise agreement subscription id."
+        },
+        "entityUptime": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EntityUptime"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Entity Uptime."
+        },
+        "environmentType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Production",
+                "Test"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets user configurable setting to display the environment type."
+        },
+        "groupType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Import"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the group type for the assessment."
+        },
+        "percentile": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Percentile50",
+                "Percentile90",
+                "Percentile95",
+                "Percentile99"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Percentile of the utilization data values to be considered while assessing\nmachines."
+        },
+        "perfDataEndTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets or sets the end time to consider performance data for assessment."
+        },
+        "perfDataStartTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets or sets the start time to consider performance data for assessment."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the last operation."
+        },
+        "reservedInstance": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "RI1Year",
+                "RI3Year"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reserved instance."
+        },
+        "scalingFactor": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Percentage of buffer that user wants on performance metrics when recommending\nAzure sizes."
+        },
+        "sizingCriterion": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "PerformanceBased",
+                "AsOnPremises"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Assessment sizing criterion."
+        },
+        "timeRange": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Day",
+                "Week",
+                "Month",
+                "Custom"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Time Range for which the historic utilization data should be considered for\nassessment."
+        }
+      },
+      "description": "Web app assessment properties class."
+    },
+    "WindowsServerLicensingSettings": {
+      "type": "object",
+      "properties": {
+        "licenseCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Licence Cost."
+        },
+        "licensesPerCore": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Licenses per core."
+        },
+        "softwareAssuranceCost": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Software assurance (SA) cost."
+        }
+      },
+      "required": [
+        "licenseCost",
+        "licensesPerCore",
+        "softwareAssuranceCost"
+      ],
+      "description": "Windows Server licensing settings."
+    }
+  }
+}
