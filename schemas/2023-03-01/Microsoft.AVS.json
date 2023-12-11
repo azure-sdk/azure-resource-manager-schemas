@@ -1450,6 +1450,7 @@
         }
       },
       "required": [
+        "managementCluster",
         "networkBlock"
       ],
       "description": "The properties of a private cloud resource"
