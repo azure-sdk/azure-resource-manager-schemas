@@ -1584,9 +1584,6 @@
               "$ref": "https://schema.management.azure.com/schemas/2020-01-01-preview/Microsoft.Security.json#/subscription_resourceDefinitions/securityContacts"
             },
             {
-              "$ref": "https://schema.management.azure.com/schemas/2021-01-15-preview/Microsoft.Security.json#/subscription_resourceDefinitions/ingestionSettings"
-            },
-            {
               "$ref": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Security.json#/subscription_resourceDefinitions/assessmentMetadata"
             },
             {
@@ -1624,6 +1621,9 @@
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.Security.json#/subscription_resourceDefinitions/serverVulnerabilityAssessmentsSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.Security.json#/subscription_resourceDefinitions/securityContacts"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2019-05-01-preview/Microsoft.Support.json#/subscription_resourceDefinitions/supportTickets"
