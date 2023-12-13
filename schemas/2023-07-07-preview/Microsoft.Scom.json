@@ -56,10 +56,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/managedInstances_monitoredResources_childResource"
+                "$ref": "#/definitions/managedInstances_managedGateways_childResource"
               },
               {
-                "$ref": "#/definitions/managedInstances_managedGateways_childResource"
+                "$ref": "#/definitions/managedInstances_monitoredResources_childResource"
               }
             ]
           }
@@ -116,6 +116,17 @@
           ],
           "description": "The gateway resource name."
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedGatewayProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a gateway resource."
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -126,6 +137,7 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.Scom/managedInstances/managedGateways"
@@ -151,6 +163,17 @@
           ],
           "description": "The monitored resource name."
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MonitoredResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a monitored resource."
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -161,6 +184,7 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.Scom/managedInstances/monitoredResources"
@@ -233,7 +257,7 @@
       "properties": {
         "dnsServer": {
           "type": "string",
-          "description": "IP address of DNS server "
+          "description": "IP address of DNS server"
         },
         "domainName": {
           "type": "string",
@@ -256,11 +280,11 @@
         },
         "passwordSecret": {
           "type": "string",
-          "description": "Domain Password secret "
+          "description": "Domain Password secret"
         },
         "userNameSecret": {
           "type": "string",
-          "description": "Domain user name secret "
+          "description": "Domain user name secret"
         }
       },
       "description": "Get Domain user name and password from key vault"
@@ -286,6 +310,28 @@
         }
       },
       "description": "Gmsa Details"
+    },
+    "ManagedGatewayProperties": {
+      "type": "object",
+      "properties": {
+        "computerName": {
+          "type": "string",
+          "description": "ComputerName of the gateway to be monitored."
+        },
+        "domainName": {
+          "type": "string",
+          "description": "The domain name associated with the gateway to be monitored."
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "ArmId of the gateway to be monitored."
+        },
+        "resourceLocation": {
+          "type": "string",
+          "description": "Location of the gateway to be monitored."
+        }
+      },
+      "description": "The properties of a gateway resource."
     },
     "ManagedIdentity": {
       "type": "object",
@@ -346,6 +392,17 @@
           ],
           "description": "The gateway resource name."
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedGatewayProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a gateway resource."
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -356,6 +413,7 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.Scom/managedInstances/managedGateways"
@@ -381,6 +439,17 @@
           ],
           "description": "The monitored resource name."
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MonitoredResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a monitored resource."
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -391,9 +460,32 @@
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
       "description": "Microsoft.Scom/managedInstances/monitoredResources"
+    },
+    "MonitoredResourceProperties": {
+      "type": "object",
+      "properties": {
+        "computerName": {
+          "type": "string",
+          "description": "ComputerName of the monitored resource."
+        },
+        "domainName": {
+          "type": "string",
+          "description": "The domain name associated with the monitored resource."
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "ArmId of the monitored resource."
+        },
+        "resourceLocation": {
+          "type": "string",
+          "description": "Location of the monitored resource."
+        }
+      },
+      "description": "The properties of a monitored resource."
     },
     "MonitoringInstanceProperties": {
       "type": "object",
