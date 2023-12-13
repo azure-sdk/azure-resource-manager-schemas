@@ -125,6 +125,17 @@
             }
           ],
           "description": "The list of Azure DevOps organizations the pool should be present in."
+        },
+        "permissionProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureDevOpsPermissionProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the type of Azure DevOps pool permission."
         }
       },
       "required": [
@@ -132,6 +143,37 @@
         "organizations"
       ],
       "description": "Azure DevOps organization profile"
+    },
+    "AzureDevOpsPermissionProfile": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/CreatorOnly"
+        },
+        {
+          "$ref": "#/definitions/InheritPermissions"
+        },
+        {
+          "$ref": "#/definitions/SpecificAccounts"
+        }
+      ],
+      "properties": {},
+      "description": "Defines the type of Azure DevOps pool permission."
+    },
+    "CreatorOnly": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "CreatorOnly"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "description": "Only the pool creator will be an admin of the pool."
     },
     "DevOpsAzureSku": {
       "type": "object",
@@ -160,6 +202,106 @@
       ],
       "properties": {},
       "description": "Defines the type of fabric the agent will run on."
+    },
+    "GitHubOrganization": {
+      "type": "object",
+      "properties": {
+        "repositories": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional list of repositories in which the pool should be created."
+        },
+        "url": {
+          "type": "string",
+          "description": "The GitHub organization URL in which the pool should be created."
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "description": "Defines a GitHub organization"
+    },
+    "GitHubOrganizationProfile": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "GitHub"
+          ]
+        },
+        "organizations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GitHubOrganization"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of GitHub organizations/repositories the pool should be present in."
+        }
+      },
+      "required": [
+        "kind",
+        "organizations"
+      ],
+      "description": "GitHub organization profile"
+    },
+    "InheritPermissions": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "Inherit"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "description": "Pool will inherit permissions from the project or organization."
+    },
+    "Interactive": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "Interactive"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "description": "Interactive logon type"
+    },
+    "LogonType": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Interactive"
+        },
+        {
+          "$ref": "#/definitions/Service"
+        }
+      ],
+      "properties": {},
+      "description": "Determines how the service should be run."
     },
     "ManagedServiceIdentity": {
       "type": "object",
@@ -257,6 +399,9 @@
       "oneOf": [
         {
           "$ref": "#/definitions/AzureDevOpsOrganizationProfile"
+        },
+        {
+          "$ref": "#/definitions/GitHubOrganizationProfile"
         }
       ],
       "properties": {},
@@ -265,6 +410,17 @@
     "OsProfile": {
       "type": "object",
       "properties": {
+        "logonType": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LogonType"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Determines how the service should be run."
+        },
         "secretsManagementSettings": {
           "oneOf": [
             {
@@ -435,6 +591,64 @@
         "observedCertificates"
       ],
       "description": "The secret management settings of the machines in the pool."
+    },
+    "Service": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "Service"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "description": "Service logon type"
+    },
+    "SpecificAccounts": {
+      "type": "object",
+      "properties": {
+        "groups": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Group email adresses"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "SpecificAccounts"
+          ]
+        },
+        "users": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "User email adresses"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "description": "Only the specified accounts will be admins of the pool."
     },
     "Stateful": {
       "type": "object",
