@@ -12401,6 +12401,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-10-30-preview/Microsoft.DevOpsInfrastructure.json#/resourceDefinitions/pools"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-12-13-preview/Microsoft.DevOpsInfrastructure.json#/resourceDefinitions/pools"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2019-04-01/Microsoft.DevSpaces.json#/resourceDefinitions/controllers"
         },
         {
