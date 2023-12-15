@@ -7875,6 +7875,9 @@
           "$ref": "#/definitions/AzureDatabricksDeltaLakeSink"
         },
         {
+          "$ref": "#/definitions/WarehouseSink"
+        },
+        {
           "$ref": "#/definitions/SapCloudForCustomerSink"
         },
         {
@@ -9883,6 +9886,9 @@
         },
         {
           "$ref": "#/definitions/LakeHouseTableDataset"
+        },
+        {
+          "$ref": "#/definitions/WarehouseTableDataset"
         }
       ],
       "properties": {
@@ -19110,6 +19116,9 @@
         },
         {
           "$ref": "#/definitions/LakeHouseLinkedService"
+        },
+        {
+          "$ref": "#/definitions/WarehouseLinkedService"
         }
       ],
       "properties": {
@@ -30031,6 +30040,20 @@
           "type": "object",
           "properties": {},
           "description": "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetadataItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects)."
         }
       },
       "description": "Connector write settings."
@@ -30847,6 +30870,9 @@
         },
         {
           "$ref": "#/definitions/AmazonRedshiftSource"
+        },
+        {
+          "$ref": "#/definitions/WarehouseSource"
         }
       ],
       "properties": {
@@ -32005,6 +32031,238 @@
         "waitTimeInSeconds"
       ],
       "description": "Wait activity properties."
+    },
+    "WarehouseLinkedService": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Warehouse"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WarehouseLinkedServiceTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Microsoft Fabric Warehouse linked service properties."
+        }
+      },
+      "required": [
+        "type",
+        "typeProperties"
+      ],
+      "description": "Microsoft Fabric Warehouse linked service."
+    },
+    "WarehouseLinkedServiceTypeProperties": {
+      "type": "object",
+      "properties": {
+        "artifactId": {
+          "type": "object",
+          "properties": {},
+          "description": "The ID of Microsoft Fabric Warehouse artifact. Type: string (or Expression with resultType string)."
+        },
+        "encryptedCredential": {
+          "type": "string",
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
+        },
+        "endpoint": {
+          "type": "object",
+          "properties": {},
+          "description": "The endpoint of Microsoft Fabric Warehouse server. Type: string (or Expression with resultType string)."
+        },
+        "servicePrincipalCredential": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "servicePrincipalCredentialType": {
+          "type": "object",
+          "properties": {},
+          "description": "The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string)."
+        },
+        "servicePrincipalId": {
+          "type": "object",
+          "properties": {},
+          "description": "The ID of the application used to authenticate against Microsoft Fabric Warehouse. Type: string (or Expression with resultType string)."
+        },
+        "servicePrincipalKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {},
+          "description": "The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string)."
+        },
+        "workspaceId": {
+          "type": "object",
+          "properties": {},
+          "description": "The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string)."
+        }
+      },
+      "required": [
+        "artifactId",
+        "endpoint"
+      ],
+      "description": "Microsoft Fabric Warehouse linked service properties."
+    },
+    "WarehouseSink": {
+      "type": "object",
+      "properties": {
+        "allowCopyCommand": {
+          "type": "object",
+          "properties": {},
+          "description": "Indicates to use Copy Command to copy data into SQL Data Warehouse. Type: boolean (or Expression with resultType boolean)."
+        },
+        "copyCommandSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DWCopyCommandSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DW Copy Command settings."
+        },
+        "preCopyScript": {
+          "type": "object",
+          "properties": {},
+          "description": "SQL pre-copy script. Type: string (or Expression with resultType string)."
+        },
+        "tableOption": {
+          "type": "object",
+          "properties": {},
+          "description": "The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string)."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "WarehouseSink"
+          ]
+        },
+        "writeBehavior": {
+          "type": "object",
+          "properties": {},
+          "description": "Write behavior when copying data into azure Microsoft Fabric Data Warehouse. Type: DWWriteBehaviorEnum (or Expression with resultType DWWriteBehaviorEnum)"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "A copy activity Microsoft Fabric Warehouse sink."
+    },
+    "WarehouseSource": {
+      "type": "object",
+      "properties": {
+        "isolationLevel": {
+          "type": "object",
+          "properties": {},
+          "description": "Specifies the transaction locking behavior for the Microsoft Fabric Warehouse source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string)."
+        },
+        "partitionOption": {
+          "type": "object",
+          "properties": {},
+          "description": "The partition mechanism that will be used for Sql read in parallel. Possible values include: \"None\", \"PhysicalPartitionsOfTable\", \"DynamicRange\"."
+        },
+        "partitionSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlPartitionSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The settings that will be leveraged for Sql source partitioning."
+        },
+        "sqlReaderQuery": {
+          "type": "object",
+          "properties": {},
+          "description": "Microsoft Fabric Warehouse reader query. Type: string (or Expression with resultType string)."
+        },
+        "sqlReaderStoredProcedureName": {
+          "type": "object",
+          "properties": {},
+          "description": "Name of the stored procedure for a Microsoft Fabric Warehouse source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string)."
+        },
+        "storedProcedureParameters": {
+          "type": "object",
+          "properties": {},
+          "description": "Value and type setting for stored procedure parameters. Example: \"{Parameter1: {value: \"1\", type: \"int\"}}\". Type: object (or Expression with resultType object), itemType: StoredProcedureParameter."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "WarehouseSource"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "A copy activity Microsoft Fabric Warehouse source."
+    },
+    "WarehouseTableDataset": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "WarehouseTable"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WarehouseTableDatasetTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Microsoft Fabric Warehouse dataset properties."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Microsoft Fabric Warehouse dataset."
+    },
+    "WarehouseTableDatasetTypeProperties": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "object",
+          "properties": {},
+          "description": "The schema name of the Microsoft Fabric Warehouse. Type: string (or Expression with resultType string)."
+        },
+        "table": {
+          "type": "object",
+          "properties": {},
+          "description": "The table name of the Microsoft Fabric Warehouse. Type: string (or Expression with resultType string)."
+        }
+      },
+      "description": "Microsoft Fabric Warehouse dataset properties."
     },
     "WebActivity": {
       "type": "object",
