@@ -30031,6 +30031,20 @@
           "type": "object",
           "properties": {},
           "description": "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetadataItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects)."
         }
       },
       "description": "Connector write settings."
