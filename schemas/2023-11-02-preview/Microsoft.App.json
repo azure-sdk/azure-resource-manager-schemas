@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-08-01-preview/Microsoft.App.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-11-02-preview/Microsoft.App.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.App",
   "description": "Microsoft App Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "identity": {
@@ -100,7 +100,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -149,7 +149,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "extendedLocation": {
@@ -235,7 +235,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -294,7 +294,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -333,7 +333,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -372,7 +372,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "extendedLocation": {
@@ -473,7 +473,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -512,7 +512,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -559,7 +559,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -598,7 +598,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "extendedLocation": {
@@ -687,7 +687,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "kind": {
@@ -772,7 +772,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -831,7 +831,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -880,7 +880,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -927,7 +927,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -974,7 +974,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -1033,7 +1033,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -1678,7 +1678,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "List of environment variables to be passed to the build and application runtime."
+          "description": "List of environment variables to be passed to the build, secrets should not be used in environment variable."
         },
         "platform": {
           "type": "string",
@@ -1739,7 +1739,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -1810,9 +1810,34 @@
       },
       "description": "The build properties."
     },
+    "CertificateKeyVaultProperties": {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "string",
+          "description": "Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity."
+        },
+        "keyVaultUrl": {
+          "type": "string",
+          "description": "URL pointing to the Azure Key Vault secret that holds the certificate."
+        }
+      },
+      "description": "Properties for a certificate stored in a Key Vault."
+    },
     "CertificateProperties": {
       "type": "object",
       "properties": {
+        "certificateKeyVaultProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateKeyVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for a certificate stored in a Key Vault."
+        },
         "certificateType": {
           "oneOf": [
             {
@@ -2041,7 +2066,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -2100,7 +2125,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2139,7 +2164,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2522,7 +2547,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2561,7 +2586,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2608,7 +2633,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2845,6 +2870,17 @@
     "CustomDomainConfiguration": {
       "type": "object",
       "properties": {
+        "certificateKeyVaultProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateKeyVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for a certificate stored in a Key Vault."
+        },
         "certificatePassword": {
           "type": "string",
           "description": "Certificate password"
@@ -3530,6 +3566,20 @@
             }
           ],
           "description": "Configuration of datadog "
+        },
+        "otlpConfigurations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OtlpConfiguration"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Open telemetry otlp configurations"
         }
       },
       "description": "Configuration of Open Telemetry destinations"
@@ -3733,6 +3783,20 @@
             }
           ],
           "description": "Container App credentials."
+        },
+        "buildEnvironmentVariables": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentVariable"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of environment variables to be passed to the build."
         },
         "contextPath": {
           "type": "string",
@@ -5371,6 +5435,17 @@
             }
           ],
           "description": "Azure File Properties."
+        },
+        "nfsAzureFile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NfsAzureFileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NFS Azure File Properties."
         }
       },
       "description": "Storage properties"
@@ -5381,7 +5456,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -5440,7 +5515,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -5479,7 +5554,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -5526,7 +5601,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -5573,7 +5648,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -5632,7 +5707,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -5741,6 +5816,35 @@
         }
       },
       "description": "Configuration properties for mutual TLS authentication"
+    },
+    "NfsAzureFileProperties": {
+      "type": "object",
+      "properties": {
+        "accessMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ReadOnly",
+                "ReadWrite"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Access mode for storage."
+        },
+        "server": {
+          "type": "string",
+          "description": "Server for NFS azure file."
+        },
+        "shareName": {
+          "type": "string",
+          "description": "NFS Azure file share name."
+        }
+      },
+      "description": "NFS Azure File Properties."
     },
     "Nonce": {
       "type": "object",
@@ -5883,6 +5987,17 @@
           ],
           "description": "Configuration of Open Telemetry destinations"
         },
+        "includeSystemTelemetry": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Boolean indicating if including system telemetry"
+        },
         "logsConfiguration": {
           "oneOf": [
             {
@@ -5918,6 +6033,31 @@
         }
       },
       "description": "Configuration of Open Telemetry"
+    },
+    "OtlpConfiguration": {
+      "type": "object",
+      "properties": {
+        "endpoint": {
+          "type": "string",
+          "description": "The endpoint of otlp configuration"
+        },
+        "insecure": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Boolean indicating if otlp configuration is insecure"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of otlp configuration"
+        }
+      },
+      "description": "Configuration of otlp "
     },
     "PreBuildStep": {
       "type": "object",
@@ -6613,7 +6753,7 @@
       "properties": {
         "mountOptions": {
           "type": "string",
-          "description": "Mount options used while mounting the AzureFile. Must be a comma-separated string."
+          "description": "Mount options used while mounting the Azure file share or NFS Azure file share. Must be a comma-separated string."
         },
         "name": {
           "type": "string",
@@ -6644,7 +6784,8 @@
               "enum": [
                 "AzureFile",
                 "EmptyDir",
-                "Secret"
+                "Secret",
+                "NfsAzureFile"
               ]
             },
             {
