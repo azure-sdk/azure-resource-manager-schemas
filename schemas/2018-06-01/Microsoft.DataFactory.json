@@ -4398,9 +4398,19 @@
           "description": "Name of the Function that the Azure Function Activity will call. Type: string (or Expression with resultType string)"
         },
         "headers": {
-          "type": "object",
-          "properties": {},
-          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: dictionary (or Expression with resultType dictionary)."
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: string (or Expression with resultType string)."
         },
         "method": {
           "oneOf": [
@@ -18153,6 +18163,10 @@
     "JsonDataset": {
       "type": "object",
       "properties": {
+        "schema1": {
+          "type": "object",
+          "properties": {}
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -30031,6 +30045,20 @@
           "type": "object",
           "properties": {},
           "description": "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetadataItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects)."
         }
       },
       "description": "Connector write settings."
@@ -32147,9 +32175,19 @@
           "description": "When set to true, Certificate validation will be disabled."
         },
         "headers": {
-          "type": "object",
-          "properties": {},
-          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: dictionary (or Expression with resultType dictionary)."
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: string (or Expression with resultType string)."
         },
         "httpRequestTimeout": {
           "type": "object",
@@ -32355,9 +32393,19 @@
           "description": "Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string)."
         },
         "headers": {
-          "type": "object",
-          "properties": {},
-          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: dictionary (or Expression with resultType dictionary)."
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: string (or Expression with resultType string)."
         },
         "method": {
           "oneOf": [
