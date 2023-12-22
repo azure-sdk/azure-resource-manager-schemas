@@ -34178,6 +34178,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-11-01-preview/Microsoft.ServiceLinker.json#/resourceDefinitions/locations_dryruns"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.ServiceLinker.json#/resourceDefinitions/locations_connectors"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.ServiceLinker.json#/resourceDefinitions/locations_dryruns"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-10-01-preview/Microsoft.ServiceNetworking.json#/resourceDefinitions/trafficControllers"
         },
         {
