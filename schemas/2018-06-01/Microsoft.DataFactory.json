@@ -4398,9 +4398,19 @@
           "description": "Name of the Function that the Azure Function Activity will call. Type: string (or Expression with resultType string)"
         },
         "headers": {
-          "type": "object",
-          "properties": {},
-          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: dictionary (or Expression with resultType dictionary)."
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: string (or Expression with resultType string)."
         },
         "method": {
           "oneOf": [
@@ -20326,11 +20336,21 @@
           "properties": {},
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
         },
+        "database": {
+          "type": "object",
+          "properties": {},
+          "description": "Database name for connection. Type: string."
+        },
+        "driverVersion": {
+          "type": "object",
+          "properties": {},
+          "description": "The version of the MariaDB driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string."
+        },
         "encryptedCredential": {
           "type": "string",
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
         },
-        "pwd": {
+        "password": {
           "oneOf": [
             {
               "$ref": "#/definitions/AzureKeyVaultSecretReference"
@@ -20340,6 +20360,21 @@
             }
           ],
           "description": "Azure Key Vault secret reference."
+        },
+        "port": {
+          "type": "object",
+          "properties": {},
+          "description": "The port for the connection. Type: integer."
+        },
+        "server": {
+          "type": "object",
+          "properties": {},
+          "description": "Server name for connection. Type: string."
+        },
+        "username": {
+          "type": "object",
+          "properties": {},
+          "description": "Username for authentication. Type: string."
         }
       },
       "description": "MariaDB server linked service properties."
@@ -21289,6 +21324,16 @@
           "properties": {},
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
         },
+        "database": {
+          "type": "object",
+          "properties": {},
+          "description": "Database name for connection. Type: string."
+        },
+        "driverVersion": {
+          "type": "object",
+          "properties": {},
+          "description": "The version of the MySQL driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string."
+        },
         "encryptedCredential": {
           "type": "string",
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
@@ -21303,11 +21348,33 @@
             }
           ],
           "description": "Azure Key Vault secret reference."
+        },
+        "port": {
+          "type": "object",
+          "properties": {},
+          "description": "The port for the connection. Type: integer."
+        },
+        "server": {
+          "type": "object",
+          "properties": {},
+          "description": "Server name for connection. Type: string."
+        },
+        "sslMode": {
+          "type": "object",
+          "properties": {},
+          "description": "SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full."
+        },
+        "username": {
+          "type": "object",
+          "properties": {},
+          "description": "Username for authentication. Type: string."
+        },
+        "useSystemTrustStore": {
+          "type": "object",
+          "properties": {},
+          "description": "Use system trust store for connection. Type: integer. 0: enable, 1: disable."
         }
       },
-      "required": [
-        "connectionString"
-      ],
       "description": "MySQL linked service properties."
     },
     "MySqlSource": {
@@ -32530,9 +32597,19 @@
           "description": "When set to true, Certificate validation will be disabled."
         },
         "headers": {
-          "type": "object",
-          "properties": {},
-          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: dictionary (or Expression with resultType dictionary)."
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: string (or Expression with resultType string)."
         },
         "httpRequestTimeout": {
           "type": "object",
@@ -32738,9 +32815,19 @@
           "description": "Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string)."
         },
         "headers": {
-          "type": "object",
-          "properties": {},
-          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: dictionary (or Expression with resultType dictionary)."
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: string (or Expression with resultType string)."
         },
         "method": {
           "oneOf": [
