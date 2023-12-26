@@ -690,6 +690,17 @@
             "2023-08-01-preview"
           ]
         },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
         "kind": {
           "type": "string",
           "description": "Kind of the Environment."
