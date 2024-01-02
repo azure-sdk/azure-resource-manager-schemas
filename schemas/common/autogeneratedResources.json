@@ -30962,6 +30962,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01/Microsoft.Purview.json#/resourceDefinitions/accounts_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.Purview.json#/resourceDefinitions/accounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.Purview.json#/resourceDefinitions/accounts_kafkaConfigurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.Purview.json#/resourceDefinitions/accounts_privateEndpointConnections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2019-11-04-preview/Microsoft.Quantum.json#/resourceDefinitions/workspaces"
         },
         {
