@@ -7875,6 +7875,9 @@
           "$ref": "#/definitions/AzureDatabricksDeltaLakeSink"
         },
         {
+          "$ref": "#/definitions/WarehouseSink"
+        },
+        {
           "$ref": "#/definitions/SapCloudForCustomerSink"
         },
         {
@@ -9898,6 +9901,9 @@
         },
         {
           "$ref": "#/definitions/SalesforceServiceCloudV2ObjectDataset"
+        },
+        {
+          "$ref": "#/definitions/WarehouseTableDataset"
         }
       ],
       "properties": {
@@ -18938,6 +18944,9 @@
           "$ref": "#/definitions/RestServiceLinkedService"
         },
         {
+          "$ref": "#/definitions/WebConnectionLinkedService"
+        },
+        {
           "$ref": "#/definitions/TeamDeskLinkedService"
         },
         {
@@ -19131,6 +19140,9 @@
         },
         {
           "$ref": "#/definitions/SalesforceServiceCloudV2LinkedService"
+        },
+        {
+          "$ref": "#/definitions/WarehouseLinkedService"
         }
       ],
       "properties": {
@@ -20326,11 +20338,21 @@
           "properties": {},
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
         },
+        "database": {
+          "type": "object",
+          "properties": {},
+          "description": "Database name for connection. Type: string."
+        },
+        "driverVersion": {
+          "type": "object",
+          "properties": {},
+          "description": "The version of the MariaDB driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string."
+        },
         "encryptedCredential": {
           "type": "string",
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
         },
-        "pwd": {
+        "password": {
           "oneOf": [
             {
               "$ref": "#/definitions/AzureKeyVaultSecretReference"
@@ -20340,6 +20362,21 @@
             }
           ],
           "description": "Azure Key Vault secret reference."
+        },
+        "port": {
+          "type": "object",
+          "properties": {},
+          "description": "The port for the connection. Type: integer."
+        },
+        "server": {
+          "type": "object",
+          "properties": {},
+          "description": "Server name for connection. Type: string."
+        },
+        "username": {
+          "type": "object",
+          "properties": {},
+          "description": "Username for authentication. Type: string."
         }
       },
       "description": "MariaDB server linked service properties."
@@ -21289,6 +21326,16 @@
           "properties": {},
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
         },
+        "database": {
+          "type": "object",
+          "properties": {},
+          "description": "Database name for connection. Type: string."
+        },
+        "driverVersion": {
+          "type": "object",
+          "properties": {},
+          "description": "The version of the MySQL driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string."
+        },
         "encryptedCredential": {
           "type": "string",
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
@@ -21303,11 +21350,33 @@
             }
           ],
           "description": "Azure Key Vault secret reference."
+        },
+        "port": {
+          "type": "object",
+          "properties": {},
+          "description": "The port for the connection. Type: integer."
+        },
+        "server": {
+          "type": "object",
+          "properties": {},
+          "description": "Server name for connection. Type: string."
+        },
+        "sslMode": {
+          "type": "object",
+          "properties": {},
+          "description": "SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full."
+        },
+        "username": {
+          "type": "object",
+          "properties": {},
+          "description": "Username for authentication. Type: string."
+        },
+        "useSystemTrustStore": {
+          "type": "object",
+          "properties": {},
+          "description": "Use system trust store for connection. Type: integer. 0: enable, 1: disable."
         }
       },
-      "required": [
-        "connectionString"
-      ],
       "description": "MySQL linked service properties."
     },
     "MySqlSource": {
@@ -31229,6 +31298,9 @@
           "$ref": "#/definitions/AmazonRedshiftSource"
         },
         {
+          "$ref": "#/definitions/WarehouseSource"
+        },
+        {
           "$ref": "#/definitions/SalesforceV2Source"
         }
       ],
@@ -32389,6 +32461,238 @@
       ],
       "description": "Wait activity properties."
     },
+    "WarehouseLinkedService": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Warehouse"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WarehouseLinkedServiceTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Microsoft Fabric Warehouse linked service properties."
+        }
+      },
+      "required": [
+        "type",
+        "typeProperties"
+      ],
+      "description": "Microsoft Fabric Warehouse linked service."
+    },
+    "WarehouseLinkedServiceTypeProperties": {
+      "type": "object",
+      "properties": {
+        "artifactId": {
+          "type": "object",
+          "properties": {},
+          "description": "The ID of Microsoft Fabric Warehouse artifact. Type: string (or Expression with resultType string)."
+        },
+        "encryptedCredential": {
+          "type": "string",
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
+        },
+        "endpoint": {
+          "type": "object",
+          "properties": {},
+          "description": "The endpoint of Microsoft Fabric Warehouse server. Type: string (or Expression with resultType string)."
+        },
+        "servicePrincipalCredential": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "servicePrincipalCredentialType": {
+          "type": "object",
+          "properties": {},
+          "description": "The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string)."
+        },
+        "servicePrincipalId": {
+          "type": "object",
+          "properties": {},
+          "description": "The ID of the application used to authenticate against Microsoft Fabric Warehouse. Type: string (or Expression with resultType string)."
+        },
+        "servicePrincipalKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {},
+          "description": "The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string)."
+        },
+        "workspaceId": {
+          "type": "object",
+          "properties": {},
+          "description": "The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string)."
+        }
+      },
+      "required": [
+        "artifactId",
+        "endpoint"
+      ],
+      "description": "Microsoft Fabric Warehouse linked service properties."
+    },
+    "WarehouseSink": {
+      "type": "object",
+      "properties": {
+        "allowCopyCommand": {
+          "type": "object",
+          "properties": {},
+          "description": "Indicates to use Copy Command to copy data into SQL Data Warehouse. Type: boolean (or Expression with resultType boolean)."
+        },
+        "copyCommandSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DWCopyCommandSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DW Copy Command settings."
+        },
+        "preCopyScript": {
+          "type": "object",
+          "properties": {},
+          "description": "SQL pre-copy script. Type: string (or Expression with resultType string)."
+        },
+        "tableOption": {
+          "type": "object",
+          "properties": {},
+          "description": "The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string)."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "WarehouseSink"
+          ]
+        },
+        "writeBehavior": {
+          "type": "object",
+          "properties": {},
+          "description": "Write behavior when copying data into azure Microsoft Fabric Data Warehouse. Type: DWWriteBehaviorEnum (or Expression with resultType DWWriteBehaviorEnum)"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "A copy activity Microsoft Fabric Warehouse sink."
+    },
+    "WarehouseSource": {
+      "type": "object",
+      "properties": {
+        "isolationLevel": {
+          "type": "object",
+          "properties": {},
+          "description": "Specifies the transaction locking behavior for the Microsoft Fabric Warehouse source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string)."
+        },
+        "partitionOption": {
+          "type": "object",
+          "properties": {},
+          "description": "The partition mechanism that will be used for Sql read in parallel. Possible values include: \"None\", \"PhysicalPartitionsOfTable\", \"DynamicRange\"."
+        },
+        "partitionSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlPartitionSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The settings that will be leveraged for Sql source partitioning."
+        },
+        "sqlReaderQuery": {
+          "type": "object",
+          "properties": {},
+          "description": "Microsoft Fabric Warehouse reader query. Type: string (or Expression with resultType string)."
+        },
+        "sqlReaderStoredProcedureName": {
+          "type": "object",
+          "properties": {},
+          "description": "Name of the stored procedure for a Microsoft Fabric Warehouse source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string)."
+        },
+        "storedProcedureParameters": {
+          "type": "object",
+          "properties": {},
+          "description": "Value and type setting for stored procedure parameters. Example: \"{Parameter1: {value: \"1\", type: \"int\"}}\". Type: object (or Expression with resultType object), itemType: StoredProcedureParameter."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "WarehouseSource"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "A copy activity Microsoft Fabric Warehouse source."
+    },
+    "WarehouseTableDataset": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "WarehouseTable"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WarehouseTableDatasetTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Microsoft Fabric Warehouse dataset properties."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Microsoft Fabric Warehouse dataset."
+    },
+    "WarehouseTableDatasetTypeProperties": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "object",
+          "properties": {},
+          "description": "The schema name of the Microsoft Fabric Warehouse. Type: string (or Expression with resultType string)."
+        },
+        "table": {
+          "type": "object",
+          "properties": {},
+          "description": "The table name of the Microsoft Fabric Warehouse. Type: string (or Expression with resultType string)."
+        }
+      },
+      "description": "Microsoft Fabric Warehouse dataset properties."
+    },
     "WebActivity": {
       "type": "object",
       "properties": {
@@ -32570,6 +32874,11 @@
           ],
           "description": "Rest API method for target endpoint."
         },
+        "relativeUrl": {
+          "type": "object",
+          "properties": {},
+          "description": "Web activity relative url for the target endpoint of linked service. Type: string (or Expression with resultType string)."
+        },
         "turnOffAsync": {
           "oneOf": [
             {
@@ -32588,8 +32897,7 @@
         }
       },
       "required": [
-        "method",
-        "url"
+        "method"
       ],
       "description": "Web activity type properties."
     },
@@ -32680,6 +32988,136 @@
       ],
       "description": "A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client."
     },
+    "WebConnectionLinkedService": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "WebConnection"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WebConnectionLinkedServiceTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Web Connection linked service properties."
+        }
+      },
+      "required": [
+        "type",
+        "typeProperties"
+      ],
+      "description": "Web Connection linked service."
+    },
+    "WebConnectionLinkedServiceTypeProperties": {
+      "type": "object",
+      "properties": {
+        "aadResourceId": {
+          "type": "object",
+          "properties": {},
+          "description": "The resource you are requesting authorization to use. Type: string (or Expression with resultType string)."
+        },
+        "authenticationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Anonymous",
+                "Basic",
+                "ManagedServiceIdentity",
+                "ClientCertificate",
+                "AadServicePrincipal",
+                "UserAssignedManagedIdentity"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of authentication used to connect to the WEB CONNECTION service."
+        },
+        "credential": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CredentialReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Credential reference type."
+        },
+        "enableServerCertificateValidation": {
+          "type": "object",
+          "properties": {},
+          "description": "Whether to validate server side SSL certificate when connecting to the endpoint.The default value is true. Type: boolean (or Expression with resultType boolean)."
+        },
+        "password": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "pfx": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "servicePrincipalId": {
+          "type": "object",
+          "properties": {},
+          "description": "The application's client ID used in AadServicePrincipal authentication type. Type: string (or Expression with resultType string)."
+        },
+        "servicePrincipalKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {},
+          "description": "The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides. Type: string (or Expression with resultType string)."
+        },
+        "url": {
+          "type": "object",
+          "properties": {},
+          "description": "The base URL of the WEB CONNECTION service. Type: string (or Expression with resultType string)."
+        },
+        "userName": {
+          "type": "object",
+          "properties": {},
+          "description": "The user name used in Basic authentication type. Type: string (or Expression with resultType string)."
+        }
+      },
+      "required": [
+        "authenticationType",
+        "url"
+      ],
+      "description": "Web Connection linked service properties."
+    },
     "WebHookActivity": {
       "type": "object",
       "properties": {
@@ -32736,6 +33174,17 @@
           "type": "object",
           "properties": {},
           "description": "Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string)."
+        },
+        "connectVia": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IntegrationRuntimeReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Integration runtime reference type."
         },
         "headers": {
           "type": "object",
