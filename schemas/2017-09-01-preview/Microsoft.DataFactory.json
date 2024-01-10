@@ -4216,6 +4216,9 @@
           "$ref": "#/definitions/WebActivity"
         },
         {
+          "$ref": "#/definitions/WebHookActivity"
+        },
+        {
           "$ref": "#/definitions/GetMetadataActivity"
         },
         {
@@ -11966,6 +11969,92 @@
         "pfx"
       ],
       "description": "A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client."
+    },
+    "WebHookActivity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "WebHook"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WebHookActivityTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "WebHook activity type properties."
+        }
+      },
+      "required": [
+        "type",
+        "typeProperties"
+      ],
+      "description": "WebHook activity."
+    },
+    "WebHookActivityTypeProperties": {
+      "type": "object",
+      "properties": {
+        "authentication": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WebActivityAuthentication"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Web activity authentication properties."
+        },
+        "body": {
+          "type": "object",
+          "properties": {},
+          "description": "Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string)."
+        },
+        "headers": {
+          "type": "object",
+          "properties": {},
+          "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: string (or Expression with resultType string)."
+        },
+        "method": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "POST"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Rest API method for target endpoint."
+        },
+        "reportStatusOnCallBack": {
+          "type": "object",
+          "properties": {},
+          "description": "When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean)."
+        },
+        "timeout": {
+          "type": "string",
+          "description": "The timeout within which the webhook should be called back. If there is no value specified, it defaults to 10 minutes. Type: string. Pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+        },
+        "url": {
+          "type": "object",
+          "properties": {},
+          "description": "WebHook activity target endpoint and path. Type: string (or Expression with resultType string)."
+        }
+      },
+      "required": [
+        "method",
+        "url"
+      ],
+      "description": "WebHook activity type properties."
     },
     "WebLinkedService": {
       "type": "object",
