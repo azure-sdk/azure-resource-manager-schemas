@@ -38624,6 +38624,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.StorageCache.json#/resourceDefinitions/amlFilesystems"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.StorageCache.json#/resourceDefinitions/caches"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.StorageCache.json#/resourceDefinitions/caches_storageTargets"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-07-01-preview/Microsoft.StorageMover.json#/resourceDefinitions/storageMovers"
         },
         {
