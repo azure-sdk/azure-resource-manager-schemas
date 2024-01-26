@@ -18674,6 +18674,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.Kubernetes.json#/resourceDefinitions/connectedClusters"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Kubernetes.json#/resourceDefinitions/connectedClusters"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-04-02-preview/Microsoft.KubernetesConfiguration.json#/resourceDefinitions/privateLinkScopes"
         },
         {
