@@ -31142,6 +31142,45 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-06-06/Microsoft.OffAzure.json#/resourceDefinitions/vmwareSites_vcenters"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/hypervSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/hypervSites_clusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/hypervSites_hosts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/importSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/masterSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/masterSites_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/masterSites_sqlSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/masterSites_sqlSites_discoverySiteDataSources"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/masterSites_webAppSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/masterSites_webAppSites_discoverySiteDataSources"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/serverSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/vmwareSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.OffAzure.json#/resourceDefinitions/vmwareSites_vcenters"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.OffAzureSpringBoot.json#/resourceDefinitions/springbootsites"
         },
         {
