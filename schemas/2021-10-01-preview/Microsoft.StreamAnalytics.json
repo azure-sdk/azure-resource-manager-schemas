@@ -2319,16 +2319,27 @@
       "type": "object",
       "properties": {
         "type": {
-          "type": "string",
-          "description": "The type of identity, can be SystemAssigned or UserAssigned."
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned",
+                "UserAssigned",
+                "None"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity used for the Streaming Job."
         },
         "userAssignedIdentities": {
           "oneOf": [
             {
               "type": "object",
               "additionalProperties": {
-                "type": "object",
-                "properties": {}
+                "$ref": "#/definitions/UserAssignedIdentities"
               },
               "properties": {}
             },
@@ -3896,6 +3907,11 @@
         }
       },
       "description": "The properties that are associated with a transformation."
+    },
+    "UserAssignedIdentities": {
+      "type": "object",
+      "properties": {},
+      "description": "The list of associated user identities."
     }
   }
 }

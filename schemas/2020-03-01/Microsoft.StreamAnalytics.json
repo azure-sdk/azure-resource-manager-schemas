@@ -1914,8 +1914,19 @@
       "type": "object",
       "properties": {
         "type": {
-          "type": "string",
-          "description": "The identity type"
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned",
+                "None"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity used for the Streaming Job."
         }
       },
       "description": "Describes how identity is verified"
