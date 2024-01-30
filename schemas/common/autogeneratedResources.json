@@ -5630,6 +5630,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.AzurePlaywrightService.json#/resourceDefinitions/accounts"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.AzurePlaywrightService.json#/resourceDefinitions/accounts"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs"
         },
         {
