@@ -9923,6 +9923,9 @@
         },
         {
           "$ref": "#/definitions/WarehouseTableDataset"
+        },
+        {
+          "$ref": "#/definitions/ServiceNowV2ObjectDataset"
         }
       ],
       "properties": {
@@ -12709,6 +12712,51 @@
         "value"
       ],
       "description": "Azure Data Factory expression definition."
+    },
+    "ExpressionV2": {
+      "type": "object",
+      "properties": {
+        "operands": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExpressionV2"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of nested expressions."
+        },
+        "operator": {
+          "type": "string",
+          "description": "Expression operator value Type: string."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Constant",
+                "Field",
+                "Unary",
+                "Binary"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of expressions supported by the system. Type: string."
+        },
+        "value": {
+          "type": "string",
+          "description": "Value for Constant/Field Type: string."
+        }
+      },
+      "description": "Nested representation of a complex expression."
     },
     "factories_adfcdcs_childResource": {
       "type": "object",
@@ -19162,6 +19210,9 @@
         },
         {
           "$ref": "#/definitions/WarehouseLinkedService"
+        },
+        {
+          "$ref": "#/definitions/ServiceNowV2LinkedService"
         }
       ],
       "properties": {
@@ -28003,6 +28054,156 @@
       ],
       "description": "A copy activity ServiceNow server source."
     },
+    "ServiceNowV2LinkedService": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ServiceNowV2"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceNowV2LinkedServiceTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ServiceNowV2 server linked service properties."
+        }
+      },
+      "required": [
+        "type",
+        "typeProperties"
+      ],
+      "description": "ServiceNowV2 server linked service."
+    },
+    "ServiceNowV2LinkedServiceTypeProperties": {
+      "type": "object",
+      "properties": {
+        "authenticationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Basic",
+                "OAuth2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The authentication type to use."
+        },
+        "clientId": {
+          "type": "object",
+          "properties": {},
+          "description": "The client id for OAuth2 authentication."
+        },
+        "clientSecret": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "encryptedCredential": {
+          "type": "string",
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
+        },
+        "endpoint": {
+          "type": "object",
+          "properties": {},
+          "description": "The endpoint of the ServiceNowV2 server. (i.e. <instance>.service-now.com)"
+        },
+        "grantType": {
+          "type": "object",
+          "properties": {},
+          "description": "GrantType for OAuth2 authentication. Default value is password."
+        },
+        "password": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "username": {
+          "type": "object",
+          "properties": {},
+          "description": "The user name used to connect to the ServiceNowV2 server for Basic and OAuth2 authentication."
+        }
+      },
+      "required": [
+        "authenticationType",
+        "endpoint"
+      ],
+      "description": "ServiceNowV2 server linked service properties."
+    },
+    "ServiceNowV2ObjectDataset": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ServiceNowV2Object"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GenericDatasetTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to this dataset type."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "ServiceNowV2 server dataset."
+    },
+    "ServiceNowV2Source": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpressionV2"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Nested representation of a complex expression."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "ServiceNowV2Source"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "A copy activity ServiceNowV2 server source."
+    },
     "SetVariableActivity": {
       "type": "object",
       "properties": {
@@ -31558,6 +31759,9 @@
         },
         {
           "$ref": "#/definitions/SalesforceV2Source"
+        },
+        {
+          "$ref": "#/definitions/ServiceNowV2Source"
         }
       ],
       "properties": {
