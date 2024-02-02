@@ -31361,6 +31361,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Orbital.json#/resourceDefinitions/spacecrafts_contacts"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.Orbital.json#/resourceDefinitions/edgeSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.Orbital.json#/resourceDefinitions/groundStations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.Orbital.json#/resourceDefinitions/l2Connections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2019-08-01-preview/Microsoft.Peering.json#/resourceDefinitions/peerings"
         },
         {
