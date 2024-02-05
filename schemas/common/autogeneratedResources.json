@@ -6341,6 +6341,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.Cache.Enterprise.json#/resourceDefinitions/redisEnterprise_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.Cache.Enterprise.json#/resourceDefinitions/redisEnterprise"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.Cache.Enterprise.json#/resourceDefinitions/redisEnterprise_databases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.Cache.Enterprise.json#/resourceDefinitions/redisEnterprise_privateEndpointConnections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-08-01/Microsoft.Cache.json#/resourceDefinitions/Redis"
         },
         {
