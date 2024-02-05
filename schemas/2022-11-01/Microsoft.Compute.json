@@ -5437,6 +5437,10 @@
     "VirtualMachineScaleSetIPConfiguration": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "Resource Id"
+        },
         "name": {
           "type": "string",
           "description": "The IP configuration name."
@@ -5633,6 +5637,10 @@
     "VirtualMachineScaleSetNetworkConfiguration": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "Resource Id"
+        },
         "name": {
           "type": "string",
           "description": "The network configuration name."
