@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.AzurePlaywrightService.json#",
+  "id": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.AzurePlaywrightService.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.AzurePlaywrightService",
   "description": "Microsoft AzurePlaywrightService Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-02-01"
+            "2024-02-01-preview"
           ]
         },
         "location": {
