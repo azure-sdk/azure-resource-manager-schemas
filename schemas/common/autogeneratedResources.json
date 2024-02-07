@@ -34946,6 +34946,21 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.ServiceFabric.json#/resourceDefinitions/clusters_applicationTypes_versions"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.ServiceFabric.json#/resourceDefinitions/clusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.ServiceFabric.json#/resourceDefinitions/clusters_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.ServiceFabric.json#/resourceDefinitions/clusters_applications_services"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.ServiceFabric.json#/resourceDefinitions/clusters_applicationTypes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.ServiceFabric.json#/resourceDefinitions/clusters_applicationTypes_versions"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2021-01-01-preview/Microsoft.ServiceFabric.ManagedClusters.json#/resourceDefinitions/managedClusters"
         },
         {
