@@ -43698,6 +43698,132 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-09-01/NGINX.NGINXPLUS.json#/resourceDefinitions/nginxDeployments_configurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_fqdnlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_localRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_fqdnlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_localRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_fqdnlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_localRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_fqdnlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_localRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-10-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-10-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-10-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-10-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_fqdnlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-10-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_localRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-10-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-19-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-19-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-19-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-19-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_fqdnlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-19-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_localRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-19-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_fqdnlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_localRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
         }
       ]
     }
