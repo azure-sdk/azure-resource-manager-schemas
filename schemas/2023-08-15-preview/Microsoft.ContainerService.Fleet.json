@@ -255,7 +255,7 @@
         "subnetId": {
           "type": "string",
           "format": "arm-id",
-          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+          "description": "A type definition that refers the id to an ARM resource."
         },
         "vmSize": {
           "type": "string",
@@ -292,7 +292,7 @@
         "subnetId": {
           "type": "string",
           "format": "arm-id",
-          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+          "description": "A type definition that refers the id to an ARM resource."
         }
       },
       "description": "Access profile for the Fleet hub API server."
@@ -345,7 +345,7 @@
         "clusterResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+          "description": "A type definition that refers the id to an ARM resource."
         },
         "group": {
           "oneOf": [
@@ -601,7 +601,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The upgrade type.\nFull requires the KubernetesVersion property to be set.\nNodeImageOnly requires the KubernetesVersion property not to be set."
+          "description": "ManagedClusterUpgradeType is the type of upgrade to be applied."
         }
       },
       "required": [
@@ -724,7 +724,7 @@
         "updateStrategyId": {
           "type": "string",
           "format": "arm-id",
-          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+          "description": "A type definition that refers the id to an ARM resource."
         }
       },
       "required": [
