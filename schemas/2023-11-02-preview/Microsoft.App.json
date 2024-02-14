@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-08-01-preview/Microsoft.App.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-11-02-preview/Microsoft.App.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.App",
   "description": "Microsoft App Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "identity": {
@@ -100,7 +100,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -149,7 +149,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "extendedLocation": {
@@ -235,7 +235,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -294,7 +294,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -333,7 +333,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -372,7 +372,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "extendedLocation": {
@@ -473,7 +473,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -512,7 +512,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -559,7 +559,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -598,7 +598,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "extendedLocation": {
@@ -687,8 +687,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
         },
         "kind": {
           "type": "string",
@@ -731,6 +742,12 @@
               },
               {
                 "$ref": "#/definitions/managedEnvironments_storages_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedEnvironments_javaComponents_childResource"
+              },
+              {
+                "$ref": "#/definitions/managedEnvironments_dotNetComponents_childResource"
               }
             ]
           }
@@ -772,7 +789,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -831,7 +848,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -880,7 +897,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -927,7 +944,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -968,13 +985,107 @@
       ],
       "description": "Microsoft.App/managedEnvironments/daprSubscriptions"
     },
+    "managedEnvironments_dotNetComponents": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-11-02-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._\\(\\)]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the .NET Component."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DotNetComponentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": ".NET Component resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/managedEnvironments/dotNetComponents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/dotNetComponents"
+    },
+    "managedEnvironments_javaComponents": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-11-02-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._\\(\\)]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Java Component."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JavaComponentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Java Component resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.App/managedEnvironments/javaComponents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/javaComponents"
+    },
     "managedEnvironments_managedCertificates": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -1033,7 +1144,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -1678,7 +1789,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "List of environment variables to be passed to the build and application runtime."
+          "description": "List of environment variables to be passed to the build, secrets should not be used in environment variable."
         },
         "platform": {
           "type": "string",
@@ -1739,7 +1850,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -1810,9 +1921,34 @@
       },
       "description": "The build properties."
     },
+    "CertificateKeyVaultProperties": {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "string",
+          "description": "Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity."
+        },
+        "keyVaultUrl": {
+          "type": "string",
+          "description": "URL pointing to the Azure Key Vault secret that holds the certificate."
+        }
+      },
+      "description": "Properties for a certificate stored in a Key Vault."
+    },
     "CertificateProperties": {
       "type": "object",
       "properties": {
+        "certificateKeyVaultProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateKeyVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for a certificate stored in a Key Vault."
+        },
         "certificateType": {
           "oneOf": [
             {
@@ -2041,7 +2177,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -2100,7 +2236,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2139,7 +2275,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2522,7 +2658,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2561,7 +2697,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2608,7 +2744,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -2845,6 +2981,17 @@
     "CustomDomainConfiguration": {
       "type": "object",
       "properties": {
+        "certificateKeyVaultProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateKeyVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties for a certificate stored in a Key Vault."
+        },
         "certificatePassword": {
           "type": "string",
           "description": "Certificate password"
@@ -3134,9 +3281,59 @@
       },
       "description": "Dapr Component resource specific properties"
     },
+    "DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration": {
+      "type": "object",
+      "properties": {
+        "consecutiveErrors": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of consecutive errors before the circuit is opened."
+        },
+        "intervalInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The optional interval in seconds after which the error count resets to 0. An interval of 0 will never reset. If not specified, the timeoutInSeconds value will be used."
+        },
+        "timeoutInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The interval in seconds until a retry attempt is made after the circuit is opened."
+        }
+      },
+      "description": "Dapr Component Resiliency Policy Circuit Breaker Policy Configuration."
+    },
     "DaprComponentResiliencyPolicyConfiguration": {
       "type": "object",
       "properties": {
+        "circuitBreakerPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dapr Component Resiliency Policy Circuit Breaker Policy Configuration."
+        },
         "httpRetryPolicy": {
           "oneOf": [
             {
@@ -3530,9 +3727,101 @@
             }
           ],
           "description": "Configuration of datadog "
+        },
+        "otlpConfigurations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OtlpConfiguration"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Open telemetry otlp configurations"
         }
       },
       "description": "Configuration of Open Telemetry destinations"
+    },
+    "DotNetComponentConfigurationProperty": {
+      "type": "object",
+      "properties": {
+        "propertyName": {
+          "type": "string",
+          "description": "The name of the property"
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the property"
+        }
+      },
+      "description": "Configuration properties for a .NET Component"
+    },
+    "DotNetComponentProperties": {
+      "type": "object",
+      "properties": {
+        "componentType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AspireDashboard",
+                "AspireResourceServerApi"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the .NET Component."
+        },
+        "configurations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DotNetComponentConfigurationProperty"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of .NET Components configuration properties"
+        },
+        "serviceBinds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DotNetComponentServiceBind"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of .NET Components that are bound to the .NET component"
+        }
+      },
+      "description": ".NET Component resource specific properties"
+    },
+    "DotNetComponentServiceBind": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the service bind"
+        },
+        "serviceId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Resource id of the target service"
+        }
+      },
+      "description": "Configuration to bind a .NET Component to another .NET Component"
     },
     "EncryptionSettings": {
       "type": "object",
@@ -3734,6 +4023,20 @@
           ],
           "description": "Container App credentials."
         },
+        "buildEnvironmentVariables": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentVariable"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of environment variables to be passed to the build."
+        },
         "contextPath": {
           "type": "string",
           "description": "Context path"
@@ -3866,6 +4169,20 @@
         }
       },
       "description": "The configuration settings of the Google provider."
+    },
+    "Header": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The key of otlp configuration header"
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of otlp configuration header"
+        }
+      },
+      "description": "Header of otlp configuration"
     },
     "HeaderMatch": {
       "type": "object",
@@ -4395,6 +4712,21 @@
           ],
           "description": "Target Port in containers for traffic from ingress"
         },
+        "targetPortHttpScheme": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "http",
+                "https"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether an http app listens on http or https."
+        },
         "traffic": {
           "oneOf": [
             {
@@ -4611,6 +4943,85 @@
         "name"
       ],
       "description": "Rule to restrict incoming IP address."
+    },
+    "JavaComponentConfigurationProperty": {
+      "type": "object",
+      "properties": {
+        "propertyName": {
+          "type": "string",
+          "description": "The name of the property"
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the property"
+        }
+      },
+      "description": "Configuration properties for a Java Component"
+    },
+    "JavaComponentProperties": {
+      "type": "object",
+      "properties": {
+        "componentType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SpringBootAdmin",
+                "SpringCloudEureka",
+                "SpringCloudConfig"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the Java Component."
+        },
+        "configurations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JavaComponentConfigurationProperty"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of Java Components configuration properties"
+        },
+        "serviceBinds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JavaComponentServiceBind"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of Java Components that are bound to the Java component"
+        }
+      },
+      "description": "Java Component resource specific properties"
+    },
+    "JavaComponentServiceBind": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the service bind"
+        },
+        "serviceId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Resource id of the target service"
+        }
+      },
+      "description": "Configuration to bind a Java Component to another Java Component"
     },
     "JobConfiguration": {
       "type": "object",
@@ -5371,6 +5782,17 @@
             }
           ],
           "description": "Azure File Properties."
+        },
+        "nfsAzureFile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NfsAzureFileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NFS Azure File Properties."
         }
       },
       "description": "Storage properties"
@@ -5381,7 +5803,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -5440,7 +5862,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -5479,7 +5901,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -5526,7 +5948,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -5567,13 +5989,107 @@
       ],
       "description": "Microsoft.App/managedEnvironments/daprSubscriptions"
     },
+    "managedEnvironments_dotNetComponents_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-11-02-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._\\(\\)]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the .NET Component."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DotNetComponentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": ".NET Component resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dotNetComponents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/dotNetComponents"
+    },
+    "managedEnvironments_javaComponents_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-11-02-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._\\(\\)]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Java Component."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JavaComponentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Java Component resource specific properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "javaComponents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.App/managedEnvironments/javaComponents"
+    },
     "managedEnvironments_managedCertificates_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "location": {
@@ -5632,7 +6148,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01-preview"
+            "2023-11-02-preview"
           ]
         },
         "name": {
@@ -5741,6 +6257,35 @@
         }
       },
       "description": "Configuration properties for mutual TLS authentication"
+    },
+    "NfsAzureFileProperties": {
+      "type": "object",
+      "properties": {
+        "accessMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ReadOnly",
+                "ReadWrite"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Access mode for storage."
+        },
+        "server": {
+          "type": "string",
+          "description": "Server for NFS azure file."
+        },
+        "shareName": {
+          "type": "string",
+          "description": "NFS Azure file share name."
+        }
+      },
+      "description": "NFS Azure File Properties."
     },
     "Nonce": {
       "type": "object",
@@ -5918,6 +6463,45 @@
         }
       },
       "description": "Configuration of Open Telemetry"
+    },
+    "OtlpConfiguration": {
+      "type": "object",
+      "properties": {
+        "endpoint": {
+          "type": "string",
+          "description": "The endpoint of otlp configuration"
+        },
+        "headers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Header"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Headers of otlp configurations"
+        },
+        "insecure": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Boolean indicating if otlp configuration is insecure"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of otlp configuration"
+        }
+      },
+      "description": "Configuration of otlp "
     },
     "PreBuildStep": {
       "type": "object",
@@ -6613,7 +7197,7 @@
       "properties": {
         "mountOptions": {
           "type": "string",
-          "description": "Mount options used while mounting the AzureFile. Must be a comma-separated string."
+          "description": "Mount options used while mounting the Azure file share or NFS Azure file share. Must be a comma-separated string."
         },
         "name": {
           "type": "string",
@@ -6644,7 +7228,8 @@
               "enum": [
                 "AzureFile",
                 "EmptyDir",
-                "Secret"
+                "Secret",
+                "NfsAzureFile"
               ]
             },
             {
