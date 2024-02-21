@@ -9817,6 +9817,9 @@
           "$ref": "#/definitions/GoogleBigQueryObjectDataset"
         },
         {
+          "$ref": "#/definitions/GoogleBigQueryV2ObjectDataset"
+        },
+        {
           "$ref": "#/definitions/GreenplumTableDataset"
         },
         {
@@ -14799,6 +14802,167 @@
       ],
       "description": "A copy activity Google BigQuery service source."
     },
+    "GoogleBigQueryV2DatasetTypeProperties": {
+      "type": "object",
+      "properties": {
+        "dataset": {
+          "type": "object",
+          "properties": {},
+          "description": "The database name of the Google BigQuery. Type: string (or Expression with resultType string)."
+        },
+        "table": {
+          "type": "object",
+          "properties": {},
+          "description": "The table name of the Google BigQuery. Type: string (or Expression with resultType string)."
+        }
+      },
+      "description": "Google BigQuery Dataset Properties"
+    },
+    "GoogleBigQueryV2LinkedService": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "GoogleBigQueryV2"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GoogleBigQueryV2LinkedServiceTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Google BigQuery service linked service properties."
+        }
+      },
+      "required": [
+        "type",
+        "typeProperties"
+      ],
+      "description": "Google BigQuery service linked service."
+    },
+    "GoogleBigQueryV2LinkedServiceTypeProperties": {
+      "type": "object",
+      "properties": {
+        "authenticationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ServiceAuthentication",
+                "UserAuthentication"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The OAuth 2.0 authentication mechanism used for authentication."
+        },
+        "clientId": {
+          "type": "object",
+          "properties": {},
+          "description": "The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string)."
+        },
+        "clientSecret": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "encryptedCredential": {
+          "type": "string",
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string."
+        },
+        "keyFileContent": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        },
+        "projectId": {
+          "type": "object",
+          "properties": {},
+          "description": "The default BigQuery project id to query against. Type: string (or Expression with resultType string)."
+        },
+        "refreshToken": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The base definition of a secret type."
+        }
+      },
+      "required": [
+        "authenticationType",
+        "projectId"
+      ],
+      "description": "Google BigQuery service linked service properties."
+    },
+    "GoogleBigQueryV2ObjectDataset": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "GoogleBigQueryV2Object"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GoogleBigQueryV2DatasetTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Google BigQuery Dataset Properties"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Google BigQuery service dataset."
+    },
+    "GoogleBigQueryV2Source": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "object",
+          "properties": {},
+          "description": "A query to retrieve data from source. Type: string (or Expression with resultType string)."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "GoogleBigQueryV2Source"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "A copy activity Google BigQuery service source."
+    },
     "GoogleCloudStorageLinkedService": {
       "type": "object",
       "properties": {
@@ -19036,6 +19200,9 @@
         },
         {
           "$ref": "#/definitions/GoogleBigQueryLinkedService"
+        },
+        {
+          "$ref": "#/definitions/GoogleBigQueryV2LinkedService"
         },
         {
           "$ref": "#/definitions/GreenplumLinkedService"
@@ -31468,6 +31635,9 @@
         },
         {
           "$ref": "#/definitions/GoogleBigQuerySource"
+        },
+        {
+          "$ref": "#/definitions/GoogleBigQueryV2Source"
         },
         {
           "$ref": "#/definitions/GreenplumSource"
