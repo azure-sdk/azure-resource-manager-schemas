@@ -909,6 +909,12 @@
               "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Quota.json#/managementGroup_resourceDefinitions/groupQuotas"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Quota.json#/managementGroup_resourceDefinitions/groupQuotas_groupQuotaLimits"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Quota.json#/managementGroup_resourceDefinitions/groupQuotas_resourceProviders_groupQuotaEnforcements"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Quota.json#/managementGroup_resourceDefinitions/groupQuotas_subscriptions"
             },
             {
