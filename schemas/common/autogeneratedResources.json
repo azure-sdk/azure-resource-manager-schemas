@@ -10325,6 +10325,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-09-01/Microsoft.Dashboard.json#/resourceDefinitions/grafana_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.DatabaseWatcher.json#/resourceDefinitions/watchers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.DatabaseWatcher.json#/resourceDefinitions/watchers_sharedPrivateLinkResources"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.DatabaseWatcher.json#/resourceDefinitions/watchers_targets"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-01-01/Microsoft.DataBox.json#/resourceDefinitions/jobs"
         },
         {
