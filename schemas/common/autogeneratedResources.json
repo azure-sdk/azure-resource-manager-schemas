@@ -43973,6 +43973,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-09-01/NGINX.NGINXPLUS.json#/resourceDefinitions/nginxDeployments_configurations"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/NGINX.NGINXPLUS.json#/resourceDefinitions/nginxDeployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/NGINX.NGINXPLUS.json#/resourceDefinitions/nginxDeployments_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/NGINX.NGINXPLUS.json#/resourceDefinitions/nginxDeployments_configurations"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
         },
         {
