@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.RecoveryServices.SiteRecovery.json#",
+  "id": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.RecoveryServices.SiteRecovery.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.RecoveryServices",
   "description": "Microsoft RecoveryServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -49,11 +49,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Name of the ASR fabric."
         },
         "properties": {
@@ -104,7 +112,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -143,11 +151,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Unique protection container ARM name."
         },
         "properties": {
@@ -170,6 +186,9 @@
               },
               {
                 "$ref": "#/definitions/vaults_replicationFabrics_replicationProtectionContainers_replicationProtectedItems_childResource"
+              },
+              {
+                "$ref": "#/definitions/vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionClusters_childResource"
               },
               {
                 "$ref": "#/definitions/vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionContainerMappings_childResource"
@@ -198,7 +217,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -237,7 +256,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -270,13 +289,60 @@
       ],
       "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems"
     },
+    "vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionClusters": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Replication protection cluster name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReplicationProtectionClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Replication protection cluster custom data details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters"
+    },
     "vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionContainerMappings": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -315,7 +381,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -354,7 +420,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -393,7 +459,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -432,7 +498,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -471,7 +537,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -510,7 +576,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -549,7 +615,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -927,21 +993,6 @@
     "A2AEnableProtectionInput": {
       "type": "object",
       "properties": {
-        "autoProtectionOfDataDisk": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "Enabled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "A value indicating whether the auto protection is enabled."
-        },
         "diskEncryptionInfo": {
           "oneOf": [
             {
@@ -970,6 +1021,10 @@
         "multiVmGroupName": {
           "type": "string",
           "description": "The multi vm group name."
+        },
+        "protectionClusterId": {
+          "type": "string",
+          "description": "The replication protection cluster Id."
         },
         "recoveryAvailabilitySetId": {
           "type": "string",
@@ -1125,6 +1180,183 @@
       ],
       "description": "A2A Policy creation input."
     },
+    "A2AProtectedManagedDiskDetails": {
+      "type": "object",
+      "properties": {
+        "allowedDiskLevelOperation": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The disk level operations list."
+        },
+        "dataPendingAtSourceAgentInMB": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The data pending at source virtual machine in MB."
+        },
+        "dataPendingInStagingStorageAccountInMB": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The data pending for replication in MB at staging account."
+        },
+        "dekKeyVaultArmId": {
+          "type": "string",
+          "description": "The KeyVault resource id for secret (BEK)."
+        },
+        "diskCapacityInBytes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The disk capacity in bytes."
+        },
+        "diskId": {
+          "type": "string",
+          "description": "The managed disk Arm id."
+        },
+        "diskName": {
+          "type": "string",
+          "description": "The disk name."
+        },
+        "diskState": {
+          "type": "string",
+          "description": "The disk state."
+        },
+        "diskType": {
+          "type": "string",
+          "description": "The type of disk."
+        },
+        "failoverDiskName": {
+          "type": "string",
+          "description": "The failover name for the managed disk."
+        },
+        "isDiskEncrypted": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A value indicating whether vm has encrypted os disk or not."
+        },
+        "isDiskKeyEncrypted": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A value indicating whether disk key got encrypted or not."
+        },
+        "kekKeyVaultArmId": {
+          "type": "string",
+          "description": "The KeyVault resource id for key (KEK)."
+        },
+        "keyIdentifier": {
+          "type": "string",
+          "description": "The key URL / identifier (KEK)."
+        },
+        "monitoringJobType": {
+          "type": "string",
+          "description": "The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property."
+        },
+        "monitoringPercentageCompletion": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property."
+        },
+        "primaryDiskEncryptionSetId": {
+          "type": "string",
+          "description": "The primary disk encryption set Id."
+        },
+        "primaryStagingAzureStorageAccountId": {
+          "type": "string",
+          "description": "The primary staging storage account."
+        },
+        "recoveryDiskEncryptionSetId": {
+          "type": "string",
+          "description": "The recovery disk encryption set Id."
+        },
+        "recoveryOrignalTargetDiskId": {
+          "type": "string",
+          "description": "Recovery original target disk Arm Id."
+        },
+        "recoveryReplicaDiskAccountType": {
+          "type": "string",
+          "description": "The replica disk type. Its an optional value and will be same as source disk type if not user provided."
+        },
+        "recoveryReplicaDiskId": {
+          "type": "string",
+          "description": "Recovery replica disk Arm Id."
+        },
+        "recoveryResourceGroupId": {
+          "type": "string",
+          "description": "The recovery disk resource group Arm Id."
+        },
+        "recoveryTargetDiskAccountType": {
+          "type": "string",
+          "description": "The target disk type after failover. Its an optional value and will be same as source disk type if not user provided."
+        },
+        "recoveryTargetDiskId": {
+          "type": "string",
+          "description": "Recovery target disk Arm Id."
+        },
+        "resyncRequired": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A value indicating whether resync is required for this disk."
+        },
+        "secretIdentifier": {
+          "type": "string",
+          "description": "The secret URL / identifier (BEK)."
+        },
+        "tfoDiskName": {
+          "type": "string",
+          "description": "The test failover name for the managed disk."
+        }
+      },
+      "description": "A2A protected managed disk details."
+    },
     "A2AProtectionIntentDiskInputDetails": {
       "type": "object",
       "properties": {
@@ -1217,6 +1449,289 @@
         "diskId"
       ],
       "description": "Azure VM managed disk input details."
+    },
+    "A2AReplicationProtectionClusterDetails": {
+      "type": "object",
+      "properties": {
+        "clusterManagementId": {
+          "type": "string",
+          "description": "The cluster management Id."
+        },
+        "failoverRecoveryPointId": {
+          "type": "string",
+          "description": "The recovery point Id to which the cluster was failed over."
+        },
+        "initialPrimaryExtendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Extended location of the resource."
+        },
+        "initialPrimaryFabricLocation": {
+          "type": "string",
+          "description": "The initial primary fabric location."
+        },
+        "initialPrimaryZone": {
+          "type": "string",
+          "description": "The initial primary availability zone."
+        },
+        "initialRecoveryExtendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Extended location of the resource."
+        },
+        "initialRecoveryFabricLocation": {
+          "type": "string",
+          "description": "The initial recovery fabric location."
+        },
+        "initialRecoveryZone": {
+          "type": "string",
+          "description": "The initial recovery availability zone."
+        },
+        "instanceType": {
+          "type": "string",
+          "enum": [
+            "A2A"
+          ]
+        },
+        "lastRpoCalculatedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time (in UTC) when the last RPO value was calculated by Protection Service."
+        },
+        "lifecycleId": {
+          "type": "string",
+          "description": "An id that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the \"same\" protected cluster even though other internal Ids/ARM Id might be changing."
+        },
+        "multiVmGroupCreateOption": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AutoCreated",
+                "UserSpecified"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether Multi VM group is auto created or specified by user."
+        },
+        "multiVmGroupId": {
+          "type": "string",
+          "description": "The multi vm group Id."
+        },
+        "multiVmGroupName": {
+          "type": "string",
+          "description": "The multi vm group name."
+        },
+        "primaryAvailabilityZone": {
+          "type": "string",
+          "description": "The primary availability zone."
+        },
+        "primaryExtendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Extended location of the resource."
+        },
+        "primaryFabricLocation": {
+          "type": "string",
+          "description": "Primary fabric location."
+        },
+        "recoveryAvailabilityZone": {
+          "type": "string",
+          "description": "The recovery availability zone."
+        },
+        "recoveryExtendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Extended location of the resource."
+        },
+        "recoveryFabricLocation": {
+          "type": "string",
+          "description": "The recovery fabric location."
+        },
+        "rpoInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The last RPO value in seconds."
+        }
+      },
+      "required": [
+        "instanceType"
+      ],
+      "description": "A2A provider specific settings."
+    },
+    "A2ASharedDiskIRErrorDetails": {
+      "type": "object",
+      "properties": {},
+      "description": "Extended location of the resource."
+    },
+    "A2ASharedDiskReplicationDetails": {
+      "type": "object",
+      "properties": {
+        "failoverRecoveryPointId": {
+          "type": "string",
+          "description": "The recovery point id to which the Virtual node was failed over."
+        },
+        "instanceType": {
+          "type": "string",
+          "enum": [
+            "A2A"
+          ]
+        },
+        "lastRpoCalculatedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time (in UTC) when the last RPO value was calculated by Protection Service."
+        },
+        "managementId": {
+          "type": "string",
+          "description": "The management Id."
+        },
+        "monitoringJobType": {
+          "type": "string",
+          "description": "The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property."
+        },
+        "monitoringPercentageCompletion": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property."
+        },
+        "primaryFabricLocation": {
+          "type": "string",
+          "description": "Primary fabric location."
+        },
+        "protectedManagedDisks": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/A2AProtectedManagedDiskDetails"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of protected managed disks."
+        },
+        "recoveryFabricLocation": {
+          "type": "string",
+          "description": "The recovery fabric location."
+        },
+        "rpoInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The last RPO value in seconds."
+        },
+        "sharedDiskIRErrors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/A2ASharedDiskIRErrorDetails"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The IR Errors."
+        },
+        "unprotectedDisks": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/A2AUnprotectedDiskDetails"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of unprotected disks."
+        }
+      },
+      "required": [
+        "instanceType"
+      ],
+      "description": "A2A provider specific settings."
+    },
+    "A2AUnprotectedDiskDetails": {
+      "type": "object",
+      "properties": {
+        "diskAutoProtectionStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "Enabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A value indicating whether the disk auto protection is enabled."
+        },
+        "diskLunId": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The source lun Id for the data disk."
+        }
+      },
+      "description": "A2A unprotected disk details."
     },
     "A2AVmDiskInputDetails": {
       "type": "object",
@@ -1616,6 +2131,25 @@
       ],
       "description": "Recovery plan creation properties."
     },
+    "CurrentScenarioDetails": {
+      "type": "object",
+      "properties": {
+        "jobId": {
+          "type": "string",
+          "description": "ARM Id of the job being executed."
+        },
+        "scenarioName": {
+          "type": "string",
+          "description": "Scenario name."
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Start time of the workflow."
+        }
+      },
+      "description": "Current scenario details of the protected entity."
+    },
     "DiskEncryptionInfo": {
       "type": "object",
       "properties": {
@@ -1940,6 +2474,94 @@
       ],
       "properties": {},
       "description": "Fabric provider specific settings."
+    },
+    "HealthError": {
+      "type": "object",
+      "properties": {
+        "creationTimeUtc": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Error creation time (UTC)."
+        },
+        "customerResolvability": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Allowed",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Value indicating whether the health error is customer resolvable."
+        },
+        "entityId": {
+          "type": "string",
+          "description": "ID of the entity."
+        },
+        "errorCategory": {
+          "type": "string",
+          "description": "Category of error."
+        },
+        "errorCode": {
+          "type": "string",
+          "description": "Error code."
+        },
+        "errorId": {
+          "type": "string",
+          "description": "The health error unique id."
+        },
+        "errorLevel": {
+          "type": "string",
+          "description": "Level of error."
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Error message."
+        },
+        "errorSource": {
+          "type": "string",
+          "description": "Source of error."
+        },
+        "errorType": {
+          "type": "string",
+          "description": "Type of error."
+        },
+        "innerHealthErrors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InnerHealthError"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException."
+        },
+        "possibleCauses": {
+          "type": "string",
+          "description": "Possible causes of error."
+        },
+        "recommendedAction": {
+          "type": "string",
+          "description": "Recommended action to resolve error."
+        },
+        "recoveryProviderErrorMessage": {
+          "type": "string",
+          "description": "DRA error message."
+        },
+        "summaryMessage": {
+          "type": "string",
+          "description": "Summary message of the entity."
+        }
+      },
+      "description": "Health Error."
     },
     "HyperVReplicaAzureDiskInputDetails": {
       "type": "object",
@@ -3252,6 +3874,80 @@
       },
       "description": "Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider."
     },
+    "InnerHealthError": {
+      "type": "object",
+      "properties": {
+        "creationTimeUtc": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Error creation time (UTC)."
+        },
+        "customerResolvability": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Allowed",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Value indicating whether the health error is customer resolvable."
+        },
+        "entityId": {
+          "type": "string",
+          "description": "ID of the entity."
+        },
+        "errorCategory": {
+          "type": "string",
+          "description": "Category of error."
+        },
+        "errorCode": {
+          "type": "string",
+          "description": "Error code."
+        },
+        "errorId": {
+          "type": "string",
+          "description": "The health error unique id."
+        },
+        "errorLevel": {
+          "type": "string",
+          "description": "Level of error."
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Error message."
+        },
+        "errorSource": {
+          "type": "string",
+          "description": "Source of error."
+        },
+        "errorType": {
+          "type": "string",
+          "description": "Type of error."
+        },
+        "possibleCauses": {
+          "type": "string",
+          "description": "Possible causes of error."
+        },
+        "recommendedAction": {
+          "type": "string",
+          "description": "Recommended action to resolve error."
+        },
+        "recoveryProviderErrorMessage": {
+          "type": "string",
+          "description": "DRA error message."
+        },
+        "summaryMessage": {
+          "type": "string",
+          "description": "Summary message of the entity."
+        }
+      },
+      "description": "Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException."
+    },
     "KeyEncryptionKeyInfo": {
       "type": "object",
       "properties": {
@@ -3773,6 +4469,248 @@
       "properties": {},
       "description": "Recovery Virtual network custom input."
     },
+    "RegisteredClusterNodes": {
+      "type": "object",
+      "properties": {
+        "biosId": {
+          "type": "string",
+          "description": "The BIOS ID."
+        },
+        "clusterNodeFqdn": {
+          "type": "string",
+          "description": "The cluster node name."
+        },
+        "isSharedDiskVirtualNode": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A value indicating whether this represents virtual entity hosting all the shared disks."
+        },
+        "machineId": {
+          "type": "string",
+          "description": "The machine ID."
+        }
+      },
+      "description": "Extended location of the resource."
+    },
+    "ReplicationClusterProviderSpecificSettings": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/A2AReplicationProtectionClusterDetails"
+        }
+      ],
+      "properties": {},
+      "description": "Replication cluster provider specific settings."
+    },
+    "ReplicationProtectionClusterProperties": {
+      "type": "object",
+      "properties": {
+        "activeLocation": {
+          "type": "string",
+          "description": "The Current active location of the Protection cluster."
+        },
+        "agentClusterId": {
+          "type": "string",
+          "description": "The Agent cluster Id."
+        },
+        "allowedOperations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The allowed operations on the Replication protection cluster."
+        },
+        "areAllClusterNodesRegistered": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A value indicating whether all nodes of the cluster are registered or not."
+        },
+        "clusterFqdn": {
+          "type": "string",
+          "description": "The cluster FQDN."
+        },
+        "clusterNodeFqdns": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The List of cluster Node FQDNs."
+        },
+        "clusterProtectedItemIds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The List of Protected Item Id's."
+        },
+        "clusterRegisteredNodes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RegisteredClusterNodes"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The registered node details."
+        },
+        "currentScenario": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CurrentScenarioDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Current scenario details of the protected entity."
+        },
+        "healthErrors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HealthError"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of health errors."
+        },
+        "lastSuccessfulFailoverTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last successful failover time."
+        },
+        "lastSuccessfulTestFailoverTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last successful test failover time."
+        },
+        "policyFriendlyName": {
+          "type": "string",
+          "description": "The name of Policy governing this PE."
+        },
+        "policyId": {
+          "type": "string",
+          "description": "The Policy Id."
+        },
+        "primaryFabricFriendlyName": {
+          "type": "string",
+          "description": "The friendly name of the primary fabric."
+        },
+        "primaryFabricProvider": {
+          "type": "string",
+          "description": "The fabric provider of the primary fabric."
+        },
+        "primaryProtectionContainerFriendlyName": {
+          "type": "string",
+          "description": "The name of primary protection container friendly name."
+        },
+        "protectionClusterType": {
+          "type": "string",
+          "description": "The type of protection cluster type."
+        },
+        "protectionState": {
+          "type": "string",
+          "description": "The protection status."
+        },
+        "protectionStateDescription": {
+          "type": "string",
+          "description": "The protection state description."
+        },
+        "providerSpecificDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReplicationClusterProviderSpecificSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Replication cluster provider specific settings."
+        },
+        "recoveryContainerId": {
+          "type": "string",
+          "description": "The recovery container Id."
+        },
+        "recoveryFabricFriendlyName": {
+          "type": "string",
+          "description": "The friendly name of recovery fabric."
+        },
+        "recoveryFabricId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The Arm Id of recovery fabric."
+        },
+        "recoveryProtectionContainerFriendlyName": {
+          "type": "string",
+          "description": "The name of recovery container friendly name."
+        },
+        "replicationHealth": {
+          "type": "string",
+          "description": "The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration."
+        },
+        "sharedDiskProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SharedDiskReplicationItemProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Shared Disk Replication item custom data details."
+        },
+        "testFailoverState": {
+          "type": "string",
+          "description": "The Test failover state."
+        },
+        "testFailoverStateDescription": {
+          "type": "string",
+          "description": "The Test failover state description."
+        }
+      },
+      "description": "Replication protection cluster custom data details."
+    },
     "ReplicationProviderSpecificContainerCreationInput": {
       "type": "object",
       "oneOf": [
@@ -3801,6 +4739,88 @@
       ],
       "properties": {},
       "description": "Provider specific input for pairing operations."
+    },
+    "SharedDiskReplicationItemProperties": {
+      "type": "object",
+      "properties": {
+        "activeLocation": {
+          "type": "string",
+          "description": "The Current active location of the PE."
+        },
+        "allowedOperations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The allowed operations on the Replication protected item."
+        },
+        "currentScenario": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CurrentScenarioDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Current scenario details of the protected entity."
+        },
+        "healthErrors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HealthError"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of health errors."
+        },
+        "protectionState": {
+          "type": "string",
+          "description": "The protection state of shared disk."
+        },
+        "replicationHealth": {
+          "type": "string",
+          "description": "The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration."
+        },
+        "sharedDiskProviderSpecificDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SharedDiskReplicationProviderSpecificSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Replication provider specific settings."
+        },
+        "testFailoverState": {
+          "type": "string",
+          "description": "The tfo state of shared disk."
+        }
+      },
+      "description": "Shared Disk Replication item custom data details."
+    },
+    "SharedDiskReplicationProviderSpecificSettings": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/A2ASharedDiskReplicationDetails"
+        }
+      ],
+      "properties": {},
+      "description": "Replication provider specific settings."
     },
     "StorageAccountCustomDetails": {
       "type": "object",
@@ -3842,11 +4862,19 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Unique protection container ARM name."
         },
         "properties": {
@@ -3881,7 +4909,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -3920,7 +4948,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -3953,13 +4981,60 @@
       ],
       "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems"
     },
+    "vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionClusters_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Replication protection cluster name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReplicationProtectionClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Replication protection cluster custom data details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "replicationProtectionClusters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters"
+    },
     "vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionContainerMappings_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -3998,7 +5073,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
@@ -4037,7 +5112,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-08-01"
+            "2024-02-01"
           ]
         },
         "name": {
