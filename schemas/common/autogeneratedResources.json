@@ -44081,6 +44081,24 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-01-19-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_fqdnlists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_localRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/localRulestacks_prefixlists"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-06-27-preview/Qumulo.Storage.json#/resourceDefinitions/fileSystems"
         },
         {
