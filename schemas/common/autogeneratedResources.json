@@ -31919,33 +31919,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OperationalInsights.json#/resourceDefinitions/workspaces_tables"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Orbital.json#/resourceDefinitions/contactProfiles"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Orbital.json#/resourceDefinitions/spacecrafts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Orbital.json#/resourceDefinitions/spacecrafts_contacts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Orbital.json#/resourceDefinitions/contactProfiles"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Orbital.json#/resourceDefinitions/spacecrafts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Orbital.json#/resourceDefinitions/spacecrafts_contacts"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.Orbital.json#/resourceDefinitions/edgeSites"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.Orbital.json#/resourceDefinitions/groundStations"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.Orbital.json#/resourceDefinitions/l2Connections"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2019-08-01-preview/Microsoft.Peering.json#/resourceDefinitions/peerings"
         },
         {
