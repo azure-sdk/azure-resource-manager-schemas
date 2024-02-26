@@ -21650,6 +21650,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Media.json#/resourceDefinitions/mediaServices_streamingPolicies"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-20-preview/Microsoft.MessagingConnectors.json#/resourceDefinitions/connectors"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-02-02/Microsoft.Migrate.json#/resourceDefinitions/projects"
         },
         {
