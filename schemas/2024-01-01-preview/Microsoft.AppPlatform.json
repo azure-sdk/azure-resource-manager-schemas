@@ -91,6 +91,9 @@
               },
               {
                 "$ref": "#/definitions/Spring_applicationAccelerators_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_jobs_childResource"
               }
             ]
           }
@@ -1569,6 +1572,64 @@
         "type"
       ],
       "description": "Microsoft.AppPlatform/Spring/gateways/routeConfigs"
+    },
+    "Spring_jobs": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-01-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Job resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Job resource properties payload"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppPlatform/Spring/jobs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/jobs"
     },
     "Spring_monitoringSettings": {
       "type": "object",
@@ -3383,7 +3444,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Source information for a deployment"
+          "description": "Source information for a deployment or a job"
         }
       },
       "description": "Deployment resource properties payload"
@@ -3478,7 +3539,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Deployment resource request payload"
+          "description": "Deployment/Job resource request payload"
         },
         "scale": {
           "oneOf": [
@@ -4647,6 +4708,182 @@
       ],
       "description": "Uploaded Jar binary for a deployment"
     },
+    "JobExecutionTemplate": {
+      "type": "object",
+      "properties": {
+        "args": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Arguments for the Job executioin."
+        },
+        "environmentVariables": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobExecutionTemplateEnvironmentVariables"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment variables of Job execution"
+        },
+        "parallelism": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of parallel replicas of a job that can run at a given time."
+        },
+        "replicaCompletionCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Minimum number of successful replica completions before overall job completion."
+        },
+        "replicaRetryLimit": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Maximum number of retries before failing the job."
+        },
+        "replicaTimeout": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Maximum number of seconds a replica is allowed to run."
+        }
+      },
+      "description": "Job's execution template, containing configuration for an execution"
+    },
+    "JobExecutionTemplateEnvironmentVariables": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Non-sensitive properties"
+        },
+        "secrets": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Sensitive properties"
+        }
+      },
+      "description": "Environment variables of Job execution"
+    },
+    "JobResourceProperties": {
+      "type": "object",
+      "properties": {
+        "addonConfigs": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Collection of addons"
+        },
+        "source": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserSourceInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Source information for a deployment or a job"
+        },
+        "template": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobExecutionTemplate"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Job's execution template, containing configuration for an execution"
+        },
+        "triggerConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobTriggerConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration for different trigger types"
+        }
+      },
+      "description": "Job resource properties payload"
+    },
+    "JobTriggerConfig": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ManualJobTriggerConfig"
+        }
+      ],
+      "properties": {},
+      "description": "Configuration for different trigger types"
+    },
     "KeyVaultCertificateProperties": {
       "type": "object",
       "properties": {
@@ -4783,6 +5020,21 @@
         }
       },
       "description": "Managed identity properties retrieved from ARM request headers."
+    },
+    "ManualJobTriggerConfig": {
+      "type": "object",
+      "properties": {
+        "triggerType": {
+          "type": "string",
+          "enum": [
+            "Manual"
+          ]
+        }
+      },
+      "required": [
+        "triggerType"
+      ],
+      "description": "Configuration for manual triggered job"
     },
     "MarketplaceResource": {
       "type": "object",
@@ -5095,7 +5347,7 @@
           "description": "Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier."
         }
       },
-      "description": "Deployment resource request payload"
+      "description": "Deployment/Job resource request payload"
     },
     "Scale": {
       "type": "object",
@@ -6640,6 +6892,64 @@
       ],
       "description": "Microsoft.AppPlatform/Spring/gateways/routeConfigs"
     },
+    "Spring_jobs_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-01-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Job resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JobResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Job resource properties payload"
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "jobs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppPlatform/Spring/jobs"
+    },
     "Spring_monitoringSettings_childResource": {
       "type": "object",
       "properties": {
@@ -7066,7 +7376,7 @@
           "description": "Version of the source"
         }
       },
-      "description": "Source information for a deployment"
+      "description": "Source information for a deployment or a job"
     },
     "WarUploadedUserSourceInfo": {
       "type": "object",

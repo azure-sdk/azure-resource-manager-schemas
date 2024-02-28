@@ -4694,6 +4694,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/Microsoft.AppPlatform.json#/resourceDefinitions/Spring_gateways_routeConfigs"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/Microsoft.AppPlatform.json#/resourceDefinitions/Spring_jobs"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/Microsoft.AppPlatform.json#/resourceDefinitions/Spring_monitoringSettings"
         },
         {
