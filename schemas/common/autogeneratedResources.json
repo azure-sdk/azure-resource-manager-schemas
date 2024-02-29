@@ -5717,6 +5717,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-10-11-preview/Microsoft.AzureDataTransfer.json#/resourceDefinitions/pipelines"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-25/Microsoft.AzureDataTransfer.json#/resourceDefinitions/connections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-25/Microsoft.AzureDataTransfer.json#/resourceDefinitions/connections_flows"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-25/Microsoft.AzureDataTransfer.json#/resourceDefinitions/pipelines"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-10-01-preview/Microsoft.AzurePlaywrightService.json#/resourceDefinitions/accounts"
         },
         {
