@@ -21341,6 +21341,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts_creators"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/Microsoft.Maps.json#/resourceDefinitions/accounts_privateEndpointConnections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-10-01/Microsoft.Media.json#/resourceDefinitions/mediaservices"
         },
         {
