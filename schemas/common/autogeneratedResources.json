@@ -39233,6 +39233,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.SqlVirtualMachine.json#/resourceDefinitions/sqlVirtualMachines"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.StandbyPool.json#/resourceDefinitions/standbyContainerGroupPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.StandbyPool.json#/resourceDefinitions/standbyVirtualMachinePools"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-05-01-preview/Microsoft.Storage.json#/resourceDefinitions/storageAccounts"
         },
         {
