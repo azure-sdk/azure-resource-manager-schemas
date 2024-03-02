@@ -617,63 +617,6 @@
                   "$ref": "https://schema.management.azure.com/schemas/2017-09-01/Microsoft.Authorization.json#/resourceDefinitions/roleDefinitions"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-11-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-11-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_policies"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-11-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_invoiceSections"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_instructions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_invoiceSections"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_policies"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingRoleAssignments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_customers_policies"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_departments_billingRoleAssignments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_enrollmentAccounts_billingRoleAssignments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_instructions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_invoiceSections"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_policies"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_customers_policies"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-09-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/promotions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-11-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/promotions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-10-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingSubscriptionAliases"
-                },
-                {
                   "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.BillingBenefits.json#/tenant_resourceDefinitions/reservationOrderAliases"
                 },
                 {
