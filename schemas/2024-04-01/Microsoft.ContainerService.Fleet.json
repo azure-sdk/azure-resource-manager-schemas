@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-06-15-preview/Microsoft.ContainerService.Fleet.json#",
+  "id": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ContainerService.Fleet.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.ContainerService",
   "description": "Microsoft ContainerService Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-15-preview"
+            "2024-04-01"
           ]
         },
         "identity": {
@@ -62,6 +62,9 @@
               },
               {
                 "$ref": "#/definitions/fleets_updateRuns_childResource"
+              },
+              {
+                "$ref": "#/definitions/fleets_updateStrategies_childResource"
               }
             ]
           }
@@ -103,7 +106,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-15-preview"
+            "2024-04-01"
           ]
         },
         "name": {
@@ -152,7 +155,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-15-preview"
+            "2024-04-01"
           ]
         },
         "name": {
@@ -194,95 +197,58 @@
         "type"
       ],
       "description": "Microsoft.ContainerService/fleets/updateRuns"
-    }
-  },
-  "definitions": {
-    "AgentProfile": {
-      "type": "object",
-      "properties": {
-        "subnetId": {
-          "type": "string",
-          "format": "arm-id",
-          "description": "A type definition that refers the id to an Azure Resource Manager resource."
-        }
-      },
-      "description": "Agent profile for the Fleet hub."
     },
-    "APIServerAccessProfile": {
+    "fleets_updateStrategies": {
       "type": "object",
       "properties": {
-        "enablePrivateCluster": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Whether to create the Fleet hub as a private cluster or not."
-        },
-        "enableVnetIntegration": {
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Whether to enable apiserver vnet integration for the Fleet hub or not."
-        },
-        "subnetId": {
+        "apiVersion": {
           "type": "string",
-          "format": "arm-id",
-          "description": "A type definition that refers the id to an Azure Resource Manager resource."
-        }
-      },
-      "description": "Access profile for the Fleet hub API server."
-    },
-    "FleetHubProfile": {
-      "type": "object",
-      "properties": {
-        "agentProfile": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/AgentProfile"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Agent profile for the Fleet hub."
+          "enum": [
+            "2024-04-01"
+          ]
         },
-        "apiServerAccessProfile": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/APIServerAccessProfile"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Access profile for the Fleet hub API server."
-        },
-        "dnsPrefix": {
+        "name": {
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][a-zA-Z0-9-]{0,52}[a-zA-Z0-9]$",
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
               "minLength": 1,
-              "maxLength": 54
+              "maxLength": 50
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "DNS prefix used to create the FQDN for the Fleet hub."
+          "description": "The name of the UpdateStrategy resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FleetUpdateStrategyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of the UpdateStrategy."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ContainerService/fleets/updateStrategies"
+          ]
         }
       },
-      "description": "The FleetHubProfile configures the fleet hub."
-    },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ContainerService/fleets/updateStrategies"
+    }
+  },
+  "definitions": {
     "FleetMemberProperties": {
       "type": "object",
       "properties": {
@@ -313,19 +279,7 @@
     },
     "FleetProperties": {
       "type": "object",
-      "properties": {
-        "hubProfile": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/FleetHubProfile"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The FleetHubProfile configures the fleet hub."
-        }
-      },
+      "properties": {},
       "description": "Fleet properties."
     },
     "fleets_members_childResource": {
@@ -334,7 +288,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-15-preview"
+            "2024-04-01"
           ]
         },
         "name": {
@@ -383,7 +337,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2023-06-15-preview"
+            "2024-04-01"
           ]
         },
         "name": {
@@ -425,6 +379,75 @@
         "type"
       ],
       "description": "Microsoft.ContainerService/fleets/updateRuns"
+    },
+    "fleets_updateStrategies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
+              "minLength": 1,
+              "maxLength": 50
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the UpdateStrategy resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FleetUpdateStrategyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of the UpdateStrategy."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "updateStrategies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ContainerService/fleets/updateStrategies"
+    },
+    "FleetUpdateStrategyProperties": {
+      "type": "object",
+      "properties": {
+        "strategy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UpdateRunStrategy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the update sequence of the clusters via stages and groups.\n\nStages within a run are executed sequentially one after another.\nGroups within a stage are executed in parallel.\nMember clusters within a group are updated sequentially one after another.\n\nA valid strategy contains no duplicate groups within or across stages."
+        }
+      },
+      "required": [
+        "strategy"
+      ],
+      "description": "The properties of the UpdateStrategy."
     },
     "ManagedClusterUpdate": {
       "type": "object",
@@ -469,7 +492,8 @@
               "type": "string",
               "enum": [
                 "Full",
-                "NodeImageOnly"
+                "NodeImageOnly",
+                "ControlPlaneOnly"
               ]
             },
             {
@@ -595,6 +619,11 @@
             }
           ],
           "description": "Defines the update sequence of the clusters via stages and groups.\n\nStages within a run are executed sequentially one after another.\nGroups within a stage are executed in parallel.\nMember clusters within a group are updated sequentially one after another.\n\nA valid strategy contains no duplicate groups within or across stages."
+        },
+        "updateStrategyId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "A type definition that refers the id to an Azure Resource Manager resource."
         }
       },
       "required": [
