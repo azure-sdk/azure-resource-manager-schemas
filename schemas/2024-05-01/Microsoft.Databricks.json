@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Databricks.json#",
+  "id": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Databricks.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.Databricks",
   "description": "Microsoft Databricks Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-02-01-preview"
+            "2024-05-01"
           ]
         },
         "location": {
@@ -95,7 +95,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-02-01-preview"
+            "2024-05-01"
           ]
         },
         "name": {
@@ -134,7 +134,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-02-01-preview"
+            "2024-05-01"
           ]
         },
         "name": {
@@ -1089,6 +1089,21 @@
           ],
           "description": "These properties lets user specify default catalog properties during workspace creation."
         },
+        "defaultStorageFirewall": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "Enabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or Sets Default Storage Firewall configuration information."
+        },
         "encryption": {
           "oneOf": [
             {
@@ -1136,21 +1151,6 @@
             }
           ],
           "description": "Custom Parameters used for Cluster Creation."
-        },
-        "privateDbfsAccess": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Disabled",
-                "Enabled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Gets or Sets Private DBFS Access configuration information."
         },
         "publicNetworkAccess": {
           "oneOf": [
@@ -1310,7 +1310,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-02-01-preview"
+            "2024-05-01"
           ]
         },
         "name": {
@@ -1349,7 +1349,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-02-01-preview"
+            "2024-05-01"
           ]
         },
         "name": {
