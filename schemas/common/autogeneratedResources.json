@@ -7130,6 +7130,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.Chaos.json#/resourceDefinitions/experiments"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-22-preview/Microsoft.Chaos.json#/resourceDefinitions/experiments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-22-preview/Microsoft.Chaos.json#/resourceDefinitions/privateAccesses"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts"
         },
         {
