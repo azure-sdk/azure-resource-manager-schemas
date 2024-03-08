@@ -11042,13 +11042,13 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-09-15-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces_virtualNetworkPeerings"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces"
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Databricks.json#/resourceDefinitions/workspaces"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces_privateEndpointConnections"
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Databricks.json#/resourceDefinitions/workspaces_privateEndpointConnections"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces_virtualNetworkPeerings"
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Databricks.json#/resourceDefinitions/workspaces_virtualNetworkPeerings"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2016-03-30/Microsoft.DataCatalog.json#/resourceDefinitions/catalogs"
