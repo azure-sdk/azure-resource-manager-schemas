@@ -45,6 +45,9 @@
             "oneOf": [
               {
                 "$ref": "#/definitions/groupQuotas_subscriptions_childResource"
+              },
+              {
+                "$ref": "#/definitions/groupQuotas_groupQuotaLimits_childResource"
               }
             ]
           }
@@ -64,43 +67,6 @@
       ],
       "description": "Microsoft.Quota/groupQuotas"
     },
-    "groupQuotas_subscriptions": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2023-06-01-preview"
-          ]
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The ID of the target subscription. The value must be an UUID."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Microsoft.Quota/groupQuotas/subscriptions"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Quota/groupQuotas/subscriptions"
-    }
-  },
-  "extension_resourceDefinitions": {
     "groupQuotas_groupQuotaLimits": {
       "type": "object",
       "properties": {
@@ -150,6 +116,71 @@
       ],
       "description": "Microsoft.Quota/groupQuotas/groupQuotaLimits"
     },
+    "groupQuotas_resourceProviders_groupQuotaEnforcements": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-06-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The name of the Azure region."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Quota/groupQuotas/resourceProviders/groupQuotaEnforcements"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Quota/groupQuotas/resourceProviders/groupQuotaEnforcements"
+    },
+    "groupQuotas_subscriptions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-06-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID of the target subscription. The value must be an UUID."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Quota/groupQuotas/subscriptions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.Quota/groupQuotas/subscriptions"
+    }
+  },
+  "extension_resourceDefinitions": {
     "groupQuotas_quotaAllocations": {
       "type": "object",
       "properties": {
@@ -200,6 +231,57 @@
       "description": "Microsoft.Quota/groupQuotas/quotaAllocations"
     }
   },
+  "unknown_resourceDefinitions": {
+    "quotas": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-06-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource name for a given resource provider. For example:\r\n- SKU name for Microsoft.Compute\r\n- SKU or TotalLowPriorityCores for Microsoft.MachineLearningServices\r\n For Microsoft.Network PublicIPAddresses."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QuotaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Quota properties for the specified resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Quota/quotas"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Quota/quotas"
+    }
+  },
   "definitions": {
     "AdditionalAttributes": {
       "type": "object",
@@ -227,34 +309,13 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. "
+          "description": "The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. "
         }
       },
       "required": [
         "groupId"
       ],
-      "description": "Additional attribute to allow subscriptions to be part of the GroupQuota."
-    },
-    "AssignedToSubscription": {
-      "type": "object",
-      "properties": {
-        "quotaAllocated": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The amount of quota allocated to this subscriptionId from the GroupQuotasEntity."
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "An Azure subscriptionId."
-        }
-      },
-      "description": "SubscriptionIds and quota allocated to subscriptions from the GroupQuota."
+      "description": "Additional attribute or filter to allow subscriptions meeting the requirements to be part of the GroupQuota."
     },
     "GroupingId": {
       "type": "object",
@@ -275,28 +336,14 @@
         },
         "value": {
           "type": "string",
-          "description": "GroupId value based on the groupingType selected - management Group Id or ServiceTreeId."
+          "description": "GroupId value based on the groupingType selected - Billing Id or ServiceTreeId."
         }
       },
-      "description": "The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. "
+      "description": "The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. "
     },
     "GroupQuotaDetails": {
       "type": "object",
       "properties": {
-        "assignedToSubscriptions": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/AssignedToSubscription"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Assigned Group Quota to subscriptions."
-        },
         "comment": {
           "type": "string",
           "description": "Any comment related to quota request."
@@ -312,24 +359,12 @@
           ],
           "description": "The current Group Quota Limit at the parentId level."
         },
-        "name": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/GroupQuotaDetailsName"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Name of the resource provided by the resource Provider. This property is already included in the request URI, so it is a readonly property returned in the response."
+        "resourceProviderScope": {
+          "type": "string",
+          "description": "ResourceProviderScope  for the quota request. Format: /providers/{ResourceProviderName}/locations/{Azure region} Example: /providers/{Microsoft.Compute}/locations/{eastus}. Please replace the ResourceProviderName, Azure region as per the requested resource."
         }
       },
       "description": "Group Quota details."
-    },
-    "GroupQuotaDetailsName": {
-      "type": "object",
-      "properties": {},
-      "description": "Name of the resource provided by the resource Provider. This property is already included in the request URI, so it is a readonly property returned in the response."
     },
     "GroupQuotasEntityBase": {
       "type": "object",
@@ -343,7 +378,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Additional attribute to allow subscriptions to be part of the GroupQuota."
+          "description": "Additional attribute or filter to allow subscriptions meeting the requirements to be part of the GroupQuota."
         },
         "displayName": {
           "type": "string",
@@ -351,6 +386,55 @@
         }
       },
       "description": "Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified."
+    },
+    "groupQuotas_groupQuotaLimits_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-06-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GroupQuotaDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Group Quota details."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "groupQuotaLimits"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Quota/groupQuotas/groupQuotaLimits"
     },
     "groupQuotas_subscriptions_childResource": {
       "type": "object",
@@ -387,14 +471,40 @@
       ],
       "description": "Microsoft.Quota/groupQuotas/subscriptions"
     },
-    "SubscriptionGroupQuotaAssignment": {
+    "LimitJsonObject": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/LimitObject"
+        }
+      ],
+      "properties": {},
+      "description": "LimitJson abstract class."
+    },
+    "LimitObject": {
       "type": "object",
       "properties": {
-        "managementGroupId": {
+        "limitObjectType": {
           "type": "string",
-          "description": "The management group id of the quota source."
+          "enum": [
+            "LimitValue"
+          ]
         },
-        "quotaAllocated": {
+        "limitType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Independent",
+                "Shared"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "value": {
           "oneOf": [
             {
               "type": "integer"
@@ -403,27 +513,79 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The amount of quota allocated to this subscriptionId from the quota source."
+          "description": "The quota/limit value"
         }
       },
-      "description": "MGId the source of groupQuota."
+      "required": [
+        "limitObjectType",
+        "value"
+      ],
+      "description": "The resource quota limit value."
     },
-    "SubscriptionQuotaDetails": {
+    "QuotaProperties": {
       "type": "object",
       "properties": {
-        "quotaSources": {
+        "limit": {
           "oneOf": [
             {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/SubscriptionGroupQuotaAssignment"
-              }
+              "$ref": "#/definitions/LimitJsonObject"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Assigned Group Quota to subscriptions."
+          "description": "LimitJson abstract class."
+        },
+        "name": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceName"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the resource provided by the resource Provider. When requesting quota, use this property name."
+        },
+        "properties": {
+          "type": "object",
+          "properties": {},
+          "description": "Additional properties for the specific resource provider."
+        },
+        "resourceType": {
+          "type": "string",
+          "description": "The name of the resource type. Optional field."
+        }
+      },
+      "description": "Quota properties for the specified resource."
+    },
+    "ResourceName": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "Resource name."
+        }
+      },
+      "description": "Name of the resource provided by the resource Provider. When requesting quota, use this property name."
+    },
+    "SubscriptionQuotaDetails": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The total quota limit for the subscription."
+        },
+        "resourceProviderScope": {
+          "type": "string",
+          "description": "ResourceProviderScope  for the quota request. Format: /providers/{ResourceProviderName}/locations/{Azure region} Example: /providers/{Microsoft.Compute}/locations/{eastus}. Please replace the ResourceProviderName, Azure region as per the requested resource."
         }
       },
       "description": "Subscription Quota details."
