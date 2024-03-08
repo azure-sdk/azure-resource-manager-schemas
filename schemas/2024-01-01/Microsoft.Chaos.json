@@ -16,13 +16,13 @@
         "identity": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ResourceIdentity"
+              "$ref": "#/definitions/ManagedServiceIdentity"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The identity of a resource."
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
         },
         "location": {
           "type": "string",
@@ -85,7 +85,7 @@
     }
   },
   "extension_resourceDefinitions": {
-    "targets": {
+    "locations_targets": {
       "type": "object",
       "properties": {
         "apiVersion": {
@@ -93,10 +93,6 @@
           "enum": [
             "2024-01-01"
           ]
-        },
-        "location": {
-          "type": "string",
-          "description": "Location of the target resource."
         },
         "name": {
           "oneOf": [
@@ -124,14 +120,14 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Model that represents the base Target properties model."
+          "description": "The resource-specific properties for this resource."
         },
         "resources": {
           "type": "array",
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/targets_capabilities_childResource"
+                "$ref": "#/definitions/locations_targets_capabilities_childResource"
               }
             ]
           }
@@ -139,7 +135,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "Microsoft.Chaos/targets"
+            "Microsoft.Chaos/locations/targets"
           ]
         }
       },
@@ -149,9 +145,9 @@
         "properties",
         "type"
       ],
-      "description": "Microsoft.Chaos/targets"
+      "description": "Microsoft.Chaos/locations/targets"
     },
-    "targets_capabilities": {
+    "locations_targets_capabilities": {
       "type": "object",
       "properties": {
         "apiVersion": {
@@ -172,19 +168,31 @@
           ],
           "description": "String that represents a Capability resource name."
         },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CapabilityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model that represents the Capability properties model."
+        },
         "type": {
           "type": "string",
           "enum": [
-            "Microsoft.Chaos/targets/capabilities"
+            "Microsoft.Chaos/locations/targets/capabilities"
           ]
         }
       },
       "required": [
         "apiVersion",
         "name",
+        "properties",
         "type"
       ],
-      "description": "Microsoft.Chaos/targets/capabilities"
+      "description": "Microsoft.Chaos/locations/targets/capabilities"
     }
   },
   "definitions": {
@@ -192,20 +200,20 @@
       "type": "object",
       "oneOf": [
         {
+          "$ref": "#/definitions/ContinuousAction"
+        },
+        {
           "$ref": "#/definitions/DelayAction"
         },
         {
           "$ref": "#/definitions/DiscreteAction"
-        },
-        {
-          "$ref": "#/definitions/ContinuousAction"
         }
       ],
       "properties": {
         "name": {
           "type": "string",
           "maxLength": 2048,
-          "description": "String that represents a URN."
+          "description": "String that represents a Capability URN."
         }
       },
       "required": [
@@ -242,19 +250,161 @@
       ],
       "description": "Model that represents a branch in the step. 9 total per experiment."
     },
-    "ContinuousAction": {
+    "CapabilityProperties": {
+      "type": "object",
+      "properties": {},
+      "description": "Model that represents the Capability properties model."
+    },
+    "ChaosTargetListSelector": {
       "type": "object",
       "properties": {
-        "duration": {
+        "targets": {
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TargetReference"
+              }
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
+          "description": "List of Target references."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "List"
+          ]
+        }
+      },
+      "required": [
+        "targets",
+        "type"
+      ],
+      "description": "Model that represents a list selector."
+    },
+    "ChaosTargetQuerySelector": {
+      "type": "object",
+      "properties": {
+        "queryString": {
+          "type": "string",
+          "description": "Azure Resource Graph (ARG) Query Language query for target resources."
+        },
+        "subscriptionIds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Subscription id list to scope resource query."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Query"
+          ]
+        }
+      },
+      "required": [
+        "queryString",
+        "subscriptionIds",
+        "type"
+      ],
+      "description": "Model that represents a query selector."
+    },
+    "ChaosTargetSelector": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ChaosTargetListSelector"
+        },
+        {
+          "$ref": "#/definitions/ChaosTargetQuerySelector"
+        }
+      ],
+      "properties": {
+        "filter": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Filter"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model that represents available filter types that can be applied to a targets list."
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "String of the selector ID."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "description": "Model that represents a selector in the Experiment resource."
+    },
+    "ChaosTargetSimpleFilter": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ChaosTargetSimpleFilterParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model that represents the Simple filter parameters."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Simple"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Model that represents a simple target filter."
+    },
+    "ChaosTargetSimpleFilterParameters": {
+      "type": "object",
+      "properties": {
+        "zones": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of Azure availability zones to filter targets by."
+        }
+      },
+      "description": "Model that represents the Simple filter parameters."
+    },
+    "ContinuousAction": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "string",
+          "format": "duration",
           "description": "ISO8601 formatted string that represents a duration."
         },
         "parameters": {
@@ -295,15 +445,8 @@
       "type": "object",
       "properties": {
         "duration": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
+          "type": "string",
+          "format": "duration",
           "description": "ISO8601 formatted string that represents a duration."
         },
         "type": {
@@ -363,7 +506,7 @@
             {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Selector"
+                "$ref": "#/definitions/ChaosTargetSelector"
               }
             },
             {
@@ -397,7 +540,7 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/SimpleFilter"
+          "$ref": "#/definitions/ChaosTargetSimpleFilter"
         }
       ],
       "properties": {},
@@ -423,72 +566,54 @@
       ],
       "description": "A map to describe the settings of an action."
     },
-    "ListSelector": {
+    "locations_targets_capabilities_childResource": {
       "type": "object",
       "properties": {
-        "targets": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-01-01"
+          ]
+        },
+        "name": {
           "oneOf": [
             {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/TargetReference"
-              }
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\-\\.]+-\\d\\.\\d$"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "List of Target references."
+          "description": "String that represents a Capability resource name."
         },
-        "type": {
-          "type": "string",
-          "enum": [
-            "List"
-          ]
-        }
-      },
-      "required": [
-        "targets",
-        "type"
-      ],
-      "description": "Model that represents a list selector."
-    },
-    "QuerySelector": {
-      "type": "object",
-      "properties": {
-        "queryString": {
-          "type": "string",
-          "description": "Azure Resource Graph (ARG) Query Language query for target resources."
-        },
-        "subscriptionIds": {
+        "properties": {
           "oneOf": [
             {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "$ref": "#/definitions/CapabilityProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Subscription id list to scope resource query."
+          "description": "Model that represents the Capability properties model."
         },
         "type": {
           "type": "string",
           "enum": [
-            "Query"
+            "capabilities"
           ]
         }
       },
       "required": [
-        "queryString",
-        "subscriptionIds",
+        "apiVersion",
+        "name",
+        "properties",
         "type"
       ],
-      "description": "Model that represents a query selector."
+      "description": "Microsoft.Chaos/locations/targets/capabilities"
     },
-    "ResourceIdentity": {
+    "ManagedServiceIdentity": {
       "type": "object",
       "properties": {
         "type": {
@@ -498,14 +623,14 @@
               "enum": [
                 "None",
                 "SystemAssigned",
-                "UserAssigned"
+                "UserAssigned",
+                "SystemAssigned, UserAssigned"
               ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "String of the resource identity type."
+          ]
         },
         "userAssignedIdentities": {
           "oneOf": [
@@ -526,102 +651,7 @@
       "required": [
         "type"
       ],
-      "description": "The identity of a resource."
-    },
-    "Selector": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/ListSelector"
-        },
-        {
-          "$ref": "#/definitions/QuerySelector"
-        }
-      ],
-      "properties": {
-        "additionalProperties": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "properties": {}
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Unmatched properties from the message are deserialized this collection"
-        },
-        "filter": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Filter"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Model that represents available filter types that can be applied to a targets list."
-        },
-        "id": {
-          "type": "string",
-          "minLength": 1,
-          "description": "String of the selector ID."
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "description": "Model that represents a selector in the Experiment resource."
-    },
-    "SimpleFilter": {
-      "type": "object",
-      "properties": {
-        "parameters": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SimpleFilterParameters"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Model that represents the Simple filter parameters."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Simple"
-          ]
-        }
-      },
-      "required": [
-        "type"
-      ],
-      "description": "Model that represents a simple target filter."
-    },
-    "SimpleFilterParameters": {
-      "type": "object",
-      "properties": {
-        "zones": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of Azure availability zones to filter targets by."
-        }
-      },
-      "description": "Model that represents the Simple filter parameters."
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
     },
     "Step": {
       "type": "object",
@@ -687,41 +717,6 @@
         "type"
       ],
       "description": "Model that represents a reference to a Target in the selector."
-    },
-    "targets_capabilities_childResource": {
-      "type": "object",
-      "properties": {
-        "apiVersion": {
-          "type": "string",
-          "enum": [
-            "2024-01-01"
-          ]
-        },
-        "name": {
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9\\-\\.]+-\\d\\.\\d$"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "String that represents a Capability resource name."
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "capabilities"
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "name",
-        "type"
-      ],
-      "description": "Microsoft.Chaos/targets/capabilities"
     },
     "UserAssignedIdentity": {
       "type": "object",
