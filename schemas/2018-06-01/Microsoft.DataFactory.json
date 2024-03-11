@@ -18408,6 +18408,10 @@
     "JsonDataset": {
       "type": "object",
       "properties": {
+        "schema1": {
+          "type": "object",
+          "properties": {}
+        },
         "type": {
           "type": "string",
           "enum": [
