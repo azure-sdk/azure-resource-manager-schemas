@@ -1411,13 +1411,11 @@
             {
               "type": "string",
               "enum": [
-                "Undefined",
+                "Payg",
+                "Paid",
                 "Free",
                 "HADR",
-                "ServerCAL",
-                "LicenseOnly",
-                "PAYG",
-                "Paid"
+                "Undefined"
               ]
             },
             {
