@@ -653,6 +653,48 @@
       },
       "description": "The Windows agent pool's specific profile."
     },
+    "AutoScaleProfile": {
+      "type": "object",
+      "properties": {
+        "maxCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The maximum number of nodes for auto-scaling."
+        },
+        "minCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The minimum number of nodes for auto-scaling."
+        },
+        "sizes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of allowed vm sizes. AKS will use the first available one when autoscaling. If a VM size is unavailable (e.g. due to quota or regional capacity reasons), AKS will use the next size."
+        }
+      },
+      "description": "Specifications on auto-scaling."
+    },
     "AzureKeyVaultKms": {
       "type": "object",
       "properties": {
@@ -5656,6 +5698,20 @@
     "ScaleProfile": {
       "type": "object",
       "properties": {
+        "autoscale": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AutoScaleProfile"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifications on how to auto-scale the VirtualMachines agent pool within a predefined size range."
+        },
         "manual": {
           "oneOf": [
             {
