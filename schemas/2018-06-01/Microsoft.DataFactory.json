@@ -17707,7 +17707,7 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/ManagedIntegrationRuntime"
+          "$ref": "#/definitions/ManagedIntegrationRuntimeBase"
         },
         {
           "$ref": "#/definitions/SelfHostedIntegrationRuntime"
@@ -19855,6 +19855,26 @@
     "ManagedIntegrationRuntime": {
       "type": "object",
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Managed"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed integration runtime, including managed elastic and managed dedicated integration runtimes."
+    },
+    "ManagedIntegrationRuntimeBase": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ManagedIntegrationRuntime"
+        }
+      ],
+      "properties": {
         "managedVirtualNetwork": {
           "oneOf": [
             {
@@ -19869,7 +19889,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "Managed"
+            "ManagedIntegrationRuntimeBase"
           ]
         },
         "typeProperties": {
@@ -19888,7 +19908,7 @@
         "type",
         "typeProperties"
       ],
-      "description": "Managed integration runtime, including managed elastic and managed dedicated integration runtimes."
+      "description": "Managed integration runtime base."
     },
     "ManagedIntegrationRuntimeTypeProperties": {
       "type": "object",
