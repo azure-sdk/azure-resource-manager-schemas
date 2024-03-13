@@ -163,9 +163,9 @@
     "BackupProperties": {
       "type": "object",
       "properties": {
-        "azureStorageResourceUri": {
+        "azureStorageContainerUri": {
           "type": "string",
-          "description": "Azure storage Resource Uri"
+          "description": "Azure Blob storage container Uri"
         }
       },
       "description": "Cloud Hsm Cluster backup information"
@@ -187,6 +187,17 @@
             }
           ],
           "description": "Cloud Hsm Cluster backup information"
+        },
+        "clusterStatus": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CloudHsmClusterStatusProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Security domain properties information for Cloud HSM cluster"
         },
         "hsms": {
           "oneOf": [
@@ -248,41 +259,9 @@
             }
           ],
           "description": "Cloud Hsm Cluster restore information"
-        },
-        "securityDomain": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CloudHsmClusterSecurityDomainProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Security domain properties information for Cloud HSM cluster"
         }
       },
       "description": "Properties of a Cloud HSM Cluster."
-    },
-    "CloudHsmClusterSecurityDomainProperties": {
-      "type": "object",
-      "properties": {
-        "activationStatus": {
-          "type": "string",
-          "description": "status of security domain activation"
-        },
-        "fipsState": {
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "FIPS state information for security domain"
-        }
-      },
-      "description": "Security domain properties information for Cloud HSM cluster"
     },
     "CloudHsmClusterSku": {
       "type": "object",
@@ -333,6 +312,27 @@
         "name"
       ],
       "description": "Cloud Hsm Cluster SKU information"
+    },
+    "CloudHsmClusterStatusProperties": {
+      "type": "object",
+      "properties": {
+        "activationStatus": {
+          "type": "string",
+          "description": "status of security domain activation"
+        },
+        "fipsState": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "FIPS state information for security domain"
+        }
+      },
+      "description": "Security domain properties information for Cloud HSM cluster"
     },
     "cloudHsmClusters_privateEndpointConnections_childResource": {
       "type": "object",
@@ -555,11 +555,11 @@
     "RestoreProperties": {
       "type": "object",
       "properties": {
-        "azureStorageResourceUri": {
+        "azureStorageContainerUri": {
           "type": "string",
           "description": "Azure Blob storage container Uri"
         },
-        "foldername": {
+        "folderName": {
           "type": "string",
           "description": "Directory name in Azure Storage Blob where the backup is stored"
         }
