@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2024-01-01-preview/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2024-04-01-preview/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -102,7 +102,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -217,7 +217,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -274,7 +274,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -313,7 +313,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -370,7 +370,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -409,7 +409,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -458,7 +458,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -497,7 +497,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -554,7 +554,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -593,7 +593,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -649,7 +649,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -688,7 +688,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -847,7 +847,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -942,7 +942,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -1027,7 +1027,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1076,7 +1076,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1115,7 +1115,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1164,7 +1164,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1203,7 +1203,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -1291,7 +1291,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1337,7 +1337,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1386,7 +1386,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1425,7 +1425,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1464,7 +1464,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1512,7 +1512,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1550,7 +1550,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1599,7 +1599,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1638,7 +1638,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1687,7 +1687,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1726,7 +1726,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1775,7 +1775,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1814,7 +1814,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -1920,7 +1920,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2005,7 +2005,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2098,7 +2098,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2137,7 +2137,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2176,7 +2176,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2214,7 +2214,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2262,7 +2262,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2301,7 +2301,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2396,7 +2396,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2480,7 +2480,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2527,7 +2527,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2606,7 +2606,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2645,7 +2645,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -9996,7 +9996,7 @@
           "type": "string",
           "default": "PT0.5S",
           "format": "duration",
-          "description": "(Deprecated for Managed Online Endpoints) The maximum amount of time a request will stay in the queue in ISO 8601 format.\r\nDefaults to 500ms.\r\n(Now increase `request_timeout_ms` to account for any networking/queue delays)"
+          "description": "The maximum amount of time a request will stay in the queue in ISO 8601 format.\r\nDefaults to 500ms."
         },
         "requestTimeout": {
           "type": "string",
@@ -10871,7 +10871,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -10918,7 +10918,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -10957,7 +10957,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11004,7 +11004,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11043,7 +11043,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11082,7 +11082,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11121,7 +11121,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11168,7 +11168,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11207,7 +11207,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11253,7 +11253,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -13906,7 +13906,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -13991,7 +13991,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -14076,7 +14076,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14115,7 +14115,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14154,7 +14154,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14193,7 +14193,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14232,7 +14232,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -14320,7 +14320,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14366,7 +14366,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14405,7 +14405,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14444,7 +14444,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14483,7 +14483,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14521,7 +14521,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14559,7 +14559,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14598,7 +14598,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14637,7 +14637,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14676,7 +14676,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14715,7 +14715,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14754,7 +14754,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14793,7 +14793,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -14886,7 +14886,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -14971,7 +14971,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -15064,7 +15064,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15103,7 +15103,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15142,7 +15142,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15180,7 +15180,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15218,7 +15218,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15257,7 +15257,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -15342,7 +15342,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -15426,7 +15426,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15473,7 +15473,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -15552,7 +15552,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15591,7 +15591,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
