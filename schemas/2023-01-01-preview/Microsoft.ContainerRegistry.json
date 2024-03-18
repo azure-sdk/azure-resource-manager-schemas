@@ -422,6 +422,102 @@
       ],
       "description": "Microsoft.ContainerRegistry/registries/importPipelines"
     },
+    "registries_packages_archives": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]*$",
+              "minLength": 5,
+              "maxLength": 200
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the archive resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArchiveProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a archive."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/registries_packages_archives_versions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ContainerRegistry/registries/packages/archives"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ContainerRegistry/registries/packages/archives"
+    },
+    "registries_packages_archives_versions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]*$",
+              "minLength": 5,
+              "maxLength": 200
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the archive version resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ContainerRegistry/registries/packages/archives/versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.ContainerRegistry/registries/packages/archives/versions"
+    },
     "registries_pipelineRuns": {
       "type": "object",
       "properties": {
@@ -748,6 +844,54 @@
     }
   },
   "definitions": {
+    "ArchivePackageSourceProperties": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "remote"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of package source for a archive."
+        },
+        "url": {
+          "type": "string",
+          "description": "The external repository url."
+        }
+      },
+      "description": "The properties of the archive package source."
+    },
+    "ArchiveProperties": {
+      "type": "object",
+      "properties": {
+        "packageSource": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArchivePackageSourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of the archive package source."
+        },
+        "publishedVersion": {
+          "type": "string",
+          "description": "The published version of the archive."
+        },
+        "repositoryEndpointPrefix": {
+          "type": "string"
+        }
+      },
+      "description": "The properties of a archive."
+    },
     "AuthCredential": {
       "type": "object",
       "properties": {
@@ -1923,6 +2067,43 @@
         "type"
       ],
       "description": "Microsoft.ContainerRegistry/registries/importPipelines"
+    },
+    "registries_packages_archives_versions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-01-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]*$",
+              "minLength": 5,
+              "maxLength": 200
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the archive version resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "versions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.ContainerRegistry/registries/packages/archives/versions"
     },
     "registries_pipelineRuns_childResource": {
       "type": "object",

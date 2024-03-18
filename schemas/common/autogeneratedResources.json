@@ -8969,6 +8969,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_importPipelines"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_packages_archives"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_packages_archives_versions"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_pipelineRuns"
         },
         {
