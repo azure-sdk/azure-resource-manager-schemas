@@ -12737,8 +12737,19 @@
           "description": "List of nested expressions."
         },
         "operator": {
-          "type": "string",
-          "description": "Expression operator value Type: string."
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Expression operator value Type: list of strings."
         },
         "type": {
           "oneOf": [
@@ -12748,7 +12759,8 @@
                 "Constant",
                 "Field",
                 "Unary",
-                "Binary"
+                "Binary",
+                "NAry"
               ]
             },
             {
