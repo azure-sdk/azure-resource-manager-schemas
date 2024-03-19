@@ -13,6 +13,17 @@
             "2023-03-02-preview"
           ]
         },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IdentityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Describes the identity of the cluster."
+        },
         "location": {
           "type": "string",
           "description": "The geo-location where the resource lives"
@@ -434,6 +445,17 @@
           "type": "string",
           "description": "The database name of the cluster. Only one database per cluster is supported."
         },
+        "dataEncryption": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataEncryption"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The data encryption properties of a cluster."
+        },
         "enableGeoBackup": {
           "oneOf": [
             {
@@ -550,6 +572,33 @@
       },
       "description": "Properties of the cluster."
     },
+    "DataEncryption": {
+      "type": "object",
+      "properties": {
+        "primaryKeyUri": {
+          "type": "string"
+        },
+        "primaryUserAssignedIdentityId": {
+          "type": "string",
+          "description": "Resource Id for the User assigned identity to be used for data encryption of the primary server."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AzureKeyVault",
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The data encryption properties of a cluster."
+    },
     "FirewallRuleProperties": {
       "type": "object",
       "properties": {
@@ -583,6 +632,41 @@
         "startIpAddress"
       ],
       "description": "The properties of a cluster firewall rule."
+    },
+    "IdentityProperties": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "UserAssigned",
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "description": "Describes the identity of the cluster."
     },
     "MaintenanceWindow": {
       "type": "object",
@@ -1028,6 +1112,11 @@
         "type"
       ],
       "description": "Microsoft.DBforPostgreSQL/serverGroupsv2/roles"
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
     }
   }
 }
