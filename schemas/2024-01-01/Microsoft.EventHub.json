@@ -1830,7 +1830,8 @@
               "type": "string",
               "enum": [
                 "Delete",
-                "Compact"
+                "Compact",
+                "Delete,Compact"
               ]
             },
             {
@@ -1838,6 +1839,17 @@
             }
           ],
           "description": "Enumerates the possible values for cleanup policy."
+        },
+        "minCompactionLagInMins": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The minimum time a message will remain ineligible for compaction in the log. Only applicable for logs that are being compacted."
         },
         "retentionTimeInHours": {
           "oneOf": [
@@ -1848,7 +1860,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue "
+          "description": "Number of hours to retain the events for this Event Hub. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue "
         },
         "tombstoneRetentionTimeInHours": {
           "oneOf": [
