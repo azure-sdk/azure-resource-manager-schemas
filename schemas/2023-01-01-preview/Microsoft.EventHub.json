@@ -1888,8 +1888,7 @@
             {
               "type": "string",
               "enum": [
-                "Delete",
-                "Compact"
+                "Delete"
               ]
             },
             {
