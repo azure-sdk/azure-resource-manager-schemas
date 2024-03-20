@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.ApiCenter.json#",
+  "id": "https://schema.management.azure.com/schemas/2024-03-15-preview/Microsoft.ApiCenter.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.ApiCenter",
   "description": "Microsoft ApiCenter Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "identity": {
@@ -103,7 +103,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -152,7 +152,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -214,7 +214,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -247,6 +247,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/services_workspaces_apis_deployments_childResource"
+              },
+              {
                 "$ref": "#/definitions/services_workspaces_apis_versions_childResource"
               }
             ]
@@ -267,13 +270,62 @@
       ],
       "description": "Microsoft.ApiCenter/services/workspaces/apis"
     },
+    "services_workspaces_apis_deployments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-03-15-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,90}$",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the API deployment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "API deployment entity properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ApiCenter/services/workspaces/apis/deployments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiCenter/services/workspaces/apis/deployments"
+    },
     "services_workspaces_apis_versions": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -332,7 +384,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -381,7 +433,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -602,6 +654,82 @@
         }
       },
       "description": "Contact information"
+    },
+    "DeploymentProperties": {
+      "type": "object",
+      "properties": {
+        "customProperties": {
+          "type": "object",
+          "properties": {},
+          "description": "The custom metadata defined for API catalog entities."
+        },
+        "definitionId": {
+          "type": "string",
+          "description": "API center-scoped definition resource ID."
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Description of the deployment."
+        },
+        "environmentId": {
+          "type": "string",
+          "description": "API center-scoped environment resource ID."
+        },
+        "server": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentServer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Server"
+        },
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "active",
+                "inactive"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "State of API deployment."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50,
+          "description": "API deployment title"
+        }
+      },
+      "description": "API deployment entity properties."
+    },
+    "DeploymentServer": {
+      "type": "object",
+      "properties": {
+        "runtimeUri": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Base runtime URLs for this deployment."
+        }
+      },
+      "description": "Server"
     },
     "EnvironmentProperties": {
       "type": "object",
@@ -901,7 +1029,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -950,7 +1078,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -993,13 +1121,62 @@
       ],
       "description": "Microsoft.ApiCenter/services/workspaces/apis"
     },
+    "services_workspaces_apis_deployments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-03-15-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,90}$",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the API deployment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "API deployment entity properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "deployments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ApiCenter/services/workspaces/apis/deployments"
+    },
     "services_workspaces_apis_versions_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -1048,7 +1225,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -1097,7 +1274,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
@@ -1146,7 +1323,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-03-01"
+            "2024-03-15-preview"
           ]
         },
         "name": {
