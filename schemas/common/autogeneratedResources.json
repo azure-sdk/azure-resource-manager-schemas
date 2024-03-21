@@ -12167,6 +12167,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_advancedThreatProtectionSettings"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-12-30/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-12-30/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_advancedThreatProtectionSettings"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-11-08/Microsoft.DBforPostgreSQL.Hsc.json#/resourceDefinitions/serverGroupsv2"
         },
         {
