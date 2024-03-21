@@ -3767,8 +3767,7 @@
             {
               "type": "string",
               "enum": [
-                "AspireDashboard",
-                "AspireResourceServerApi"
+                "AspireDashboard"
               ]
             },
             {
