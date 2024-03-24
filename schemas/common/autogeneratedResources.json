@@ -1850,6 +1850,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.ApiManagement.json#/resourceDefinitions/service_apiVersionSets"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.ApiManagement.json#/resourceDefinitions/service_authorizationProviders"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.ApiManagement.json#/resourceDefinitions/service_authorizationProviders_authorizations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.ApiManagement.json#/resourceDefinitions/service_authorizationProviders_authorizations_accesspolicies"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.ApiManagement.json#/resourceDefinitions/service_authorizationServers"
         },
         {
