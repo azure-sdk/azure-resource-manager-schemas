@@ -197,6 +197,61 @@
       ],
       "description": "Defines the type of Azure DevOps pool permission."
     },
+    "DataDisk": {
+      "type": "object",
+      "properties": {
+        "caching": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "ReadOnly",
+                "ReadWrite"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/."
+        },
+        "diskSizeGiB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The initial disk size in gigabytes."
+        },
+        "driveLetter": {
+          "type": "string",
+          "description": "The drive letter for the empty data disk. If not specified, it will be the first available letter."
+        },
+        "storageAccountType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "standard_lrs",
+                "premium_lrs",
+                "standardssd_lrs",
+                "premium_zrs",
+                "standardssd_zrs"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage Account type to be used for the data disk. If omitted, the default is \"standard_lrs\"."
+        }
+      },
+      "description": "The data disk of the VMSS."
+    },
     "DevOpsAzureSku": {
       "type": "object",
       "properties": {
@@ -438,11 +493,12 @@
         "resourceId": {
           "type": "string",
           "description": "The resource id of the image."
+        },
+        "wellKnownImageName": {
+          "type": "string",
+          "description": "The image to use from a well-known set of images made available to customers."
         }
       },
-      "required": [
-        "resourceId"
-      ],
       "description": "The VM image of the machines in the pool."
     },
     "PoolProperties": {
@@ -605,6 +661,20 @@
     "StorageProfile": {
       "type": "object",
       "properties": {
+        "dataDisks": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataDisk"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A list of empty data disks to attach."
+        },
         "osDiskStorageAccountType": {
           "oneOf": [
             {
