@@ -1663,6 +1663,9 @@
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2015-08-01/Microsoft.Web.json#/subscription_resourceDefinitions/publishingCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Oracle.Database.json#/subscription_resourceDefinitions/oracleSubscriptions"
             }
           ]
         }
