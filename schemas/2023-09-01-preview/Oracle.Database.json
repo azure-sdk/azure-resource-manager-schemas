@@ -1,0 +1,1562 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-09-01-preview/Oracle.Database.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Oracle.Database",
+  "description": "Oracle Database Resource Types",
+  "resourceDefinitions": {
+    "autonomousDatabases": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-09-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 30,
+          "description": "The database name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AutonomousDatabaseBaseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Autonomous Database base resource model."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Oracle.Database/autonomousDatabases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Oracle.Database/autonomousDatabases"
+    },
+    "cloudExadataInfrastructures": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-09-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "CloudExadataInfrastructure name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CloudExadataInfrastructureProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "CloudExadataInfrastructure resource model"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Oracle.Database/cloudExadataInfrastructures"
+          ]
+        },
+        "zones": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "CloudExadataInfrastructure zones"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type",
+        "zones"
+      ],
+      "description": "Oracle.Database/cloudExadataInfrastructures"
+    },
+    "cloudVmClusters": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-09-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "CloudVmCluster name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CloudVmClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "CloudVmCluster resource model"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/cloudVmClusters_virtualNetworkAddresses_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Oracle.Database/cloudVmClusters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Oracle.Database/cloudVmClusters"
+    },
+    "cloudVmClusters_virtualNetworkAddresses": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-09-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 63,
+          "description": "Virtual IP address hostname."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkAddressProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "virtualNetworkAddress resource properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Oracle.Database/cloudVmClusters/virtualNetworkAddresses"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Oracle.Database/cloudVmClusters/virtualNetworkAddresses"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "oracleSubscriptions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-09-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "plan": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Plan for the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OracleSubscriptionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Oracle Subscription resource model"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Oracle.Database/oracleSubscriptions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Oracle.Database/oracleSubscriptions"
+    }
+  },
+  "definitions": {
+    "AutonomousDatabaseBaseProperties": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AutonomousDatabaseCloneProperties"
+        },
+        {
+          "$ref": "#/definitions/AutonomousDatabaseProperties"
+        }
+      ],
+      "properties": {
+        "adminPassword": {
+          "type": "string",
+          "format": "password"
+        },
+        "autonomousDatabaseId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+        },
+        "autonomousMaintenanceScheduleType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Early",
+                "Regular"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The maintenance schedule type of the Autonomous Database Serverless."
+        },
+        "backupRetentionPeriodInDays": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retention period, in days, for long-term backups"
+        },
+        "characterSet": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "The character set for the autonomous database."
+        },
+        "computeCount": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0.1,
+              "maximum": 512
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The compute amount (CPUs) available to the database."
+        },
+        "computeModel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ECPU",
+                "OCPU"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The compute model of the Autonomous Database."
+        },
+        "cpuCoreCount": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 128
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of CPU cores to be made available to the database."
+        },
+        "customerContacts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CustomerContact"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer Contacts."
+        },
+        "databaseEdition": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "StandardEdition",
+                "EnterpriseEdition"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Oracle Database Edition that applies to the Autonomous databases."
+        },
+        "dataStorageSizeInGbs": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 32,
+              "maximum": 131072
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The size, in gigabytes, of the data volume that will be created and attached to the database."
+        },
+        "dataStorageSizeInTbs": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 384
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The quantity of data in the database, in terabytes."
+        },
+        "dbVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "A valid Oracle Database version for Autonomous Database."
+        },
+        "dbWorkload": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "OLTP",
+                "DW",
+                "AJD",
+                "APEX"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Autonomous Database workload type."
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "The user-friendly name for the Autonomous Database."
+        },
+        "isAutoScalingEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if auto scaling is enabled for the Autonomous Database CPU core count."
+        },
+        "isAutoScalingForStorageEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if auto scaling is enabled for the Autonomous Database storage."
+        },
+        "isDataGuardEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether the Autonomous Database has local (in-region) Data Guard enabled."
+        },
+        "isMtlsConnectionRequired": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies if the Autonomous Database requires mTLS connections."
+        },
+        "isPreviewVersionWithServiceTermsAccepted": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies if the Autonomous Database preview version is being provisioned."
+        },
+        "licenseModel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "LicenseIncluded",
+                "BringYourOwnLicense"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Oracle license model that applies to the Oracle Autonomous Database. The default is LICENSE_INCLUDED."
+        },
+        "localAdgAutoFailoverMaxDataLossLimit": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3600
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameter that allows users to select an acceptable maximum data loss limit in seconds, up to which Automatic Failover will be triggered when necessary for a Local Autonomous Data Guard"
+        },
+        "ncharacterSet": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "The character set for the Autonomous Database."
+        },
+        "openMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ReadOnly",
+                "ReadWrite"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates the Autonomous Database mode."
+        },
+        "permissionLevel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Restricted",
+                "Unrestricted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Autonomous Database permission level."
+        },
+        "privateEndpointIp": {
+          "type": "string",
+          "description": "The private endpoint Ip address for the resource."
+        },
+        "privateEndpointLabel": {
+          "type": "string",
+          "description": "The resource's private endpoint label."
+        },
+        "role": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Primary",
+                "Standby",
+                "DisabledStandby",
+                "BackupCopy",
+                "SnapshotStandby"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Data Guard role of the Autonomous Container Database or Autonomous Database, if Autonomous Data Guard is enabled."
+        },
+        "scheduledOperations": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledOperationsType"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of scheduled operations."
+        },
+        "subnetId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+        },
+        "vnetId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+        }
+      },
+      "description": "Autonomous Database base resource model."
+    },
+    "AutonomousDatabaseCloneProperties": {
+      "type": "object",
+      "properties": {
+        "cloneType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Full",
+                "Metadata"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Autonomous Database clone type."
+        },
+        "dataBaseType": {
+          "type": "string",
+          "enum": [
+            "Clone"
+          ]
+        },
+        "refreshableModel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Automatic",
+                "Manual"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The refresh mode of the clone."
+        },
+        "source": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Database",
+                "BackupFromId",
+                "BackupFromTimestamp",
+                "CloneToRefreshable",
+                "CrossRegionDataguard",
+                "CrossRegionDisasterRecovery"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The source of the database."
+        },
+        "sourceId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+        },
+        "timeUntilReconnectCloneEnabled": {
+          "type": "string",
+          "description": "The time and date as an RFC3339 formatted string, e.g., 2022-01-01T12:00:00.000Z, to set the limit for a refreshable clone to be reconnected to its source database."
+        }
+      },
+      "required": [
+        "cloneType",
+        "dataBaseType",
+        "sourceId"
+      ],
+      "description": "Autonomous Database clone resource model."
+    },
+    "AutonomousDatabaseProperties": {
+      "type": "object",
+      "properties": {
+        "dataBaseType": {
+          "type": "string",
+          "enum": [
+            "Regular"
+          ]
+        }
+      },
+      "required": [
+        "dataBaseType"
+      ],
+      "description": "Autonomous Database resource model."
+    },
+    "CloudExadataInfrastructureProperties": {
+      "type": "object",
+      "properties": {
+        "computeCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of compute servers for the cloud Exadata infrastructure."
+        },
+        "customerContacts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CustomerContact"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of customer email addresses that receive information from Oracle about the specified OCI Database service resource. Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators. Up to 10 email addresses can be added to the customer contacts for a cloud Exadata infrastructure instance. "
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "The name for the Exadata infrastructure."
+        },
+        "maintenanceWindow": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaintenanceWindow"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "MaintenanceWindow resource properties"
+        },
+        "shape": {
+          "type": "string",
+          "description": "The model name of the cloud Exadata infrastructure resource."
+        },
+        "storageCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of storage servers for the cloud Exadata infrastructure."
+        }
+      },
+      "required": [
+        "displayName",
+        "shape"
+      ],
+      "description": "CloudExadataInfrastructure resource model"
+    },
+    "CloudVmClusterProperties": {
+      "type": "object",
+      "properties": {
+        "backupSubnetCidr": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "description": "Client OCI backup subnet CIDR, default is 192.168.252.0/22"
+        },
+        "cloudExadataInfrastructureId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+        },
+        "clusterName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 11,
+          "description": "The cluster name for cloud VM cluster. The cluster name must begin with an alphabetic character, and may contain hyphens (-). Underscores (_) are not permitted. The cluster name can be no longer than 11 characters and is not case sensitive. "
+        },
+        "computeNodes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of compute servers to be added to the cloud VM cluster."
+        },
+        "cpuCoreCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of CPU cores enabled on the cloud VM cluster."
+        },
+        "dataCollectionOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DataCollectionOptions resource properties"
+        },
+        "dataStoragePercentage": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are 35, 40, 60 and 80. The default is 80 percent assigned to DATA storage. See [Storage Configuration](/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage. "
+        },
+        "dataStorageSizeInTbs": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The data disk group size to be allocated in TBs."
+        },
+        "dbNodeStorageSizeInGbs": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The local node storage to be allocated in GBs."
+        },
+        "dbServers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of DB servers."
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "Display Name"
+        },
+        "domain": {
+          "type": "string",
+          "description": "The domain name for the cloud VM cluster."
+        },
+        "giVersion": {
+          "type": "string",
+          "description": "Oracle Grid Infrastructure (GI) software version"
+        },
+        "hostname": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 23,
+          "description": "The hostname for the cloud VM cluster."
+        },
+        "isLocalBackupEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, database backup on local Exadata storage is configured for the cloud VM cluster. If false, database backup on local Exadata storage is not available in the cloud VM cluster. "
+        },
+        "isSparseDiskgroupEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, sparse disk group is configured for the cloud VM cluster. If false, sparse disk group is not created. "
+        },
+        "licenseModel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "LicenseIncluded",
+                "BringYourOwnLicense"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Oracle license model that applies to the cloud VM cluster. The default is LICENSE_INCLUDED."
+        },
+        "memorySizeInGbs": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The memory to be allocated in GBs."
+        },
+        "nsgCidrs": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NSGCidr"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "CIDR blocks for additional NSG ingress rules. The VNET CIDRs used to provision the VM Cluster will be added by default."
+        },
+        "ocpuCount": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of OCPU cores to enable on the cloud VM cluster. Only 1 decimal place is allowed for the fractional part."
+        },
+        "scanListenerPortTcp": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The TCP Single Client Access Name (SCAN) port. The default port is 1521."
+        },
+        "scanListenerPortTcpSsl": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The TCPS Single Client Access Name (SCAN) port. The default port is 2484."
+        },
+        "sshPublicKeys": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The public key portion of one or more key pairs used for SSH access to the cloud VM cluster."
+        },
+        "storageSizeInGbs": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The data disk group size to be allocated in GBs per VM."
+        },
+        "subnetId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+        },
+        "timeZone": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "The time zone of the cloud VM cluster. For details, see [Exadata Infrastructure Time Zones](/Content/Database/References/timezones.htm)."
+        },
+        "vnetId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "A type definition that refers the id to an Azure Resource Manager resource."
+        },
+        "zoneId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "The [OCID](/Content/General/Concepts/identifiers.htm) of the resource."
+        }
+      },
+      "required": [
+        "cloudExadataInfrastructureId",
+        "cpuCoreCount",
+        "displayName",
+        "giVersion",
+        "hostname",
+        "sshPublicKeys",
+        "subnetId",
+        "vnetId"
+      ],
+      "description": "CloudVmCluster resource model"
+    },
+    "cloudVmClusters_virtualNetworkAddresses_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-09-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 63,
+          "description": "Virtual IP address hostname."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkAddressProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "virtualNetworkAddress resource properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "virtualNetworkAddresses"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Oracle.Database/cloudVmClusters/virtualNetworkAddresses"
+    },
+    "CustomerContact": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 320,
+          "description": "The email address used by Oracle to send notifications regarding databases and infrastructure."
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "CustomerContact resource properties"
+    },
+    "DataCollectionOptions": {
+      "type": "object",
+      "properties": {
+        "isDiagnosticsEventsEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether diagnostic collection is enabled for the VM cluster/Cloud VM cluster/VMBM DBCS."
+        },
+        "isHealthMonitoringEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether health monitoring is enabled for the VM cluster / Cloud VM cluster / VMBM DBCS."
+        },
+        "isIncidentLogsEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether incident logs and trace collection are enabled for the VM cluster / Cloud VM cluster / VMBM DBCS."
+        }
+      },
+      "description": "DataCollectionOptions resource properties"
+    },
+    "DayOfWeek": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the day of the week."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "DayOfWeek resource properties"
+    },
+    "MaintenanceWindow": {
+      "type": "object",
+      "properties": {
+        "customActionTimeoutInMins": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 120
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Determines the amount of time the system will wait before the start of each database server patching operation. Custom action timeout is in minutes and valid value is between 15 to 120 (inclusive)."
+        },
+        "daysOfWeek": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DayOfWeek"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Days during the week when maintenance should be performed."
+        },
+        "hoursOfDay": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Valid values are - 0 - represents time slot 0:00 - 3:59 UTC - 4 - represents time slot 4:00 - 7:59 UTC - 8 - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot 20:00 - 23:59 UTC"
+        },
+        "isCustomActionTimeoutEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If true, enables the configuration of a custom action timeout (waiting period) between database server patching operations."
+        },
+        "isMonthlyPatchingEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "is Monthly Patching Enabled"
+        },
+        "leadTimeInWeeks": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between 1 to 4. "
+        },
+        "months": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Month"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Months during the year when maintenance should be performed."
+        },
+        "patchingMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Rolling",
+                "NonRolling"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cloud Exadata infrastructure node patching method."
+        },
+        "preference": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NoPreference",
+                "CustomPreference"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The maintenance window scheduling preference."
+        },
+        "weeksOfMonth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the  daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed. "
+        }
+      },
+      "description": "MaintenanceWindow resource properties"
+    },
+    "Month": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the month of the year."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Month resource properties"
+    },
+    "NSGCidr": {
+      "type": "object",
+      "properties": {
+        "destinationPortRange": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PortRange"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Port Range to specify particular destination ports for TCP rules."
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Conceptually, this is the range of IP addresses that a packet coming into the instance can come from."
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "description": "A rule for allowing inbound (INGRESS) IP packets"
+    },
+    "OracleSubscriptionProperties": {
+      "type": "object",
+      "properties": {
+        "intent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Retain",
+                "Reset"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Intent for the update operation."
+        },
+        "productCode": {
+          "type": "string",
+          "description": "Product code for the term unit"
+        },
+        "termUnit": {
+          "type": "string",
+          "description": "Term Unit. P1Y, P3Y, etc, see Durations https://en.wikipedia.org/wiki/ISO_8601"
+        }
+      },
+      "description": "Oracle Subscription resource model"
+    },
+    "Plan": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A user defined name of the 3rd Party Artifact that is being procured."
+        },
+        "product": {
+          "type": "string",
+          "description": "The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. "
+        },
+        "promotionCode": {
+          "type": "string",
+          "description": "A publisher provided promotion code as provisioned in Data Market for the said product/artifact."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic"
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the desired product/artifact."
+        }
+      },
+      "required": [
+        "name",
+        "product",
+        "publisher"
+      ],
+      "description": "Plan for the resource."
+    },
+    "PortRange": {
+      "type": "object",
+      "properties": {
+        "max": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The maximum port number, which must not be less than the minimum port number. To specify a single port number, set both the min and max to the same value."
+        },
+        "min": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The minimum port number, which must not be greater than the maximum port number."
+        }
+      },
+      "required": [
+        "max",
+        "min"
+      ],
+      "description": "Port Range to specify particular destination ports for TCP rules."
+    },
+    "ScheduledOperationsType": {
+      "type": "object",
+      "properties": {
+        "dayOfWeek": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DayOfWeek"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "DayOfWeek resource properties"
+        },
+        "scheduledStartTime": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50,
+          "description": "auto start time. value must be of ISO-8601 format HH:mm"
+        },
+        "scheduledStopTime": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50,
+          "description": "auto stop time. value must be of ISO-8601 format HH:mm"
+        }
+      },
+      "required": [
+        "dayOfWeek"
+      ],
+      "description": "The list of scheduled operations."
+    },
+    "VirtualNetworkAddressProperties": {
+      "type": "object",
+      "properties": {
+        "ipAddress": {
+          "type": "string",
+          "description": "Virtual network Address address."
+        },
+        "vmOcid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "The [OCID](/Content/General/Concepts/identifiers.htm) of the resource."
+        }
+      },
+      "description": "virtualNetworkAddress resource properties"
+    }
+  }
+}

@@ -44903,6 +44903,18 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-01-01-preview/NGINX.NGINXPLUS.json#/resourceDefinitions/nginxDeployments_configurations"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Oracle.Database.json#/resourceDefinitions/autonomousDatabases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Oracle.Database.json#/resourceDefinitions/cloudExadataInfrastructures"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Oracle.Database.json#/resourceDefinitions/cloudVmClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Oracle.Database.json#/resourceDefinitions/cloudVmClusters_virtualNetworkAddresses"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
         },
         {
