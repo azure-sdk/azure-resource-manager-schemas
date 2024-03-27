@@ -19220,6 +19220,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-03-15-preview/Microsoft.Insights.json#/resourceDefinitions/scheduledQueryRules"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-12-01/Microsoft.Insights.json#/resourceDefinitions/scheduledQueryRules"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-11-14-preview/Microsoft.IntegrationSpaces.json#/resourceDefinitions/spaces"
         },
         {
