@@ -18998,6 +18998,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-09-01/Microsoft.HybridNetwork.json#/resourceDefinitions/sites"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.HybridOnboarding.json#/resourceDefinitions/extensionManagers"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2016-11-01/Microsoft.ImportExport.json#/resourceDefinitions/jobs"
         },
         {
