@@ -92,7 +92,8 @@
                 "Block",
                 "Log",
                 "Redirect",
-                "AnomalyScoring"
+                "AnomalyScoring",
+                "JSChallenge"
               ]
             },
             {
@@ -319,7 +320,8 @@
                 "Block",
                 "Log",
                 "Redirect",
-                "AnomalyScoring"
+                "AnomalyScoring",
+                "JSChallenge"
               ]
             },
             {
