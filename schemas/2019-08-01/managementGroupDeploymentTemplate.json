@@ -600,6 +600,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2017-09-01/Microsoft.Authorization.json#/resourceDefinitions/roleAssignments"
             },
             {

@@ -1,0 +1,68 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Authorization",
+  "description": "Microsoft Authorization Resource Types",
+  "resourceDefinitions": {},
+  "unknown_resourceDefinitions": {
+    "roleManagementPolicyAssignments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-02-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of format {guid_guid} the role management policy assignment to upsert."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleManagementPolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Role management policy assignment properties with scope."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Authorization/roleManagementPolicyAssignments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Authorization/roleManagementPolicyAssignments"
+    }
+  },
+  "definitions": {
+    "RoleManagementPolicyAssignmentProperties": {
+      "type": "object",
+      "properties": {
+        "policyId": {
+          "type": "string",
+          "description": "The policy id role management policy assignment."
+        },
+        "roleDefinitionId": {
+          "type": "string",
+          "description": "The role definition of management policy assignment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "The role management policy scope."
+        }
+      },
+      "description": "Role management policy assignment properties with scope."
+    }
+  }
+}
