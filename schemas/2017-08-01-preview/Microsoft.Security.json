@@ -114,6 +114,9 @@
         },
         "name": {
           "type": "string",
+          "enum": [
+            "current"
+          ],
           "description": "Auto provisioning setting key"
         },
         "properties": {
@@ -315,6 +318,9 @@
         },
         "name": {
           "type": "string",
+          "enum": [
+            "current"
+          ],
           "description": "Advanced Threat Protection setting name."
         },
         "properties": {
