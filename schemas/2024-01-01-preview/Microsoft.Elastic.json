@@ -609,6 +609,15 @@
         "key": {
           "type": "string",
           "description": "Value of API key for Open AI resource"
+        },
+        "openAIResourceEndpoint": {
+          "type": "string",
+          "description": "The API endpoint for Open AI resource"
+        },
+        "openAIResourceId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource id of Open AI resource"
         }
       },
       "description": "Open AI Integration details."
