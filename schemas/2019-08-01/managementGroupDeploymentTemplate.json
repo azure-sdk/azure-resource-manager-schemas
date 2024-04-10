@@ -729,6 +729,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2017-11-11-preview/Microsoft.Blueprint.json#/managementGroup_resourceDefinitions/blueprints"
             },
             {
@@ -973,6 +976,12 @@
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.Resources.json#/unknown_resourceDefinitions/tags"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Resources.json#/managementGroup_resourceDefinitions/deployments"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Resources.json#/unknown_resourceDefinitions/tags"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2017-08-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/informationProtectionPolicies"
