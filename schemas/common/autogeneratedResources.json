@@ -19526,9 +19526,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.KeyVault.json#/resourceDefinitions/managedHSMs_privateEndpointConnections"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.KeyVault.json#/resourceDefinitions/vaults"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.KeyVault.json#/resourceDefinitions/vaults_accessPolicies"
         },
         {
