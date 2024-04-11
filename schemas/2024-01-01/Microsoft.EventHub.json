@@ -787,17 +787,6 @@
             }
           ],
           "description": "A value that indicates whether Scaling is Supported."
-        },
-        "upgradePreferences": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/UpgradePreferences"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Contains all settings for the cluster upgrade window."
         }
       },
       "description": "Event Hubs Cluster properties supplied in responses in List or Get operations."
@@ -1186,6 +1175,10 @@
             }
           ],
           "description": "Enumerates the possible values for the status of the Event Hub."
+        },
+        "userMetadata": {
+          "type": "string",
+          "description": "Gets and Sets Metadata of User."
         }
       },
       "description": "Properties supplied to the Create Or Update Event Hub operation."
@@ -2020,46 +2013,6 @@
         "type"
       ],
       "description": "Properties of the throttling policy"
-    },
-    "UpgradePreferences": {
-      "type": "object",
-      "properties": {
-        "startDayOfWeek": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Any"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Preferred day of the week in UTC time to begin an upgrade. If 'Any' is selected, upgrade will proceed at any given weekday."
-        },
-        "startHourOfDay": {
-          "oneOf": [
-            {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 23
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Preferred hour of the day in UTC time to begin an upgrade"
-        }
-      },
-      "description": "Contains all settings for the cluster upgrade window."
     },
     "UserAssignedIdentity": {
       "type": "object",
