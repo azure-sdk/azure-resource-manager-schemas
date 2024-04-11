@@ -23396,6 +23396,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-05-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.Network.FrontDoor.json#/resourceDefinitions/FrontDoorWebApplicationFirewallPolicies"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-05-01-preview/Microsoft.Network.NRP.json#/resourceDefinitions/applicationGateways"
         },
         {
