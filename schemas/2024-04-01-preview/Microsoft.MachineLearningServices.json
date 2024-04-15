@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2024-01-01-preview/Microsoft.MachineLearningServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2024-04-01-preview/Microsoft.MachineLearningServices.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.MachineLearningServices",
   "description": "Microsoft MachineLearningServices Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -102,7 +102,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -217,7 +217,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -274,7 +274,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -313,7 +313,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -370,7 +370,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -409,7 +409,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -458,7 +458,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -497,7 +497,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -554,7 +554,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -593,7 +593,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -649,7 +649,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -688,7 +688,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -847,7 +847,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -942,7 +942,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -1027,7 +1027,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1076,7 +1076,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1115,7 +1115,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1164,7 +1164,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1203,7 +1203,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -1291,7 +1291,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1316,6 +1316,22 @@
             }
           ]
         },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/workspaces_connections_deployments_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_connections_raiBlocklists_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_connections_raiPolicies_childResource"
+              }
+            ]
+          }
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -1331,13 +1347,202 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/connections"
     },
+    "workspaces_connections_deployments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the deployment resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EndpointDeploymentResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/connections/deployments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/connections/deployments"
+    },
+    "workspaces_connections_raiBlocklists": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the RaiBlocklist."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiBlocklistProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAI Custom Blocklist properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/workspaces_connections_raiBlocklists_raiBlocklistItems_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/connections/raiBlocklists"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/connections/raiBlocklists"
+    },
+    "workspaces_connections_raiBlocklists_raiBlocklistItems": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the RaiBlocklist Item"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiBlocklistItemProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAI Custom Blocklist Item properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/connections/raiBlocklists/raiBlocklistItems"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/connections/raiBlocklists/raiBlocklistItems"
+    },
+    "workspaces_connections_raiPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Rai Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure OpenAI Content Filters properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/connections/raiPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/connections/raiPolicies"
+    },
     "workspaces_data": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1386,7 +1591,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1425,7 +1630,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1464,7 +1669,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1487,6 +1692,9 @@
             "oneOf": [
               {
                 "$ref": "#/definitions/workspaces_endpoints_deployments_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_endpoints_raiPolicies_childResource"
               }
             ]
           }
@@ -1512,7 +1720,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1544,13 +1752,60 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/endpoints/deployments"
     },
+    "workspaces_endpoints_raiPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Rai Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure OpenAI Content Filters properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MachineLearningServices/workspaces/endpoints/raiPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/endpoints/raiPolicies"
+    },
     "workspaces_environments": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1599,7 +1854,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1638,7 +1893,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1687,7 +1942,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1726,7 +1981,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1775,7 +2030,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -1814,7 +2069,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -1920,7 +2175,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2005,7 +2260,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2098,7 +2353,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2137,7 +2392,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2176,7 +2431,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2214,7 +2469,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2262,7 +2517,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2301,7 +2556,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2396,7 +2651,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2480,7 +2735,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2527,7 +2782,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -2606,7 +2861,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -2645,7 +2900,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -5729,6 +5984,7 @@
                 "Updating",
                 "Succeeded",
                 "Deleting",
+                "Accepted",
                 "Canceled"
               ]
             },
@@ -5786,6 +6042,7 @@
                 "Updating",
                 "Succeeded",
                 "Deleting",
+                "Accepted",
                 "Canceled"
               ]
             },
@@ -5794,6 +6051,17 @@
             }
           ],
           "description": "Read-only provision state status property."
+        },
+        "shouldCreateAiServicesEndpoint": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether the proxy (non-byo) endpoint is a regular endpoint or a OneKeyV2 AI services account endpoint."
         }
       }
     },
@@ -9996,7 +10264,7 @@
           "type": "string",
           "default": "PT0.5S",
           "format": "duration",
-          "description": "(Deprecated for Managed Online Endpoints) The maximum amount of time a request will stay in the queue in ISO 8601 format.\r\nDefaults to 500ms.\r\n(Now increase `request_timeout_ms` to account for any networking/queue delays)"
+          "description": "The maximum amount of time a request will stay in the queue in ISO 8601 format.\r\nDefaults to 500ms."
         },
         "requestTimeout": {
           "type": "string",
@@ -10055,7 +10323,8 @@
               "enum": [
                 "Required",
                 "Recommended",
-                "UserDefined"
+                "UserDefined",
+                "Dependency"
               ]
             },
             {
@@ -10618,6 +10887,197 @@
         }
       }
     },
+    "RaiBlocklistConfig": {
+      "type": "object",
+      "properties": {
+        "blocking": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If blocking would occur."
+        },
+        "blocklistName": {
+          "type": "string",
+          "description": "Name of ContentFilter."
+        }
+      },
+      "description": "Azure OpenAI blocklist config."
+    },
+    "RaiBlocklistItemProperties": {
+      "type": "object",
+      "properties": {
+        "isRegex": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the pattern is a regex pattern."
+        },
+        "pattern": {
+          "type": "string",
+          "description": "Pattern to match against."
+        }
+      },
+      "description": "RAI Custom Blocklist Item properties."
+    },
+    "RaiBlocklistProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the block list."
+        }
+      },
+      "description": "RAI Custom Blocklist properties."
+    },
+    "RaiPolicyContentFilter": {
+      "type": "object",
+      "properties": {
+        "allowedContentLevel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Low",
+                "Medium",
+                "High"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "blocking": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If blocking would occur."
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the ContentFilter is enabled."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of ContentFilter."
+        },
+        "source": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Prompt",
+                "Completion"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Azure OpenAI Content Filter."
+    },
+    "RaiPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "basePolicyName": {
+          "type": "string",
+          "description": "Name of the base Content Filters."
+        },
+        "completionBlocklists": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RaiBlocklistConfig"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "contentFilters": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RaiPolicyContentFilter"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "mode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Deferred",
+                "Blocking"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "promptBlocklists": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RaiBlocklistConfig"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "UserManaged",
+                "SystemManaged"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Azure OpenAI Content Filters properties."
+    },
     "RandomSamplingAlgorithm": {
       "type": "object",
       "properties": {
@@ -10871,7 +11331,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -10918,7 +11378,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -10957,7 +11417,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11004,7 +11464,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11043,7 +11503,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11082,7 +11542,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11121,7 +11581,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11168,7 +11628,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11207,7 +11667,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -11253,7 +11713,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -13507,7 +13967,11 @@
                 "WebTable",
                 "Xero",
                 "Zoho",
-                "GenericContainerRegistry"
+                "GenericContainerRegistry",
+                "OpenAI",
+                "Serp",
+                "BingLLMSearch",
+                "Serverless"
               ]
             },
             {
@@ -13531,8 +13995,19 @@
           ]
         },
         "metadata": {
-          "type": "object",
-          "properties": {}
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Store user metadata for this connection"
         },
         "sharedUserList": {
           "oneOf": [
@@ -13691,7 +14166,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Flag to tell if SoftwareBillOfMaterial should be enabled for this workspace"
+          "description": "Flag to tell if SoftwareBillOfMaterials should be enabled for this workspace"
         },
         "encryption": {
           "oneOf": [
@@ -13906,7 +14381,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -13991,7 +14466,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -14076,7 +14551,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14115,7 +14590,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14154,7 +14629,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14193,7 +14668,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14232,7 +14707,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -14320,7 +14795,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14360,13 +14835,192 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/connections"
     },
+    "workspaces_connections_deployments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the deployment resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EndpointDeploymentResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "deployments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/connections/deployments"
+    },
+    "workspaces_connections_raiBlocklists_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the RaiBlocklist."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiBlocklistProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAI Custom Blocklist properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "raiBlocklists"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/connections/raiBlocklists"
+    },
+    "workspaces_connections_raiBlocklists_raiBlocklistItems_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the RaiBlocklist Item"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiBlocklistItemProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAI Custom Blocklist Item properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "raiBlocklistItems"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/connections/raiBlocklists/raiBlocklistItems"
+    },
+    "workspaces_connections_raiPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Rai Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure OpenAI Content Filters properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "raiPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/connections/raiPolicies"
+    },
     "workspaces_datastores_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14405,7 +15059,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14444,7 +15098,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14483,7 +15137,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14521,7 +15175,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14553,13 +15207,60 @@
       ],
       "description": "Microsoft.MachineLearningServices/workspaces/endpoints/deployments"
     },
+    "workspaces_endpoints_raiPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Rai Policy."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure OpenAI Content Filters properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "raiPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MachineLearningServices/workspaces/endpoints/raiPolicies"
+    },
     "workspaces_environments_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14598,7 +15299,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14637,7 +15338,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14676,7 +15377,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14715,7 +15416,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14754,7 +15455,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -14793,7 +15494,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -14886,7 +15587,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -14971,7 +15672,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -15064,7 +15765,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15103,7 +15804,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15142,7 +15843,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15180,7 +15881,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15218,7 +15919,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15257,7 +15958,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -15342,7 +16043,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -15426,7 +16127,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15473,7 +16174,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
@@ -15552,7 +16253,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "name": {
@@ -15591,7 +16292,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01-preview"
+            "2024-04-01-preview"
           ]
         },
         "identity": {
