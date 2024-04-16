@@ -41006,6 +41006,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.SqlVirtualMachine.json#/resourceDefinitions/sqlVirtualMachines"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01/Microsoft.SqlVirtualMachine.json#/resourceDefinitions/sqlVirtualMachineGroups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01/Microsoft.SqlVirtualMachine.json#/resourceDefinitions/sqlVirtualMachineGroups_availabilityGroupListeners"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-10-01/Microsoft.SqlVirtualMachine.json#/resourceDefinitions/sqlVirtualMachines"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.StandbyPool.json#/resourceDefinitions/standbyContainerGroupPools"
         },
         {
