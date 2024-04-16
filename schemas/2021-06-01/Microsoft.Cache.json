@@ -447,6 +447,10 @@
           "type": "string",
           "description": "Value in megabytes reserved for non-cache usage per shard e.g. failover."
         },
+        "notify-keyspace-events": {
+          "type": "string",
+          "description": "The keyspace events which should be monitored."
+        },
         "rdb-backup-enabled": {
           "type": "string",
           "description": "Specifies whether the rdb backup is enabled"
