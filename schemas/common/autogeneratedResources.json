@@ -10526,15 +10526,6 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-02-02-preview/Microsoft.ContainerService.Fleet.json#/resourceDefinitions/fleets_updateStrategies"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.ContainerStorage.json#/resourceDefinitions/pools"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.ContainerStorage.json#/resourceDefinitions/pools_volumes"
-        },
-        {
-          "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.ContainerStorage.json#/resourceDefinitions/pools_volumeSnapshots"
-        },
-        {
           "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.ContainerStorage.json#/resourceDefinitions/pools"
         },
         {
