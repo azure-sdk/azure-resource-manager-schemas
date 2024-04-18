@@ -1679,7 +1679,7 @@
         },
         "deploymentEnvironment": {
           "type": "string",
-          "default": "FallbackDeploymentEnvironment",
+          "default": "CommercialDeployment",
           "description": "Deployment environment for Microsoft Teams channel calls"
         },
         "enableCalling": {
