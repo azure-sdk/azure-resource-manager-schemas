@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.EventHub.json#",
+  "id": "https://schema.management.azure.com/schemas/2024-05-01-preview/Microsoft.EventHub.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Microsoft.EventHub",
   "description": "Microsoft EventHub Resource Types",
@@ -10,7 +10,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "location": {
@@ -81,7 +81,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "identity": {
@@ -199,7 +199,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -239,7 +239,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -279,7 +279,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -320,7 +320,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -374,7 +374,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -414,7 +414,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -455,7 +455,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -501,7 +501,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -540,7 +540,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -966,6 +966,17 @@
           ],
           "description": "Properties to configure Encryption"
         },
+        "geoDataReplication": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GeoDataReplicationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "GeoDR Replication properties"
+        },
         "isAutoInflateEnabled": {
           "oneOf": [
             {
@@ -1131,6 +1142,21 @@
           ],
           "description": "Number of days to retain the events for this Event Hub, value should be 1 to 7 days"
         },
+        "messageTimestampType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AppendTime",
+                "CreateTime"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later."
+        },
         "partitionCount": {
           "oneOf": [
             {
@@ -1182,6 +1208,37 @@
         }
       },
       "description": "Properties supplied to the Create Or Update Event Hub operation."
+    },
+    "GeoDataReplicationProperties": {
+      "type": "object",
+      "properties": {
+        "locations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceReplicaLocation"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A list of regions where replicas of the namespace are maintained."
+        },
+        "maxReplicationLagDurationInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The maximum acceptable lag for data replication operations from the primary replica to a quorum of secondary replicas.  When the lag exceeds the configured amount, operations on the primary replica will be failed. The allowed values are 0 and 5 minutes to 1 day."
+        }
+      },
+      "description": "GeoDR Replication properties"
     },
     "Identity": {
       "type": "object",
@@ -1249,13 +1306,42 @@
       },
       "description": "Properties to configure keyVault Properties"
     },
+    "NamespaceReplicaLocation": {
+      "type": "object",
+      "properties": {
+        "clusterArmId": {
+          "type": "string",
+          "description": "Optional property that denotes the ARM ID of the Cluster. This is required, if a namespace replica should be placed in a Dedicated Event Hub Cluster"
+        },
+        "locationName": {
+          "type": "string",
+          "description": "Azure regions where a replica of the namespace is maintained"
+        },
+        "roleType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Primary",
+                "Secondary"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "GeoDR Role Types."
+        }
+      },
+      "description": "Namespace replication properties"
+    },
     "namespaces_applicationGroups_childResource": {
       "type": "object",
       "properties": {
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1295,7 +1381,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1335,7 +1421,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1376,7 +1462,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1416,7 +1502,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1457,7 +1543,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1498,7 +1584,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1539,7 +1625,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1578,7 +1664,7 @@
         "apiVersion": {
           "type": "string",
           "enum": [
-            "2024-01-01"
+            "2024-05-01-preview"
           ]
         },
         "name": {
@@ -1823,7 +1909,8 @@
               "type": "string",
               "enum": [
                 "Delete",
-                "Compact"
+                "Compact",
+                "Delete,Compact"
               ]
             },
             {
@@ -1831,6 +1918,17 @@
             }
           ],
           "description": "Enumerates the possible values for cleanup policy."
+        },
+        "minCompactionLagInMins": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The minimum time a message will remain ineligible for compaction in the log. Only applicable for logs that are being compacted."
         },
         "retentionTimeInHours": {
           "oneOf": [
@@ -1841,7 +1939,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue "
+          "description": "Number of hours to retain the events for this Event Hub. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue "
         },
         "tombstoneRetentionTimeInHours": {
           "oneOf": [
@@ -1896,7 +1994,9 @@
               "type": "string",
               "enum": [
                 "Unknown",
-                "Avro"
+                "Avro",
+                "ProtoBuf",
+                "Json"
               ]
             },
             {
