@@ -198,13 +198,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedIdentityCredential"
+              "$ref": "#/definitions/Credential"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Managed identity credential."
+          "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource."
         },
         "type": {
           "type": "string",
@@ -4402,7 +4402,8 @@
             {
               "type": "object",
               "additionalProperties": {
-                "type": "string"
+                "type": "object",
+                "properties": {}
               },
               "properties": {}
             },
@@ -8689,6 +8690,55 @@
       ],
       "description": "Couchbase server dataset."
     },
+    "Credential": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ManagedIdentityCredential"
+        },
+        {
+          "$ref": "#/definitions/ServicePrincipalCredential"
+        }
+      ],
+      "properties": {
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Unmatched properties from the message are deserialized this collection"
+        },
+        "annotations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of tags that can be used for describing the Credential."
+        },
+        "description": {
+          "type": "string",
+          "description": "Credential description."
+        }
+      },
+      "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource."
+    },
     "CredentialReference": {
       "type": "object",
       "properties": {
@@ -12839,13 +12889,13 @@
         "properties": {
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedIdentityCredential"
+              "$ref": "#/definitions/Credential"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Managed identity credential."
+          "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource."
         },
         "type": {
           "type": "string",
@@ -19793,40 +19843,11 @@
     "ManagedIdentityCredential": {
       "type": "object",
       "properties": {
-        "additionalProperties": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "properties": {}
-              },
-              "properties": {}
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Unmatched properties from the message are deserialized this collection"
-        },
-        "annotations": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {}
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "List of tags that can be used for describing the Credential."
-        },
-        "description": {
+        "type": {
           "type": "string",
-          "description": "Credential description."
+          "enum": [
+            "ManagedIdentity"
+          ]
         },
         "typeProperties": {
           "oneOf": [
@@ -19840,6 +19861,9 @@
           "description": "Managed identity type properties."
         }
       },
+      "required": [
+        "type"
+      ],
       "description": "Managed identity credential."
     },
     "ManagedIdentityTypeProperties": {
@@ -28023,19 +28047,9 @@
           "description": "The query text. Type: string (or Expression with resultType string)."
         },
         "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Query",
-                "NonQuery"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The type of the query. Type: string."
+          "type": "object",
+          "properties": {},
+          "description": "The type of the query. Please refer to the ScriptType for valid options. Type: string (or Expression with resultType string)."
         }
       },
       "required": [
@@ -28577,6 +28591,60 @@
         "type"
       ],
       "description": "A copy activity ServiceNowV2 server source."
+    },
+    "ServicePrincipalCredential": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ServicePrincipal"
+          ]
+        },
+        "typeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServicePrincipalCredentialTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Service Principal credential type properties."
+        }
+      },
+      "required": [
+        "type",
+        "typeProperties"
+      ],
+      "description": "Service principal credential."
+    },
+    "ServicePrincipalCredentialTypeProperties": {
+      "type": "object",
+      "properties": {
+        "servicePrincipalId": {
+          "type": "object",
+          "properties": {},
+          "description": "The app ID of the service principal used to authenticate"
+        },
+        "servicePrincipalKey": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureKeyVaultSecretReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Key Vault secret reference."
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {},
+          "description": "The ID of the tenant to which the service principal belongs"
+        }
+      },
+      "description": "Service Principal credential type properties."
     },
     "SetVariableActivity": {
       "type": "object",
@@ -33678,7 +33746,8 @@
             {
               "type": "object",
               "additionalProperties": {
-                "type": "string"
+                "type": "object",
+                "properties": {}
               },
               "properties": {}
             },
@@ -33896,7 +33965,8 @@
             {
               "type": "object",
               "additionalProperties": {
-                "type": "string"
+                "type": "object",
+                "properties": {}
               },
               "properties": {}
             },
