@@ -4979,6 +4979,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-06-30-preview/Microsoft.Automanage.json#/resourceDefinitions/accounts"
         },
         {
@@ -36153,6 +36156,9 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Resources.json#/resourceDefinitions/deployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Resources.json#/resourceDefinitions/deploymentStacks"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Resources.json#/unknown_resourceDefinitions/tags"
