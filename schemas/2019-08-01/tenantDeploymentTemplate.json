@@ -617,72 +617,6 @@
                   "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2016-12-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2017-06-01-preview/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-03-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-03-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-05-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-05-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-01-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-01-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-06-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-06-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-09-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-09-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-09-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-09-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policyDefinitions_versions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/tenant_resourceDefinitions/policySetDefinitions_versions"
-                },
-                {
                   "$ref": "https://schema.management.azure.com/schemas/2018-11-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles"
                 },
                 {
@@ -1035,39 +969,6 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2020-09-01-preview/Microsoft.Portal.json#/tenant_resourceDefinitions/tenantConfigurations"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-07-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-08-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-10-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-06-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-08-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-01-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-04-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Resources.json#/unknown_resourceDefinitions/deployments"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2017-11-01-preview/Microsoft.Subscription.json#/tenant_resourceDefinitions/subscriptionDefinitions"
