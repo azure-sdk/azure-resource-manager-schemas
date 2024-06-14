@@ -1,0 +1,159 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.HybridOnboarding.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.HybridOnboarding",
+  "description": "Microsoft HybridOnboarding Resource Types",
+  "resourceDefinitions": {
+    "extensionManagers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed Identity of extension manager resource"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "minLength": 1,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Extension Manager resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtensionManagerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Extension Manager resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.HybridOnboarding/extensionManagers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "identity",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.HybridOnboarding/extensionManagers"
+    }
+  },
+  "definitions": {
+    "ExtensionManagerProperties": {
+      "type": "object",
+      "properties": {
+        "extendedLocation": {
+          "type": "string",
+          "description": "ARM ID of the custom location resource deployed on the Onboarding Appliance"
+        },
+        "scenarioProfile": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScenarioProfileObject"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scenario profile of the extension manager resource."
+        }
+      },
+      "required": [
+        "extendedLocation"
+      ],
+      "description": "The properties of Extension Manager resource"
+    },
+    "ManagedIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of managed service identity"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed Identity of extension manager resource"
+    },
+    "ScenarioProfileObject": {
+      "type": "object",
+      "properties": {
+        "infrastructure": {
+          "type": "string",
+          "description": "Infrastructure associated with extension manager resource."
+        },
+        "scenario": {
+          "type": "string",
+          "description": "Scenario associated with extension manager resource."
+        }
+      },
+      "required": [
+        "infrastructure",
+        "scenario"
+      ],
+      "description": "Scenario profile object of the extension manager resource."
+    }
+  }
+}
