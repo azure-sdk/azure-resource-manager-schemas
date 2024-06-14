@@ -19700,6 +19700,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-12-10-preview/Microsoft.HardwareSecurityModules.json#/resourceDefinitions/cloudHsmClusters_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-30/Microsoft.HardwareSecurityModules.json#/resourceDefinitions/cloudHsmClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-30/Microsoft.HardwareSecurityModules.json#/resourceDefinitions/cloudHsmClusters_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-30/Microsoft.HardwareSecurityModules.json#/resourceDefinitions/dedicatedHSMs"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-03-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters"
         },
         {
