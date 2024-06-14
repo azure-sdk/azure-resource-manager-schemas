@@ -312,11 +312,22 @@
         },
         "connectionString": {
           "type": "string",
-          "description": "The target Event Hub connection string (it will not be included in any response)."
+          "description": "The target Event Hub connection string (it will not be included in any response). Should be provided only when isTrustedServiceEnabled is set to false."
         },
         "eventHubResourceId": {
           "type": "string",
           "description": "The target Event Hub Azure Resource ID."
+        },
+        "isTrustedServiceEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether trusted service authentication is enabled."
         }
       },
       "required": [
