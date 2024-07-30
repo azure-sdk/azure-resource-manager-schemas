@@ -1708,6 +1708,12 @@
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Oracle.Database.json#/subscription_resourceDefinitions/oracleSubscriptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-06-01/Oracle.Database.json#/subscription_resourceDefinitions/oracleSubscriptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Oracle.Database.json#/subscription_resourceDefinitions/oracleSubscriptions"
             }
           ]
         }

@@ -274,6 +274,7 @@
           "description": "Size of the batch.",
           "oneOf": [
             {
+              "default": 8192,
               "maximum": 100000,
               "minimum": 10,
               "type": "integer"
@@ -287,6 +288,7 @@
           "description": "Timeout in milliseconds.",
           "oneOf": [
             {
+              "default": 200,
               "maximum": 60000,
               "minimum": 10,
               "type": "integer"
@@ -334,6 +336,7 @@
           "description": "Size of the queue for log batches.",
           "oneOf": [
             {
+              "default": 100,
               "type": "integer"
             },
             {
@@ -345,6 +348,7 @@
           "description": "Number of parallel workers processing the log queues.",
           "oneOf": [
             {
+              "default": 4,
               "type": "integer"
             },
             {
@@ -1113,6 +1117,7 @@
           "description": "Max read queue length.",
           "oneOf": [
             {
+              "default": 1000,
               "maximum": 100000,
               "minimum": 100,
               "type": "integer"

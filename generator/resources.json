@@ -3492,7 +3492,8 @@
     "2022-12-01",
     "2023-05-01",
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/accounts/commitmentPlans": [
     "2021-10-01",
@@ -3501,10 +3502,12 @@
     "2022-12-01",
     "2023-05-01",
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/accounts/defenderForAISettings": [
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/accounts/deployments": [
     "2021-10-01",
@@ -3513,11 +3516,13 @@
     "2022-12-01",
     "2023-05-01",
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/accounts/encryptionScopes": [
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/accounts/privateEndpointConnections": [
     "2017-04-18",
@@ -3528,31 +3533,37 @@
     "2022-12-01",
     "2023-05-01",
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/accounts/raiBlocklists": [
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems": [
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/accounts/raiPolicies": [
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/commitmentPlans": [
     "2022-12-01",
     "2023-05-01",
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.CognitiveServices/commitmentPlans/accountAssociations": [
     "2022-12-01",
     "2023-05-01",
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Microsoft.Communication/communicationServices": [
     "2020-08-20",
@@ -3667,7 +3678,8 @@
     "2022-07-02",
     "2023-01-02",
     "2023-04-02",
-    "2023-10-02"
+    "2023-10-02",
+    "2024-03-02"
   ],
   "Microsoft.Compute/diskAccesses/privateEndpointConnections": [
     "2020-09-30",
@@ -3679,7 +3691,8 @@
     "2022-07-02",
     "2023-01-02",
     "2023-04-02",
-    "2023-10-02"
+    "2023-10-02",
+    "2024-03-02"
   ],
   "Microsoft.Compute/diskEncryptionSets": [
     "2019-07-01",
@@ -3695,7 +3708,8 @@
     "2022-07-02",
     "2023-01-02",
     "2023-04-02",
-    "2023-10-02"
+    "2023-10-02",
+    "2024-03-02"
   ],
   "Microsoft.Compute/disks": [
     "2016-04-30-preview",
@@ -3717,7 +3731,8 @@
     "2022-07-02",
     "2023-01-02",
     "2023-04-02",
-    "2023-10-02"
+    "2023-10-02",
+    "2024-03-02"
   ],
   "Microsoft.Compute/galleries": [
     "2018-06-01",
@@ -3909,7 +3924,8 @@
     "2022-07-02",
     "2023-01-02",
     "2023-04-02",
-    "2023-10-02"
+    "2023-10-02",
+    "2024-03-02"
   ],
   "Microsoft.Compute/sshPublicKeys": [
     "2019-12-01",
@@ -4472,7 +4488,8 @@
     "2024-02-02-preview",
     "2024-03-02-preview",
     "2024-04-02-preview",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-05-02-preview"
   ],
   "Microsoft.ContainerService/managedClusters/agentPools": [
     "2019-02-01",
@@ -4546,11 +4563,13 @@
     "2024-02-02-preview",
     "2024-03-02-preview",
     "2024-04-02-preview",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-05-02-preview"
   ],
   "Microsoft.ContainerService/managedClusters/loadBalancers": [
     "2024-03-02-preview",
-    "2024-04-02-preview"
+    "2024-04-02-preview",
+    "2024-05-02-preview"
   ],
   "Microsoft.ContainerService/managedClusters/maintenanceConfigurations": [
     "2020-12-01",
@@ -4610,7 +4629,8 @@
     "2024-02-02-preview",
     "2024-03-02-preview",
     "2024-04-02-preview",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-05-02-preview"
   ],
   "Microsoft.ContainerService/managedClusters/privateEndpointConnections": [
     "2020-06-01",
@@ -4674,7 +4694,8 @@
     "2024-02-02-preview",
     "2024-03-02-preview",
     "2024-04-02-preview",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-05-02-preview"
   ],
   "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings": [
     "2022-04-02-preview",
@@ -4706,7 +4727,8 @@
     "2024-02-02-preview",
     "2024-03-02-preview",
     "2024-04-02-preview",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-05-02-preview"
   ],
   "Microsoft.ContainerService/managedclustersnapshots": [
     "2022-02-02-preview",
@@ -4734,7 +4756,8 @@
     "2024-01-02-preview",
     "2024-02-02-preview",
     "2024-03-02-preview",
-    "2024-04-02-preview"
+    "2024-04-02-preview",
+    "2024-05-02-preview"
   ],
   "Microsoft.ContainerService/openShiftManagedClusters": [
     "2018-09-30-preview",
@@ -4795,7 +4818,8 @@
     "2024-02-02-preview",
     "2024-03-02-preview",
     "2024-04-02-preview",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-05-02-preview"
   ],
   "Microsoft.ContainerStorage/pools": [
     "2023-07-01-preview"
@@ -4932,7 +4956,8 @@
     "2022-12-01",
     "2023-03-01-preview",
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
   ],
   "Microsoft.DBForPostgreSql/flexibleServers/databases": [
     "2020-11-05-preview",
@@ -4943,7 +4968,8 @@
     "2022-12-01",
     "2023-03-01-preview",
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
   ],
   "Microsoft.DBForPostgreSql/flexibleServers/firewallRules": [
     "2020-02-14-preview",
@@ -4954,7 +4980,8 @@
     "2022-12-01",
     "2023-03-01-preview",
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
   ],
   "Microsoft.DBforMariaDB/servers": [
     "2018-06-01",
@@ -5058,11 +5085,16 @@
     "2022-12-01",
     "2023-03-01-preview",
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
   ],
   "Microsoft.DBforPostgreSQL/flexibleServers/advancedThreatProtectionSettings": [
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
+  ],
+  "Microsoft.DBforPostgreSQL/flexibleServers/backups": [
+    "2024-03-01-preview"
   ],
   "Microsoft.DBforPostgreSQL/flexibleServers/configurations": [
     "2021-06-01",
@@ -5072,21 +5104,25 @@
     "2022-12-01",
     "2023-03-01-preview",
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
   ],
   "Microsoft.DBforPostgreSQL/flexibleServers/migrations": [
     "2022-05-01-preview",
     "2023-03-01-preview",
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
   ],
   "Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections": [
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
   ],
   "Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints": [
     "2023-06-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-03-01-preview"
   ],
   "Microsoft.DBforPostgreSQL/serverGroupsv2": [
     "2022-11-08",
@@ -8419,19 +8455,22 @@
     "2018-06-01-preview",
     "2021-06-01",
     "2023-04-15-preview",
-    "2023-08-15-preview"
+    "2023-08-15-preview",
+    "2024-08-01-preview"
   ],
   "Microsoft.HDInsight/clusters/applications": [
     "2015-03-01-preview",
     "2018-06-01-preview",
     "2021-06-01",
     "2023-04-15-preview",
-    "2023-08-15-preview"
+    "2023-08-15-preview",
+    "2024-08-01-preview"
   ],
   "Microsoft.HDInsight/clusters/privateEndpointConnections": [
     "2021-06-01",
     "2023-04-15-preview",
-    "2023-08-15-preview"
+    "2023-08-15-preview",
+    "2024-08-01-preview"
   ],
   "Microsoft.HanaOnAzure/hanaInstances": [
     "2017-11-03-preview"
@@ -8462,7 +8501,14 @@
     "2021-06-10",
     "2021-08-24",
     "2022-08-08",
-    "2023-05-01"
+    "2023-05-01",
+    "2024-02-01"
+  ],
+  "Microsoft.HealthDataAIServices/deidServices": [
+    "2024-02-28-preview"
+  ],
+  "Microsoft.HealthDataAIServices/deidServices/privateEndpointConnections": [
+    "2024-02-28-preview"
   ],
   "Microsoft.HealthcareApis/services": [
     "2018-08-20-preview",
@@ -8977,7 +9023,8 @@
     "2024-01-01",
     "2024-02-01-preview",
     "2024-06-01-preview",
-    "2024-07-01-preview"
+    "2024-07-01-preview",
+    "2024-07-15-preview"
   ],
   "Microsoft.KubernetesConfiguration/privateLinkScopes": [
     "2022-04-02-preview"
@@ -9321,7 +9368,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/codes": [
     "2022-10-01-preview",
@@ -9334,7 +9382,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/codes/versions": [
     "2022-10-01-preview",
@@ -9347,7 +9396,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/components": [
     "2022-10-01-preview",
@@ -9360,7 +9410,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/components/versions": [
     "2022-10-01-preview",
@@ -9373,7 +9424,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/data": [
     "2023-02-01-preview",
@@ -9384,7 +9436,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/data/versions": [
     "2023-02-01-preview",
@@ -9395,7 +9448,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/environments": [
     "2022-10-01-preview",
@@ -9408,7 +9462,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/environments/versions": [
     "2022-10-01-preview",
@@ -9421,7 +9476,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/models": [
     "2022-10-01-preview",
@@ -9434,7 +9490,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/registries/models/versions": [
     "2022-10-01-preview",
@@ -9447,7 +9504,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces": [
     "2018-03-01-preview",
@@ -9483,7 +9541,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/batchEndpoints": [
     "2021-03-01-preview",
@@ -9501,7 +9560,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments": [
     "2021-03-01-preview",
@@ -9519,7 +9579,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/codes": [
     "2021-03-01-preview",
@@ -9537,7 +9598,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/codes/versions": [
     "2021-03-01-preview",
@@ -9555,7 +9617,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/components": [
     "2022-02-01-preview",
@@ -9572,7 +9635,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/components/versions": [
     "2022-02-01-preview",
@@ -9589,7 +9653,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/computes": [
     "2018-03-01-preview",
@@ -9625,7 +9690,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/connections": [
     "2020-06-01",
@@ -9650,19 +9716,24 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/connections/deployments": [
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/connections/raiBlocklists": [
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/connections/raiBlocklists/raiBlocklistItems": [
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/connections/raiPolicies": [
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/data": [
     "2021-03-01-preview",
@@ -9680,7 +9751,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/data/versions": [
     "2021-03-01-preview",
@@ -9698,7 +9770,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/datasets": [
     "2020-05-01-preview"
@@ -9720,18 +9793,22 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/endpoints": [
     "2024-01-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/endpoints/deployments": [
     "2024-01-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/endpoints/raiPolicies": [
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/environments": [
     "2021-03-01-preview",
@@ -9749,7 +9826,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/environments/versions": [
     "2021-03-01-preview",
@@ -9767,7 +9845,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/featuresets": [
     "2023-02-01-preview",
@@ -9777,7 +9856,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/featuresets/versions": [
     "2023-02-01-preview",
@@ -9787,7 +9867,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/featurestoreEntities": [
     "2023-02-01-preview",
@@ -9797,7 +9878,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/featurestoreEntities/versions": [
     "2023-02-01-preview",
@@ -9807,7 +9889,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/inferencePools": [
     "2023-08-01-preview",
@@ -9840,7 +9923,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/labelingJobs": [
     "2020-09-01-preview",
@@ -9865,7 +9949,8 @@
   "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions": [
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/models": [
     "2021-03-01-preview",
@@ -9883,7 +9968,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/models/versions": [
     "2021-03-01-preview",
@@ -9901,7 +9987,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/onlineEndpoints": [
     "2021-03-01-preview",
@@ -9919,7 +10006,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments": [
     "2021-03-01-preview",
@@ -9937,7 +10025,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/outboundRules": [
     "2023-04-01-preview",
@@ -9946,7 +10035,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections": [
     "2020-01-01",
@@ -9977,7 +10067,8 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/schedules": [
     "2022-06-01-preview",
@@ -9992,13 +10083,15 @@
     "2023-10-01",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints": [
     "2023-08-01-preview",
     "2024-01-01-preview",
     "2024-04-01",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-07-01-preview"
   ],
   "Microsoft.MachineLearningServices/workspaces/services": [
     "2020-05-01-preview",
@@ -10746,7 +10839,9 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/backupPolicies": [
     "2020-05-01",
@@ -10773,21 +10868,27 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/backupVaults": [
     "2022-11-01-preview",
     "2023-05-01-preview",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/backupVaults/backups": [
     "2022-11-01-preview",
     "2023-05-01-preview",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/capacityPools": [
     "2017-08-15",
@@ -10823,7 +10924,9 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/capacityPools/volumes": [
     "2017-08-15",
@@ -10859,7 +10962,9 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups": [
     "2020-05-01",
@@ -10915,7 +11020,9 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes": [
     "2021-10-01",
@@ -10930,7 +11037,9 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/volumeQuotaRules": [
     "2022-01-01",
@@ -10944,7 +11053,9 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/snapshotPolicies": [
     "2020-05-01",
@@ -10971,7 +11082,9 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.NetApp/netAppAccounts/volumeGroups": [
     "2021-08-01",
@@ -10987,7 +11100,9 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01",
+    "2024-03-01-preview"
   ],
   "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies": [
     "2018-12-01",
@@ -15892,7 +16007,8 @@
     "2018-09-01-preview",
     "2019-04-01",
     "2021-03-01",
-    "2022-10-01"
+    "2022-10-01",
+    "2024-04-01"
   ],
   "Microsoft.Resources/deploymentScripts": [
     "2019-10-01-preview",
@@ -20249,27 +20365,39 @@
   ],
   "Oracle.Database/autonomousDatabases": [
     "2023-09-01",
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2024-06-01",
+    "2024-06-01-preview"
   ],
   "Oracle.Database/autonomousDatabases/autonomousDatabaseBackups": [
     "2023-09-01",
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2024-06-01",
+    "2024-06-01-preview"
   ],
   "Oracle.Database/cloudExadataInfrastructures": [
     "2023-09-01",
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2024-06-01",
+    "2024-06-01-preview"
   ],
   "Oracle.Database/cloudVmClusters": [
     "2023-09-01",
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2024-06-01",
+    "2024-06-01-preview"
   ],
   "Oracle.Database/cloudVmClusters/virtualNetworkAddresses": [
     "2023-09-01",
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2024-06-01",
+    "2024-06-01-preview"
   ],
   "Oracle.Database/oracleSubscriptions": [
     "2023-09-01",
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2024-06-01",
+    "2024-06-01-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/firewalls": [
     "2022-08-29",

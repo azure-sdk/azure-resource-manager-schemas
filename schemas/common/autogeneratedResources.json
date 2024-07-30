@@ -7982,6 +7982,39 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-04-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/commitmentPlans_accountAssociations"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts_commitmentPlans"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts_defenderForAISettings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts_deployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts_encryptionScopes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts_raiBlocklists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts_raiBlocklists_raiBlocklistItems"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/accounts_raiPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/commitmentPlans"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.CognitiveServices.json#/resourceDefinitions/commitmentPlans_accountAssociations"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-08-20/Microsoft.Communication.json#/resourceDefinitions/communicationServices"
         },
         {
@@ -9393,6 +9426,21 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Compute.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-02/Microsoft.Compute.json#/resourceDefinitions/diskAccesses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-02/Microsoft.Compute.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-02/Microsoft.Compute.json#/resourceDefinitions/diskEncryptionSets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-02/Microsoft.Compute.json#/resourceDefinitions/disks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-02/Microsoft.Compute.json#/resourceDefinitions/snapshots"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.Confluent.json#/resourceDefinitions/organizations"
@@ -11148,6 +11196,30 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.ContainerService.Aks.json#/resourceDefinitions/snapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_agentPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_loadBalancers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_maintenanceConfigurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_trustedAccessRoleBindings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedclustersnapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-05-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/snapshots"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-06-02-preview/Microsoft.ContainerService.Fleet.json#/resourceDefinitions/fleets"
@@ -13440,6 +13512,36 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_virtualendpoints"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_administrators"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_advancedThreatProtectionSettings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_backups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_configurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_databases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_firewallRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_migrations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/flexibleServers_virtualendpoints"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2020-08-08-preview/Microsoft.DelegatedNetwork.json#/resourceDefinitions/controller"
@@ -20036,6 +20138,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-08-15-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_privateEndpointConnections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.HDInsight.OnAks.json#/resourceDefinitions/clusterpools"
         },
         {
@@ -20082,6 +20193,9 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.HealthBot.json#/resourceDefinitions/healthBots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-01/Microsoft.HealthBot.json#/resourceDefinitions/healthBots"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2018-08-20-preview/Microsoft.HealthcareApis.json#/resourceDefinitions/services"
@@ -20415,6 +20529,12 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-03-31/Microsoft.HealthcareApis.json#/resourceDefinitions/workspaces_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-28-preview/Microsoft.HealthDataAIServices.json#/resourceDefinitions/deidServices"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-02-28-preview/Microsoft.HealthDataAIServices.json#/resourceDefinitions/deidServices_privateEndpointConnections"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01-preview/Microsoft.HybridCloud.json#/resourceDefinitions/cloudConnections"
@@ -21123,6 +21243,9 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.Kubernetes.json#/resourceDefinitions/connectedClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-15-preview/Microsoft.Kubernetes.json#/resourceDefinitions/connectedClusters"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-04-02-preview/Microsoft.KubernetesConfiguration.json#/resourceDefinitions/privateLinkScopes"
@@ -23471,6 +23594,144 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-04-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_serverlessEndpoints"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_codes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_codes_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_components"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_components_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_data"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_data_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_environments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_environments_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_models"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/registries_models_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_batchEndpoints"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_batchEndpoints_deployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_codes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_codes_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_components"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_components_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_computes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_connections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_connections_deployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_connections_raiBlocklists"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_connections_raiBlocklists_raiBlocklistItems"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_connections_raiPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_data"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_data_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_datastores"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_endpoints"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_endpoints_deployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_endpoints_raiPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_environments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_environments_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_featuresets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_featuresets_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_featurestoreEntities"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_featurestoreEntities_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_jobs"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_marketplaceSubscriptions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_models"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_models_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_onlineEndpoints"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_onlineEndpoints_deployments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_outboundRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_schedules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.MachineLearningServices.json#/resourceDefinitions/workspaces_serverlessEndpoints"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-06-01-preview/Microsoft.Maintenance.json#/resourceDefinitions/maintenanceConfigurations"
         },
         {
@@ -25383,6 +25644,72 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_volumeGroups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupVaults"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupVaults_backups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_snapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_subvolumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_volumeQuotaRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_snapshotPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_volumeGroups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupVaults"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_backupVaults_backups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_snapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_subvolumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_capacityPools_volumes_volumeQuotaRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_snapshotPolicies"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-01-preview/Microsoft.NetApp.json#/resourceDefinitions/netAppAccounts_volumeGroups"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2015-05-04-preview/Microsoft.Network.DNS.json#/resourceDefinitions/dnszones"
@@ -38039,6 +38366,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.ResourceGraph.json#/resourceDefinitions/queries"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.ResourceGraph.json#/resourceDefinitions/queries"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-11-01/Microsoft.Resources.json#/resourceDefinitions/deployments"
         },
         {
@@ -48339,6 +48669,36 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Oracle.Database.json#/resourceDefinitions/cloudVmClusters_virtualNetworkAddresses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01/Oracle.Database.json#/resourceDefinitions/autonomousDatabases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01/Oracle.Database.json#/resourceDefinitions/autonomousDatabases_autonomousDatabaseBackups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01/Oracle.Database.json#/resourceDefinitions/cloudExadataInfrastructures"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01/Oracle.Database.json#/resourceDefinitions/cloudVmClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01/Oracle.Database.json#/resourceDefinitions/cloudVmClusters_virtualNetworkAddresses"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Oracle.Database.json#/resourceDefinitions/autonomousDatabases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Oracle.Database.json#/resourceDefinitions/autonomousDatabases_autonomousDatabaseBackups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Oracle.Database.json#/resourceDefinitions/cloudExadataInfrastructures"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Oracle.Database.json#/resourceDefinitions/cloudVmClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Oracle.Database.json#/resourceDefinitions/cloudVmClusters_virtualNetworkAddresses"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/resourceDefinitions/firewalls"
