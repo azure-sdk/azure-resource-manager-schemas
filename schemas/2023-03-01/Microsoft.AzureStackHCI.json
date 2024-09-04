@@ -326,6 +326,23 @@
     }
   },
   "definitions": {
+    "ArcConnectivityProperties": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "True indicates ARC connectivity is enabled"
+        }
+      },
+      "description": "Connectivity related configuration required by arc server."
+    },
     "ArcSettingProperties": {
       "type": "object",
       "properties": {
@@ -350,9 +367,15 @@
           "description": "Object id of arc AAD service principal."
         },
         "connectivityProperties": {
-          "type": "object",
-          "properties": {},
-          "description": "contains connectivity related configuration for ARC resources"
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArcConnectivityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connectivity related configuration required by arc server."
         }
       },
       "description": "ArcSetting properties."
@@ -681,8 +704,14 @@
           "description": "How the extension handler should be forced to update even if the extension configuration has not changed."
         },
         "protectedSettings": {
-          "type": "object",
-          "properties": {},
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtensionParametersProtectedSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Protected settings (may contain secrets)."
         },
         "publisher": {
@@ -690,8 +719,14 @@
           "description": "The name of the extension handler publisher."
         },
         "settings": {
-          "type": "object",
-          "properties": {},
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtensionParametersSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "Json formatted public settings for the extension."
         },
         "type": {
@@ -704,6 +739,26 @@
         }
       },
       "description": "Describes the properties of a Machine Extension. This object mirrors the definition in HybridCompute."
+    },
+    "ExtensionParametersProtectedSettings": {
+      "type": "object",
+      "properties": {
+        "workspaceKey": {
+          "type": "string",
+          "description": "Workspace Key."
+        }
+      },
+      "description": "Protected settings (may contain secrets)."
+    },
+    "ExtensionParametersSettings": {
+      "type": "object",
+      "properties": {
+        "workspaceId": {
+          "type": "string",
+          "description": "Workspace Id."
+        }
+      },
+      "description": "Json formatted public settings for the extension."
     },
     "ExtensionProperties": {
       "type": "object",
