@@ -6248,6 +6248,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-06-30-preview/Microsoft.Automanage.json#/resourceDefinitions/accounts"
         },
         {
@@ -7596,6 +7599,9 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.AzurePlaywrightService.json#/resourceDefinitions/accounts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-12-01/Microsoft.AzurePlaywrightService.json#/resourceDefinitions/accounts"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2022-09-01-preview/Microsoft.AzureSphere.json#/resourceDefinitions/catalogs"
@@ -11154,6 +11160,27 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-03-02/Microsoft.Compute.json#/resourceDefinitions/snapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_applications_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_images"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_images_versions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_inVMAccessControlProfiles"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-03-03/Microsoft.Compute.json#/resourceDefinitions/galleries_inVMAccessControlProfiles_versions"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-07-01/Microsoft.Compute.json#/resourceDefinitions/availabilitySets"
@@ -45071,6 +45098,27 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/signalR_sharedPrivateLinkResources"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/signalR"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/signalR_customCertificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/signalR_customDomains"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/signalR_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/signalR_replicas"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/signalR_replicas_sharedPrivateLinkResources"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.json#/resourceDefinitions/signalR_sharedPrivateLinkResources"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2021-04-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub"
         },
         {
@@ -45303,6 +45351,30 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub_sharedPrivateLinkResources"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub_customCertificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub_customDomains"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub_hubs"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub_replicas"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub_replicas_sharedPrivateLinkResources"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.SignalRService.WebPubSub.json#/resourceDefinitions/webPubSub_sharedPrivateLinkResources"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2016-09-01-preview/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applianceDefinitions"
