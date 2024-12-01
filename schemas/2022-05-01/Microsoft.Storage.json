@@ -1124,6 +1124,17 @@
             }
           ]
         },
+        "Creation-Time": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BlobInventoryPolicyFilterTime"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "***"
+        },
         "excludePrefix": {
           "description": "An array of strings with maximum 10 blob prefixes to be excluded from the inventory.",
           "oneOf": [
@@ -1171,6 +1182,17 @@
             }
           ]
         },
+        "Last-Modified": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BlobInventoryPolicyFilterTime"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "***"
+        },
         "prefixMatch": {
           "description": "An array of strings with maximum 10 blob prefixes to be included in the inventory.",
           "oneOf": [
@@ -1187,6 +1209,23 @@
         }
       },
       "type": "object"
+    },
+    "BlobInventoryPolicyFilterTime": {
+      "type": "object",
+      "properties": {
+        "LastNDays": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "*************"
+        }
+      },
+      "description": "***"
     },
     "BlobInventoryPolicyProperties": {
       "description": "The storage account blob inventory policy properties.",
