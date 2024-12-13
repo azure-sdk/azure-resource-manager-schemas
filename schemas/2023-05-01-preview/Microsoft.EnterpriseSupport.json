@@ -1,0 +1,157 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.EnterpriseSupport.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.EnterpriseSupport",
+  "description": "Microsoft EnterpriseSupport Resource Types",
+  "resourceDefinitions": {
+    "unifiedEnterpriseSupport": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Unified Enterprise Support"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UnifiedEnterpriseSupportResponseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the ESRP UnifiedEnterpriseSupport."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.EnterpriseSupport/unifiedEnterpriseSupport"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.EnterpriseSupport/unifiedEnterpriseSupport"
+    }
+  },
+  "definitions": {
+    "UnifiedEnterpriseSupportResponseProperties": {
+      "type": "object",
+      "properties": {
+        "availabilityId": {
+          "type": "string",
+          "description": "BigCat availability ID"
+        },
+        "billingAccountId": {
+          "type": "string",
+          "description": "Billing Account ID"
+        },
+        "billingGroupId": {
+          "type": "string",
+          "description": "Billing Group ID"
+        },
+        "csam": {
+          "type": "string",
+          "description": "CSAM for the Unified Enterprise Support"
+        },
+        "productId": {
+          "type": "string",
+          "description": "BicCat product ID"
+        },
+        "projectId": {
+          "type": "string",
+          "description": "Invoice section for the billing account"
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provisioning status."
+        },
+        "quantity": {
+          "type": "object",
+          "properties": {},
+          "description": "Quantity for the purchase"
+        },
+        "serviceStartDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Service start date for Unified Enterprise Support"
+        },
+        "skuId": {
+          "type": "string",
+          "description": "BigCat SKU ID"
+        },
+        "termId": {
+          "type": "string",
+          "description": "BigCat Term ID"
+        }
+      },
+      "required": [
+        "availabilityId",
+        "billingAccountId",
+        "billingGroupId",
+        "csam",
+        "productId",
+        "projectId",
+        "quantity",
+        "serviceStartDate",
+        "skuId",
+        "termId"
+      ],
+      "description": "Details of the ESRP UnifiedEnterpriseSupport."
+    }
+  }
+}
