@@ -3188,17 +3188,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "userCreatedAcrAccount": {
-          "description": "Details of user created ACR account to be used for the Registry",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/UserCreatedAcrAccount"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "type": "object"
@@ -16187,6 +16176,20 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "syndicatedRegistries": {
+          "description": "List of tuples containing Guid and SyndicatedRegistry",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/RegistrySyndicatedRegistriesItem"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -16225,6 +16228,26 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        }
+      },
+      "type": "object"
+    },
+    "RegistrySyndicatedRegistriesItem": {
+      "properties": {
+        "syndicatedRegistry": {
+          "description": "A registry that is syndicated",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SyndicatedRegistry"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "syndicatedRegistryGuid": {
+          "description": "The Guid of the syndicated registry",
+          "type": "string"
         }
       },
       "type": "object"
@@ -17504,17 +17527,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "userCreatedStorageAccount": {
-          "description": "Details of user created storage account to be used for the registry",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/UserCreatedStorageAccount"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "type": "object"
@@ -17645,6 +17657,16 @@
         },
         "workspaceName": {
           "description": "Name of Azure Machine Learning workspace.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SyndicatedRegistry": {
+      "description": "A registry that is syndicated",
+      "properties": {
+        "registryId": {
+          "description": "The Registry Id of the syndicated Registry",
           "type": "string"
         }
       },
@@ -18211,38 +18233,6 @@
     "UserAssignedIdentity": {
       "description": "User assigned identity properties",
       "properties": {},
-      "type": "object"
-    },
-    "UserCreatedAcrAccount": {
-      "properties": {
-        "armResourceId": {
-          "description": "ARM ResourceId of a resource",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ArmResourceId"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
-    "UserCreatedStorageAccount": {
-      "properties": {
-        "armResourceId": {
-          "description": "ARM ResourceId of a resource",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ArmResourceId"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
       "type": "object"
     },
     "VirtualMachineImage": {
