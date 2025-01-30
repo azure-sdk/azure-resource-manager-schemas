@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.DatabaseWatcher.json#",
+  "id": "https://schema.management.azure.com/schemas/2025-01-02/Microsoft.DatabaseWatcher.json#",
   "title": "Microsoft.DatabaseWatcher",
   "description": "Microsoft DatabaseWatcher Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2023-09-01-preview"
+            "2025-01-02"
           ],
           "type": "string"
         },
@@ -58,6 +58,9 @@
                 "$ref": "#/definitions/watchers_targets_childResource"
               },
               {
+                "$ref": "#/definitions/watchers_alertRuleResources_childResource"
+              },
+              {
                 "$ref": "#/definitions/watchers_sharedPrivateLinkResources_childResource"
               }
             ]
@@ -94,12 +97,59 @@
       ],
       "type": "object"
     },
+    "watchers_alertRuleResources": {
+      "description": "Microsoft.DatabaseWatcher/watchers/alertRuleResources",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-01-02"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The alert rule proxy resource name.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{1}[a-zA-Z0-9-_.]{0,62}[a-zA-Z0-9_]{1}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AlertRuleResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DatabaseWatcher/watchers/alertRuleResources"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "watchers_sharedPrivateLinkResources": {
       "description": "Microsoft.DatabaseWatcher/watchers/sharedPrivateLinkResources",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2023-09-01-preview"
+            "2025-01-02"
           ],
           "type": "string"
         },
@@ -146,7 +196,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2023-09-01-preview"
+            "2025-01-02"
           ],
           "type": "string"
         },
@@ -190,6 +240,51 @@
     }
   },
   "definitions": {
+    "AlertRuleResourceProperties": {
+      "description": "The generic properties of the alert rule proxy resource.",
+      "properties": {
+        "alertRuleResourceId": {
+          "description": "The resource ID of the alert rule resource.",
+          "type": "string"
+        },
+        "alertRuleTemplateId": {
+          "description": "The template ID associated with alert rule resource.",
+          "type": "string"
+        },
+        "alertRuleTemplateVersion": {
+          "description": "The alert rule template version.",
+          "type": "string"
+        },
+        "createdWithProperties": {
+          "description": "The properties with which the alert rule resource was created.",
+          "oneOf": [
+            {
+              "enum": [
+                "CreatedWithActionGroup",
+                "None"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "creationTime": {
+          "description": "The creation time of the alert rule resource.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "alertRuleResourceId",
+        "createdWithProperties",
+        "creationTime",
+        "alertRuleTemplateId",
+        "alertRuleTemplateVersion"
+      ],
+      "type": "object"
+    },
     "Datastore": {
       "description": "The properties of a data store.",
       "properties": {
@@ -426,42 +521,6 @@
             "targetType"
           ],
           "type": "object"
-        },
-        {
-          "description": "The properties specific to Azure SQL VM targets.",
-          "properties": {
-            "connectionTcpPort": {
-              "description": "The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.",
-              "oneOf": [
-                {
-                  "default": 1433,
-                  "type": "integer"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "sqlNamedInstanceName": {
-              "description": "The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.",
-              "type": "string"
-            },
-            "sqlVmResourceId": {
-              "description": "The Azure resource ID of an Azure SQL VM target.",
-              "type": "string"
-            },
-            "targetType": {
-              "enum": [
-                "SqlVm"
-              ],
-              "type": "string"
-            }
-          },
-          "required": [
-            "sqlVmResourceId",
-            "targetType"
-          ],
-          "type": "object"
         }
       ],
       "properties": {
@@ -555,8 +614,59 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "defaultAlertRuleIdentityResourceId": {
+          "description": "The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.",
+          "type": "string"
         }
       },
+      "type": "object"
+    },
+    "watchers_alertRuleResources_childResource": {
+      "description": "Microsoft.DatabaseWatcher/watchers/alertRuleResources",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-01-02"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The alert rule proxy resource name.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{1}[a-zA-Z0-9-_.]{0,62}[a-zA-Z0-9_]{1}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AlertRuleResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "alertRuleResources"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
       "type": "object"
     },
     "watchers_sharedPrivateLinkResources_childResource": {
@@ -564,7 +674,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2023-09-01-preview"
+            "2025-01-02"
           ],
           "type": "string"
         },
@@ -611,7 +721,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2023-09-01-preview"
+            "2025-01-02"
           ],
           "type": "string"
         },

@@ -1,15 +1,15 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2024-12-01/Microsoft.AzurePlaywrightService.json#",
-  "title": "Microsoft.AzurePlaywrightService",
-  "description": "Microsoft AzurePlaywrightService Resource Types",
+  "id": "https://schema.management.azure.com/schemas/2025-01-15-preview/Microsoft.Fabric.json#",
+  "title": "Microsoft.Fabric",
+  "description": "Microsoft Fabric Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
-    "accounts": {
-      "description": "Microsoft.AzurePlaywrightService/accounts",
+    "capacities": {
+      "description": "Microsoft.Fabric/capacities",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2024-12-01"
+            "2025-01-15-preview"
           ],
           "type": "string"
         },
@@ -18,12 +18,12 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of account.",
+          "description": "The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.",
           "oneOf": [
             {
-              "maxLength": 64,
+              "maxLength": 63,
               "minLength": 3,
-              "pattern": "^[a-zA-Z]{1}[a-zA-Z0-9]{2,63}$",
+              "pattern": "^[a-z][a-z0-9]*$",
               "type": "string"
             },
             {
@@ -35,7 +35,18 @@
           "description": "The resource-specific properties for this resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/AccountProperties"
+              "$ref": "#/definitions/FabricCapacityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "The SKU details",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RpSku"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -59,7 +70,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzurePlaywrightService/accounts"
+            "Microsoft.Fabric/capacities"
           ],
           "type": "string"
         }
@@ -74,61 +85,62 @@
     }
   },
   "definitions": {
-    "AccountProperties": {
-      "description": "Account resource properties.",
+    "CapacityAdministration": {
+      "description": "The administration properties of the Fabric capacity resource",
       "properties": {
-        "localAuth": {
-          "description": "When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.",
+        "members": {
+          "description": "An array of administrator user identities.",
           "oneOf": [
             {
-              "enum": [
-                "Enabled",
-                "Disabled"
-              ],
-              "type": "string"
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "regionalAffinity": {
-          "description": "This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.",
+        }
+      },
+      "required": [
+        "members"
+      ],
+      "type": "object"
+    },
+    "FabricCapacityProperties": {
+      "description": "The Microsoft Fabric capacity properties.",
+      "properties": {
+        "administration": {
+          "description": "The capacity administration",
           "oneOf": [
             {
-              "enum": [
-                "Enabled",
-                "Disabled"
-              ],
-              "type": "string"
+              "$ref": "#/definitions/CapacityAdministration"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        }
+      },
+      "required": [
+        "administration"
+      ],
+      "type": "object"
+    },
+    "RpSku": {
+      "description": "Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource.",
+      "properties": {
+        "name": {
+          "description": "The name of the SKU level.",
+          "type": "string"
         },
-        "reporting": {
-          "description": "When enabled, this feature allows the workspace to upload and display test results, including artifacts like traces and screenshots, in the Playwright portal. This enables faster and more efficient troubleshooting.",
+        "tier": {
+          "description": "The name of the Azure pricing tier to which the SKU applies.",
           "oneOf": [
             {
               "enum": [
-                "Enabled",
-                "Disabled"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "scalableExecution": {
-          "description": "When enabled, Playwright client workers can connect to cloud-hosted browsers. This can increase the number of parallel workers for a test run, significantly minimizing test completion durations.",
-          "oneOf": [
-            {
-              "enum": [
-                "Enabled",
-                "Disabled"
+                "Fabric"
               ],
               "type": "string"
             },
@@ -138,6 +150,10 @@
           ]
         }
       },
+      "required": [
+        "name",
+        "tier"
+      ],
       "type": "object"
     }
   }
