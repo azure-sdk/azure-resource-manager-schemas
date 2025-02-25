@@ -152,6 +152,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.Advisor.json#/resourceDefinitions/configurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.AgriculturePlatform.json#/resourceDefinitions/agriServices"
         },
         {
@@ -13595,6 +13601,30 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-10-01/Microsoft.ContainerService.Aks.json#/resourceDefinitions/snapshots"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_agentPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_loadBalancers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_maintenanceConfigurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedClusters_trustedAccessRoleBindings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/managedclustersnapshots"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-10-02-preview/Microsoft.ContainerService.Aks.json#/resourceDefinitions/snapshots"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-06-02-preview/Microsoft.ContainerService.Fleet.json#/resourceDefinitions/fleets"
         },
         {
@@ -13914,6 +13944,21 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-10-01/Microsoft.Dashboard.json#/resourceDefinitions/grafana_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.DatabaseFleetManager.json#/resourceDefinitions/fleets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.DatabaseFleetManager.json#/resourceDefinitions/fleets_fleetspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.DatabaseFleetManager.json#/resourceDefinitions/fleets_fleetspaces_databases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.DatabaseFleetManager.json#/resourceDefinitions/fleets_fleetspaces_firewallRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.DatabaseFleetManager.json#/resourceDefinitions/fleets_tiers"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.DatabaseWatcher.json#/resourceDefinitions/watchers"
@@ -23669,6 +23714,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2025-01-15-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-01-15-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-01-15-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_privateEndpointConnections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.HDInsight.OnAks.json#/resourceDefinitions/clusterpools"
         },
         {
@@ -25986,6 +26040,15 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.LoadTestService.json#/unknown_resourceDefinitions/loadTestProfileMappings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-12-01-preview/Microsoft.LoadTestService.json#/resourceDefinitions/loadTests"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-12-01-preview/Microsoft.LoadTestService.json#/unknown_resourceDefinitions/loadTestMappings"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-12-01-preview/Microsoft.LoadTestService.json#/unknown_resourceDefinitions/loadTestProfileMappings"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Logz.json#/resourceDefinitions/monitors"
@@ -41076,6 +41139,60 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.NetworkCloud.json#/resourceDefinitions/volumes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/bareMetalMachines"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/cloudServicesNetworks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/clusterManagers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/clusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/clusters_bareMetalMachineKeySets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/clusters_bmcKeySets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/clusters_metricsConfigurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/kubernetesClusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/kubernetesClusters_agentPools"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/kubernetesClusters_features"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/l2Networks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/l3Networks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/racks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/storageAppliances"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/trunkedNetworks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/virtualMachines"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/virtualMachines_consoles"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-02-01/Microsoft.NetworkCloud.json#/resourceDefinitions/volumes"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2021-09-01-preview/Microsoft.NetworkFunction.json#/resourceDefinitions/azureTrafficCollectors"

@@ -522,6 +522,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.AlertsManagement.json#/managementGroup_resourceDefinitions/tenantActivityLogAlerts"
             },
             {
@@ -1063,6 +1066,12 @@
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.LoadTestService.json#/unknown_resourceDefinitions/loadTestProfileMappings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-12-01-preview/Microsoft.LoadTestService.json#/unknown_resourceDefinitions/loadTestMappings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-12-01-preview/Microsoft.LoadTestService.json#/unknown_resourceDefinitions/loadTestProfileMappings"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2022-01-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
