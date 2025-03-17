@@ -5350,6 +5350,10 @@
           "format": "date-time",
           "type": "string"
         },
+        "sourceBackupLocation": {
+          "type": "string",
+          "description": "The source backup location for restore."
+        },
         "tablesToRestore": {
           "description": "List of specific tables available for restore.",
           "oneOf": [
