@@ -45,6 +45,19 @@
             }
           ]
         },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/accessConnectors_new_childResource"
+              }
+            ]
+          }
+        },
+        "sku": {
+          "type": "string"
+        },
         "tags": {
           "description": "Resource tags.",
           "oneOf": [
@@ -74,6 +87,85 @@
         "type"
       ],
       "type": "object"
+    },
+    "accessConnectors_new": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-04-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IdentityData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/new$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AccessConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "type": "string"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Databricks/accessConnectors/new"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Databricks/accessConnectors/new"
     },
     "workspaces": {
       "description": "Microsoft.Databricks/workspaces",
@@ -242,6 +334,80 @@
     "AccessConnectorProperties": {
       "properties": {},
       "type": "object"
+    },
+    "accessConnectors_new_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-04-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IdentityData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "new"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AccessConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "type": "string"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "new"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Databricks/accessConnectors/new"
     },
     "AddressSpace": {
       "description": "AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.",
