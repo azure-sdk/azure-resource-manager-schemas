@@ -3300,6 +3300,21 @@
             }
           ]
         },
+        "azureConnectionMethod": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Vpn"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Which connection method Managed Cassandra should use to conenct to Azure resources it needs. 'None' is the deafukt which means conenct directly, 'Vpn' will connect through a VPN endpoint for added security and simplicity."
+        },
         "cassandraAuditLoggingEnabled": {
           "description": "Whether Cassandra audit logging is enabled",
           "oneOf": [
