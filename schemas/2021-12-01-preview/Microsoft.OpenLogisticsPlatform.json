@@ -1,0 +1,1153 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OpenLogisticsPlatform.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.OpenLogisticsPlatform",
+  "description": "Microsoft OpenLogisticsPlatform Resource Types",
+  "resourceDefinitions": {
+    "applicationManagers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of resource. This is the name of your Azure Supply Chain Service's applicationManager."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationManagerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/applicationManagers_eventGridFilters_childResource"
+              },
+              {
+                "$ref": "#/definitions/applicationManagers_applicationRegistrations_childResource"
+              }
+            ]
+          }
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OpenLogisticsPlatform/applicationManagers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/applicationManagers"
+    },
+    "applicationManagers_applicationRegistrations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The Id of application registration invite."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationRegistrationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OpenLogisticsPlatform/applicationManagers/applicationRegistrations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/applicationManagers/applicationRegistrations"
+    },
+    "applicationManagers_eventGridFilters": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of resource. This is the name of your Azure Supply Chain Service's workspace."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EventGridFilterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OpenLogisticsPlatform/applicationManagers/eventGridFilters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/applicationManagers/eventGridFilters"
+    },
+    "workspaces": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IdentityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of resource. This is the name of your Azure Supply Chain Service's workspace."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkspaceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/workspaces_shares_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_applications_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_eventGridFilters_childResource"
+              }
+            ]
+          }
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OpenLogisticsPlatform/workspaces"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/workspaces"
+    },
+    "workspaces_applications": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Application Name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OpenLogisticsPlatform/workspaces/applications"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/workspaces/applications"
+    },
+    "workspaces_eventGridFilters": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of resource. This is the name of your Azure Supply Chain Service's workspace."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EventGridFilterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OpenLogisticsPlatform/workspaces/eventGridFilters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/workspaces/eventGridFilters"
+    },
+    "workspaces_shares": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of resource. This is the name of your Azure Supply Chain Service's workspace."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ShareProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OpenLogisticsPlatform/workspaces/shares"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/workspaces/shares"
+    }
+  },
+  "definitions": {
+    "AccessAssignment": {
+      "type": "object",
+      "properties": {
+        "actionIds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "attributeConditions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AttributeCondition"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      }
+    },
+    "ApplicationManagerProperties": {
+      "type": "object",
+      "properties": {}
+    },
+    "applicationManagers_applicationRegistrations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The Id of application registration invite."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationRegistrationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "applicationRegistrations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/applicationManagers/applicationRegistrations"
+    },
+    "applicationManagers_eventGridFilters_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of resource. This is the name of your Azure Supply Chain Service's workspace."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EventGridFilterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "eventGridFilters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/applicationManagers/eventGridFilters"
+    },
+    "ApplicationProperties": {
+      "type": "object",
+      "properties": {
+        "applicationDefinitionId": {
+          "type": "string",
+          "description": "Manifest id for application to register"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Name to display for application to register"
+        },
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameters required by application to register, should match parameters in application manifest"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ApplicationResource"
+          },
+          "description": "List of resources required by application to register, e.g. share. should match resources in application manifest"
+        },
+        "status": {
+          "type": "string",
+          "description": "ISV provided status on application"
+        }
+      }
+    },
+    "ApplicationRegistrationProperties": {
+      "type": "object",
+      "properties": {
+        "applicationDefinitionId": {
+          "type": "string",
+          "description": "Definition id for application to register"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Name to display for application to register"
+        },
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameters required by application to register, should match parameters in application manifest"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ApplicationRegistrationResource"
+          },
+          "description": "List of resources required by application to register, e.g. share. should match resources in application manifest"
+        },
+        "sourceWorkspaceId": {
+          "type": "string",
+          "description": "sourceWorkspaceId for application to register"
+        },
+        "status": {
+          "type": "string",
+          "description": "ISV provided status on application"
+        }
+      }
+    },
+    "ApplicationRegistrationResource": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationRegistrationResourceShareProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Application share resource information for application registration invite."
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "description": "A resources required by the application to register, e.g. share. should match resources in application manifest"
+    },
+    "ApplicationRegistrationResourceShareProperties": {
+      "type": "object",
+      "properties": {
+        "shareId": {
+          "type": "string"
+        }
+      },
+      "description": "Application share resource information for application registration invite."
+    },
+    "ApplicationResource": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationResourceShareProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The share-specific properties for shares affiliated with application"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "description": "A resources required by application to register, e.g. share. should match resources in application manifest"
+    },
+    "ApplicationResourceShareProperties": {
+      "type": "object",
+      "properties": {
+        "accessAssignments": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AccessAssignment"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "The share-specific properties for shares affiliated with application"
+    },
+    "AttributeCondition": {
+      "type": "object",
+      "properties": {
+        "attributeMatchingScheme": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ANYOFANY",
+                "ALLOFANY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "attributeName": {
+          "type": "string"
+        },
+        "values": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "attributeMatchingScheme"
+      ]
+    },
+    "EventGridFilterProperties": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Filter"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Configuration of the EventGrid filter"
+        },
+        "subscriberIdentityInfo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SubscriberIdentityInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      }
+    },
+    "Filter": {
+      "type": "object",
+      "properties": {
+        "includedEventTypes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Event types subscribed"
+        },
+        "subjectBeginsWith": {
+          "type": "string",
+          "description": "Filter configuration: Removes all events with a subject that does not start with this string"
+        },
+        "subjectEndsWith": {
+          "type": "string",
+          "description": "Filter configuration: Removes all events with a subject that does not end with this string"
+        }
+      },
+      "description": "Configuration of the EventGrid filter"
+    },
+    "IdentityProperties": {
+      "type": "object",
+      "properties": {
+        "principalId": {
+          "type": "string"
+        },
+        "tenantId": {
+          "type": "string"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned",
+                "None"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The identity type."
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "ShareProperties": {
+      "type": "object",
+      "properties": {
+        "accessAssignments": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AccessAssignment"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the accessAssignments"
+        },
+        "description": {
+          "type": "string"
+        },
+        "shareState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Pending",
+                "RetryToCreateOrDelete",
+                "Redeemed",
+                "Rejected"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetTenantId": {
+          "type": "string"
+        }
+      }
+    },
+    "SubscriberIdentityInfo": {
+      "type": "object",
+      "properties": {
+        "clientApplicationId": {
+          "type": "string"
+        },
+        "clientAuthorizationSource": {
+          "type": "string"
+        },
+        "clientObjectId": {
+          "type": "string"
+        },
+        "clientPrincipalId": {
+          "type": "string"
+        },
+        "clientTenantId": {
+          "type": "string"
+        }
+      }
+    },
+    "SystemData": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that created the resource."
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource last modification (UTC)"
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of identity that last modified the resource."
+        }
+      },
+      "description": "Metadata pertaining to creation and last modification of the resource."
+    },
+    "WorkspaceProperties": {
+      "type": "object",
+      "properties": {
+        "semanticValidationEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the semantic validation enabled flag. The semantic validation is enabled by default."
+        },
+        "shareId": {
+          "type": "string",
+          "description": "The Share Id for projected workspace."
+        }
+      }
+    },
+    "workspaces_applications_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Application Name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "applications"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/workspaces/applications"
+    },
+    "workspaces_eventGridFilters_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of resource. This is the name of your Azure Supply Chain Service's workspace."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EventGridFilterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "eventGridFilters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/workspaces/eventGridFilters"
+    },
+    "workspaces_shares_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of resource. This is the name of your Azure Supply Chain Service's workspace."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ShareProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata pertaining to creation and last modification of the resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "shares"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OpenLogisticsPlatform/workspaces/shares"
+    }
+  }
+}
