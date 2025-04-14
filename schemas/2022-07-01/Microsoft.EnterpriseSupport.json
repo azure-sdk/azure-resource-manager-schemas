@@ -1,0 +1,86 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-07-01/Microsoft.EnterpriseSupport.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.EnterpriseSupport",
+  "description": "Microsoft EnterpriseSupport Resource Types",
+  "resourceDefinitions": {},
+  "tenant_resourceDefinitions": {
+    "billingAccounts_billingProfiles_purchases": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2022-07-01"
+          ]
+        },
+        "availabilityId": {
+          "type": "string"
+        },
+        "billingAccountId": {
+          "type": "string"
+        },
+        "billingGroupId": {
+          "type": "string"
+        },
+        "csam": {
+          "type": "string"
+        },
+        "csmAdmin": {
+          "type": "string"
+        },
+        "invoiceSectionId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": "The purchase ID"
+        },
+        "price": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "productId": {
+          "type": "string"
+        },
+        "purchaseId": {
+          "type": "string"
+        },
+        "serviceEndDate": {
+          "type": "string"
+        },
+        "serviceStartDate": {
+          "type": "string"
+        },
+        "shippingProfileId": {
+          "type": "string"
+        },
+        "skuId": {
+          "type": "string"
+        },
+        "termId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.EnterpriseSupport/billingAccounts/billingProfiles/purchases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "type"
+      ],
+      "description": "Microsoft.EnterpriseSupport/billingAccounts/billingProfiles/purchases"
+    }
+  },
+  "definitions": {}
+}
