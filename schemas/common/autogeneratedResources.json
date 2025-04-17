@@ -164,6 +164,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-11-18-preview/Microsoft.Advisor.json#/resourceDefinitions/configurations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2024-11-18-preview/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Advisor.json#/resourceDefinitions/configurations"
         },
         {
@@ -12591,6 +12597,33 @@
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2025-03-01-preview/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_webhooks"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_cacheRules"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_connectedRegistries"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_credentialSets"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_replications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_scopeMaps"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_tokens"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2025-04-01/Microsoft.ContainerRegistry.json#/resourceDefinitions/registries_webhooks"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2016-03-30/Microsoft.ContainerService.Aks.json#/resourceDefinitions/containerServices"

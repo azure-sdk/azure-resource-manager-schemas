@@ -212,7 +212,8 @@
     "2018-03-01"
   ],
   "Microsoft.Advisor/assessments": [
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2024-11-18-preview"
   ],
   "Microsoft.Advisor/configurations": [
     "2020-01-01",
@@ -225,6 +226,8 @@
     "2023-01-01",
     "2023-09-01-preview",
     "2023-09-01-preview",
+    "2024-11-18-preview",
+    "2024-11-18-preview",
     "2025-01-01",
     "2025-01-01"
   ],
@@ -237,6 +240,7 @@
     "2022-10-01",
     "2023-01-01",
     "2023-09-01-preview",
+    "2024-11-18-preview",
     "2025-01-01"
   ],
   "Microsoft.AgriculturePlatform/agriServices": [
@@ -5431,7 +5435,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerRegistry/registries/agentPools": [
     "2019-06-01-preview",
@@ -5444,7 +5449,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerRegistry/registries/connectedRegistries": [
     "2020-11-01-preview",
@@ -5457,7 +5463,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerRegistry/registries/credentialSets": [
     "2023-01-01-preview",
@@ -5466,7 +5473,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerRegistry/registries/exportPipelines": [
     "2019-12-01-preview",
@@ -5539,7 +5547,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerRegistry/registries/replications": [
     "2017-10-01",
@@ -5558,7 +5567,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerRegistry/registries/scopeMaps": [
     "2019-05-01-preview",
@@ -5574,7 +5584,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerRegistry/registries/taskRuns": [
     "2019-06-01-preview",
@@ -5600,7 +5611,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerRegistry/registries/webhooks": [
     "2017-10-01",
@@ -5619,7 +5631,8 @@
     "2023-08-01-preview",
     "2023-11-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-01"
   ],
   "Microsoft.ContainerService/containerServices": [
     "2016-03-30",
