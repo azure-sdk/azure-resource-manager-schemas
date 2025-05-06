@@ -4106,6 +4106,27 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-01-01-preview/Microsoft.App.json#/resourceDefinitions/managedEnvironments_storages"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-09/Microsoft.App.json#/resourceDefinitions/containerApps"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-09/Microsoft.App.json#/resourceDefinitions/containerApps_authConfigs"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-09/Microsoft.App.json#/resourceDefinitions/containerApps_sourcecontrols"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-09/Microsoft.App.json#/resourceDefinitions/managedEnvironments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-09/Microsoft.App.json#/resourceDefinitions/managedEnvironments_certificates"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-09/Microsoft.App.json#/resourceDefinitions/managedEnvironments_daprComponents"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-09/Microsoft.App.json#/resourceDefinitions/managedEnvironments_storages"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.App.json#/resourceDefinitions/containerApps"
         },
         {
