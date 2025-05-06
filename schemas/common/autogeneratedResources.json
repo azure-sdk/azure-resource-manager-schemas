@@ -24161,6 +24161,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-06-01/Microsoft.FluidRelay.json#/resourceDefinitions/fluidRelayServers"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-22/Microsoft.GraphServices.json#/resourceDefinitions/accounts"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-09-22-preview/Microsoft.GraphServices.json#/resourceDefinitions/accounts"
         },
         {
