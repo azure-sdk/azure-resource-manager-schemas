@@ -173,6 +173,24 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.AgriculturePlatform.json#/resourceDefinitions/agriServices"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.AI.json#/resourceDefinitions/locations_applicationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.AI.json#/resourceDefinitions/locations_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.AI.json#/resourceDefinitions/locations_jitRequests"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-02/Microsoft.AI.json#/resourceDefinitions/locations_applicationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-02/Microsoft.AI.json#/resourceDefinitions/locations_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-02/Microsoft.AI.json#/resourceDefinitions/locations_jitRequests"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2019-03-01/Microsoft.AlertsManagement.json#/resourceDefinitions/smartDetectorAlertRules"
         },
         {
