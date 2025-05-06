@@ -1216,6 +1216,10 @@
           "description": "Date range of the current view.",
           "type": "string"
         },
+        "dateRange": {
+          "type": "string",
+          "description": "Date range of the current view."
+        },
         "displayName": {
           "description": "User input name of the view. Required.",
           "type": "string"
