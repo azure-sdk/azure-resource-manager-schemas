@@ -46988,10 +46988,37 @@
           "$ref": "https://schema.management.azure.com/schemas/2017-09-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applications"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2017-12-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applicationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2017-12-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-02-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applicationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-02-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-03-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applicationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-03-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applications"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applicationDefinitions"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2018-06-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applicationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/jitRequests"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2019-07-01/Microsoft.Solutions.resourcesolutions.json#/resourceDefinitions/applicationDefinitions"
