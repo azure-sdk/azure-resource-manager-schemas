@@ -8573,6 +8573,18 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-11-01-preview/Microsoft.BillingBenefits.json#/resourceDefinitions/discounts"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.BotService.json#/resourceDefinitions/botServices"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.BotService.json#/resourceDefinitions/botServices_channels"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.BotService.json#/resourceDefinitions/botServices_connections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.BotService.json#/resourceDefinitions/botServices_privateEndpointConnections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Cache.Enterprise.json#/resourceDefinitions/redisEnterprise"
         },
         {
