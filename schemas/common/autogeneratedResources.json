@@ -218,6 +218,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2025-03-01-preview/Microsoft.AlertsManagement.json#/unknown_resourceDefinitions/issues"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.AlertsManagement.json#/resourceDefinitions/smartDetectorAlertRules"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2016-05-16/Microsoft.AnalysisServices.json#/resourceDefinitions/servers"
         },
         {
