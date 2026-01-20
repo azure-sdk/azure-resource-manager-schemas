@@ -1,0 +1,98 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-12-01-preview/Microsoft.KubernetesConfiguration.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.KubernetesConfiguration",
+  "description": "Microsoft KubernetesConfiguration Resource Types",
+  "resourceDefinitions": {},
+  "extension_resourceDefinitions": {
+    "systemComponents": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-12-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemComponentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of an SystemComponent resource"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.KubernetesConfiguration/systemComponents"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.KubernetesConfiguration/systemComponents"
+    }
+  },
+  "definitions": {
+    "Component": {
+      "type": "object",
+      "properties": {
+        "extensionType": {
+          "type": "string",
+          "description": "Extension type"
+        },
+        "userSpecifiedVersion": {
+          "type": "string",
+          "description": "User specified version for the extension type."
+        }
+      },
+      "description": "System components registered in the cluster and its versions."
+    },
+    "SystemComponentProperties": {
+      "type": "object",
+      "properties": {
+        "arcAgentryAutoUpgrade": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Flag to note if arc agentry is auto upgradable or not."
+        },
+        "components": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Component"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Components of  the clusters."
+        }
+      },
+      "description": "Properties of an SystemComponent resource"
+    }
+  }
+}
