@@ -501,6 +501,9 @@
         {
           "oneOf": [
             {
+              "$ref": "https://schema.management.azure.com/schemas/2000-11-01/Microsoft.Addons.json#/subscription_resourceDefinitions/supportProviders_supportPlanTypes"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2017-05-15/Microsoft.Addons.json#/subscription_resourceDefinitions/supportProviders_supportPlanTypes"
             },
             {
