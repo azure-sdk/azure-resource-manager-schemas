@@ -19301,6 +19301,21 @@
           "$ref": "https://schema.management.azure.com/schemas/2023-03-02-preview/Microsoft.DBforPostgreSQL.Hsc.json#/resourceDefinitions/serverGroupsv2_roles"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_administrators"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_backups"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_databases"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-01/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_firewallRules"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2017-12-01/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/servers"
         },
         {
