@@ -1641,6 +1641,93 @@
       },
       "type": "object"
     },
+    "CorsPolicy": {
+      "type": "object",
+      "properties": {
+        "allowCredentials": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allow credential or not"
+        },
+        "allowedHeaders": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allowed HTTP headers"
+        },
+        "allowedMethods": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allowed HTTP methods"
+        },
+        "allowedOrigins": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allowed origins"
+        },
+        "exposeHeaders": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "expose HTTP headers "
+        },
+        "maxAge": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "max time client can cache the result"
+        }
+      },
+      "required": [
+        "allowedOrigins"
+      ],
+      "description": "Cross-Origin-Resource-Sharing policy"
+    },
     "CustomDomain": {
       "description": "Custom Domain of a Container App",
       "properties": {
@@ -2508,6 +2595,33 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "clientCertificateMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ignore",
+                "accept",
+                "require"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate."
+        },
+        "corsPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CorsPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cross-Origin-Resource-Sharing policy"
         },
         "customDomains": {
           "description": "custom domain bindings for Container Apps' hostnames.",
