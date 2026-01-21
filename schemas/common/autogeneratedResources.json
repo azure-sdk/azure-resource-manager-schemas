@@ -48296,6 +48296,81 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-04-04-preview/Microsoft.OpenEnergyPlatform.json#/resourceDefinitions/energyServices"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-23-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationWorkspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-23-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-23-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_applicationRegistrations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-23-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_eventGridFilters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-06-23-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_shares"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-06-24-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationWorkspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-06-24-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationWorkspaces_applications_applicationRegistrationInvites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-06-24-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-06-24-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_applicationRegistrations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-06-24-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_eventGridFilters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-06-24-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_shares"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationManagers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationManagers_applicationRegistrations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationManagers_eventGridFilters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_eventGridFilters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_shares"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationManagers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationManagers_applicationRegistrations"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/applicationManagers_eventGridFilters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_eventGridFilters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01/Microsoft.OpenLogisticsPlatform.json#/resourceDefinitions/workspaces_shares"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2015-03-20/Microsoft.OperationalInsights.json#/resourceDefinitions/workspaces_savedSearches"
         },
         {
