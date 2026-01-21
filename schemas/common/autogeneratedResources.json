@@ -35636,6 +35636,21 @@
           "$ref": "https://schema.management.azure.com/schemas/2025-05-03-preview/Microsoft.Monitor.Accounts.json#/resourceDefinitions/accounts_metricsContainers"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.ModSimWorkbench.json#/resourceDefinitions/workbenches"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.ModSimWorkbench.json#/resourceDefinitions/workbenches_chambers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.ModSimWorkbench.json#/resourceDefinitions/workbenches_chambers_connectors"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.ModSimWorkbench.json#/resourceDefinitions/workbenches_chambers_storages"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-03-01-preview/Microsoft.ModSimWorkbench.json#/resourceDefinitions/workbenches_chambers_workloads"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2021-06-03-preview/Microsoft.Monitor.json#/resourceDefinitions/accounts"
         },
         {
