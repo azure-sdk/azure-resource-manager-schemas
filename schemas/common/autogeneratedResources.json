@@ -29840,6 +29840,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2021-08-01/Microsoft.Insights.Application.json#/resourceDefinitions/workbooks"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.Insights.Application.json#/resourceDefinitions/privateLinkScopes"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.Insights.Application.json#/resourceDefinitions/privateLinkScopes_privateEndpointConnections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-09-01/Microsoft.Insights.Application.json#/resourceDefinitions/privateLinkScopes_scopedResources"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-04-01/Microsoft.Insights.Application.json#/resourceDefinitions/workbooks"
         },
         {
