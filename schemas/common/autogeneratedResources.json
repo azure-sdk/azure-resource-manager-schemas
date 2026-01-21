@@ -17804,6 +17804,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/accessConnectors"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/accessConnectors_new"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Databricks.json#/resourceDefinitions/workspaces"
         },
         {
