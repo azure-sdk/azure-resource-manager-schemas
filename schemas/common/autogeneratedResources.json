@@ -29669,6 +29669,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.HybridContainerService.json#/unknown_resourceDefinitions/skus"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2021-05-01/Microsoft.HybridData.json#/resourceDefinitions/dataManagers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-05-01/Microsoft.HybridData.json#/resourceDefinitions/dataManagers_dataServices_jobDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2021-05-01/Microsoft.HybridData.json#/resourceDefinitions/dataManagers_dataStores"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-01-01-preview/Microsoft.HybridNetwork.json#/resourceDefinitions/devices"
         },
         {
