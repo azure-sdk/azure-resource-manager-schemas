@@ -1017,6 +1017,17 @@
             }
           ]
         },
+        "softDeleteRetentionPeriod": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Soft delete retention period in days"
+        },
         "storageModelType": {
           "description": "Storage type.",
           "oneOf": [
