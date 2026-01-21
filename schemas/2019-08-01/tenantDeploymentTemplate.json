@@ -1214,6 +1214,9 @@
                   "$ref": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.HybridContainerService.json#/unknown_resourceDefinitions/skus"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2022-07-01/Microsoft.EnterpriseSupport.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_purchases"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2015-01-14-preview/Microsoft.Intune.json#/tenant_resourceDefinitions/locations_androidPolicies"
                 },
                 {
