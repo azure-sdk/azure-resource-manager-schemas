@@ -1,0 +1,144 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.ProfessionalService.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.ProfessionalService",
+  "description": "Microsoft ProfessionalService Resource Types",
+  "resourceDefinitions": {},
+  "extension_resourceDefinitions": {
+    "resources": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-05-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "Resource location. Only value allowed for professional service is 'global'"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-_.()]{0,63}[a-zA-Z0-9-_()]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProfessionalServiceCreationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "properties for creation ProfessionalService"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "the resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ProfessionalService/resources"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ProfessionalService/resources"
+    }
+  },
+  "definitions": {
+    "ProfessionalServiceCreationProperties": {
+      "type": "object",
+      "properties": {
+        "autoRenew": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether the ProfessionalService subscription will auto renew upon term end."
+        },
+        "offerId": {
+          "type": "string",
+          "description": "The offer id."
+        },
+        "paymentChannelMetadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The metadata about the ProfessionalService subscription such as the OrganizationId."
+        },
+        "publisherId": {
+          "type": "string",
+          "description": "The publisher id."
+        },
+        "quantity": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The seat count."
+        },
+        "quoteId": {
+          "type": "string",
+          "description": "The quote id which the ProfessionalService will be purchase with."
+        },
+        "skuId": {
+          "type": "string",
+          "description": "The plan id."
+        },
+        "storeFront": {
+          "type": "string",
+          "description": "The store front which initiates the purchase."
+        },
+        "termId": {
+          "type": "string",
+          "description": "The current Term id."
+        }
+      },
+      "description": "properties for creation ProfessionalService"
+    }
+  }
+}
