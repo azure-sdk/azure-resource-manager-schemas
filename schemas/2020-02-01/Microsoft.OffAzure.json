@@ -1,0 +1,2494 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.OffAzure",
+  "description": "Microsoft OffAzure Resource Types",
+  "resourceDefinitions": {
+    "HyperVSites": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Site name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SiteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of VMwareSiteResource"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/HyperVSites_clusters_childResource"
+              },
+              {
+                "$ref": "#/definitions/HyperVSites_hosts_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/HyperVSites"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/HyperVSites"
+    },
+    "HyperVSites_clusters": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " Cluster ARM name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HyperVClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Hyperv Cluster"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/HyperVSites/clusters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/HyperVSites/clusters"
+    },
+    "HyperVSites_hosts": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " Host name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HyperVHostProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Hyperv Host"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/HyperVSites/hosts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/HyperVSites/hosts"
+    },
+    "importSites": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Site name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SitesProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of VMwareSiteResource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/importSites"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/importSites"
+    },
+    "serverSites": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Site name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SitesProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of VMwareSiteResource"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/serverSites_machines_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/serverSites"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/serverSites"
+    },
+    "serverSites_machines": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " A server machine name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Server REST resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/serverSites/machines"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/serverSites/machines"
+    },
+    "VMwareSites": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Site name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SitesProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of VMwareSiteResource"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/VMwareSites_vCenters_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/VMwareSites"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/VMwareSites"
+    },
+    "VMwareSites_vCenters": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " VCenters name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VCenterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of VMwareSiteResource"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.OffAzure/VMwareSites/vCenters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/VMwareSites/vCenters"
+    }
+  },
+  "definitions": {
+    "Applications": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Gets or sets Name of the Application."
+        },
+        "provider": {
+          "type": "string",
+          "description": "Gets or sets Provider of the Application."
+        },
+        "version": {
+          "type": "string",
+          "description": "Gets or sets Version of the Application."
+        }
+      },
+      "required": [
+        "name",
+        "provider",
+        "version"
+      ],
+      "description": "Application in the guest virtual machine."
+    },
+    "AppsAndRoles": {
+      "type": "object",
+      "properties": {
+        "applications": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Applications"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets Applications of the AppsAndRoles."
+        },
+        "bizTalkServers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BizTalkServers"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " Gets or sets BizTalkServers of the AppsAndRoles."
+        },
+        "exchangeServers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExchangeServers"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets ExchangeServers of the AppsAndRoles."
+        },
+        "features": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Features"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets Features of the AppsAndRoles."
+        },
+        "otherDatabases": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OtherDatabases"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets OtherDatabases of the AppsAndRoles."
+        },
+        "sharePointServers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SharePointServers"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets SharePointServers of the AppsAndRoles."
+        },
+        "sqlServers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SqlServers"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets SQLServers of the AppsAndRoles."
+        },
+        "systemCenters": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SystemCenters"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " Gets or sets SystemCenters of the AppsAndRoles."
+        },
+        "webApplications": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WebApplications"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " Gets or sets WebApplications of the AppsAndRoles."
+        }
+      },
+      "required": [
+        "applications",
+        "bizTalkServers",
+        "exchangeServers",
+        "features",
+        "otherDatabases",
+        "sharePointServers",
+        "sqlServers",
+        "systemCenters",
+        "webApplications"
+      ],
+      "description": "Apps And Roles of the Server"
+    },
+    "BizTalkServers": {
+      "type": "object",
+      "properties": {
+        "productName": {
+          "type": "string",
+          "description": "Gets or sets ProductName of the BizTalkServer."
+        },
+        "status": {
+          "type": "string",
+          "description": "Gets or sets Status of the BizTalkServer."
+        }
+      },
+      "required": [
+        "productName",
+        "status"
+      ],
+      "description": "BizTalkServer in the guest virtual machine."
+    },
+    "DiscoveryState": {
+      "type": "object",
+      "properties": {
+        "discoveryScopeStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "DiscoverySucceededAtleastOnce",
+                "DiscoveryFailed",
+                "RunAsAccountNotAssociated",
+                "DiscoveryNotStarted",
+                "DiscoveryInProgress",
+                "Disabled",
+                "DiscoveryPartiallySucceded",
+                "DiscoverySucceeded"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The discovery scope status."
+        },
+        "errors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Errors"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of errors."
+        },
+        "hydratedRunAsAccountId": {
+          "type": "string",
+          "description": "The run as account ID associated with the discovery."
+        }
+      },
+      "required": [
+        "discoveryScopeStatus",
+        "errors",
+        "hydratedRunAsAccountId"
+      ],
+      "description": "Scoped discovery status."
+    },
+    "Disks": {
+      "type": "object",
+      "properties": {
+        "diskType": {
+          "type": "string",
+          "description": "Gets or sets Type of the disk."
+        },
+        "generatedId": {
+          "type": "string",
+          "description": "Gets or sets generated Id of the disk."
+        },
+        "id": {
+          "type": "string",
+          "description": " Gets or sets Id of the disk."
+        },
+        "lun": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets LUN of the disk."
+        },
+        "maxSizeInBytes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets Bytes allocated for the disk."
+        },
+        "name": {
+          "type": "string",
+          "description": "Gets or sets Name of the disk."
+        },
+        "path": {
+          "type": "string",
+          "description": "Gets or sets Path of the disk."
+        }
+      },
+      "required": [
+        "diskType",
+        "generatedId",
+        "id",
+        "lun",
+        "maxSizeInBytes",
+        "name",
+        "path"
+      ],
+      "description": "Gets or sets the disk details of server."
+    },
+    "Errors": {
+      "type": "object",
+      "properties": {
+        "applianceName": {
+          "type": "string",
+          "description": "Gets the appliance name."
+        },
+        "code": {
+          "type": "string",
+          "description": "Gets the error name."
+        },
+        "discoveryScope": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AppsAndRoles",
+                "DependencyMap",
+                "StaticData",
+                "SQLServerConnectionInfo"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets discovery scope for which the error was encountered."
+        },
+        "id": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the error ID."
+        },
+        "message": {
+          "type": "string",
+          "description": "Gets the error message."
+        },
+        "messageParameters": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the message parameters."
+        },
+        "possibleCauses": {
+          "type": "string",
+          "description": "Gets the possible causes of error."
+        },
+        "recommendedAction": {
+          "type": "string",
+          "description": "Gets the recommended action to resolve error."
+        },
+        "runAsAccountId": {
+          "type": "string",
+          "description": "Gets run as account id used while performing discovery"
+        },
+        "severity": {
+          "type": "string",
+          "description": "Gets the error severity."
+        },
+        "source": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "RefreshFabricLayout",
+                "RefreshFabricLayoutGuest",
+                "RefreshFabricLayoutDependencyMap"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Source of the error."
+        },
+        "summaryMessage": {
+          "type": "string",
+          "description": "Gets the error summary message."
+        },
+        "updatedTimeStamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets the time stamp when the error was updated."
+        }
+      },
+      "required": [
+        "applianceName",
+        "code",
+        "discoveryScope",
+        "id",
+        "message",
+        "messageParameters",
+        "possibleCauses",
+        "recommendedAction",
+        "runAsAccountId",
+        "severity",
+        "source",
+        "summaryMessage",
+        "updatedTimeStamp"
+      ],
+      "description": "The properties of a server machine tracked resource"
+    },
+    "ExchangeServers": {
+      "type": "object",
+      "properties": {
+        "edition": {
+          "type": "string",
+          "description": "Gets or sets Edition of the ExchangeServer."
+        },
+        "productName": {
+          "type": "string",
+          "description": "Gets or sets ProductName of the ExchangeServer."
+        },
+        "roles": {
+          "type": "string",
+          "description": "Gets or sets Roles of the ExchangeServer."
+        },
+        "servicePack": {
+          "type": "string",
+          "description": "Gets or sets ServicePack of the ExchangeServer."
+        },
+        "version": {
+          "type": "string",
+          "description": "Gets or sets Version of the ExchangeServer."
+        }
+      },
+      "required": [
+        "edition",
+        "productName",
+        "roles",
+        "servicePack",
+        "version"
+      ],
+      "description": " ExchangeServer in the guest virtual machine."
+    },
+    "Features": {
+      "type": "object",
+      "properties": {
+        "featureType": {
+          "type": "string",
+          "description": "Gets or sets FeatureType of the Feature."
+        },
+        "name": {
+          "type": "string",
+          "description": "Gets or sets Name of the Feature."
+        },
+        "parent": {
+          "type": "string",
+          "description": "Gets or sets Parent of the Feature."
+        },
+        "status": {
+          "type": "string",
+          "description": "Gets or sets Status of the Feature."
+        }
+      },
+      "required": [
+        "featureType",
+        "name",
+        "parent",
+        "status"
+      ],
+      "description": "Feature in the guest virtual machine."
+    },
+    "GuestOsDetails": {
+      "type": "object",
+      "properties": {
+        "osArchitecture": {
+          "type": "string",
+          "description": "The operating system architecture."
+        },
+        "osName": {
+          "type": "string",
+          "description": "The name of the operating system."
+        },
+        "osType": {
+          "type": "string",
+          "description": "The type of the operating system."
+        },
+        "osVersion": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The operating system version."
+        }
+      },
+      "required": [
+        "osArchitecture",
+        "osName",
+        "osType",
+        "osVersion"
+      ],
+      "description": "The properties of a server machine tracked resource"
+    },
+    "HyperVClusterProperties": {
+      "type": "object",
+      "properties": {
+        "createdTimestamp": {
+          "type": "string",
+          "description": "Gets the timestamp marking Hyper-V cluster creation."
+        },
+        "errors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SiteHealthErrorDetails"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the errors."
+        },
+        "fqdn": {
+          "type": "string",
+          "description": "Gets or sets the FQDN/IPAddress of the Hyper-V cluster."
+        },
+        "functionalLevel": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the functional level of the Hyper-V cluster."
+        },
+        "hostFqdnList": {
+          "type": "string",
+          "description": "Gets or sets list of hosts (FQDN) currently being tracked by the cluster."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the last operation."
+        },
+        "runAsAccountId": {
+          "type": "string",
+          "description": "Gets or sets Run as account ID of the Hyper-V cluster."
+        },
+        "status": {
+          "type": "string",
+          "description": "Gets the status of the Hyper-V cluster."
+        },
+        "updatedTimestamp": {
+          "type": "string",
+          "description": "Gets the timestamp marking last updated on the Hyper-V cluster."
+        }
+      },
+      "required": [
+        "createdTimestamp",
+        "errors",
+        "fqdn",
+        "functionalLevel",
+        "hostFqdnList",
+        "runAsAccountId",
+        "status",
+        "updatedTimestamp"
+      ],
+      "description": "The properties of Hyperv Cluster"
+    },
+    "HyperVHostProperties": {
+      "type": "object",
+      "properties": {
+        "createdTimestamp": {
+          "type": "string",
+          "description": "Gets the timestamp marking Hyper-V cluster creation."
+        },
+        "errors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SiteHealthErrorDetails"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the errors."
+        },
+        "fqdn": {
+          "type": "string",
+          "description": "Gets or sets the FQDN/IPAddress of the Hyper-V cluster."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the last operation."
+        },
+        "runAsAccountId": {
+          "type": "string",
+          "description": "Gets or sets Run as account ID of the Hyper-V cluster."
+        },
+        "updatedTimestamp": {
+          "type": "string",
+          "description": "Gets the timestamp marking last updated on the Hyper-V cluster."
+        },
+        "version": {
+          "type": "string",
+          "description": "Gets the version of the Hyper-V host."
+        }
+      },
+      "required": [
+        "createdTimestamp",
+        "errors",
+        "fqdn",
+        "runAsAccountId",
+        "updatedTimestamp",
+        "version"
+      ],
+      "description": "The properties of Hyperv Host"
+    },
+    "HyperVSites_clusters_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " Cluster ARM name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HyperVClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Hyperv Cluster"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "clusters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/HyperVSites/clusters"
+    },
+    "HyperVSites_hosts_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " Host name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HyperVHostProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Hyperv Host"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "hosts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/HyperVSites/hosts"
+    },
+    "NetworkAdapters": {
+      "type": "object",
+      "properties": {
+        "ipAddressList": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the IP addresses of the machine"
+        },
+        "ipAddressType": {
+          "type": "string",
+          "description": "Gets or sets the type of the IP address."
+        },
+        "macAddress": {
+          "type": "string",
+          "description": " Gets or sets the MAC address of the machine."
+        },
+        "networkName": {
+          "type": "string",
+          "description": " Gets or sets the virtual network name"
+        },
+        "nicId": {
+          "type": "string",
+          "description": " Gets or sets the NIC Id."
+        }
+      },
+      "required": [
+        "ipAddressList",
+        "ipAddressType",
+        "macAddress",
+        "networkName",
+        "nicId"
+      ],
+      "description": "Gets or sets the network adapters of the server."
+    },
+    "OperatingSystemDetails": {
+      "type": "object",
+      "properties": {
+        "osArchitecture": {
+          "type": "string",
+          "description": "Gets or sets the OS architecture."
+        },
+        "osName": {
+          "type": "string",
+          "description": "Gets or sets the OS Name."
+        },
+        "osType": {
+          "type": "string",
+          "description": "Gets or sets the OS Type."
+        },
+        "osVersion": {
+          "type": "string",
+          "description": "Gets or sets the OS Version."
+        }
+      },
+      "required": [
+        "osArchitecture",
+        "osName",
+        "osType",
+        "osVersion"
+      ],
+      "description": "Data related to a machine's operating system."
+    },
+    "OracleDiscovery": {
+      "type": "object",
+      "properties": {
+        "discoveryScopeStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "DiscoverySucceededAtleastOnce",
+                "DiscoveryFailed",
+                "RunAsAccountNotAssociated",
+                "DiscoveryNotStarted",
+                "DiscoveryInProgress",
+                "Disabled",
+                "DiscoveryPartiallySucceded",
+                "DiscoverySucceeded"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets status of partner discovery."
+        },
+        "totalDatabaseCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets number of successfully discovered databases."
+        },
+        "totalInstanceCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets number of successfully discovered instances."
+        }
+      },
+      "required": [
+        "discoveryScopeStatus",
+        "totalDatabaseCount",
+        "totalInstanceCount"
+      ],
+      "description": "Data related to a machine's Oracle discovery."
+    },
+    "OtherDatabases": {
+      "type": "object",
+      "properties": {
+        "databaseTypes": {
+          "type": "string",
+          "description": "Gets or sets DatabaseType of the OtherDatabase."
+        },
+        "instance": {
+          "type": "string",
+          "description": "Gets or sets Instance of the OtherDatabase."
+        },
+        "version": {
+          "type": "string",
+          "description": "Gets or sets Version of the OtherDatabase."
+        }
+      },
+      "required": [
+        "databaseTypes",
+        "instance",
+        "version"
+      ],
+      "description": "OtherDatabase in the guest virtual machine."
+    },
+    "ServerProperties": {
+      "type": "object",
+      "properties": {
+        "allocatedMemoryInMb": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "allocated memory in MB of the machine."
+        },
+        "applianceNames": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the appliance names."
+        },
+        "applicationDiscovery": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiscoveryState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scoped discovery status."
+        },
+        "appsAndRoles": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AppsAndRoles"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Apps And Roles of the Server"
+        },
+        "biosGuid": {
+          "type": "string",
+          "description": "Gets or sets the BIOS GUID."
+        },
+        "biosSerialNumber": {
+          "type": "string",
+          "description": "bios serial number of the machine."
+        },
+        "createdTimestamp": {
+          "type": "string",
+          "description": "Gets the timestamp marking created timestamp of the machine."
+        },
+        "dependencyMapDiscovery": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiscoveryState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scoped discovery status."
+        },
+        "dependencyMapping": {
+          "type": "string",
+          "description": "Gets or sets if dependency mapping feature is enabled or not for the VM."
+        },
+        "dependencyMappingEndTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets or sets when dependency mapping collection was last disabled."
+        },
+        "dependencyMappingStartTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": " Gets or sets when dependency mapping collection is last started."
+        },
+        "disks": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Disks"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the disk details of server."
+        },
+        "displayName": {
+          "type": "string",
+          "description": " Gets the Display name of the machine."
+        },
+        "errors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Errors"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Errors for machine."
+        },
+        "firmware": {
+          "type": "string",
+          "description": "Gets or sets the firmware."
+        },
+        "fqdn": {
+          "type": "string",
+          "description": "Gets or sets the FQDN/IPAddress of the server."
+        },
+        "guestDetailsDiscoveryTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last time at which the Guest Details was discovered."
+        },
+        "guestOsDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestOsDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of a server machine tracked resource"
+        },
+        "hydratedFqdn": {
+          "type": "string",
+          "description": "Gets or sets the FQDN of machine which can be changed."
+        },
+        "isDeleted": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Value indicating whether VM is deleted."
+        },
+        "isGuestDetailsDiscoveryInProgress": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the server machine"
+        },
+        "networkAdapters": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NetworkAdapters"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the server machine"
+        },
+        "numberOfApplications": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " Number of applications installed in the guest VM."
+        },
+        "numberofProcessorCores": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "number of processor cores of the machine."
+        },
+        "operatingSystemDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OperatingSystemDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data related to a machine's operating system."
+        },
+        "oracleDiscovery": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OracleDiscovery"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data related to a machine's Oracle discovery."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Provisioning state of the server resource."
+        },
+        "runAsAccountId": {
+          "type": "string",
+          "description": " Gets or sets the run as account ID of the machine."
+        },
+        "springBootDiscovery": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SpringBootDiscovery"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data related to a machine's spring boot discovery."
+        },
+        "sqlDiscovery": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlDiscovery"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data related to a machine's SQL discovery."
+        },
+        "staticDiscovery": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiscoveryState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scoped discovery status."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Server machine tags."
+        },
+        "updatedTimestamp": {
+          "type": "string",
+          "description": " Gets the timestamp marking last updated on the machine."
+        },
+        "validationRequired": {
+          "type": "string",
+          "description": "The name of the server machine"
+        },
+        "webAppDiscovery": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WebAppDiscovery"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data related to a machine's WebApps discovery."
+        }
+      },
+      "required": [
+        "allocatedMemoryInMb",
+        "applianceNames",
+        "applicationDiscovery",
+        "appsAndRoles",
+        "biosGuid",
+        "biosSerialNumber",
+        "createdTimestamp",
+        "dependencyMapDiscovery",
+        "dependencyMapping",
+        "dependencyMappingEndTime",
+        "dependencyMappingStartTime",
+        "displayName",
+        "errors",
+        "firmware",
+        "fqdn",
+        "guestDetailsDiscoveryTimestamp",
+        "guestOsDetails",
+        "hydratedFqdn",
+        "isDeleted",
+        "isGuestDetailsDiscoveryInProgress",
+        "networkAdapters",
+        "numberOfApplications",
+        "numberofProcessorCores",
+        "operatingSystemDetails",
+        "oracleDiscovery",
+        "runAsAccountId",
+        "springBootDiscovery",
+        "sqlDiscovery",
+        "staticDiscovery",
+        "updatedTimestamp",
+        "validationRequired",
+        "webAppDiscovery"
+      ],
+      "description": "Server REST resource."
+    },
+    "serverSites_machines_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " A server machine name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Server REST resource."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "machines"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/serverSites/machines"
+    },
+    "SharePointServers": {
+      "type": "object",
+      "properties": {
+        "isEnterprise": {
+          "type": "string",
+          "description": "Gets or sets a value indicating whether SharePointServer is Enterprise."
+        },
+        "productName": {
+          "type": "string",
+          "description": " Gets or sets ProductName of the SharePointServer."
+        },
+        "status": {
+          "type": "string",
+          "description": " Gets or sets Status of the SharePointServer."
+        },
+        "version": {
+          "type": "string",
+          "description": " Gets or sets Version of the SharePointServer."
+        }
+      },
+      "required": [
+        "isEnterprise",
+        "productName",
+        "status",
+        "version"
+      ],
+      "description": " SharePointServer in the guest virtual machine."
+    },
+    "SiteAgentProperties": {
+      "type": "object",
+      "properties": {
+        "keyVaultId": {
+          "type": "string",
+          "description": "Gets or sets the key vault ARM Id."
+        },
+        "keyVaultUri": {
+          "type": "string",
+          "description": "Gets or sets the key vault URI."
+        }
+      },
+      "description": "Class for site agent properties."
+    },
+    "SiteHealthErrorDetails": {
+      "type": "object",
+      "properties": {
+        "applianceName": {
+          "type": "string",
+          "description": "Gets the appliance name."
+        },
+        "code": {
+          "type": "string",
+          "description": "Gets the error name."
+        },
+        "discoveryScope": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AppsAndRoles",
+                "DependencyMap",
+                "StaticData",
+                "SQLServerConnectionInfo"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets discovery scope for which \r\n            error is encountered."
+        },
+        "id": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the error ID."
+        },
+        "message": {
+          "type": "string",
+          "description": "Gets the error message."
+        },
+        "messageParameters": {
+          "type": "string",
+          "description": "Gets the message parameters."
+        },
+        "possibleCauses": {
+          "type": "string",
+          "description": "Gets the possible causes of error."
+        },
+        "recommendedAction": {
+          "type": "string",
+          "description": "Gets the recommended action to resolve error."
+        },
+        "runAsAccountId": {
+          "type": "string",
+          "description": "Gets run as account id used while performing discovery\r\n            of entity."
+        },
+        "severity": {
+          "type": "string",
+          "description": "Gets the error severity."
+        },
+        "source": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "RefreshFabricLayout",
+                "RefreshFabricLayoutGuest",
+                "RefreshFabricLayoutDependencyMap"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets the error source."
+        },
+        "updatedTimeStamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets the time stamp when the error was updated."
+        }
+      },
+      "required": [
+        "applianceName",
+        "code",
+        "discoveryScope",
+        "id",
+        "message",
+        "messageParameters",
+        "possibleCauses",
+        "recommendedAction",
+        "runAsAccountId",
+        "severity",
+        "source",
+        "updatedTimeStamp"
+      ],
+      "description": "Error contract returned when some exception occurs in Rest API."
+    },
+    "SiteProperties": {
+      "type": "object",
+      "properties": {
+        "agentDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SiteAgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Class for site agent properties."
+        },
+        "applianceName": {
+          "type": "string",
+          "description": "Appliance Name."
+        },
+        "discoverySolutionId": {
+          "type": "string",
+          "description": "RM ID of migration hub solution for SDS."
+        },
+        "masterSiteId": {
+          "type": "string",
+          "description": "Gets the Master Site this site is linked to."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the last operation."
+        },
+        "serviceEndpoint": {
+          "type": "string",
+          "description": "Service endpoint."
+        },
+        "servicePrincipalIdentityDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SiteSpnProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Class for site properties."
+        }
+      },
+      "required": [
+        "agentDetails",
+        "applianceName",
+        "discoverySolutionId",
+        "masterSiteId",
+        "serviceEndpoint",
+        "servicePrincipalIdentityDetails"
+      ],
+      "description": "The properties of VMwareSiteResource"
+    },
+    "SiteSpnProperties": {
+      "type": "object",
+      "properties": {
+        "aadAutority": {
+          "type": "string",
+          "description": "AAD Authority URL which was used to request the token for the service principal."
+        },
+        "applicationId": {
+          "type": "string",
+          "description": "Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services."
+        },
+        "audience": {
+          "type": "string",
+          "description": "Intended audience for the service principal."
+        },
+        "objectId": {
+          "type": "string",
+          "description": "Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services."
+        },
+        "rawCertData": {
+          "type": "string",
+          "description": "Raw certificate data for building certificate expiry flows."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services."
+        }
+      },
+      "required": [
+        "aadAutority",
+        "applicationId",
+        "audience",
+        "objectId",
+        "rawCertData",
+        "tenantId"
+      ],
+      "description": "Class for site properties."
+    },
+    "SitesProperties": {
+      "type": "object",
+      "properties": {
+        "agentDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SiteAgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Class for site agent properties."
+        },
+        "applianceName": {
+          "type": "string",
+          "description": "Appliance Name."
+        },
+        "discoverySolutionId": {
+          "type": "string",
+          "description": "RM ID of migration hub solution for SDS."
+        },
+        "masterSiteId": {
+          "type": "string",
+          "description": "Gets the Master Site this site is linked to."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the last operation."
+        },
+        "serviceEndpoint": {
+          "type": "string",
+          "description": "Service endpoint."
+        },
+        "servicePrincipalIdentityDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SiteSpnProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Class for site properties."
+        }
+      },
+      "required": [
+        "agentDetails",
+        "applianceName",
+        "discoverySolutionId",
+        "masterSiteId",
+        "serviceEndpoint",
+        "servicePrincipalIdentityDetails"
+      ],
+      "description": "The properties of VMwareSiteResource"
+    },
+    "SpringBootDiscovery": {
+      "type": "object",
+      "properties": {
+        "discoveryScopeStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "DiscoverySucceededAtleastOnce",
+                "DiscoveryFailed",
+                "RunAsAccountNotAssociated",
+                "DiscoveryNotStarted",
+                "DiscoveryInProgress",
+                "Disabled",
+                "DiscoveryPartiallySucceded",
+                "DiscoverySucceeded"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets status of partner discovery."
+        },
+        "totalApplicationCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets number of successfully discovered applications."
+        },
+        "totalInstanceCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets number of successfully discovered instances."
+        }
+      },
+      "required": [
+        "discoveryScopeStatus",
+        "totalApplicationCount",
+        "totalInstanceCount"
+      ],
+      "description": "Data related to a machine's spring boot discovery."
+    },
+    "SqlDiscovery": {
+      "type": "object",
+      "properties": {
+        "discoveryScopeStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "DiscoverySucceededAtleastOnce",
+                "DiscoveryFailed",
+                "RunAsAccountNotAssociated",
+                "DiscoveryNotStarted",
+                "DiscoveryInProgress",
+                "Disabled",
+                "DiscoveryPartiallySucceded",
+                "DiscoverySucceeded"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets status of partner discovery."
+        },
+        "sqlMetadataDiscoveryPipe": {
+          "type": "string",
+          "description": "Gets or sets the discovery pipe used for fetching SQL Server's metadata from registry."
+        },
+        "sqlMetadataHydratedRunAsAccountId": {
+          "type": "string",
+          "description": "Gets or sets the run as account ID with which SQL Metadata worked successfully"
+        },
+        "successfullyDiscoveredServerCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets number of SQL servers successfully discovered by SQL agent."
+        },
+        "totalServerCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets total number of SQL servers."
+        }
+      },
+      "required": [
+        "discoveryScopeStatus",
+        "sqlMetadataDiscoveryPipe",
+        "sqlMetadataHydratedRunAsAccountId",
+        "successfullyDiscoveredServerCount",
+        "totalServerCount"
+      ],
+      "description": "Data related to a machine's SQL discovery."
+    },
+    "SqlServers": {
+      "type": "object",
+      "properties": {
+        "clustered": {
+          "type": "string",
+          "description": "Gets or sets whether the SQLServer is Clustered or not."
+        },
+        "clusterName": {
+          "type": "string",
+          "description": "Gets or sets the name of the cluster."
+        },
+        "commaSeperatedIps": {
+          "type": "string",
+          "description": "Gets or sets the comma separated IPs."
+        },
+        "dnsHostName": {
+          "type": "string",
+          "description": "Gets or sets the name of the DNS host."
+        },
+        "edition": {
+          "type": "string",
+          "description": "Gets or sets Edition of the SQLServer."
+        },
+        "isNamedPipeEnabled": {
+          "type": "string",
+          "description": "Gets or sets a value indicating whether Named Pipe protocol is enabled on SQL server"
+        },
+        "isTcpIpEnabled": {
+          "type": "string",
+          "description": "Gets or sets a value indicating whether TCP/IP protocol is enabled on SQL server."
+        },
+        "name": {
+          "type": "string",
+          "description": " Gets or sets Name of the SQLServer."
+        },
+        "namedPipeName": {
+          "type": "string",
+          "description": "Gets or sets the Named Pipe name of the SQL server used to construct connection."
+        },
+        "port": {
+          "type": "string",
+          "description": "Gets or sets the comma separated list of available ports."
+        },
+        "servicePack": {
+          "type": "string",
+          "description": "Gets or sets ServicePack of the SQLServer."
+        },
+        "status": {
+          "type": "string",
+          "description": "Gets or sets the powered on status."
+        },
+        "version": {
+          "type": "string",
+          "description": "Gets or sets Version of the SQLServer."
+        }
+      },
+      "required": [
+        "clustered",
+        "clusterName",
+        "commaSeperatedIps",
+        "dnsHostName",
+        "edition",
+        "isNamedPipeEnabled",
+        "isTcpIpEnabled",
+        "name",
+        "namedPipeName",
+        "port",
+        "servicePack",
+        "status",
+        "version"
+      ],
+      "description": "SQLServer in the guest virtual machine."
+    },
+    "SystemCenters": {
+      "type": "object",
+      "properties": {
+        "productName": {
+          "type": "string",
+          "description": "Gets or sets ProductName of the SystemCenter."
+        },
+        "status": {
+          "type": "string",
+          "description": "Gets or sets Status of the SystemCenter."
+        },
+        "version": {
+          "type": "string",
+          "description": " Gets or sets Version of the SystemCenter."
+        }
+      },
+      "required": [
+        "productName",
+        "status",
+        "version"
+      ],
+      "description": " SystemCenter in the guest virtual machine."
+    },
+    "VCenterProperties": {
+      "type": "object",
+      "properties": {
+        "agentDetails": {
+          "type": "string",
+          "description": "On-premises agent details."
+        },
+        "applianceName": {
+          "type": "string",
+          "description": "Appliance Name."
+        },
+        "discoverySolutionId": {
+          "type": "string",
+          "description": "RM ID of migration hub solution for SDS."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Provisioning",
+                "Updating",
+                "Deleting",
+                "Accepted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The status of the last operation."
+        },
+        "serviceEndpoint": {
+          "type": "string",
+          "description": "Service endpoint."
+        }
+      },
+      "required": [
+        "agentDetails",
+        "applianceName",
+        "discoverySolutionId",
+        "serviceEndpoint"
+      ],
+      "description": "The properties of VMwareSiteResource"
+    },
+    "VMwareSites_vCenters_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2020-02-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": " VCenters name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VCenterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of VMwareSiteResource"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "vCenters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.OffAzure/VMwareSites/vCenters"
+    },
+    "WebAppDiscovery": {
+      "type": "object",
+      "properties": {
+        "discoveryScopeStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "DiscoverySucceededAtleastOnce",
+                "DiscoveryFailed",
+                "RunAsAccountNotAssociated",
+                "DiscoveryNotStarted",
+                "DiscoveryInProgress",
+                "Disabled",
+                "DiscoveryPartiallySucceded",
+                "DiscoverySucceeded"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets status of partner discovery."
+        },
+        "totalWebApplicationCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets number of successfully discovered web applications."
+        },
+        "totalWebServerCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets number of successfully discovered web servers.."
+        }
+      },
+      "required": [
+        "discoveryScopeStatus",
+        "totalWebApplicationCount",
+        "totalWebServerCount"
+      ],
+      "description": "Data related to a machine's WebApps discovery."
+    },
+    "WebApplications": {
+      "type": "object",
+      "properties": {
+        "applicationPool": {
+          "type": "string",
+          "description": "Gets or sets ApplicationPool of the WebApplication."
+        },
+        "groupName": {
+          "type": "string",
+          "description": "Gets or sets GroupName of the WebApplication."
+        },
+        "name": {
+          "type": "string",
+          "description": " Gets or sets Name of the WebApplication."
+        },
+        "platform": {
+          "type": "string",
+          "description": "Gets or sets Platform of the WebApplication."
+        },
+        "status": {
+          "type": "string",
+          "description": "Gets or sets Status of the WebApplication."
+        },
+        "webServer": {
+          "type": "string",
+          "description": "Gets or sets WebServer of the WebApplication."
+        }
+      },
+      "required": [
+        "applicationPool",
+        "groupName",
+        "name",
+        "platform",
+        "status",
+        "webServer"
+      ],
+      "description": " WebApplication in the guest virtual machine."
+    }
+  }
+}

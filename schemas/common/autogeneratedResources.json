@@ -48050,6 +48050,30 @@
           "$ref": "https://schema.management.azure.com/schemas/2020-01-01/Microsoft.OffAzure.json#/resourceDefinitions/VMwareSites_vCenters"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#/resourceDefinitions/HyperVSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#/resourceDefinitions/HyperVSites_clusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#/resourceDefinitions/HyperVSites_hosts"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#/resourceDefinitions/importSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#/resourceDefinitions/serverSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#/resourceDefinitions/serverSites_machines"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#/resourceDefinitions/VMwareSites"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01/Microsoft.OffAzure.json#/resourceDefinitions/VMwareSites_vCenters"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-07-07/Microsoft.OffAzure.json#/resourceDefinitions/HyperVSites"
         },
         {
