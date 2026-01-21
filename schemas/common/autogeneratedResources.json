@@ -28613,6 +28613,18 @@
           "$ref": "https://schema.management.azure.com/schemas/2025-01-15-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_applications"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_extensions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-07-01-preview/Microsoft.HDInsight.json#/resourceDefinitions/clusters_privateEndpointConnections"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-10-20/Microsoft.HealthBot.json#/resourceDefinitions/healthBots"
         },
         {
