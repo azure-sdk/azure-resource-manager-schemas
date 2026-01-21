@@ -4772,6 +4772,24 @@
       },
       "type": "object"
     },
+    "MaterializedViewDefinition": {
+      "type": "object",
+      "properties": {
+        "definition": {
+          "type": "string",
+          "description": "Definition of the Cosmos DB SQL Materialized view"
+        },
+        "sourceCollectionId": {
+          "type": "string",
+          "description": "Name of the Cosmos DB SQL source container"
+        }
+      },
+      "required": [
+        "definition",
+        "sourceCollectionId"
+      ],
+      "description": "Materialized View definition for the container."
+    },
     "MongoDBCollectionCreateUpdateProperties": {
       "description": "Properties to create and update Azure Cosmos DB MongoDB collection.",
       "properties": {
@@ -5524,6 +5542,17 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "materializedViewDefinition": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaterializedViewDefinition"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Materialized View definition for the container."
         },
         "partitionKey": {
           "description": "The configuration of the partition key to be used for partitioning data into multiple partitions",
