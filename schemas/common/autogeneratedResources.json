@@ -7235,6 +7235,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Authorization.Resources.PrivateLinks.json#/resourceDefinitions/resourceManagementPrivateLinks"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.Authorization.Resources.json#/resourceDefinitions/resourceManagementPrivateLinks"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-06-30-preview/Microsoft.Automanage.json#/resourceDefinitions/accounts"
         },
         {
