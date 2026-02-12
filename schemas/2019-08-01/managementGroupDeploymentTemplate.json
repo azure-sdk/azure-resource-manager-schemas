@@ -1227,6 +1227,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2025-05-01-preview/Microsoft.Mission.json#/unknown_resourceDefinitions/approvals"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.Insights.json#/managementGroup_resourceDefinitions/tenantActionGroups"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2022-01-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
             },
             {
