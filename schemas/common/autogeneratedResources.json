@@ -35216,6 +35216,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2017-11-11-preview/Microsoft.Migrate.json#/resourceDefinitions/projects_groups_assessments"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2024-01-20-preview/Microsoft.MessagingConnectors.json#/resourceDefinitions/connectors"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-02-02/Microsoft.Migrate.json#/resourceDefinitions/projects"
         },
         {
