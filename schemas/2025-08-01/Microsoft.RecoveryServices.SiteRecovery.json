@@ -14,7 +14,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the email notification(alert) configuration.",
+          "description": "The name of the email notification configuration.",
           "type": "string"
         },
         "properties": {
@@ -53,7 +53,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the ASR fabric.",
+          "description": "Fabric name.",
           "type": "string"
         },
         "properties": {
@@ -147,7 +147,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Unique protection container ARM name.",
+          "description": "Protection container name.",
           "type": "string"
         },
         "properties": {
@@ -244,7 +244,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A name for the replication protected item.",
+          "description": "Replication protected item name.",
           "type": "string"
         },
         "properties": {
@@ -330,7 +330,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Protection container mapping name.",
+          "description": "Protection Container mapping name.",
           "type": "string"
         },
         "properties": {
@@ -525,7 +525,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A name for the replication protection item.",
+          "description": "Replication protection intent name.",
           "type": "string"
         },
         "properties": {
@@ -564,7 +564,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Recovery plan name.",
+          "description": "Name of the recovery plan.",
           "type": "string"
         },
         "properties": {
@@ -5653,7 +5653,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Unique protection container ARM name.",
+          "description": "Protection container name.",
           "type": "string"
         },
         "properties": {
@@ -5731,7 +5731,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A name for the replication protected item.",
+          "description": "Replication protected item name.",
           "type": "string"
         },
         "properties": {
@@ -5817,7 +5817,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Protection container mapping name.",
+          "description": "Protection Container mapping name.",
           "type": "string"
         },
         "properties": {

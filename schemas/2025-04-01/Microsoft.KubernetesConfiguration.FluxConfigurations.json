@@ -741,11 +741,11 @@
       "description": "Parameters to authenticate using Service Principal.",
       "properties": {
         "clientCertificate": {
-          "description": "Base64-encoded certificate used to authenticate a Service Principal ",
+          "description": "Base64-encoded certificate used to authenticate a Service Principal",
           "type": "string"
         },
         "clientCertificatePassword": {
-          "description": "The password for the certificate used to authenticate a Service Principal ",
+          "description": "The password for the certificate used to authenticate a Service Principal",
           "type": "string"
         },
         "clientCertificateSendChain": {

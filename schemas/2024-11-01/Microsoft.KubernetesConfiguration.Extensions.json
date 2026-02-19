@@ -29,7 +29,7 @@
           "type": "string"
         },
         "plan": {
-          "description": "The plan information.",
+          "description": "Details of the resource plan.",
           "oneOf": [
             {
               "$ref": "#/definitions/Plan"
