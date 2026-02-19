@@ -1386,9 +1386,10 @@ const autoGenList: AutoGenConfig[] = [
         ],
     },*/
     {
-        basePath: 'applicationinsights/resource-manager',
+        basePath: 'applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights',
         namespace: 'Microsoft.Insights',
         suffix: 'Application',
+        useNamespaceFromConfig: true,
         postProcessor: insightsApplicationPostProcessor,
     },
     {
