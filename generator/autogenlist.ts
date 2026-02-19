@@ -134,7 +134,7 @@ const autoGenList: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
     },
     {
-        basePath: 'authorization/resource-manager',
+        basePath: 'authorization/resource-manager/Microsoft.Authorization/Authorization',
         namespace: 'Microsoft.Authorization',
         resourceConfig: [
             {
@@ -178,7 +178,8 @@ const autoGenList: AutoGenConfig[] = [
                 scopes: ScopeType.Extension | ScopeType.ManagementGroup | ScopeType.ResourceGroup | ScopeType.Subscription | ScopeType.Tenant
             },
         ],
-        suffix: 'Authz'
+        suffix: 'Authz',
+        useNamespaceFromConfig: true,
     },
     {
         basePath: 'analysisservices/resource-manager',
@@ -1035,8 +1036,9 @@ const autoGenList: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
     },
     {
-        basePath: 'reservations/resource-manager',
+        basePath: 'reservations/resource-manager/Microsoft.Capacity/Reservations',
         namespace: 'Microsoft.Capacity',
+        useNamespaceFromConfig: true,
     },
     {
         basePath: 'servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus',
@@ -1226,8 +1228,9 @@ const autoGenList: AutoGenConfig[] = [
         namespace: 'Microsoft.VisualStudio',
     },
     {
-        basePath: 'sql/resource-manager',
+        basePath: 'sql/resource-manager/Microsoft.Sql/SQL',
         namespace: 'Microsoft.Sql',
+        useNamespaceFromConfig: true,
     },
     {
         basePath: 'scheduler/resource-manager/Microsoft.Scheduler/Scheduler',
