@@ -445,7 +445,7 @@
           ]
         },
         "properties": {
-          "description": "The resource-specific properties for this resource.",
+          "description": "The RP-specific properties for this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/PolicyProperties"
@@ -3726,7 +3726,7 @@
           ]
         },
         "properties": {
-          "description": "The resource-specific properties for this resource.",
+          "description": "The RP-specific properties for this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/PolicyProperties"

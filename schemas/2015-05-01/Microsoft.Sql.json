@@ -1,0 +1,7 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2015-05-01/Microsoft.Sql.json#",
+  "title": "Microsoft.Sql",
+  "description": "Microsoft Sql Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {}
+}

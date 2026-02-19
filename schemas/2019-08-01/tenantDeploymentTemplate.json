@@ -560,106 +560,106 @@
                   "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports_webhooks"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2015-07-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2015-07-01/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2015-07-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
+                  "$ref": "https://schema.management.azure.com/schemas/2015-07-01/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleDefinitions"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2017-10-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2017-10-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-01-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2018-01-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-01-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
+                  "$ref": "https://schema.management.azure.com/schemas/2018-01-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleDefinitions"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-03-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-03-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-04-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-04-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-08-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-08-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-01-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentApprovals_stages"
+                  "$ref": "https://schema.management.azure.com/schemas/2021-01-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignmentApprovals_stages"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-07-01-preview/Microsoft.Authorization.Authz.json#/tenant_resourceDefinitions/accessReviewScheduleDefinitions_instances"
+                  "$ref": "https://schema.management.azure.com/schemas/2021-07-01-preview/Microsoft.Authorization.json#/tenant_resourceDefinitions/accessReviewScheduleDefinitions_instances"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-11-16-preview/Microsoft.Authorization.Authz.json#/tenant_resourceDefinitions/accessReviewScheduleDefinitions_instances"
+                  "$ref": "https://schema.management.azure.com/schemas/2021-11-16-preview/Microsoft.Authorization.json#/tenant_resourceDefinitions/accessReviewScheduleDefinitions_instances"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/accessReviewHistoryDefinitions"
+                  "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/accessReviewHistoryDefinitions"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/accessReviewScheduleDefinitions"
+                  "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/accessReviewScheduleDefinitions"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/accessReviewScheduleDefinitions_instances"
+                  "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/accessReviewScheduleDefinitions_instances"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/accessReviewScheduleSettings"
+                  "$ref": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/accessReviewScheduleSettings"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2022-04-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2022-04-01/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2022-04-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
+                  "$ref": "https://schema.management.azure.com/schemas/2022-04-01/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleDefinitions"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2022-04-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
+                  "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleDefinitions"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2016-12-01/Microsoft.Authorization.Resources.Policy.json#/tenant_resourceDefinitions/policyDefinitions"
@@ -764,46 +764,40 @@
                   "$ref": "https://schema.management.azure.com/schemas/2025-03-01/Microsoft.Authorization.Resources.Policy.json#/tenant_resourceDefinitions/policySetDefinitions_versions"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-11-01/Microsoft.Authorization.Resources.Policy.json#/tenant_resourceDefinitions/policyDefinitions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-11-01/Microsoft.Authorization.Resources.Policy.json#/tenant_resourceDefinitions/policyDefinitions_versions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-11-01/Microsoft.Authorization.Resources.Policy.json#/tenant_resourceDefinitions/policySetDefinitions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-11-01/Microsoft.Authorization.Resources.Policy.json#/tenant_resourceDefinitions/policySetDefinitions_versions"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2024-12-01/Microsoft.AwsConnector.json#/unknown_resourceDefinitions/ec2Instances"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2024-12-01/Microsoft.AwsConnector.json#/unknown_resourceDefinitions/eksClusters"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/virtualMachineInstances"
+                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
+                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-08-01-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/edgeDevices"
+                  "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/virtualMachineInstances"
+                  "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
+                  "$ref": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2023-11-01-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/edgeDevices"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/edgeDevices"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/virtualMachineInstances"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2024-02-15-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/edgeDevices"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2025-09-15-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/edgeDevices"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/2025-09-15-preview/Microsoft.AzureStackHCI.json#/unknown_resourceDefinitions/edgeDevices_jobs"
+                  "$ref": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances"
@@ -852,6 +846,12 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2025-09-01-preview/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2026-02-01-preview/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2026-02-01-preview/Microsoft.AzureStackHCI.StackHCIVM.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2018-11-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles"
@@ -980,19 +980,19 @@
                   "$ref": "https://schema.management.azure.com/schemas/2025-12-01-preview/Microsoft.BillingBenefits.json#/tenant_resourceDefinitions/savingsPlanOrderAliases"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2019-04-01/Microsoft.Capacity.json#/tenant_resourceDefinitions/reservationOrders"
+                  "$ref": "https://schema.management.azure.com/schemas/2019-04-01/Microsoft.Capacity.Reservations.json#/tenant_resourceDefinitions/reservationOrders"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Capacity.json#/tenant_resourceDefinitions/reservationOrders"
+                  "$ref": "https://schema.management.azure.com/schemas/2020-10-01-preview/Microsoft.Capacity.Reservations.json#/tenant_resourceDefinitions/reservationOrders"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2021-07-01/Microsoft.Capacity.json#/tenant_resourceDefinitions/reservationOrders"
+                  "$ref": "https://schema.management.azure.com/schemas/2021-07-01/Microsoft.Capacity.Reservations.json#/tenant_resourceDefinitions/reservationOrders"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Capacity.json#/tenant_resourceDefinitions/reservationOrders"
+                  "$ref": "https://schema.management.azure.com/schemas/2022-03-01/Microsoft.Capacity.Reservations.json#/tenant_resourceDefinitions/reservationOrders"
                 },
                 {
-                  "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Capacity.json#/tenant_resourceDefinitions/reservationOrders"
+                  "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.Capacity.Reservations.json#/tenant_resourceDefinitions/reservationOrders"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.ConnectedVMwarevSphere.json#/unknown_resourceDefinitions/virtualMachineInstances"
@@ -1463,6 +1463,9 @@
                   "$ref": "https://schema.management.azure.com/schemas/2025-05-01-preview/Microsoft.Mission.json#/unknown_resourceDefinitions/approvals"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2021-05-01-preview/Microsoft.Network.json#/tenant_resourceDefinitions/managementGroups_networkManagerConnections"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2021-05-01-preview/Microsoft.Network.NRP.json#/tenant_resourceDefinitions/managementGroups_networkManagerConnections"
                 },
                 {
@@ -1580,13 +1583,46 @@
                   "$ref": "https://schema.management.azure.com/schemas/2025-03-13/Microsoft.ScVmm.json#/unknown_resourceDefinitions/virtualMachineInstances_guestAgents"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2017-08-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/advancedThreatProtectionSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2017-08-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/deviceSecurityGroups"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2017-08-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/informationProtectionPolicies"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2019-01-01/Microsoft.Security.json#/unknown_resourceDefinitions/advancedThreatProtectionSettings"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2019-01-01-preview/Microsoft.Security.json#/tenant_resourceDefinitions/assessmentMetadata"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2019-01-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/assessments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2019-08-01/Microsoft.Security.json#/unknown_resourceDefinitions/deviceSecurityGroups"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2020-01-01/Microsoft.Security.json#/tenant_resourceDefinitions/assessmentMetadata"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2020-01-01/Microsoft.Security.json#/unknown_resourceDefinitions/assessments"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Security.json#/tenant_resourceDefinitions/assessmentMetadata"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Security.json#/unknown_resourceDefinitions/assessments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2022-01-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/assessments_governanceAssignments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2022-01-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/governanceRules"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2022-12-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/defenderForStorageSettings"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2023-02-15-preview/Microsoft.Security.json#/tenant_resourceDefinitions/sensitivitySettings"
@@ -1604,7 +1640,31 @@
                   "$ref": "https://schema.management.azure.com/schemas/2024-08-01/Microsoft.Security.json#/unknown_resourceDefinitions/standardAssignments"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/defenderForStorageSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/defenderForStorageSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Security.json#/unknown_resourceDefinitions/defenderForStorageSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/defenderForStorageSettings"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2025-05-04-preview/Microsoft.Security.json#/tenant_resourceDefinitions/assessmentMetadata"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-05-04-preview/Microsoft.Security.json#/unknown_resourceDefinitions/assessments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-06-01/Microsoft.Security.json#/unknown_resourceDefinitions/defenderForStorageSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-07-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/defenderForStorageSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-09-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/defenderForStorageSettings"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2017-11-01-preview/Microsoft.Subscription.json#/tenant_resourceDefinitions/subscriptionDefinitions"
