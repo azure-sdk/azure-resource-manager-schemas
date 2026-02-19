@@ -30,14 +30,14 @@ const disabledProviders: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
         disabledForAutogen: true,
     },
-    {
+    /*{
         // NRP generates many files and causes disk space issues during schema generation
         basePath: 'network/resource-manager',
         namespace: 'Microsoft.Network',
         postProcessor: networkPostProcessor,
         suffix: 'NRP',
         disabledForAutogen: true,
-    },
+    },*/
     {
         //Disabled until errors are fixed
         //'datamanagerforagriculturesolutionproperties.properties.openapispecsdictionary.additionalproperties' - TypeError: Cannot convert undefined or null to object
@@ -1450,13 +1450,14 @@ const autoGenList: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
         suffix: 'TrafficManager',
     },
-    /*{
+    {
         //Disabled until a workaround is found
-        basePath: 'network/resource-manager',
+        basePath: 'network/resource-manager/Microsoft.Network/Network',
         namespace: 'Microsoft.Network',
         postProcessor: networkPostProcessor,
         suffix: 'NRP',
-    },*/
+        useNamespaceFromConfig: true,
+    },
     {
         basePath: 'dnsresolver/resource-manager/Microsoft.Network/DnsResolver',
         namespace: 'Microsoft.Network',
