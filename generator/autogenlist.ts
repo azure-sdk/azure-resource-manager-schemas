@@ -30,14 +30,6 @@ const disabledProviders: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
         disabledForAutogen: true,
     },
-    /*{
-        // NRP generates many files and causes disk space issues during schema generation
-        basePath: 'network/resource-manager',
-        namespace: 'Microsoft.Network',
-        postProcessor: networkPostProcessor,
-        suffix: 'NRP',
-        disabledForAutogen: true,
-    },*/
     {
         //Disabled until errors are fixed
         //'datamanagerforagriculturesolutionproperties.properties.openapispecsdictionary.additionalproperties' - TypeError: Cannot convert undefined or null to object
@@ -102,14 +94,6 @@ const disabledProviders: AutoGenConfig[] = [
         namespace: 'Microsoft.Monitor',
         disabledForAutogen: true,
     },
-/*    {
-        //Disabled until errors are fixed
-        //Password is not a valid format for type array
-        basePath: 'redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise',
-        namespace: 'Microsoft.Cache',
-        useNamespaceFromConfig: true,
-        disabledForAutogen: true,
-    },*/
     {
         // Disabling as this is superceded by the 'securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights' entry after a repo restructure
         basePath: 'securityinsights/resource-manager',
@@ -521,9 +505,11 @@ const autoGenList: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
     },
     {
-        basePath: 'redisenterprise/resource-manager',
+        basePath: 'redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise',
         namespace: 'Microsoft.Cache',
-        suffix: 'Enterprise'
+        useNamespaceFromConfig: true,
+        disabledForAutogen: true,
+        suffix: 'Enterprise',
     },
     {
         basePath: 'hardwaresecuritymodules/resource-manager/Microsoft.HardwareSecurityModules/HardwareSecurityModules',
@@ -1115,8 +1101,9 @@ const autoGenList: AutoGenConfig[] = [
         namespace: 'Microsoft.Synapse',
     },
     {
-        basePath: 'security/resource-manager',
+        basePath: 'security/resource-manager/Microsoft.Security/Security',
         namespace: 'Microsoft.Security',
+        useNamespaceFromConfig: true,
         resourceConfig: [
             {
                 type: 'advancedThreatProtectionSettings',
