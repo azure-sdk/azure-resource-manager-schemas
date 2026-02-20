@@ -31,14 +31,6 @@ const disabledProviders: AutoGenConfig[] = [
         disabledForAutogen: true,
     },
     {
-        // NRP generates many files and causes disk space issues during schema generation
-        basePath: 'network/resource-manager',
-        namespace: 'Microsoft.Network',
-        postProcessor: networkPostProcessor,
-        suffix: 'NRP',
-        disabledForAutogen: true,
-    },
-    {
         //Disabled until errors are fixed
         //'datamanagerforagriculturesolutionproperties.properties.openapispecsdictionary.additionalproperties' - TypeError: Cannot convert undefined or null to object
         basePath: 'agrifood/resource-manager/Microsoft.AgFoodPlatform/AgFoodPlatform',
@@ -103,14 +95,6 @@ const disabledProviders: AutoGenConfig[] = [
         disabledForAutogen: true,
     },
     {
-        //Disabled until errors are fixed
-        //Password is not a valid format for type array
-        basePath: 'redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise',
-        namespace: 'Microsoft.Cache',
-        useNamespaceFromConfig: true,
-        disabledForAutogen: true,
-    },
-    {
         // Disabling as this is superceded by the 'securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights' entry after a repo restructure
         basePath: 'securityinsights/resource-manager',
         namespace: 'Microsoft.SecurityInsights',
@@ -134,7 +118,7 @@ const autoGenList: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
     },
     {
-        basePath: 'authorization/resource-manager',
+        basePath: 'authorization/resource-manager/Microsoft.Authorization/Authorization',
         namespace: 'Microsoft.Authorization',
         resourceConfig: [
             {
@@ -178,7 +162,8 @@ const autoGenList: AutoGenConfig[] = [
                 scopes: ScopeType.Extension | ScopeType.ManagementGroup | ScopeType.ResourceGroup | ScopeType.Subscription | ScopeType.Tenant
             },
         ],
-        suffix: 'Authz'
+        suffix: 'Authz',
+        useNamespaceFromConfig: true,
     },
     {
         basePath: 'analysisservices/resource-manager',
@@ -520,9 +505,11 @@ const autoGenList: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
     },
     {
-        basePath: 'redisenterprise/resource-manager',
+        basePath: 'redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise',
         namespace: 'Microsoft.Cache',
-        suffix: 'Enterprise'
+        useNamespaceFromConfig: true,
+        disabledForAutogen: true,
+        suffix: 'Enterprise',
     },
     {
         basePath: 'hardwaresecuritymodules/resource-manager/Microsoft.HardwareSecurityModules/HardwareSecurityModules',
@@ -1035,8 +1022,9 @@ const autoGenList: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
     },
     {
-        basePath: 'reservations/resource-manager',
+        basePath: 'reservations/resource-manager/Microsoft.Capacity/Reservations',
         namespace: 'Microsoft.Capacity',
+        useNamespaceFromConfig: true,
     },
     {
         basePath: 'servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus',
@@ -1113,8 +1101,9 @@ const autoGenList: AutoGenConfig[] = [
         namespace: 'Microsoft.Synapse',
     },
     {
-        basePath: 'security/resource-manager',
+        basePath: 'security/resource-manager/Microsoft.Security/Security',
         namespace: 'Microsoft.Security',
+        useNamespaceFromConfig: true,
         resourceConfig: [
             {
                 type: 'advancedThreatProtectionSettings',
@@ -1226,8 +1215,9 @@ const autoGenList: AutoGenConfig[] = [
         namespace: 'Microsoft.VisualStudio',
     },
     {
-        basePath: 'sql/resource-manager',
+        basePath: 'sql/resource-manager/Microsoft.Sql/SQL',
         namespace: 'Microsoft.Sql',
+        useNamespaceFromConfig: true,
     },
     {
         basePath: 'scheduler/resource-manager/Microsoft.Scheduler/Scheduler',
@@ -1386,9 +1376,10 @@ const autoGenList: AutoGenConfig[] = [
         ],
     },*/
     {
-        basePath: 'applicationinsights/resource-manager',
+        basePath: 'applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights',
         namespace: 'Microsoft.Insights',
         suffix: 'Application',
+        useNamespaceFromConfig: true,
         postProcessor: insightsApplicationPostProcessor,
     },
     {
@@ -1450,13 +1441,14 @@ const autoGenList: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
         suffix: 'TrafficManager',
     },
-    /*{
+    {
         //Disabled until a workaround is found
-        basePath: 'network/resource-manager',
+        basePath: 'network/resource-manager/Microsoft.Network/Network',
         namespace: 'Microsoft.Network',
         postProcessor: networkPostProcessor,
         suffix: 'NRP',
-    },*/
+        useNamespaceFromConfig: true,
+    },
     {
         basePath: 'dnsresolver/resource-manager/Microsoft.Network/DnsResolver',
         namespace: 'Microsoft.Network',
