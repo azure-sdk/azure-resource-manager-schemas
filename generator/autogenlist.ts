@@ -66,6 +66,20 @@ const disabledProviders: AutoGenConfig[] = [
     },
     {
         //Disabled until errors are fixed
+        //Unrecognized schema type:'boolean'. Boolean schema 'type·for·isSecret' with unknown format: 'password' is not vali
+        basePath: 'eventgrid/resource-manager/Microsoft.EventGrid/EventGrid',
+        namespace: 'Microsoft.EventGrid',
+        useNamespaceFromConfig: true,
+        resourceConfig: [
+            {
+                type: 'eventSubscriptions',
+                scopes: ScopeType.Extension | ScopeType.Subscription | ScopeType.ResourceGroup,
+            },
+        ],
+        disabledForAutogen: true,
+    },
+    {
+        //Disabled until errors are fixed
         //Enum types of 'undefined' and format 'undefined' are not supported. Correct your input
         basePath: 'marketplacecatalog/resource-manager/Microsoft.Marketplace/Marketplace',
         namespace: 'stable',
@@ -606,17 +620,6 @@ const autoGenList: AutoGenConfig[] = [
         basePath: 'labservices/resource-manager/Microsoft.LabServices/LabServices',
         namespace: 'Microsoft.LabServices',
         useNamespaceFromConfig: true,
-    },
-    {
-        basePath: 'eventgrid/resource-manager/Microsoft.EventGrid/EventGrid',
-        namespace: 'Microsoft.EventGrid',
-        useNamespaceFromConfig: true,
-        resourceConfig: [
-            {
-                type: 'eventSubscriptions',
-                scopes: ScopeType.Extension | ScopeType.Subscription | ScopeType.ResourceGroup,
-            },
-        ],
     },
     {
         basePath: 'machinelearning/resource-manager',
