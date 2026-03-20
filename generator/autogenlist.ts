@@ -21,6 +21,9 @@ import { postProcessor as awsConnectorPostProcessor } from './processors/Microso
 import { lowerCaseEquals } from './utils';
 import { detectProviderNamespaces } from './generate';
 
+// Providers that have been onboarded to the C# generator. Any provider in this list must be be excluded from autogenList.
+export const csharpGeneratorEnabledProviders: string[] = [];
+
 // New providers are onboarded by default. The providers listed here are the only ones **not** onboarded.
 const disabledProviders: AutoGenConfig[] = [
     {
