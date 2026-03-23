@@ -65,6 +65,13 @@ const disabledProviders: AutoGenConfig[] = [
         disabledForAutogen: true,
     },
     {
+        // Duplicated under 'containerservice/resource-manager/Microsoft.ContainerService/aks'
+        basePath: 'compute/resource-manager/Microsoft.ContainerService/ContainerService',
+        namespace: 'Microsoft.ContainerService',
+        useNamespaceFromConfig: true,
+        disabledForAutogen: true,
+    },
+    {
         //Disabled until errors are fixed
         //Unrecognized schema type:'boolean'. Boolean schema 'type·for·isSecret' with unknown format: 'password' is not vali
         basePath: 'eventgrid/resource-manager/Microsoft.EventGrid/EventGrid',
@@ -92,20 +99,6 @@ const disabledProviders: AutoGenConfig[] = [
         useNamespaceFromConfig: true,
         postProcessor: serviceFabricPostProcessor,
         suffix: 'ManagedClusters',
-        disabledForAutogen: true,
-    },
-    {
-        //Disabled until errors are fixed
-        //Remove deprectaed version 2024-01-01-preview from readme
-        basePath: 'monitor/resource-manager',
-        namespace: 'Microsoft.Insights',
-        disabledForAutogen: true,
-    },
-    {
-        //Disabled until errors are fixed
-        //Remove deprectaed version 2024-01-01-preview from readme
-        basePath: 'monitor/resource-manager',
-        namespace: 'Microsoft.Monitor',
         disabledForAutogen: true,
     },
     {
@@ -1195,13 +1188,27 @@ const autoGenList: AutoGenConfig[] = [
         postProcessor: storageProcessor,
     },
     {
-        basePath: 'compute/resource-manager',
+        basePath: 'compute/resource-manager/Microsoft.Compute/Bulkactions',
+        namespace: 'Microsoft.Compute',
+        useNamespaceFromConfig: true,
+        suffix: 'BulkActions',
+        postProcessor: computeProcessor
+    },
+    {
+        basePath: 'compute/resource-manager/Microsoft.Compute/Compute',
         namespace: 'Microsoft.Compute',
         useNamespaceFromConfig: true,
         postProcessor: computeProcessor
     },
     {
-        basePath: 'compute/resource-manager/Microsoft.Compute/RecommenderRP',
+        basePath: 'compute/resource-manager/Microsoft.Compute/Diagnostic',
+        namespace: 'Microsoft.Compute',
+        useNamespaceFromConfig: true,
+        suffix: 'Diagnostic',
+        postProcessor: computeProcessor
+    },
+    {
+        basePath: 'compute/resource-manager/Microsoft.Compute/Recommender',
         namespace: 'Microsoft.Compute',
         useNamespaceFromConfig: true,
         suffix: 'RecommenderRP',
@@ -1324,8 +1331,9 @@ const autoGenList: AutoGenConfig[] = [
         namespace: 'Microsoft.HealthBot',
     },
     {
-        basePath: 'keyvault/resource-manager',
+        basePath: 'keyvault/resource-manager/Microsoft.KeyVault/KeyVault',
         namespace: 'Microsoft.KeyVault',
+        useNamespaceFromConfig: true,
         readmeTag: {
             '2016-10-01': [
                 'Microsoft.KeyVault/stable/2016-10-01/keyvault.json',
@@ -1357,11 +1365,10 @@ const autoGenList: AutoGenConfig[] = [
         namespace: 'Microsoft.PowerPlatform',
         useNamespaceFromConfig: true,
     },
-    //Disabled until errors are fixed
-    //Remove deprectated version 2024-01-01-preview from readme
-    /*{
-        basePath: 'monitor/resource-manager',
+    {
+        basePath: 'monitor/resource-manager/Microsoft.Insights/Insights',
         namespace: 'Microsoft.Insights',
+        useNamespaceFromConfig: true,
         resourceConfig: [
             {
                 type: 'diagnosticSettings',
@@ -1376,7 +1383,7 @@ const autoGenList: AutoGenConfig[] = [
                 scopes: ScopeType.Extension,
             },
         ],
-    },*/
+    },
     {
         basePath: 'applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights',
         namespace: 'Microsoft.Insights',
