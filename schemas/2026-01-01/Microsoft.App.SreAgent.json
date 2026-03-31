@@ -1,0 +1,888 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2026-01-01/Microsoft.App.SreAgent.json#",
+  "title": "Microsoft.App",
+  "description": "Microsoft App Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "agentSpaces": {
+      "description": "Microsoft.App/agentSpaces",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-01-01"
+          ],
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed service identities assigned to this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The geo-location where the resource lives",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the AgentSpace",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z]([-A-Za-z0-9]*[A-Za-z0-9])$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentSpaceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/agentSpaces_connectors_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.App/agentSpaces"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "agentSpaces_connectors": {
+      "description": "Microsoft.App/agentSpaces/connectors",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the AgentSpaceConnector",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z]([-A-Za-z0-9]{0,30}[A-Za-z0-9])$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentSpaceConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.App/agentSpaces/connectors"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "agents": {
+      "description": "Microsoft.App/agents",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-01-01"
+          ],
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed service identities assigned to this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The geo-location where the resource lives",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the Agent",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z]([-A-Za-z0-9]{0,30}[A-Za-z0-9])$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/agents_connectors_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.App/agents"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "agents_connectors": {
+      "description": "Microsoft.App/agents/connectors",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the AgentConnector",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z]([-A-Za-z0-9]{0,30}[A-Za-z0-9])$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.App/agents/connectors"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "ActionConfiguration": {
+      "description": "Configuration for action",
+      "properties": {
+        "accessLevel": {
+          "description": "The access level of the action",
+          "oneOf": [
+            {
+              "enum": [
+                "Low",
+                "High"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "identity": {
+          "description": "The identity used by the action",
+          "type": "string"
+        },
+        "mode": {
+          "description": "The mode of the action",
+          "oneOf": [
+            {
+              "enum": [
+                "Autonomous",
+                "Review",
+                "ReadOnly"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AgentConnectorProperties": {
+      "description": "Agent Connector Properties",
+      "properties": {
+        "dataConnectorType": {
+          "description": "The type of the data connector",
+          "type": "string"
+        },
+        "dataSource": {
+          "description": "Data source connection string or endpoint",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "Endpoint of the connector",
+          "type": "string"
+        },
+        "extendedProperties": {
+          "description": "Additional properties for the data connector which can be used to store custom key-value pairs",
+          "oneOf": [
+            {
+              "additionalProperties": {},
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "identity": {
+          "description": "Identity used to access the data source",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AgentIdentity": {
+      "description": "Agent identity configuration",
+      "properties": {
+        "initialSponsorGroupId": {
+          "description": "Initial sponsor group ID (required for agent identity)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "initialSponsorGroupId"
+      ],
+      "type": "object"
+    },
+    "AgentProperties": {
+      "description": "Properties of the Agent",
+      "properties": {
+        "actionConfiguration": {
+          "description": "Configuration for action",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ActionConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "agentIdentity": {
+          "description": "Agent identity configuration for accessing resources",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "agentSpaceId": {
+          "description": "The agent space ID referenced by the agent",
+          "type": "string"
+        },
+        "defaultModel": {
+          "description": "Default AI model configuration for the agent",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefaultModel"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "incidentManagementConfiguration": {
+          "description": "Incident management configurations",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IncidentManagementConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "knowledgeGraphConfiguration": {
+          "description": "Knowledge graph configuration for agent",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KnowledgeGraphConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "logConfiguration": {
+          "description": "Log configurations",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LogConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "upgradeChannel": {
+          "description": "The upgrade channel of the agent",
+          "oneOf": [
+            {
+              "enum": [
+                "Preview",
+                "Stable"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AgentSpaceConnectorProperties": {
+      "description": "Agent Space Connector Properties",
+      "properties": {
+        "dataConnectorType": {
+          "description": "The type of the data connector",
+          "type": "string"
+        },
+        "dataSource": {
+          "description": "Data source connection string or endpoint",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "Endpoint of the connector",
+          "type": "string"
+        },
+        "extendedProperties": {
+          "description": "Additional properties for the data connector which can be used to store custom key-value pairs",
+          "oneOf": [
+            {
+              "additionalProperties": {},
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "identity": {
+          "description": "Identity used to access the data source",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AgentSpacePolicies": {
+      "description": "Policy configurations for an Agent Space",
+      "properties": {
+        "genevaActionsConfiguration": {
+          "description": "Configuration for Geneva Actions policy",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GenevaActionsPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AgentSpaceProperties": {
+      "description": "Agent Space specific properties",
+      "properties": {
+        "description": {
+          "description": "Description of the Agent Space",
+          "type": "string"
+        },
+        "maxAgentCount": {
+          "description": "Maximum number of agents allowed in the Agent Space",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policies": {
+          "description": "Policy configurations for the Agent Space",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentSpacePolicies"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serviceTreeId": {
+          "description": "Universal unique ID (UUID) of the Service Tree associated with this Agent Space",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationInsightsConfiguration": {
+      "description": "Application Insights Configuration",
+      "properties": {
+        "appId": {
+          "description": "The Application ID for the Application Insights resource",
+          "type": "string"
+        },
+        "connectionString": {
+          "description": "The connection string for the Application Insights resource",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DefaultModel": {
+      "description": "Default AI model configuration",
+      "properties": {
+        "name": {
+          "description": "Model name (e.g., gpt-5, claude-opus-4-5, claude-sonnet-4-5)",
+          "type": "string"
+        },
+        "provider": {
+          "description": "AI provider name (e.g., MicrosoftFoundry, Anthropic)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GenevaActionConfig": {
+      "description": "Configuration for a Geneva action",
+      "properties": {
+        "actionName": {
+          "description": "Name of the Geneva action",
+          "type": "string"
+        },
+        "actionParameters": {
+          "description": "Parameters for the Geneva action",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/GenevaActionParameter"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "approvalRequired": {
+          "description": "Indicates whether approval is required for this action",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "extension": {
+          "description": "Extension associated with the action",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GenevaActionParameter": {
+      "description": "Parameter for a Geneva action",
+      "properties": {
+        "name": {
+          "description": "Name of the parameter",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the parameter",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GenevaActionsPolicy": {
+      "description": "Geneva Actions policy configuration for Agent Space",
+      "properties": {
+        "acisEndpoint": {
+          "description": "ACIS (Azure Container Instance Service) endpoint URL",
+          "type": "string"
+        },
+        "allowedActions": {
+          "description": "Collection of allowed Geneva actions",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/GenevaActionConfig"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "authenticationMode": {
+          "description": "Authentication mode for Geneva Actions",
+          "oneOf": [
+            {
+              "enum": [
+                "OAuth",
+                "WS-Trust"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "certificateSubjectName": {
+          "description": "Subject name of the certificate used for authentication",
+          "type": "string"
+        },
+        "clientId": {
+          "description": "Client ID for authentication",
+          "type": "string"
+        },
+        "extensionName": {
+          "description": "Name of the Geneva extension",
+          "type": "string"
+        }
+      },
+      "required": [
+        "extensionName"
+      ],
+      "type": "object"
+    },
+    "IncidentManagementConfiguration": {
+      "description": "Incident Management Configurations",
+      "properties": {
+        "connectionKey": {
+          "description": "The key for the connection",
+          "type": "string"
+        },
+        "connectionName": {
+          "description": "The name of the connection",
+          "type": "string"
+        },
+        "connectionUrl": {
+          "description": "The URL of the connection",
+          "type": "string"
+        },
+        "oboUser": {
+          "description": "The user for the connection",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of incident management system",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "KnowledgeGraphConfiguration": {
+      "description": "Knowledge graph configuration for agent",
+      "properties": {
+        "identity": {
+          "description": "The identity used to access the knowledge graph",
+          "type": "string"
+        },
+        "managedResources": {
+          "description": "The list of resources managed by agent",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LogConfiguration": {
+      "description": "Log Configurations",
+      "properties": {
+        "applicationInsightsConfiguration": {
+          "description": "Application Insights Configuration",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationInsightsConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ManagedServiceIdentity": {
+      "description": "Managed service identity (system assigned and/or user assigned identities)",
+      "properties": {
+        "type": {
+          "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
+          "oneOf": [
+            {
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
+      "properties": {},
+      "type": "object"
+    },
+    "agentSpaces_connectors_childResource": {
+      "description": "Microsoft.App/agentSpaces/connectors",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the AgentSpaceConnector",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z]([-A-Za-z0-9]{0,30}[A-Za-z0-9])$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentSpaceConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "connectors"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "agents_connectors_childResource": {
+      "description": "Microsoft.App/agents/connectors",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the AgentConnector",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z]([-A-Za-z0-9]{0,30}[A-Za-z0-9])$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "connectors"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

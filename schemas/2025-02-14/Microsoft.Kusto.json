@@ -112,7 +112,7 @@
           "type": "string"
         },
         "zones": {
-          "description": "The availability zones of the cluster.",
+          "description": "The availability zones.",
           "oneOf": [
             {
               "items": {
@@ -1056,7 +1056,7 @@
           ]
         },
         "publicNetworkAccess": {
-          "description": "Public network access to the cluster is enabled by default. When disabled, only private endpoint connections to the cluster are allowed. When 'SecuredByPerimeter', inbound and outbound traffic is controlled by the NSP profile's access rules.",
+          "description": "Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed",
           "oneOf": [
             {
               "enum": [
@@ -1247,7 +1247,7 @@
       "description": "The language extension object.",
       "properties": {
         "languageExtensionCustomImageName": {
-          "description": "The language extension custom image name.",
+          "description": "The sandbox custom image name that should be enabled as the active language extension. Sandbox custom image is a cluster sub resource. When this property is set, LanguageExtensionImageName should be set to 'PythonCustomImage'.",
           "type": "string"
         },
         "languageExtensionImageName": {
@@ -1291,6 +1291,10 @@
     "LanguageExtensionsList": {
       "description": "The list of language extension objects.",
       "properties": {
+        "nextLink": {
+          "description": "The link to the next page of resources.",
+          "type": "string"
+        },
         "value": {
           "description": "The list of language extensions.",
           "oneOf": [

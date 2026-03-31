@@ -1,0 +1,199 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2026-04-01-preview/Microsoft.Security.json#",
+  "title": "Microsoft.Security",
+  "description": "Microsoft Security Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "unknown_resourceDefinitions": {
+    "sqlVulnerabilityAssessments": {
+      "description": "Microsoft.Security/sqlVulnerabilityAssessments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "SQL Vulnerability Assessment settings properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlVulnerabilityAssessmentSettingsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/sqlVulnerabilityAssessments_baselineRules_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/sqlVulnerabilityAssessments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "sqlVulnerabilityAssessments_baselineRules": {
+      "description": "Microsoft.Security/sqlVulnerabilityAssessments/baselineRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "latestScan": {
+          "description": "Take results from latest scan.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The rule Id.",
+          "type": "string"
+        },
+        "results": {
+          "description": "Expected results to be inserted into the baseline.\r\nLeave this field empty if latestScan == true.",
+          "oneOf": [
+            {
+              "items": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/sqlVulnerabilityAssessments/baselineRules"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "SqlVulnerabilityAssessmentSettingsProperties": {
+      "description": "SQL Vulnerability Assessment settings properties.",
+      "properties": {
+        "state": {
+          "description": "Represents the state of a SQL Vulnerability Assessment.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "sqlVulnerabilityAssessments_baselineRules_childResource": {
+      "description": "Microsoft.Security/sqlVulnerabilityAssessments/baselineRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "latestScan": {
+          "description": "Take results from latest scan.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The rule Id.",
+          "type": "string"
+        },
+        "results": {
+          "description": "Expected results to be inserted into the baseline.\r\nLeave this field empty if latestScan == true.",
+          "oneOf": [
+            {
+              "items": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "baselineRules"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

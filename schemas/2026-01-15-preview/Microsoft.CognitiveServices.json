@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2025-10-01-preview/Microsoft.CognitiveServices.json#",
+  "id": "https://schema.management.azure.com/schemas/2026-01-15-preview/Microsoft.CognitiveServices.json#",
   "title": "Microsoft.CognitiveServices",
   "description": "Microsoft CognitiveServices Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -152,7 +152,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -199,7 +199,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -272,7 +272,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -319,7 +319,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -381,7 +381,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -446,7 +446,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -508,7 +508,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -565,7 +565,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -612,7 +612,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -655,7 +655,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -750,7 +750,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -799,7 +799,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -838,7 +838,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -885,7 +885,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -932,7 +932,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1004,7 +1004,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1066,7 +1066,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1128,7 +1128,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1190,7 +1190,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1252,7 +1252,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1299,7 +1299,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1390,7 +1390,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1454,7 +1454,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1493,7 +1493,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1540,7 +1540,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -1697,6 +1697,17 @@
           "oneOf": [
             {
               "$ref": "#/definitions/Encryption"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "foundryAutoUpgrade": {
+          "description": "Represents the foundry auto-upgrade configuration for a Cognitive Services account.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FoundryAutoUpgrade"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3602,6 +3613,47 @@
       },
       "type": "object"
     },
+    "FoundryAutoUpgrade": {
+      "description": "Represents the foundry auto-upgrade configuration for a Cognitive Services account.\nCustomers can opt out of auto-upgrade by setting mode to Disabled.",
+      "properties": {
+        "mode": {
+          "description": "Gets or sets the auto-upgrade mode.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "plannedByMicrosoft": {
+          "description": "Gets or sets a value indicating whether the auto-upgrade is planned by Microsoft.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scheduledAt": {
+          "description": "Gets or sets the scheduled time for the auto-upgrade.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "statusReason": {
+          "description": "Gets or sets the status reason for the auto-upgrade configuration.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Identity": {
       "description": "Identity for the resource.",
       "properties": {
@@ -4890,7 +4942,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -4937,7 +4989,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5010,7 +5062,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5057,7 +5109,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5119,7 +5171,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5184,7 +5236,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5246,7 +5298,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5293,7 +5345,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5340,7 +5392,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5383,7 +5435,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5422,7 +5474,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5461,7 +5513,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5508,7 +5560,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5587,7 +5639,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5634,7 +5686,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5696,7 +5748,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5758,7 +5810,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5820,7 +5872,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5882,7 +5934,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5944,7 +5996,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
@@ -5991,7 +6043,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-10-01-preview"
+            "2026-01-15-preview"
           ],
           "type": "string"
         },
