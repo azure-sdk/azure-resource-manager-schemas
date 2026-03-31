@@ -812,6 +812,17 @@
         {
           "description": "Properties for Redis Enterprise migration operation for Azure Cache for Redis.",
           "properties": {
+            "forceMigrate": {
+              "description": "Sets whether to ignore warnings when performing validation of the migration request. If this property is true, warning-level disparities between the source and target resources will be ignored, and the request will only fail validation if there are error-level disparities. The default value is false.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
             "skipDataMigration": {
               "description": "Sets whether the data is migrated from source to target or not. This property must be true during the preview.",
               "oneOf": [

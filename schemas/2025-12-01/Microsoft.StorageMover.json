@@ -615,10 +615,11 @@
                 {
                   "enum": [
                     "MINIO",
-                    "BACKBLAZE",
                     "IBM",
-                    "CLOUDFLARE",
-                    "GCS"
+                    "GCS",
+                    "ALIBABA",
+                    "DELL_EMC",
+                    "OTHER"
                   ],
                   "type": "string"
                 },

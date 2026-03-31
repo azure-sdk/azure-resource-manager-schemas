@@ -3395,6 +3395,17 @@
           "description": "The name of RAI policy.",
           "type": "string"
         },
+        "routing": {
+          "description": "Routing configuration for the deployment. This property is only applicable when the deployed model is 'model-router' version 2025-11-18 or later. Allows you to select the models subset for routing and the routing mode (balanced, accuracy, cost) for routing across all supported models or the model subset.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentRouting"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "scaleSettings": {
           "description": "Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)",
           "oneOf": [
@@ -3435,6 +3446,42 @@
                 "NoAutoUpgrade"
               ],
               "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentRouting": {
+      "description": "Routing configuration for the deployment. Specifies how requests are routed across multiple models.",
+      "properties": {
+        "mode": {
+          "description": "The routing mode that determines how requests are distributed across models.",
+          "oneOf": [
+            {
+              "enum": [
+                "cost",
+                "balanced",
+                "accuracy"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "models": {
+          "description": "Optional. The list of models that the model router can use to route requests across. If not specified, the model router will route to all available models specified in the model-router version.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/DeploymentModel"
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3898,6 +3945,72 @@
             "type"
           ],
           "type": "object"
+        },
+        {
+          "description": "Private Endpoint outbound rule for the managed network of a cognitive services account.",
+          "properties": {
+            "destination": {
+              "description": "Private Endpoint destination.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PrivateEndpointOutboundRuleDestination"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "fqdns": {
+              "description": "List of FQDNs associated with the private endpoint outbound rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "type": {
+              "enum": [
+                "PrivateEndpoint"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Service Tag outbound rule for the managed network of a cognitive services account.",
+          "properties": {
+            "destination": {
+              "description": "Service Tag destination.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ServiceTagOutboundRuleDestination"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "type": {
+              "enum": [
+                "ServiceTag"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
         }
       ],
       "properties": {
@@ -3987,6 +4100,20 @@
       "required": [
         "privateLinkServiceConnectionState"
       ],
+      "type": "object"
+    },
+    "PrivateEndpointOutboundRuleDestination": {
+      "description": "Private Endpoint destination for an outbound rule.",
+      "properties": {
+        "serviceResourceId": {
+          "description": "The Azure resource ID of the target private endpoint service.",
+          "type": "string"
+        },
+        "subresourceTarget": {
+          "description": "The subresource of the target service to connect to.",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
@@ -4550,6 +4677,53 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        }
+      },
+      "type": "object"
+    },
+    "ServiceTagOutboundRuleDestination": {
+      "description": "Service Tag destination for an outbound rule.",
+      "properties": {
+        "action": {
+          "description": "The action for the service tag outbound rule.",
+          "oneOf": [
+            {
+              "enum": [
+                "Allow",
+                "Deny"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "addressPrefixes": {
+          "description": "Optional address prefixes. If provided, the serviceTag property will be ignored.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "portRanges": {
+          "description": "Destination port ranges.",
+          "type": "string"
+        },
+        "protocol": {
+          "description": "Network protocol used by the service tag rule.",
+          "type": "string"
+        },
+        "serviceTag": {
+          "description": "Name of the Azure service tag to target.",
+          "type": "string"
         }
       },
       "type": "object"

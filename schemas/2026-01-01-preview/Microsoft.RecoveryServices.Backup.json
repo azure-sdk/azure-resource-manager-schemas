@@ -33,7 +33,7 @@
           ]
         },
         "properties": {
-          "description": "BackupResourceEncryptionConfigResource properties",
+          "description": "The properties of the backup resource encryption config",
           "oneOf": [
             {
               "$ref": "#/definitions/BackupResourceEncryptionConfig"

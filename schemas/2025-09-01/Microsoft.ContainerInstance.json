@@ -14,7 +14,7 @@
           "type": "string"
         },
         "location": {
-          "description": "The resource location.",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -43,7 +43,7 @@
           ]
         },
         "tags": {
-          "description": "The resource tags.",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -64,7 +64,7 @@
           "type": "string"
         },
         "zones": {
-          "description": "The zones for the container group.",
+          "description": "The availability zones.",
           "oneOf": [
             {
               "items": {
@@ -118,7 +118,7 @@
           "description": "The container group properties",
           "oneOf": [
             {
-              "$ref": "#/definitions/ContainerGroupPropertiesProperties"
+              "$ref": "#/definitions/ContainerGroupProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -147,7 +147,7 @@
           "type": "string"
         },
         "zones": {
-          "description": "The zones for the container group.",
+          "description": "The availability zones.",
           "oneOf": [
             {
               "items": {
@@ -190,7 +190,7 @@
           ]
         },
         "location": {
-          "description": "The resource location.",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -219,7 +219,7 @@
           ]
         },
         "tags": {
-          "description": "The resource tags.",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -240,7 +240,7 @@
           "type": "string"
         },
         "zones": {
-          "description": "The zones for the container group.",
+          "description": "The availability zones.",
           "oneOf": [
             {
               "items": {
@@ -610,7 +610,7 @@
           ]
         },
         "restartPolicy": {
-          "description": "Restart policy for all containers within the container group. \n- `Always` Always restart\n- `OnFailure` Restart on failure\n- `Never` Never restart\n",
+          "description": "Restart policy for all containers within the container group.\n- `Always` Always restart\n- `OnFailure` Restart on failure\n- `Never` Never restart",
           "oneOf": [
             {
               "enum": [
@@ -720,7 +720,7 @@
       "description": "The object that contains a reference to a Container Group Profile and it's other related properties.",
       "properties": {
         "containerGroupProperties": {
-          "description": " Container Group properties which can be set while creating or updating the NGroups.",
+          "description": "Container Group properties which can be set while creating or updating the NGroups.",
           "oneOf": [
             {
               "$ref": "#/definitions/NGroupContainerGroupProperties"
@@ -777,7 +777,7 @@
       },
       "type": "object"
     },
-    "ContainerGroupPropertiesProperties": {
+    "ContainerGroupProperties": {
       "description": "The container group properties",
       "properties": {
         "confidentialComputeProperties": {
@@ -944,7 +944,7 @@
           ]
         },
         "restartPolicy": {
-          "description": "Restart policy for all containers within the container group. \n- `Always` Always restart\n- `OnFailure` Restart on failure\n- `Never` Never restart\n",
+          "description": "Restart policy for all containers within the container group.\n- `Always` Always restart\n- `OnFailure` Restart on failure\n- `Never` Never restart",
           "oneOf": [
             {
               "enum": [
@@ -1376,26 +1376,10 @@
           "type": "string"
         },
         "protectedSettings": {
-          "description": "Protected settings for the extension.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "Protected settings for the extension."
         },
         "settings": {
-          "description": "Settings for the extension.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "Settings for the extension."
         },
         "version": {
           "description": "Version of the extension being used.",
@@ -1599,7 +1583,7 @@
           ]
         },
         "shareAccessType": {
-          "description": " Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.",
+          "description": "Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.",
           "oneOf": [
             {
               "enum": [
@@ -2672,15 +2656,7 @@
           ]
         },
         "emptyDir": {
-          "description": "The empty directory volume.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The empty directory volume."
         },
         "gitRepo": {
           "description": "The git repo volume.",

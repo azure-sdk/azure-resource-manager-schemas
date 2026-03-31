@@ -96,7 +96,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the ExpressRoutePort resource.",
+          "description": "The name of ExpressRoutePort.",
           "type": "string"
         },
         "properties": {
@@ -323,7 +323,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the application gateway private endpoint connection.",
+          "description": "Name of the private endpoint connection on an application gateway.",
           "type": "string"
         },
         "properties": {
@@ -444,8 +444,6 @@
         },
         "name": {
           "description": "The name of the Azure Firewall.",
-          "maxLength": 56,
-          "minLength": 1,
           "type": "string"
         },
         "properties": {
@@ -717,7 +715,7 @@
           "type": "string"
         },
         "zones": {
-          "description": "A list of availability zones denoting the IP allocated for the resource needs to come from.",
+          "description": "A list of availability zones denoting where the resource needs to come from.",
           "oneOf": [
             {
               "items": {
@@ -939,7 +937,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the circuit.",
+          "description": "The name of express route circuit.",
           "type": "string"
         },
         "properties": {
@@ -1164,7 +1162,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the ExpressRouteCrossConnection.",
+          "description": "The name of the ExpressRouteCrossConnection (service key of the circuit).",
           "type": "string"
         },
         "properties": {
@@ -1347,7 +1345,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the connection subresource.",
+          "description": "The name of the express route connection.",
           "type": "string"
         },
         "properties": {
@@ -1469,10 +1467,10 @@
                 "$ref": "#/definitions/firewallPolicies_signatureOverrides_childResource"
               },
               {
-                "$ref": "#/definitions/firewallPolicies_ruleCollectionGroups_childResource"
+                "$ref": "#/definitions/firewallPolicies_firewallPolicyDrafts_childResource"
               },
               {
-                "$ref": "#/definitions/firewallPolicies_firewallPolicyDrafts_childResource"
+                "$ref": "#/definitions/firewallPolicies_ruleCollectionGroups_childResource"
               }
             ]
           },
@@ -1591,7 +1589,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the FirewallPolicyRuleCollectionGroup.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -1690,7 +1688,7 @@
           "type": "string"
         },
         "id": {
-          "description": "Will contain the resource id of the signature override resource",
+          "description": "Resource ID.",
           "type": "string"
         },
         "name": {
@@ -2222,7 +2220,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the tap configuration.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -2405,7 +2403,7 @@
           "type": "string"
         },
         "name": {
-          "description": "IP Address Manager Pool resource name.",
+          "description": "Pool resource name.",
           "oneOf": [
             {
               "pattern": "^[0-9a-zA-Z]([0-9a-zA-Z_.-]{0,62}[0-9a-zA-Z_])?$",
@@ -2477,7 +2475,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Static Cidr allocation name.",
+          "description": "Name for the static CIDR.",
           "oneOf": [
             {
               "pattern": "^[0-9a-zA-Z]([0-9a-zA-Z_.-]{0,62}[0-9a-zA-Z_])?$",
@@ -3102,7 +3100,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Workspace name.",
+          "description": "The name of the resource",
           "oneOf": [
             {
               "pattern": "^[0-9a-zA-Z]([0-9a-zA-Z_.-]{0,62}[0-9a-zA-Z_])?$",
@@ -3279,7 +3277,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the network profile.",
+          "description": "The name of the public IP prefix.",
           "type": "string"
         },
         "properties": {
@@ -3877,7 +3875,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of security rule collection.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -3920,16 +3918,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the NVA connection.",
-          "oneOf": [
-            {
-              "pattern": "^[A-Za-z0-9_]+",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "",
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the express route connection.",
@@ -3971,7 +3961,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the site.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -4165,7 +4155,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the flow log.",
+          "description": "The name of the flow log resource.",
           "type": "string"
         },
         "properties": {
@@ -4407,7 +4397,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private dns zone group.",
+          "description": "The name of the private endpoint.",
           "type": "string"
         },
         "properties": {
@@ -4533,7 +4523,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private end point connection.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -5140,7 +5130,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the service endpoint policy definition name.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -5238,7 +5228,7 @@
           "type": "string"
         },
         "zones": {
-          "description": "A list of availability zones denoting the zone in which service gateway should be deployed. \n\n- The zone values must be provided as strings representing numeric identifiers like \"1\", \"2\", \"3\" etc.",
+          "description": "A list of availability zones denoting the zone in which service gateway should be deployed.\n\n- The zone values must be provided as strings representing numeric identifiers like \"1\", \"2\", \"3\" etc.",
           "oneOf": [
             {
               "items": {
@@ -5407,7 +5397,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the RouteTable.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -5450,7 +5440,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the HubVirtualNetworkConnection.",
+          "description": "",
           "type": "string"
         },
         "properties": {
@@ -5493,7 +5483,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the ipconfig.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -5531,12 +5521,8 @@
           ],
           "type": "string"
         },
-        "id": {
-          "description": "Resource ID.",
-          "type": "string"
-        },
         "name": {
-          "description": "The name of the RouteMap.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -5622,7 +5608,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the per VirtualHub singleton Routing Intent resource.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -5829,7 +5815,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the nat rule.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -5876,7 +5862,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the virtual network tap.",
+          "description": "The name of virtual network tap.",
           "type": "string"
         },
         "properties": {
@@ -6063,7 +6049,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the peering.",
+          "description": "The name of the virtual network peering.",
           "type": "string"
         },
         "properties": {
@@ -6178,7 +6164,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Virtual Router Peering.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -6225,7 +6211,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the VirtualWAN being created or updated.",
+          "description": "The name of the VirtualWAN being retrieved.",
           "type": "string"
         },
         "properties": {
@@ -6358,7 +6344,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the nat rule.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -6401,7 +6387,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the connection.",
+          "description": "The name of the vpn connection.",
           "type": "string"
         },
         "properties": {
@@ -6498,7 +6484,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the VpnServerConfiguration being created or updated.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -6566,7 +6552,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the ConfigurationPolicyGroup.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -6613,7 +6599,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the VpnSite being created or updated.",
+          "description": "The name of the VpnSite being retrieved.",
           "type": "string"
         },
         "properties": {
@@ -11199,7 +11185,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -11682,10 +11668,6 @@
           "type": "string"
         }
       },
-      "type": "object"
-    },
-    "Components1Jq1T4ISchemasManagedserviceidentityPropertiesUserassignedidentitiesAdditionalproperties": {
-      "properties": {},
       "type": "object"
     },
     "ConnectionMonitorDestination": {
@@ -13529,7 +13511,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -13554,7 +13536,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -13626,7 +13608,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -16198,7 +16180,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -17041,7 +17023,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -17456,25 +17438,6 @@
         "parentPoolName": {
           "description": "String representing parent IpamPool resource name. If empty the IpamPool will be a root pool.",
           "type": "string"
-        },
-        "provisioningState": {
-          "description": "Provisioning states of a resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "Failed",
-                "Succeeded",
-                "Canceled",
-                "Creating",
-                "Updating",
-                "Deleting"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "required": [
@@ -17948,7 +17911,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within the set of load balancing rules used by the load balancer. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -18409,7 +18372,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "$ref": "#/definitions/Components1Jq1T4ISchemasManagedserviceidentityPropertiesUserassignedidentitiesAdditionalproperties"
+                "$ref": "#/definitions/ManagedServiceIdentityUserAssignedIdentities"
               },
               "properties": {},
               "type": "object"
@@ -18420,6 +18383,10 @@
           ]
         }
       },
+      "type": "object"
+    },
+    "ManagedServiceIdentityUserAssignedIdentities": {
+      "properties": {},
       "type": "object"
     },
     "MatchCondition": {
@@ -18792,7 +18759,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -18805,10 +18772,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "type": {
-          "description": "Resource type.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -19995,7 +19958,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within the set of outbound rules used by the load balancer. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -21431,7 +21394,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within the set of probes used by the load balancer. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -22176,25 +22139,6 @@
             }
           ]
         },
-        "provisioningState": {
-          "description": "Provisioning states of a resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "Failed",
-                "Succeeded",
-                "Canceled",
-                "Creating",
-                "Updating",
-                "Deleting"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "sourceResourceId": {
           "description": "Source resource id to verify the reachability path of.",
           "type": "string"
@@ -22216,25 +22160,6 @@
         "intentId": {
           "description": "Id of the intent resource to run analysis on.",
           "type": "string"
-        },
-        "provisioningState": {
-          "description": "Provisioning states of a resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "Failed",
-                "Succeeded",
-                "Canceled",
-                "Creating",
-                "Updating",
-                "Deleting"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "required": [
@@ -22280,7 +22205,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -22293,10 +22218,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "type": {
-          "description": "The type of the resource.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -23003,7 +22924,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -23016,10 +22937,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "type": {
-          "description": "The type of the resource.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -23412,7 +23329,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -23425,10 +23342,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "type": {
-          "description": "The type of the resource.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -23697,25 +23610,6 @@
         "numberOfIPAddressesToAllocate": {
           "description": "Number of IP addresses to allocate for a static CIDR resource. The IP addresses will be assigned based on IpamPools available space.",
           "type": "string"
-        },
-        "provisioningState": {
-          "description": "Provisioning states of a resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "Failed",
-                "Succeeded",
-                "Canceled",
-                "Creating",
-                "Updating",
-                "Deleting"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "type": "object"
@@ -23797,7 +23691,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -23810,10 +23704,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "type": {
-          "description": "Resource type.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -24191,25 +24081,6 @@
       "properties": {
         "description": {
           "type": "string"
-        },
-        "provisioningState": {
-          "description": "Provisioning states of a resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "Failed",
-                "Succeeded",
-                "Canceled",
-                "Creating",
-                "Updating",
-                "Deleting"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "type": "object"
@@ -25373,7 +25244,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -25941,7 +25812,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -25954,10 +25825,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "type": {
-          "description": "Resource type.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -27065,7 +26932,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -27359,7 +27226,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -27620,7 +27487,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -27645,7 +27512,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+          "description": "Name of the resource.",
           "type": "string"
         },
         "properties": {
@@ -28230,7 +28097,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the application gateway private endpoint connection.",
+          "description": "Name of the private endpoint connection on an application gateway.",
           "type": "string"
         },
         "properties": {
@@ -28445,7 +28312,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the connection subresource.",
+          "description": "The name of the express route connection.",
           "type": "string"
         },
         "properties": {
@@ -28602,7 +28469,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the FirewallPolicyRuleCollectionGroup.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -28693,7 +28560,7 @@
           "type": "string"
         },
         "id": {
-          "description": "Will contain the resource id of the signature override resource",
+          "description": "Resource ID.",
           "type": "string"
         },
         "name": {
@@ -28835,7 +28702,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the tap configuration.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -28917,7 +28784,7 @@
           "type": "string"
         },
         "name": {
-          "description": "IP Address Manager Pool resource name.",
+          "description": "Pool resource name.",
           "oneOf": [
             {
               "pattern": "^[0-9a-zA-Z]([0-9a-zA-Z_.-]{0,62}[0-9a-zA-Z_])?$",
@@ -28979,7 +28846,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Static Cidr allocation name.",
+          "description": "Name for the static CIDR.",
           "oneOf": [
             {
               "pattern": "^[0-9a-zA-Z]([0-9a-zA-Z_.-]{0,62}[0-9a-zA-Z_])?$",
@@ -29534,7 +29401,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Workspace name.",
+          "description": "The name of the resource",
           "oneOf": [
             {
               "pattern": "^[0-9a-zA-Z]([0-9a-zA-Z_.-]{0,62}[0-9a-zA-Z_])?$",
@@ -29977,7 +29844,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of security rule collection.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30020,16 +29887,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the NVA connection.",
-          "oneOf": [
-            {
-              "pattern": "^[A-Za-z0-9_]+",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "",
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the express route connection.",
@@ -30071,7 +29930,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the site.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30187,7 +30046,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the flow log.",
+          "description": "The name of the flow log resource.",
           "type": "string"
         },
         "properties": {
@@ -30284,7 +30143,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private dns zone group.",
+          "description": "The name of the private endpoint.",
           "type": "string"
         },
         "properties": {
@@ -30327,7 +30186,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private end point connection.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30460,7 +30319,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the service endpoint policy definition name.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30546,7 +30405,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the RouteTable.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30589,7 +30448,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the HubVirtualNetworkConnection.",
+          "description": "",
           "type": "string"
         },
         "properties": {
@@ -30632,7 +30491,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the ipconfig.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30670,12 +30529,8 @@
           ],
           "type": "string"
         },
-        "id": {
-          "description": "Resource ID.",
-          "type": "string"
-        },
         "name": {
-          "description": "The name of the RouteMap.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30761,7 +30616,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the per VirtualHub singleton Routing Intent resource.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30804,7 +30659,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the nat rule.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30890,7 +30745,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the peering.",
+          "description": "The name of the virtual network peering.",
           "type": "string"
         },
         "properties": {
@@ -30933,7 +30788,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Virtual Router Peering.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -30976,7 +30831,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the nat rule.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {
@@ -31019,7 +30874,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the connection.",
+          "description": "The name of the vpn connection.",
           "type": "string"
         },
         "properties": {
@@ -31062,7 +30917,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the ConfigurationPolicyGroup.",
+          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
           "type": "string"
         },
         "properties": {

@@ -693,6 +693,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2024-07-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/denyAssignments"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
             },
             {
@@ -936,6 +939,33 @@
               "$ref": "https://schema.management.azure.com/schemas/2025-12-01-preview/Microsoft.Authorization.Resources.Policy.json#/unknown_resourceDefinitions/policyExemptions"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/subscription_resourceDefinitions/policyDefinitions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/subscription_resourceDefinitions/policyDefinitions_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/subscription_resourceDefinitions/policySetDefinitions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/subscription_resourceDefinitions/policySetDefinitions_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/subscription_resourceDefinitions/variables"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/subscription_resourceDefinitions/variables_values"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/unknown_resourceDefinitions/policyAssignments"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/unknown_resourceDefinitions/policyEnrollments"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.Resources.Policy.json#/unknown_resourceDefinitions/policyExemptions"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2024-12-01/Microsoft.AwsConnector.json#/unknown_resourceDefinitions/ec2Instances"
             },
             {
@@ -1071,10 +1101,25 @@
               "$ref": "https://schema.management.azure.com/schemas/2025-12-01/Microsoft.CognitiveServices.json#/subscription_resourceDefinitions/raiPolicy"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-15-preview/Microsoft.CognitiveServices.json#/subscription_resourceDefinitions/quotaTiers"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-15-preview/Microsoft.CognitiveServices.json#/subscription_resourceDefinitions/raiExternalSafetyProviders"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-01-15-preview/Microsoft.CognitiveServices.json#/subscription_resourceDefinitions/raiPolicy"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2025-08-15/Microsoft.ComputeLimit.json#/subscription_resourceDefinitions/locations_guestSubscriptions"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2025-08-15/Microsoft.ComputeLimit.json#/subscription_resourceDefinitions/locations_sharedLimits"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-03-20/Microsoft.ComputeLimit.json#/subscription_resourceDefinitions/locations_guestSubscriptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-03-20/Microsoft.ComputeLimit.json#/subscription_resourceDefinitions/locations_sharedLimits"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.Confluent.json#/subscription_resourceDefinitions/agreements"
@@ -2428,6 +2473,9 @@
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2025-10-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/pricings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2026-04-01-preview/Microsoft.Security.json#/unknown_resourceDefinitions/sqlVulnerabilityAssessments"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.Subscription.json#/subscription_resourceDefinitions/changeTenantRequest"

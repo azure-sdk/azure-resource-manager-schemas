@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2025-05-01/Microsoft.Search.json#",
+  "id": "https://schema.management.azure.com/schemas/2026-03-01-preview/Microsoft.Search.json#",
   "title": "Microsoft.Search",
   "description": "Microsoft Search Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-05-01"
+            "2026-03-01-preview"
           ],
           "type": "string"
         },
@@ -110,7 +110,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-05-01"
+            "2026-03-01-preview"
           ],
           "type": "string"
         },
@@ -149,7 +149,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-05-01"
+            "2026-03-01-preview"
           ],
           "type": "string"
         },
@@ -185,6 +185,66 @@
     }
   },
   "definitions": {
+    "AzureActiveDirectoryApplicationCredentials": {
+      "description": "Describes the Azure Active Directory application credentials required to access an Azure Key Vault.",
+      "properties": {
+        "applicationId": {
+          "description": "The application (client) ID of an App Registration in the tenant.",
+          "type": "string"
+        },
+        "applicationSecret": {
+          "description": "An AAD client secret that was generated for the App Registration used to authenticate with Azure Key Vault.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DataIdentity": {
+      "description": "Abstract base type for data identities.",
+      "oneOf": [
+        {
+          "description": "Clears the identity property.",
+          "properties": {
+            "@odata.type": {
+              "enum": [
+                "#Microsoft.Azure.Search.DataNoneIdentity"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "@odata.type"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Specifies the user assigned identity to use.",
+          "properties": {
+            "@odata.type": {
+              "enum": [
+                "#Microsoft.Azure.Search.DataUserAssignedIdentity"
+              ],
+              "type": "string"
+            },
+            "federatedIdentityClientId": {
+              "description": "Optional for Multi-tenant User-Assigned Managed Identity CMK Support: The client id (as a UUID) of the multi-tenant App Registration that has been configured to federate with the userAssignedIdentity.",
+              "type": "string"
+            },
+            "userAssignedIdentity": {
+              "description": "The fully qualified Azure resource Id of a user assigned managed identity typically in the form \"/subscriptions/12345678-1234-1234-1234-1234567890ab/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId\" that should have been assigned to the search service.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "userAssignedIdentity",
+            "@odata.type"
+          ],
+          "type": "object"
+        }
+      ],
+      "properties": {},
+      "type": "object"
+    },
     "DataPlaneAadOrApiKeyAuthOption": {
       "description": "Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.",
       "properties": {
@@ -239,6 +299,17 @@
                 "Unspecified"
               ],
               "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serviceLevelEncryptionKey": {
+          "description": "Describes the customer-managed key configuration for encrypting the search service.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SearchResourceEncryptionKey"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -308,6 +379,7 @@
             {
               "enum": [
                 "None",
+                "AzurePortal",
                 "AzureServices"
               ],
               "type": "string"
@@ -427,6 +499,46 @@
       },
       "type": "object"
     },
+    "SearchResourceEncryptionKey": {
+      "description": "A customer-managed encryption key in Azure Key Vault. Keys that you create and manage can be used to encrypt or decrypt data-at-rest, such as indexes and synonym maps.",
+      "properties": {
+        "accessCredentials": {
+          "description": "Optional Azure Active Directory credentials used for accessing your Azure Key Vault. Not required if using managed identity instead.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureActiveDirectoryApplicationCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "identity": {
+          "description": "An explicit managed identity to use for this encryption key. If not specified and the access credentials property is null, the system-assigned managed identity is used. On update to the resource, if the explicit identity is unspecified, it remains unchanged. If \"none\" is specified, the value of this property is cleared.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "keyVaultKeyName": {
+          "description": "The name of your Azure Key Vault key to be used to encrypt your data at rest.",
+          "type": "string"
+        },
+        "keyVaultKeyVersion": {
+          "description": "The version of your Azure Key Vault key to be used to encrypt your data at rest.",
+          "type": "string"
+        },
+        "keyVaultUri": {
+          "description": "The URI of your Azure Key Vault, also referred to as DNS name, that contains the key to be used to encrypt your data at rest. An example URI might be `https://my-keyvault-name.vault.azure.net`.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "SearchServiceProperties": {
       "description": "Properties of the search service.",
       "properties": {
@@ -506,6 +618,21 @@
               "enum": [
                 "Default",
                 "HighDensity"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "knowledgeRetrieval": {
+          "description": "Specifies the billing plan for agentic retrieval on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.",
+          "oneOf": [
+            {
+              "enum": [
+                "free",
+                "standard"
               ],
               "type": "string"
             },
@@ -674,7 +801,8 @@
                 "standard2",
                 "standard3",
                 "storage_optimized_l1",
-                "storage_optimized_l2"
+                "storage_optimized_l2",
+                "serverless"
               ],
               "type": "string"
             },
@@ -696,7 +824,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-05-01"
+            "2026-03-01-preview"
           ],
           "type": "string"
         },
@@ -735,7 +863,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-05-01"
+            "2026-03-01-preview"
           ],
           "type": "string"
         },
