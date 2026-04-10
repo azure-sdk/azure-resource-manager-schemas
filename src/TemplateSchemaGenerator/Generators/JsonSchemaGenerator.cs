@@ -193,9 +193,10 @@ public static class JsonSchemaGenerator
             }
         }
 
+        var schemaPath = Utils.GetSchemaPath(apiVersion, providerNamespace);
         var root = new JsonObject
         {
-            ["id"] = $"https://schema.management.azure.com/schemas/{apiVersion}/{providerNamespace}.json#",
+            ["id"] = $"https://schema.management.azure.com/schemas/{schemaPath}#",
             ["title"] = providerNamespace,
             ["description"] = $"{providerNamespace.Replace('.', ' ')} Resource Types",
             ["$schema"] = Draft04Schema,

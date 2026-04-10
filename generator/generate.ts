@@ -112,6 +112,12 @@ export async function generateSchemasWithCsharpGenerator(providerNamespace: stri
                 ...getSchemaRefs(schema, ScopeType.ManagementGroup, 'managementGroup_resourceDefinitions'),
                 ...getSchemaRefs(schema, ScopeType.Subscription, 'subscription_resourceDefinitions'),
                 ...getSchemaRefs(schema, ScopeType.ResourceGroup, 'resourceDefinitions'),
+                // If the scope is not known, add it to all root schemas.
+                // This'll give some false positives, but it's prefereable to false negatives.
+                ...getSchemaRefs(schema, ScopeType.Tenant, 'unknown_resourceDefinitions'),
+                ...getSchemaRefs(schema, ScopeType.ManagementGroup, 'unknown_resourceDefinitions'),
+                ...getSchemaRefs(schema, ScopeType.Subscription, 'unknown_resourceDefinitions'),
+                ...getSchemaRefs(schema, ScopeType.ResourceGroup, 'unknown_resourceDefinitions'),
             ];
 
             schemaConfigs.push({

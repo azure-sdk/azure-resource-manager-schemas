@@ -1,11 +1,14 @@
-﻿using Azure.Deployments.Core.Components;
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Azure.Deployments.Core.Components;
 using Azure.Deployments.Core.Extensions;
 using Azure.Deployments.Core.Resources;
 using Azure.Deployments.Templates.Contracts;
 using Azure.Deployments.Templates.Export;
 using Azure.Deployments.Templates.Extensions;
 using Azure.Deployments.Templates.Helpers;
-using Azure.Deployments.TemplateSchemas;
+using Microsoft.WindowsAzure.ResourceStack.Common.Extensions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -20,6 +23,14 @@ namespace DeploymentsSchemaTests
     /// </summary>
     internal class TestSchemaCache : INormalizedSchemaCache
     {
+        public HashSet<string> CircularReferenceSchemas { get; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            // This list should be kept in-sync with the product code
+            "Microsoft.Media/2018-07-01",
+            "Microsoft.DataFactory/2017-09-01-preview",
+            "Microsoft.DataFactory/2018-06-01",
+        };
+
         /// <summary>
         /// Initializes the schema cache from a set of file paths.
         /// </summary>
@@ -36,7 +47,7 @@ namespace DeploymentsSchemaTests
             if (schemaResults.Errors.Any())
             {
                 var errors = schemaResults.Errors
-                    .Where(err => !SchemaLoader.CircularReferenceSchemas.Contains(err.Target))
+                    .Where(err => !CircularReferenceSchemas.Contains(err.Target))
                     .ToArray();
 
                 if (errors.Any())
@@ -72,7 +83,7 @@ namespace DeploymentsSchemaTests
             public JToken SchemaContent { get; }
         }
 
-        private static readonly Uri SchemaBaseUri = new Uri("https://schema.management.azure.com/schemas/");
+        private static readonly Uri SchemaBaseUri = new("https://schema.management.azure.com/schemas/");
 
         private static string GetRelativeSchemaPath(string schemaId)
         {
@@ -94,7 +105,7 @@ namespace DeploymentsSchemaTests
                     keySelector: schema => GetRelativeSchemaPath(schema["id"].ToObject<string>()),
                     elementSelector: schema => schema as JToken);
 
-            var externalReferenceSchemasResult = SchemaUtils.GetExternalReferenceSchemas(schemasByPath, SchemaUtils.ExternalReferenceWhitelist.ToArray());
+            var externalReferenceSchemasResult = SchemaUtils.GetExternalReferenceSchemas(schemasByPath, [.. SchemaUtils.ExternalReferenceWhitelist]);
             if (externalReferenceSchemasResult.Errors.Any())
             {
                 throw new InvalidOperationException($"Failed to initialize the offline schemas cache");
@@ -133,7 +144,7 @@ namespace DeploymentsSchemaTests
 
             return new ResultWithErrors<ResourceTypeSchema[]>
             {
-                Value = resourceTypeSchemasResults.CollectValues().ToArray(),
+                Value = [.. resourceTypeSchemasResults.CollectValues()],
                 Errors = schemaNormalizationResults.Values.CollectErrors()
                     .ConcatArray(resourceTypeSchemasResults.CollectErrors()),
             };
@@ -157,7 +168,7 @@ namespace DeploymentsSchemaTests
 
             if (!this.schemaCache.TryGetValue(providerNamespace, out var schemaLookup))
             {
-                return Enumerable.Empty<ResourceTypeSchema>();
+                return [];
             }
 
             return schemaLookup[fullyQualifiedResourceType];

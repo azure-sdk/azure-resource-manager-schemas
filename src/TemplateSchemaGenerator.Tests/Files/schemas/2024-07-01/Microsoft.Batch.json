@@ -49,7 +49,7 @@
           "description": "The tags of the resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/AzureProxyResourceTags"
+              "$ref": "#/definitions/ApplicationPackageTags"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -109,7 +109,7 @@
           "description": "The tags of the resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/AzureProxyResourceTags"
+              "$ref": "#/definitions/ApplicationTags"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -250,7 +250,7 @@
           "description": "The tags of the resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/AzureProxyResourceTags"
+              "$ref": "#/definitions/PoolTags"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -301,7 +301,7 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^[a-z0-9]+$",
+              "pattern": "^[a-zA-Z0-9]+$",
               "minLength": 3,
               "maxLength": 24
             },
@@ -419,7 +419,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^.*$"
+              "minLength": 1,
+              "maxLength": 512
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -529,6 +530,13 @@
         "id"
       ]
     },
+    "ApplicationPackageTags": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
     "ApplicationProperties": {
       "type": "object",
       "properties": {
@@ -551,6 +559,13 @@
           "description": "The display name for the application.",
           "type": "string"
         }
+      }
+    },
+    "ApplicationTags": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "type": "string"
       }
     },
     "AutomaticOSUpgradePolicy": {
@@ -863,7 +878,7 @@
           ]
         },
         "publicNetworkAccess": {
-          "description": "If not specified, the default value is 'enabled'.",
+          "description": "The network access type for operating on the resources in the Batch account.",
           "oneOf": [
             {
               "enum": [
@@ -1210,7 +1225,7 @@
       "type": "object",
       "properties": {
         "caching": {
-          "description": "Values are:\n\n none - The caching mode for the disk is not enabled.\n readOnly - The caching mode for the disk is read only.\n readWrite - The caching mode for the disk is read and write.\n\n The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.",
+          "description": "Values are:\n\nnone - The caching mode for the disk is not enabled.\nreadOnly - The caching mode for the disk is read only.\nreadWrite - The caching mode for the disk is read and write.\n\nThe default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.",
           "oneOf": [
             {
               "enum": [
@@ -1248,7 +1263,7 @@
           ]
         },
         "storageAccountType": {
-          "description": "If omitted, the default is \"Standard_LRS\". Values are:\n\n Standard_LRS - The data disk should use standard locally redundant storage.\n Premium_LRS - The data disk should use premium locally redundant storage.",
+          "description": "If omitted, the default is \"Standard_LRS\". Values are:\n\nStandard_LRS - The data disk should use standard locally redundant storage.\nPremium_LRS - The data disk should use premium locally redundant storage.",
           "oneOf": [
             {
               "enum": [
@@ -1601,7 +1616,7 @@
       "type": "object",
       "properties": {
         "keyIdentifier": {
-          "description": "Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:\n\n The Batch Account has a System Assigned identity\n The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions\n The KeyVault has soft-delete and purge protection enabled",
+          "description": "Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:\n\nThe Batch Account has a System Assigned identity\nThe account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions\nThe KeyVault has soft-delete and purge protection enabled",
           "type": "string"
         }
       }
@@ -1973,6 +1988,7 @@
           ]
         },
         "managedDisk": {
+          "description": "The managed disk parameters.",
           "oneOf": [
             {
               "$ref": "#/definitions/ManagedDisk"
@@ -2234,6 +2250,13 @@
       }
     },
     "PoolPropertiesResourceTags": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "PoolTags": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -2853,7 +2876,7 @@
           ]
         },
         "licenseType": {
-          "description": "This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:\n\n Windows_Server - The on-premises license is for Windows Server.\n Windows_Client - The on-premises license is for Windows Client.",
+          "description": "This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:\n\nWindows_Server - The on-premises license is for Windows Server.\nWindows_Client - The on-premises license is for Windows Client.",
           "type": "string"
         },
         "nodeAgentSkuId": {
@@ -3102,7 +3125,7 @@
           "description": "The tags of the resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/AzureProxyResourceTags"
+              "$ref": "#/definitions/ApplicationTags"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3162,7 +3185,7 @@
           "description": "The tags of the resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/AzureProxyResourceTags"
+              "$ref": "#/definitions/ApplicationPackageTags"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3285,7 +3308,8 @@
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^.*$"
+              "minLength": 1,
+              "maxLength": 512
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3355,7 +3379,7 @@
           "description": "The tags of the resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/AzureProxyResourceTags"
+              "$ref": "#/definitions/PoolTags"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"

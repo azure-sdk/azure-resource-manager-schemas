@@ -12,4 +12,7 @@ public static class Utils
 {
     public static string GetProviderNamespace(string resourceType)
         => resourceType.Split('/', 2)[0];
+
+    public static string GetSchemaPath(string apiVersion, string providerNamespace)
+        => $"{apiVersion}/{providerNamespace}.json";
 }

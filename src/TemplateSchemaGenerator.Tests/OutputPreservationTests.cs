@@ -69,10 +69,13 @@ public class OutputPreservationTests
             return new TypeIndex(
                 resources: new Dictionary<string, CrossFileTypeReference>(StringComparer.OrdinalIgnoreCase),
                 resourceFunctions: new Dictionary<string, IReadOnlyDictionary<string, IReadOnlyList<CrossFileTypeReference>>>(StringComparer.OrdinalIgnoreCase),
+                namespaceFunctions: [],
                 settings: dummySettings,
                 fallbackResourceType: dummyRef);
         }
 
         public TypeBase LoadType(CrossFileTypeReference reference) => throw new NotSupportedException();
+
+        public NamespaceFunctionType LoadNamespaceFunctionType(CrossFileTypeReference reference) => throw new NotSupportedException();
     }
 }

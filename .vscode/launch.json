@@ -63,6 +63,22 @@
       "preLaunchTask": "publish"
     },
     {
+      "name": "Generate All (C# only)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "args": [
+        "run",
+        "generate-all",
+        "--",
+        "--specs-dir",
+        "${workspaceFolder}/../azure-rest-api-specs",
+        "--csharp-only",
+      ],
+      "cwd": "${workspaceFolder}/generator",
+      "preLaunchTask": "publish"
+    },
+    {
       "name": "Launch CLI",
       "type": "coreclr",
       "request": "launch",
