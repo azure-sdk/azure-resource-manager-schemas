@@ -234,7 +234,7 @@
           "description": "Properties of the global parameter.",
           "oneOf": [
             {
-              "$ref": "#/definitions/GlobalParameter"
+              "$ref": "#/definitions/GlobalParameterResourceProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -620,7 +620,7 @@
           ]
         },
         "location": {
-          "description": "The resource location.",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -649,10 +649,10 @@
           ]
         },
         "tags": {
-          "description": "The resource tags.",
+          "description": "Resource tags.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ResourceTags"
+              "$ref": "#/definitions/FactoryTags"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -7052,17 +7052,7 @@
         },
         "type": {
           "description": "Type of the secret.",
-          "oneOf": [
-            {
-              "enum": [
-                "AzureKeyVaultSecret"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "type": "string"
         }
       },
       "required": [
@@ -17078,7 +17068,7 @@
           "description": "Data flow parameters",
           "oneOf": [
             {
-              "$ref": "#/definitions/ParameterValueSpecification"
+              "$ref": "#/definitions/DataFlowReferenceParameters"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -17108,6 +17098,11 @@
         "referenceName",
         "type"
       ],
+      "additionalProperties": {}
+    },
+    "DataFlowReferenceParameters": {
+      "type": "object",
+      "properties": {},
       "additionalProperties": {}
     },
     "DataFlowSink": {
@@ -17494,7 +17489,7 @@
               "description": "Parameters for dataset.",
               "oneOf": [
                 {
-                  "$ref": "#/definitions/ParameterDefinitionSpecification"
+                  "$ref": "#/definitions/DatasetParameters"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -19874,6 +19869,13 @@
         }
       ]
     },
+    "DatasetParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "#/definitions/ParameterSpecification"
+      }
+    },
     "DatasetReference": {
       "type": "object",
       "properties": {
@@ -19881,7 +19883,7 @@
           "description": "Arguments for dataset.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ParameterValueSpecification"
+              "$ref": "#/definitions/DatasetReferenceParameters"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -19911,6 +19913,11 @@
         "referenceName",
         "type"
       ]
+    },
+    "DatasetReferenceParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {}
     },
     "DatasetStorageFormat": {
       "allOf": [
@@ -20848,6 +20855,13 @@
           ]
         }
       ]
+    },
+    "DictionaryOfSsisExecutionParameter": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "#/definitions/SsisExecutionParameter"
+      }
     },
     "DistcpSettings": {
       "type": "object",
@@ -22826,7 +22840,7 @@
           "description": "Pipeline parameters.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ParameterValueSpecification"
+              "$ref": "#/definitions/ExecutePipelineActivityTypePropertiesParameters"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -22859,6 +22873,11 @@
       "required": [
         "pipeline"
       ]
+    },
+    "ExecutePipelineActivityTypePropertiesParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {}
     },
     "ExecutePowerQueryActivityTypeProperties": {
       "type": "object",
@@ -23186,7 +23205,7 @@
       "type": "object",
       "properties": {},
       "additionalProperties": {
-        "$ref": "#/definitions/SsisConnectionManager"
+        "$ref": "#/definitions/DictionaryOfSsisExecutionParameter"
       }
     },
     "ExecuteSsisPackageActivityTypePropertiesPackageParameters": {
@@ -23200,7 +23219,7 @@
       "type": "object",
       "properties": {},
       "additionalProperties": {
-        "$ref": "#/definitions/SsisConnectionManager"
+        "$ref": "#/definitions/DictionaryOfSsisExecutionParameter"
       }
     },
     "ExecuteSsisPackageActivityTypePropertiesProjectParameters": {
@@ -23411,7 +23430,7 @@
           "description": "List of user assigned identities for the factory.",
           "oneOf": [
             {
-              "$ref": "#/definitions/UserAssignedIdentitiesDefinitionSpecification"
+              "$ref": "#/definitions/FactoryIdentityUserAssignedIdentities"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -23422,6 +23441,11 @@
       "required": [
         "type"
       ]
+    },
+    "FactoryIdentityUserAssignedIdentities": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {}
     },
     "FactoryProperties": {
       "type": "object",
@@ -23441,7 +23465,7 @@
           "description": "List of parameters for factory.",
           "oneOf": [
             {
-              "$ref": "#/definitions/GlobalParameterDefinitionSpecification"
+              "$ref": "#/definitions/FactoryPropertiesGlobalParameters"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -23485,6 +23509,13 @@
             }
           ]
         }
+      }
+    },
+    "FactoryPropertiesGlobalParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "#/definitions/GlobalParameterSpecification"
       }
     },
     "FactoryRepoConfiguration": {
@@ -23581,6 +23612,13 @@
           ]
         }
       ]
+    },
+    "FactoryTags": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "type": "string"
+      }
     },
     "FactoryVstsConfiguration": {
       "type": "object",
@@ -24776,14 +24814,7 @@
         }
       }
     },
-    "GlobalParameter": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": {
-        "$ref": "#/definitions/GlobalParameterSpecification"
-      }
-    },
-    "GlobalParameterDefinitionSpecification": {
+    "GlobalParameterResourceProperties": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -28340,7 +28371,7 @@
       "type": "object",
       "properties": {
         "additionalHeaders": {
-          "description": "The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1\r\n...\r\nrequest-header-name-n:request-header-value-n Type: string (or Expression with resultType string).",
+          "description": "The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1\n...\nrequest-header-name-n:request-header-value-n Type: string (or Expression with resultType string).",
           "oneOf": [
             {},
             {
@@ -29802,7 +29833,7 @@
           "description": "Arguments for integration runtime.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ParameterValueSpecification"
+              "$ref": "#/definitions/IntegrationRuntimeReferenceParameters"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -29832,6 +29863,11 @@
         "referenceName",
         "type"
       ]
+    },
+    "IntegrationRuntimeReferenceParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {}
     },
     "IntegrationRuntimeSsisCatalogInfo": {
       "type": "object",
@@ -30165,7 +30201,7 @@
           "description": "Properties specific to this dataset type.",
           "oneOf": [
             {
-              "$ref": "#/definitions/GenericDatasetTypeProperties"
+              "$ref": "#/definitions/JiraTableDatasetTypeProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -30225,6 +30261,38 @@
       "required": [
         "type"
       ]
+    },
+    "JiraTableDatasetTypeProperties": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "description": "The schema name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).",
+          "oneOf": [
+            {},
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "table": {
+          "description": "The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).",
+          "oneOf": [
+            {},
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tableName": {
+          "description": "This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.",
+          "oneOf": [
+            {},
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      }
     },
     "JsonDataset": {
       "type": "object",
@@ -31146,7 +31214,7 @@
               "description": "Parameters for linked service.",
               "oneOf": [
                 {
-                  "$ref": "#/definitions/ParameterDefinitionSpecification"
+                  "$ref": "#/definitions/LinkedServiceParameters"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -33473,6 +33541,13 @@
         }
       ]
     },
+    "LinkedServiceParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "#/definitions/ParameterSpecification"
+      }
+    },
     "LinkedServiceReference": {
       "type": "object",
       "properties": {
@@ -33480,7 +33555,7 @@
           "description": "Arguments for LinkedService.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ParameterValueSpecification"
+              "$ref": "#/definitions/LinkedServiceReferenceParameters"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -33510,6 +33585,11 @@
         "referenceName",
         "type"
       ]
+    },
+    "LinkedServiceReferenceParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {}
     },
     "LogLocationSettings": {
       "type": "object",
@@ -36280,9 +36360,27 @@
             }
           ]
         },
+        "database": {
+          "description": "Database name for connection. Type: string.",
+          "oneOf": [
+            {},
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "encryptedCredential": {
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
           "type": "string"
+        },
+        "port": {
+          "description": "The port for the connection. Type: integer.",
+          "oneOf": [
+            {},
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "pwd": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -36290,6 +36388,39 @@
             {
               "$ref": "#/definitions/AzureKeyVaultSecretReference"
             },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "securityLevel": {
+          "description": "Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.",
+          "oneOf": [
+            {
+              "enum": [
+                "PreferredUnSecured",
+                "OnlyUnSecured"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "server": {
+          "description": "Server name for connection. Type: string.",
+          "oneOf": [
+            {},
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uid": {
+          "description": "Username for authentication. Type: string.",
+          "oneOf": [
+            {},
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
@@ -38304,13 +38435,6 @@
         "packageStoreLinkedService"
       ]
     },
-    "ParameterDefinitionSpecification": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": {
-        "$ref": "#/definitions/ParameterSpecification"
-      }
-    },
     "ParameterSpecification": {
       "type": "object",
       "properties": {
@@ -38347,11 +38471,6 @@
       "required": [
         "type"
       ]
-    },
-    "ParameterValueSpecification": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": {}
     },
     "ParquetDataset": {
       "type": "object",
@@ -39111,7 +39230,7 @@
           "description": "List of parameters for pipeline.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ParameterDefinitionSpecification"
+              "$ref": "#/definitions/PipelineParameters"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -39144,7 +39263,7 @@
           "description": "List of variables for pipeline.",
           "oneOf": [
             {
-              "$ref": "#/definitions/VariableDefinitionSpecification"
+              "$ref": "#/definitions/PipelineVariables"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -39220,6 +39339,13 @@
         }
       }
     },
+    "PipelineParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "#/definitions/ParameterSpecification"
+      }
+    },
     "PipelinePolicy": {
       "type": "object",
       "properties": {
@@ -39271,6 +39397,13 @@
       "type": "object",
       "properties": {},
       "additionalProperties": {}
+    },
+    "PipelineVariables": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "#/definitions/VariableSpecification"
+      }
     },
     "PolybaseSettings": {
       "type": "object",
@@ -40995,13 +41128,6 @@
         "requestedStartTime",
         "rerunConcurrency"
       ]
-    },
-    "ResourceTags": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": {
-        "type": "string"
-      }
     },
     "ResponsysLinkedService": {
       "type": "object",
@@ -49463,13 +49589,6 @@
         "packagePath"
       ]
     },
-    "SsisConnectionManager": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": {
-        "$ref": "#/definitions/SsisExecutionParameter"
-      }
-    },
     "SsisExecutionCredential": {
       "type": "object",
       "properties": {
@@ -51891,7 +52010,7 @@
           "description": "Pipeline parameters.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ParameterValueSpecification"
+              "$ref": "#/definitions/TriggerPipelineReferenceParameters"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -51910,6 +52029,11 @@
           ]
         }
       }
+    },
+    "TriggerPipelineReferenceParameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {}
     },
     "TriggerReference": {
       "type": "object",
@@ -52239,11 +52363,6 @@
     "UntilActivityTypeProperties": {
       "type": "object"
     },
-    "UserAssignedIdentitiesDefinitionSpecification": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": {}
-    },
     "UserProperty": {
       "type": "object",
       "properties": {
@@ -52354,13 +52473,6 @@
       "required": [
         "dataset"
       ]
-    },
-    "VariableDefinitionSpecification": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": {
-        "$ref": "#/definitions/VariableSpecification"
-      }
     },
     "VariableSpecification": {
       "type": "object",
@@ -54720,7 +54832,7 @@
           "description": "Properties of the global parameter.",
           "oneOf": [
             {
-              "$ref": "#/definitions/GlobalParameter"
+              "$ref": "#/definitions/GlobalParameterResourceProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"

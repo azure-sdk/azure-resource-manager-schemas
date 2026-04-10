@@ -77,7 +77,7 @@ public class MainGenerator(
                     .Select(typeName => resourceTypeProvider.Get(typeName, apiVersion))
                     .ToArray();
 
-                var schemaPath = $"{apiVersion}/{grouped.ProviderNamespace}.json";
+                var schemaPath = Utils.GetSchemaPath(apiVersion, grouped.ProviderNamespace);
                 // TODO set sortProperties to true after the migration to C# is complete
                 var schemaContent = JsonSchemaGenerator.GenerateProviderSchema(grouped.ProviderNamespace, apiVersion, loadedResourceTypes, sortProperties: false);
                 WriteJsonFile(options, schemaPath, schemaContent);
