@@ -57,12 +57,9 @@ const disabledProviders: AutoGenConfig[] = [
         disabledForAutogen: true,
     },
     {
-        //Disabled until errors are fixed
-        //'Microsoft.BotService/preview/2023-09-15-preview/botservice.json:3492:5' - TypeError: Cannot convert undefined or null to object
         basePath: 'botservice/resource-manager/Microsoft.BotService/BotService',
         namespace: 'Microsoft.BotService',
         useNamespaceFromConfig: true,
-        disabledForAutogen: true,
     },
     {
         // Duplicated under 'containerservice/resource-manager/Microsoft.ContainerService/aks'
