@@ -4,205 +4,12 @@
   "description": "Microsoft ContainerService Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
-    "managedClusters_agentPools": {
-      "type": "object",
-      "description": "Microsoft.ContainerService/managedClusters/agentPools",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.ContainerService/managedClusters/agentPools"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-z][a-z0-9]{0,11}$",
-              "minLength": 1,
-              "maxLength": 12
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "Properties of an agent pool.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedClusterAgentPoolProfileProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/managedClusters_agentPools_machines_childResource"
-              }
-            ]
-          }
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
-    "managedClusters_maintenanceConfigurations": {
-      "type": "object",
-      "description": "Microsoft.ContainerService/managedClusters/maintenanceConfigurations",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.ContainerService/managedClusters/maintenanceConfigurations"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
-        },
-        "properties": {
-          "description": "Properties of a default maintenance configuration.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/MaintenanceConfigurationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
-    "managedClusters_privateEndpointConnections": {
-      "type": "object",
-      "description": "Microsoft.ContainerService/managedClusters/privateEndpointConnections",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.ContainerService/managedClusters/privateEndpointConnections"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
-        },
-        "properties": {
-          "description": "The properties of a private endpoint connection.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PrivateEndpointConnectionProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
-    "managedClusters_trustedAccessRoleBindings": {
-      "type": "object",
-      "description": "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^([A-Za-z0-9-])+$",
-              "minLength": 1,
-              "maxLength": 24
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "Properties for trusted access role binding",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TrustedAccessRoleBindingProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
     "managedClusters": {
-      "type": "object",
       "description": "Microsoft.ContainerService/managedClusters",
       "properties": {
         "apiVersion": {
           "enum": [
             "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.ContainerService/managedClusters"
           ],
           "type": "string"
         },
@@ -236,10 +43,10 @@
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "maxLength": 63,
               "minLength": 1,
-              "maxLength": 63
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -257,30 +64,7 @@
             }
           ]
         },
-        "sku": {
-          "description": "The managed cluster SKU.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedClusterSKU"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tags": {
-          "description": "Resource tags.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TrackedResourceTags"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "resources": {
-          "type": "array",
           "items": {
             "oneOf": [
               {
@@ -299,20 +83,53 @@
                 "$ref": "#/definitions/managedClusters_trustedAccessRoleBindings_childResource"
               }
             ]
-          }
+          },
+          "type": "array"
+        },
+        "sku": {
+          "description": "The managed cluster SKU.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterSKU"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ContainerService/managedClusters"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "location",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
-    "snapshots": {
-      "type": "object",
-      "description": "Microsoft.ContainerService/snapshots",
+    "managedClusters_agentPools": {
+      "description": "Microsoft.ContainerService/managedClusters/agentPools",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -320,9 +137,189 @@
           ],
           "type": "string"
         },
+        "name": {
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 12,
+              "minLength": 1,
+              "pattern": "^[a-z][a-z0-9]{0,11}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of an agent pool.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedClusterAgentPoolProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/managedClusters_agentPools_machines_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "type": {
           "enum": [
-            "Microsoft.ContainerService/snapshots"
+            "Microsoft.ContainerService/managedClusters/agentPools"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "managedClusters_maintenanceConfigurations": {
+      "description": "Microsoft.ContainerService/managedClusters/maintenanceConfigurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-07-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of a default maintenance configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MaintenanceConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ContainerService/managedClusters/maintenanceConfigurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "managedClusters_privateEndpointConnections": {
+      "description": "Microsoft.ContainerService/managedClusters/privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-07-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a private endpoint connection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ContainerService/managedClusters/privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "managedClusters_trustedAccessRoleBindings": {
+      "description": "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-07-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 24,
+              "minLength": 1,
+              "pattern": "^([A-Za-z0-9-])+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties for trusted access role binding",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrustedAccessRoleBindingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "snapshots": {
+      "description": "Microsoft.ContainerService/snapshots",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-07-01"
           ],
           "type": "string"
         },
@@ -334,10 +331,10 @@
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "maxLength": 63,
               "minLength": 1,
-              "maxLength": 63
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -359,26 +356,36 @@
           "description": "Resource tags.",
           "oneOf": [
             {
-              "$ref": "#/definitions/TrackedResourceTags"
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ContainerService/snapshots"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "location",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   },
   "unknown_resourceDefinitions": {
     "locations_meshRevisionProfiles": {
-      "type": "object",
       "description": "Microsoft.ContainerService/locations/meshRevisionProfiles",
       "properties": {
         "apiVersion": {
@@ -387,35 +394,35 @@
           ],
           "type": "string"
         },
-        "type": {
-          "enum": [
-            "Microsoft.ContainerService/locations/meshRevisionProfiles"
-          ],
-          "type": "string"
-        },
         "name": {
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "maxLength": 24,
               "minLength": 1,
-              "maxLength": 24
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ContainerService/locations/meshRevisionProfiles"
+          ],
+          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
-      ]
+        "type"
+      ],
+      "type": "object"
     },
     "managedClusters_agentPools_machines": {
-      "type": "object",
       "description": "Microsoft.ContainerService/managedClusters/agentPools/machines",
       "properties": {
         "apiVersion": {
@@ -424,33 +431,33 @@
           ],
           "type": "string"
         },
-        "type": {
-          "enum": [
-            "Microsoft.ContainerService/managedClusters/agentPools/machines"
-          ],
-          "type": "string"
-        },
         "name": {
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9][-_a-zA-Z0-9]{0,39}$"
+              "pattern": "^[a-zA-Z0-9][-_a-zA-Z0-9]{0,39}$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ContainerService/managedClusters/agentPools/machines"
+          ],
+          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
-      ]
+        "type"
+      ],
+      "type": "object"
     },
     "managedClusters_meshUpgradeProfiles": {
-      "type": "object",
       "description": "Microsoft.ContainerService/managedClusters/meshUpgradeProfiles",
       "properties": {
         "apiVersion": {
@@ -459,45 +466,45 @@
           ],
           "type": "string"
         },
-        "type": {
-          "enum": [
-            "Microsoft.ContainerService/managedClusters/meshUpgradeProfiles"
-          ],
-          "type": "string"
-        },
         "name": {
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "maxLength": 24,
               "minLength": 1,
-              "maxLength": 24
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ContainerService/managedClusters/meshUpgradeProfiles"
+          ],
+          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
-      ]
+        "type"
+      ],
+      "type": "object"
     }
   },
   "definitions": {
     "AbsoluteMonthlySchedule": {
-      "type": "object",
       "properties": {
         "dayOfMonth": {
           "description": "The date of the month.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 31,
               "minimum": 1,
-              "maximum": 31
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -508,9 +515,9 @@
           "description": "Specifies the number of months between each set of occurrences.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 6,
               "minimum": 1,
-              "maximum": 6
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -521,19 +528,19 @@
       "required": [
         "dayOfMonth",
         "intervalMonths"
-      ]
+      ],
+      "type": "object"
     },
     "AgentPoolNetworkProfile": {
-      "type": "object",
       "properties": {
         "allowedHostPorts": {
           "description": "The port ranges that are allowed to access. The specified ranges are allowed to overlap.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/PortRange"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -544,10 +551,10 @@
           "description": "The IDs of the application security groups which agent pool will associate when created.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -558,20 +565,20 @@
           "description": "IPTags of instance-level public IPs.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/IPTag"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "AgentPoolSecurityProfile": {
-      "type": "object",
       "properties": {
         "enableSecureBoot": {
           "description": "Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.",
@@ -595,18 +602,18 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "AgentPoolUpgradeSettings": {
-      "type": "object",
       "properties": {
         "drainTimeoutInMinutes": {
           "description": "The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 1440,
               "minimum": 1,
-              "maximum": 1440
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -621,19 +628,19 @@
           "description": "The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 30,
               "minimum": 0,
-              "maximum": 30
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "AgentPoolWindowsProfile": {
-      "type": "object",
       "properties": {
         "disableOutboundNat": {
           "description": "The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.",
@@ -646,10 +653,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "AzureKeyVaultKms": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable Azure Key Vault key management service. The default is false.",
@@ -685,10 +692,10 @@
           "description": "Resource ID of key vault. When keyVaultNetworkAccess is `Private`, this field is required and must be a valid resource ID. When keyVaultNetworkAccess is `Public`, leave the field empty.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ClusterUpgradeSettings": {
-      "type": "object",
       "properties": {
         "overrideSettings": {
           "description": "Settings for overrides.",
@@ -701,17 +708,17 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ContainerServiceLinuxProfile": {
-      "type": "object",
       "properties": {
         "adminUsername": {
           "description": "The administrator username to use for Linux VMs.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[A-Za-z][-A-Za-z0-9_]*$"
+              "pattern": "^[A-Za-z][-A-Za-z0-9_]*$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -733,17 +740,17 @@
       "required": [
         "adminUsername",
         "ssh"
-      ]
+      ],
+      "type": "object"
     },
     "ContainerServiceNetworkProfile": {
-      "type": "object",
       "properties": {
         "dnsServiceIP": {
           "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+              "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -754,14 +761,14 @@
           "description": "IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "enum": [
                   "IPv4",
                   "IPv6"
                 ],
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -903,8 +910,8 @@
           "description": "A CIDR notation IP range from which to assign pod IPs when kubenet is used.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$"
+              "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -915,10 +922,10 @@
           "description": "One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -929,8 +936,8 @@
           "description": "A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$"
+              "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -941,29 +948,29 @@
           "description": "One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ContainerServiceSshConfiguration": {
-      "type": "object",
       "properties": {
         "publicKeys": {
           "description": "The list of SSH public keys used to authenticate with Linux-based VMs. A maximum of 1 key may be specified.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/ContainerServiceSshPublicKey"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -973,10 +980,10 @@
       },
       "required": [
         "publicKeys"
-      ]
+      ],
+      "type": "object"
     },
     "ContainerServiceSshPublicKey": {
-      "type": "object",
       "properties": {
         "keyData": {
           "description": "Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.",
@@ -985,27 +992,27 @@
       },
       "required": [
         "keyData"
-      ]
+      ],
+      "type": "object"
     },
     "CreationData": {
-      "type": "object",
       "properties": {
         "sourceResourceId": {
           "description": "This is the ARM ID of the source object to be used to create the target object.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "DailySchedule": {
-      "type": "object",
       "properties": {
         "intervalDays": {
           "description": "Specifies the number of days between each set of occurrences.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 7,
               "minimum": 1,
-              "maximum": 7
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1015,10 +1022,10 @@
       },
       "required": [
         "intervalDays"
-      ]
+      ],
+      "type": "object"
     },
     "DateSpan": {
-      "type": "object",
       "properties": {
         "end": {
           "description": "The end date of the date span.",
@@ -1032,10 +1039,10 @@
       "required": [
         "end",
         "start"
-      ]
+      ],
+      "type": "object"
     },
     "DelegatedResource": {
-      "type": "object",
       "properties": {
         "location": {
           "description": "The source resource location - internal use only.",
@@ -1053,27 +1060,27 @@
           "description": "The tenant id of the delegated resource - internal use only.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
+              "maxLength": 36,
               "minLength": 36,
-              "maxLength": 36
+              "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "DelegatedResources": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "$ref": "#/definitions/DelegatedResource"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "ExtendedLocation": {
-      "type": "object",
       "properties": {
         "name": {
           "description": "The name of the extended location.",
@@ -1093,10 +1100,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "IPTag": {
-      "type": "object",
       "properties": {
         "ipTagType": {
           "description": "The IP tag type. Example: RoutingPreference.",
@@ -1106,10 +1113,10 @@
           "description": "The value of the IP tag associated with the public IP. Example: Internet.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "IstioCertificateAuthority": {
-      "type": "object",
       "properties": {
         "plugin": {
           "description": "Plugin certificates information for Service Mesh.",
@@ -1122,19 +1129,19 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "IstioComponents": {
-      "type": "object",
       "properties": {
         "egressGateways": {
           "description": "Istio egress gateways.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/IstioEgressGateway"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1145,20 +1152,20 @@
           "description": "Istio ingress gateways.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/IstioIngressGateway"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "IstioEgressGateway": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable the egress gateway.",
@@ -1174,10 +1181,10 @@
       },
       "required": [
         "enabled"
-      ]
+      ],
+      "type": "object"
     },
     "IstioIngressGateway": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable the ingress gateway.",
@@ -1209,10 +1216,10 @@
       "required": [
         "enabled",
         "mode"
-      ]
+      ],
+      "type": "object"
     },
     "IstioPluginCertificateAuthority": {
-      "type": "object",
       "properties": {
         "certChainObjectName": {
           "description": "Certificate chain object name in Azure Key Vault.",
@@ -1234,10 +1241,10 @@
           "description": "Root certificate object name in Azure Key Vault.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "IstioServiceMesh": {
-      "type": "object",
       "properties": {
         "certificateAuthority": {
           "description": "Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca",
@@ -1265,29 +1272,29 @@
           "description": "The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "KubeletConfig": {
-      "type": "object",
       "properties": {
         "allowedUnsafeSysctls": {
           "description": "Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1298,8 +1305,8 @@
           "description": "The maximum number of container log files that can be present for a container. The number must be ≥ 2.",
           "oneOf": [
             {
-              "type": "integer",
-              "minimum": 2
+              "minimum": 2,
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1384,10 +1391,10 @@
           "description": "For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "LinuxOSConfig": {
-      "type": "object",
       "properties": {
         "swapFileSizeMB": {
           "description": "The size in MB of a swap file that will be created on each node.",
@@ -1419,10 +1426,10 @@
           "description": "Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "MaintenanceConfigurationProperties": {
-      "type": "object",
       "properties": {
         "maintenanceWindow": {
           "description": "Maintenance window for the maintenance configuration.",
@@ -1439,10 +1446,10 @@
           "description": "Time slots on which upgrade is not allowed.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/TimeSpan"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1453,28 +1460,28 @@
           "description": "If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/TimeInWeek"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "MaintenanceWindow": {
-      "type": "object",
       "properties": {
         "durationHours": {
           "description": "Length of maintenance window range from 4 to 24 hours.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 24,
               "minimum": 4,
-              "maximum": 24
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1485,10 +1492,10 @@
           "description": "Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/DateSpan"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1514,8 +1521,8 @@
           "description": "The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^\\d{2}:\\d{2}$"
+              "pattern": "^\\d{2}:\\d{2}$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1526,8 +1533,8 @@
           "description": "The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^(-|\\+)[0-9]{2}:[0-9]{2}$"
+              "pattern": "^(-|\\+)[0-9]{2}:[0-9]{2}$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1539,19 +1546,19 @@
         "durationHours",
         "schedule",
         "startTime"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterAADProfile": {
-      "type": "object",
       "properties": {
         "adminGroupObjectIDs": {
           "description": "The list of AAD group object IDs that will have admin role of the cluster.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1596,16 +1603,20 @@
           "description": "The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterAddonProfile": {
-      "type": "object",
       "properties": {
         "config": {
           "description": "Key-value pairs for configuring an add-on.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterAddonProfileConfig"
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1626,26 +1637,26 @@
       },
       "required": [
         "enabled"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterAddonProfileConfig": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "type": "string"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "ManagedClusterAgentPoolProfile": {
-      "type": "object",
       "properties": {
         "availabilityZones": {
           "description": "The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1844,8 +1855,8 @@
           "description": "Windows agent pool names must be 6 characters or less.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-z][a-z0-9]{0,11}$"
+              "pattern": "^[a-z][a-z0-9]{0,11}$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1867,7 +1878,11 @@
           "description": "The node labels to be persisted across all nodes in agent pool.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterAgentPoolProfilePropertiesNodeLabels"
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1882,10 +1897,10 @@
           "description": "The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1900,9 +1915,9 @@
           "description": "OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 2048,
               "minimum": 0,
-              "maximum": 2048
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2047,7 +2062,11 @@
           "description": "The tags to be persisted on the agent pool virtual machine scale set.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterAgentPoolProfilePropertiesTags"
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2117,19 +2136,19 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterAgentPoolProfileProperties": {
-      "type": "object",
       "properties": {
         "availabilityZones": {
           "description": "The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2339,7 +2358,11 @@
           "description": "The node labels to be persisted across all nodes in agent pool.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterAgentPoolProfilePropertiesNodeLabels"
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2354,10 +2377,10 @@
           "description": "The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2372,9 +2395,9 @@
           "description": "OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 2048,
               "minimum": 0,
-              "maximum": 2048
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2519,7 +2542,11 @@
           "description": "The tags to be persisted on the agent pool virtual machine scale set.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterAgentPoolProfilePropertiesTags"
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2586,33 +2613,33 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterAgentPoolProfilePropertiesNodeLabels": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "type": "string"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "ManagedClusterAgentPoolProfilePropertiesTags": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "type": "string"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "ManagedClusterAPIServerAccessProfile": {
-      "type": "object",
       "properties": {
         "authorizedIPRanges": {
           "description": "IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2656,10 +2683,10 @@
           "description": "The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterAutoUpgradeProfile": {
-      "type": "object",
       "properties": {
         "nodeOSUpgradeChannel": {
           "description": "Manner in which the OS on your nodes is updated. The default is NodeImage.",
@@ -2696,10 +2723,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterAzureMonitorProfile": {
-      "type": "object",
       "properties": {
         "metrics": {
           "description": "Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.",
@@ -2712,10 +2739,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterAzureMonitorProfileKubeStateMetrics": {
-      "type": "object",
       "properties": {
         "metricAnnotationsAllowList": {
           "description": "Comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric (Example: 'namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...'). By default the metric contains only resource name and namespace labels.",
@@ -2725,10 +2752,10 @@
           "description": "Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric (Example: 'namespaces=[k8s-label-1,k8s-label-n,...],pods=[app],...'). By default the metric contains only resource name and namespace labels.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterAzureMonitorProfileMetrics": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable or disable the Azure Managed Prometheus addon for Prometheus monitoring. See aka.ms/AzureManagedPrometheus-aks-enable for details on enabling and disabling.",
@@ -2755,10 +2782,10 @@
       },
       "required": [
         "enabled"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterCostAnalysis": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.",
@@ -2771,10 +2798,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterHttpProxyConfig": {
-      "type": "object",
       "properties": {
         "httpProxy": {
           "description": "The HTTP proxy server endpoint to use.",
@@ -2788,10 +2815,10 @@
           "description": "The endpoints that should not go through proxy.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2802,16 +2829,20 @@
           "description": "Alternative CA cert to use for connecting to proxy servers.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterIdentity": {
-      "type": "object",
       "properties": {
         "delegatedResources": {
           "description": "The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.",
           "oneOf": [
             {
-              "$ref": "#/definitions/DelegatedResources"
+              "additionalProperties": {
+                "$ref": "#/definitions/DelegatedResource"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2838,24 +2869,28 @@
           "description": "The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterIdentityUserAssignedIdentities"
+              "additionalProperties": {
+                "$ref": "#/definitions/ManagedServiceIdentityUserAssignedIdentitiesValue"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterIdentityUserAssignedIdentities": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "$ref": "#/definitions/ManagedServiceIdentityUserAssignedIdentitiesValue"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "ManagedClusterIngressProfile": {
-      "type": "object",
       "properties": {
         "webAppRouting": {
           "description": "App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.",
@@ -2868,19 +2903,19 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterIngressProfileWebAppRouting": {
-      "type": "object",
       "properties": {
         "dnsZoneResourceIds": {
           "description": "Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2898,18 +2933,18 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterLoadBalancerProfile": {
-      "type": "object",
       "properties": {
         "allocatedOutboundPorts": {
           "description": "The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 64000,
               "minimum": 0,
-              "maximum": 64000
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2935,10 +2970,10 @@
           "description": "The effective outbound IP resources of the cluster load balancer.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/ResourceReference"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2960,9 +2995,9 @@
           "description": "Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 120,
               "minimum": 4,
-              "maximum": 120
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3002,18 +3037,18 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterLoadBalancerProfileManagedOutboundIPs": {
-      "type": "object",
       "properties": {
         "count": {
           "description": "The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 100,
               "minimum": 1,
-              "maximum": 100
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3024,75 +3059,75 @@
           "description": "The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 100,
               "minimum": 0,
-              "maximum": 100
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterLoadBalancerProfileOutboundIPPrefixes": {
-      "type": "object",
       "properties": {
         "publicIPPrefixes": {
           "description": "A list of public IP prefix resources.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/ResourceReference"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterLoadBalancerProfileOutboundIPs": {
-      "type": "object",
       "properties": {
         "publicIPs": {
           "description": "A list of public IP resources.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/ResourceReference"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterManagedOutboundIPProfile": {
-      "type": "object",
       "properties": {
         "count": {
           "description": "The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 16,
               "minimum": 1,
-              "maximum": 16
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterMetricsProfile": {
-      "type": "object",
       "properties": {
         "costAnalysis": {
           "description": "The cost analysis configuration for the cluster",
@@ -3105,19 +3140,19 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterNATGatewayProfile": {
-      "type": "object",
       "properties": {
         "effectiveOutboundIPs": {
           "description": "The effective outbound IP resources of the cluster NAT gateway.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/ResourceReference"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3128,9 +3163,9 @@
           "description": "Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 120,
               "minimum": 4,
-              "maximum": 120
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3148,10 +3183,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterOidcIssuerProfile": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether the OIDC issuer is enabled.",
@@ -3164,10 +3199,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterPodIdentity": {
-      "type": "object",
       "properties": {
         "bindingSelector": {
           "description": "The binding selector to use for the AzureIdentityBinding resource.",
@@ -3197,10 +3232,10 @@
         "identity",
         "name",
         "namespace"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterPodIdentityException": {
-      "type": "object",
       "properties": {
         "name": {
           "description": "The name of the pod identity exception.",
@@ -3214,7 +3249,11 @@
           "description": "The pod labels to match.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterPodIdentityExceptionPodLabels"
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3226,17 +3265,17 @@
         "name",
         "namespace",
         "podLabels"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterPodIdentityExceptionPodLabels": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "type": "string"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "ManagedClusterPodIdentityProfile": {
-      "type": "object",
       "properties": {
         "allowNetworkPluginKubenet": {
           "description": "Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.",
@@ -3264,10 +3303,10 @@
           "description": "The pod identities to use in the cluster.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/ManagedClusterPodIdentity"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3278,20 +3317,20 @@
           "description": "The pod identity exceptions to allow.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/ManagedClusterPodIdentityException"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterProperties": {
-      "type": "object",
       "properties": {
         "aadProfile": {
           "description": "The Azure Active Directory configuration.",
@@ -3308,7 +3347,11 @@
           "description": "The profile of managed cluster add-on.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterPropertiesAddonProfiles"
+              "additionalProperties": {
+                "$ref": "#/definitions/ManagedClusterAddonProfile"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3319,10 +3362,10 @@
           "description": "The agent pool properties.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/ManagedClusterAgentPoolProfile"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3433,7 +3476,11 @@
           "description": "Identities associated with the cluster.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedClusterPropertiesIdentityProfile"
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3518,10 +3565,10 @@
           "description": "Private link resources associated with the cluster.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "$ref": "#/definitions/PrivateLinkResource"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3635,17 +3682,17 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterPropertiesAddonProfiles": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "$ref": "#/definitions/ManagedClusterAddonProfile"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "ManagedClusterPropertiesAutoScalerProfile": {
-      "type": "object",
       "properties": {
         "balance-similar-node-groups": {
           "description": "Valid values are 'true' and 'false'",
@@ -3761,17 +3808,17 @@
           "description": "The default is true.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterPropertiesIdentityProfile": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "$ref": "#/definitions/UserAssignedIdentity"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "ManagedClusterSecurityProfile": {
-      "type": "object",
       "properties": {
         "azureKeyVaultKms": {
           "description": "Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.",
@@ -3817,10 +3864,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterSecurityProfileDefender": {
-      "type": "object",
       "properties": {
         "logAnalyticsWorkspaceResourceId": {
           "description": "Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.",
@@ -3837,10 +3884,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterSecurityProfileDefenderSecurityMonitoring": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable Defender threat detection",
@@ -3853,10 +3900,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterSecurityProfileImageCleaner": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable Image Cleaner on AKS cluster.",
@@ -3880,10 +3927,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterSecurityProfileWorkloadIdentity": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable workload identity.",
@@ -3896,10 +3943,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterServicePrincipalProfile": {
-      "type": "object",
       "properties": {
         "clientId": {
           "description": "The ID for the service principal.",
@@ -3912,10 +3959,10 @@
       },
       "required": [
         "clientId"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterSKU": {
-      "type": "object",
       "properties": {
         "name": {
           "description": "The name of a managed cluster SKU.",
@@ -3947,10 +3994,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterStorageProfile": {
-      "type": "object",
       "properties": {
         "blobCSIDriver": {
           "description": "AzureBlob CSI Driver settings for the storage profile.",
@@ -3996,10 +4043,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterStorageProfileBlobCSIDriver": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable AzureBlob CSI Driver. The default value is false.",
@@ -4012,10 +4059,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterStorageProfileDiskCSIDriver": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable AzureDisk CSI Driver. The default value is true.",
@@ -4028,10 +4075,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterStorageProfileFileCSIDriver": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable AzureFile CSI Driver. The default value is true.",
@@ -4044,10 +4091,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterStorageProfileSnapshotController": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable Snapshot Controller. The default value is true.",
@@ -4060,10 +4107,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterWindowsProfile": {
-      "type": "object",
       "properties": {
         "adminPassword": {
           "description": "Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\"",
@@ -4113,10 +4160,10 @@
       },
       "required": [
         "adminUsername"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterWorkloadAutoScalerProfile": {
-      "type": "object",
       "properties": {
         "keda": {
           "description": "KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.",
@@ -4140,10 +4187,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ManagedClusterWorkloadAutoScalerProfileKeda": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable KEDA.",
@@ -4159,10 +4206,10 @@
       },
       "required": [
         "enabled"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscaler": {
-      "type": "object",
       "properties": {
         "enabled": {
           "description": "Whether to enable VPA. Default value is false.",
@@ -4178,22 +4225,22 @@
       },
       "required": [
         "enabled"
-      ]
+      ],
+      "type": "object"
     },
     "ManagedServiceIdentityUserAssignedIdentitiesValue": {
-      "type": "object",
-      "properties": {}
+      "properties": {},
+      "type": "object"
     },
     "PortRange": {
-      "type": "object",
       "properties": {
         "portEnd": {
           "description": "The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 65535,
               "minimum": 1,
-              "maximum": 65535
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4204,9 +4251,9 @@
           "description": "The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 65535,
               "minimum": 1,
-              "maximum": 65535
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4228,10 +4275,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "PowerState": {
-      "type": "object",
       "properties": {
         "code": {
           "description": "Tells whether the cluster is Running or Stopped",
@@ -4248,19 +4295,19 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "PrivateEndpoint": {
-      "type": "object",
       "properties": {
         "id": {
           "description": "The resource ID of the private endpoint",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "type": "object",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private endpoint.",
@@ -4287,10 +4334,10 @@
       },
       "required": [
         "privateLinkServiceConnectionState"
-      ]
+      ],
+      "type": "object"
     },
     "PrivateLinkResource": {
-      "type": "object",
       "properties": {
         "groupId": {
           "description": "The group ID of the resource.",
@@ -4308,10 +4355,10 @@
           "description": "The RequiredMembers of the resource",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4322,10 +4369,10 @@
           "description": "The resource type.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "type": "object",
       "properties": {
         "description": {
           "description": "The private link service connection description.",
@@ -4348,10 +4395,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "RelativeMonthlySchedule": {
-      "type": "object",
       "properties": {
         "dayOfWeek": {
           "description": "Specifies on which day of the week the maintenance occurs.",
@@ -4377,9 +4424,9 @@
           "description": "Specifies the number of months between each set of occurrences.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 6,
               "minimum": 1,
-              "maximum": 6
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4409,19 +4456,19 @@
         "dayOfWeek",
         "intervalMonths",
         "weekIndex"
-      ]
+      ],
+      "type": "object"
     },
     "ResourceReference": {
-      "type": "object",
       "properties": {
         "id": {
           "description": "The fully qualified Azure resource id.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Schedule": {
-      "type": "object",
       "properties": {
         "absoluteMonthly": {
           "description": "For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.",
@@ -4467,10 +4514,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ServiceMeshProfile": {
-      "type": "object",
       "properties": {
         "istio": {
           "description": "Istio service mesh configuration.",
@@ -4501,10 +4548,10 @@
       },
       "required": [
         "mode"
-      ]
+      ],
+      "type": "object"
     },
     "SnapshotProperties": {
-      "type": "object",
       "properties": {
         "creationData": {
           "description": "CreationData to be used to specify the source agent pool resource ID to create this snapshot.",
@@ -4531,10 +4578,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "SysctlConfig": {
-      "type": "object",
       "properties": {
         "fsAioMaxNr": {
           "description": "Sysctl setting fs.aio-max-nr.",
@@ -4720,9 +4767,9 @@
           "description": "Sysctl setting net.ipv4.tcp_keepalive_intvl.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 90,
               "minimum": 10,
-              "maximum": 90
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4788,9 +4835,9 @@
           "description": "Sysctl setting net.netfilter.nf_conntrack_buckets.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 524288,
               "minimum": 65536,
-              "maximum": 524288
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4801,9 +4848,9 @@
           "description": "Sysctl setting net.netfilter.nf_conntrack_max.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 2097152,
               "minimum": 131072,
-              "maximum": 2097152
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4843,10 +4890,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "TimeInWeek": {
-      "type": "object",
       "properties": {
         "day": {
           "description": "The day of the week.",
@@ -4872,22 +4919,22 @@
           "description": "Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
-                "type": "integer",
+                "maximum": 23,
                 "minimum": 0,
-                "maximum": 23
-              }
+                "type": "integer"
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "TimeSpan": {
-      "type": "object",
       "properties": {
         "end": {
           "description": "The end of a time span",
@@ -4897,26 +4944,26 @@
           "description": "The start of a time span",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "TrackedResourceTags": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "type": "string"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "TrustedAccessRoleBindingProperties": {
-      "type": "object",
       "properties": {
         "roles": {
           "description": "A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -4931,10 +4978,10 @@
       "required": [
         "roles",
         "sourceResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "UpgradeOverrideSettings": {
-      "type": "object",
       "properties": {
         "forceUpgrade": {
           "description": "Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.",
@@ -4951,10 +4998,10 @@
           "description": "Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "UserAssignedIdentity": {
-      "type": "object",
       "properties": {
         "clientId": {
           "description": "The client ID of the user assigned identity.",
@@ -4968,10 +5015,10 @@
           "description": "The resource ID of the user assigned identity.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "WeeklySchedule": {
-      "type": "object",
       "properties": {
         "dayOfWeek": {
           "description": "Specifies on which day of the week the maintenance occurs.",
@@ -4997,9 +5044,9 @@
           "description": "Specifies the number of weeks between each set of occurrences.",
           "oneOf": [
             {
-              "type": "integer",
+              "maximum": 4,
               "minimum": 1,
-              "maximum": 4
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5010,10 +5057,10 @@
       "required": [
         "dayOfWeek",
         "intervalWeeks"
-      ]
+      ],
+      "type": "object"
     },
     "WindowsGmsaProfile": {
-      "type": "object",
       "properties": {
         "dnsServer": {
           "description": "Specifies the DNS server for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.",
@@ -5034,10 +5081,10 @@
           "description": "Specifies the root domain name for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "managedClusters_agentPools_childResource": {
-      "type": "object",
       "description": "agentPools",
       "properties": {
         "apiVersion": {
@@ -5046,20 +5093,14 @@
           ],
           "type": "string"
         },
-        "type": {
-          "enum": [
-            "agentPools"
-          ],
-          "type": "string"
-        },
         "name": {
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-z][a-z0-9]{0,11}$",
+              "maxLength": 12,
               "minLength": 1,
-              "maxLength": 12
+              "pattern": "^[a-z][a-z0-9]{0,11}$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5076,17 +5117,23 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "agentPools"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
     "managedClusters_agentPools_machines_childResource": {
-      "type": "object",
       "description": "machines",
       "properties": {
         "apiVersion": {
@@ -5095,44 +5142,38 @@
           ],
           "type": "string"
         },
-        "type": {
-          "enum": [
-            "machines"
-          ],
-          "type": "string"
-        },
         "name": {
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9][-_a-zA-Z0-9]{0,39}$"
+              "pattern": "^[a-zA-Z0-9][-_a-zA-Z0-9]{0,39}$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "machines"
+          ],
+          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
-      ]
+        "type"
+      ],
+      "type": "object"
     },
     "managedClusters_maintenanceConfigurations_childResource": {
-      "type": "object",
       "description": "maintenanceConfigurations",
       "properties": {
         "apiVersion": {
           "enum": [
             "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "maintenanceConfigurations"
           ],
           "type": "string"
         },
@@ -5150,17 +5191,23 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "maintenanceConfigurations"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
     "managedClusters_meshUpgradeProfiles_childResource": {
-      "type": "object",
       "description": "meshUpgradeProfiles",
       "properties": {
         "apiVersion": {
@@ -5169,46 +5216,40 @@
           ],
           "type": "string"
         },
-        "type": {
-          "enum": [
-            "meshUpgradeProfiles"
-          ],
-          "type": "string"
-        },
         "name": {
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "maxLength": 24,
               "minLength": 1,
-              "maxLength": 24
+              "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "meshUpgradeProfiles"
+          ],
+          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
-      ]
+        "type"
+      ],
+      "type": "object"
     },
     "managedClusters_privateEndpointConnections_childResource": {
-      "type": "object",
       "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
             "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "privateEndpointConnections"
           ],
           "type": "string"
         },
@@ -5226,17 +5267,23 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "privateEndpointConnections"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
     "managedClusters_trustedAccessRoleBindings_childResource": {
-      "type": "object",
       "description": "trustedAccessRoleBindings",
       "properties": {
         "apiVersion": {
@@ -5245,20 +5292,14 @@
           ],
           "type": "string"
         },
-        "type": {
-          "enum": [
-            "trustedAccessRoleBindings"
-          ],
-          "type": "string"
-        },
         "name": {
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^([A-Za-z0-9-])+$",
+              "maxLength": 24,
               "minLength": 1,
-              "maxLength": 24
+              "pattern": "^([A-Za-z0-9-])+$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -5275,14 +5316,21 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "trustedAccessRoleBindings"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   }
 }

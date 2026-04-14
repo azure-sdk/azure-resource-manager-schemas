@@ -4,1206 +4,12 @@
   "description": "Microsoft DataShare Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
-    "accounts_shares_dataSets": {
-      "description": "Microsoft.DataShare/accounts/shares/dataSets",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "AdlsGen1File"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "ADLS Gen 1 file data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AdlsGen1FileProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "AdlsGen1Folder"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "ADLS Gen 1 folder data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AdlsGen1FolderProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "AdlsGen2File"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "ADLS Gen 2 file data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AdlsGen2FileProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "AdlsGen2FileSystem"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "ADLS Gen 2 file system data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AdlsGen2FileSystemProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "AdlsGen2Folder"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "ADLS Gen 2 folder data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AdlsGen2FolderProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "Blob"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Blob data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/BlobProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "BlobFolder"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Blob folder data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/BlobFolderProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "Container"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Blob container data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/BlobContainerProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "KustoCluster"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Kusto cluster data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/KustoClusterDataSetProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "KustoDatabase"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Kusto database data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/KustoDatabaseDataSetProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "KustoTable"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Kusto table data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/KustoTableDataSetProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "SqlDBTable"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "SQL DB table data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SqlDBTableProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "SqlDWTable"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "SQL DW table data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SqlDWTableProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "SynapseWorkspaceSqlPoolTable"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Synapse Workspace Sql Pool Table data set properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SynapseWorkspaceSqlPoolTableDataSetProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        }
-      ],
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DataShare/accounts/shares/dataSets"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name"
-      ]
-    },
-    "accounts_shares_invitations": {
-      "type": "object",
-      "description": "Microsoft.DataShare/accounts/shares/invitations",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DataShare/accounts/shares/invitations"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
-        },
-        "properties": {
-          "description": "Properties on the Invitation",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/InvitationProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
-    "accounts_shares_synchronizationSettings": {
-      "type": "object",
-      "description": "Microsoft.DataShare/accounts/shares/synchronizationSettings",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DataShare/accounts/shares/synchronizationSettings"
-          ],
-          "type": "string"
-        },
-        "kind": {
-          "description": "Kind of synchronization setting.",
-          "oneOf": [
-            {
-              "enum": [
-                "ScheduleBased"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "Properties of scheduled synchronization",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ScheduledSynchronizationSettingProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "kind",
-        "properties"
-      ]
-    },
-    "accounts_shares": {
-      "type": "object",
-      "description": "Microsoft.DataShare/accounts/shares",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DataShare/accounts/shares"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
-        },
-        "properties": {
-          "description": "Properties on the share",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ShareProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/accounts_shares_dataSets_childResource"
-              },
-              {
-                "$ref": "#/definitions/accounts_shares_invitations_childResource"
-              },
-              {
-                "$ref": "#/definitions/accounts_shares_providerShareSubscriptions_childResource"
-              },
-              {
-                "$ref": "#/definitions/accounts_shares_synchronizationSettings_childResource"
-              }
-            ]
-          }
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
-    "accounts_shareSubscriptions_dataSetMappings": {
-      "description": "Microsoft.DataShare/accounts/shareSubscriptions/dataSetMappings",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "AdlsGen2File"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "ADLS Gen2 file data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AdlsGen2FileDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "AdlsGen2FileSystem"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "ADLS Gen2 file system data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AdlsGen2FileSystemDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "AdlsGen2Folder"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "ADLS Gen2 folder data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/AdlsGen2FolderDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "Blob"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Blob data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/BlobMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "BlobFolder"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Blob folder data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/BlobFolderMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "Container"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Blob container data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/BlobContainerMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "KustoCluster"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Kusto cluster data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/KustoClusterDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "KustoDatabase"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Kusto database data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/KustoDatabaseDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "KustoTable"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Kusto database data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/KustoTableDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "SqlDBTable"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Sql DB data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SqlDBTableDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "SqlDWTable"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "Sql DW data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SqlDWTableDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "description": "Kind of data set mapping.",
-              "oneOf": [
-                {
-                  "enum": [
-                    "SynapseWorkspaceSqlPoolTable"
-                  ],
-                  "type": "string"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "properties": {
-              "description": "A Synapse Workspace Sql Pool Table data set mapping properties.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SynapseWorkspaceSqlPoolTableDataSetMappingProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            }
-          },
-          "required": [
-            "kind",
-            "properties"
-          ]
-        }
-      ],
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DataShare/accounts/shareSubscriptions/dataSetMappings"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name"
-      ]
-    },
-    "accounts_shareSubscriptions_triggers": {
-      "type": "object",
-      "description": "Microsoft.DataShare/accounts/shareSubscriptions/triggers",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DataShare/accounts/shareSubscriptions/triggers"
-          ],
-          "type": "string"
-        },
-        "kind": {
-          "description": "Kind of synchronization on trigger.",
-          "oneOf": [
-            {
-              "enum": [
-                "ScheduleBased"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "Properties of scheduled synchronization",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ScheduledTriggerProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "kind",
-        "properties"
-      ]
-    },
-    "accounts_shareSubscriptions": {
-      "type": "object",
-      "description": "Microsoft.DataShare/accounts/shareSubscriptions",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DataShare/accounts/shareSubscriptions"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
-        },
-        "properties": {
-          "description": "Properties on the share subscription",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ShareSubscriptionProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/accounts_shareSubscriptions_dataSetMappings_childResource"
-              },
-              {
-                "$ref": "#/definitions/accounts_shareSubscriptions_triggers_childResource"
-              }
-            ]
-          }
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
     "accounts": {
-      "type": "object",
       "description": "Microsoft.DataShare/accounts",
       "properties": {
         "apiVersion": {
           "enum": [
             "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DataShare/accounts"
           ],
           "type": "string"
         },
@@ -1237,19 +43,7 @@
             }
           ]
         },
-        "tags": {
-          "description": "Tags on the azure resource.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DefaultDtoTags"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "resources": {
-          "type": "array",
           "items": {
             "oneOf": [
               {
@@ -1259,21 +53,1230 @@
                 "$ref": "#/definitions/accounts_shareSubscriptions_childResource"
               }
             ]
-          }
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Tags on the azure resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataShare/accounts"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "identity",
         "name",
-        "properties"
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "accounts_shares": {
+      "description": "Microsoft.DataShare/accounts/shares",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties on the share",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ShareProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/accounts_shares_dataSets_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_shares_invitations_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_shares_providerShareSubscriptions_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_shares_synchronizationSettings_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataShare/accounts/shares"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "accounts_shares_dataSets": {
+      "description": "Microsoft.DataShare/accounts/shares/dataSets",
+      "oneOf": [
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AdlsGen1File"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "ADLS Gen 1 file data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AdlsGen1FileProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AdlsGen1Folder"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "ADLS Gen 1 folder data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AdlsGen1FolderProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AdlsGen2File"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "ADLS Gen 2 file data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AdlsGen2FileProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AdlsGen2FileSystem"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "ADLS Gen 2 file system data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AdlsGen2FileSystemProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AdlsGen2Folder"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "ADLS Gen 2 folder data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AdlsGen2FolderProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Blob"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Blob data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "BlobFolder"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Blob folder data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobFolderProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Container"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Blob container data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobContainerProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "KustoCluster"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Kusto cluster data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KustoClusterDataSetProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "KustoDatabase"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Kusto database data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KustoDatabaseDataSetProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "KustoTable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Kusto table data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KustoTableDataSetProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SqlDBTable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "SQL DB table data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SqlDBTableProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SqlDWTable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "SQL DW table data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SqlDWTableProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SynapseWorkspaceSqlPoolTable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Synapse Workspace Sql Pool Table data set properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SynapseWorkspaceSqlPoolTableDataSetProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        }
+      ],
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataShare/accounts/shares/dataSets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
       ]
+    },
+    "accounts_shares_invitations": {
+      "description": "Microsoft.DataShare/accounts/shares/invitations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties on the Invitation",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InvitationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataShare/accounts/shares/invitations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "accounts_shares_synchronizationSettings": {
+      "description": "Microsoft.DataShare/accounts/shares/synchronizationSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of synchronization setting.",
+          "oneOf": [
+            {
+              "enum": [
+                "ScheduleBased"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of scheduled synchronization",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledSynchronizationSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataShare/accounts/shares/synchronizationSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "accounts_shareSubscriptions": {
+      "description": "Microsoft.DataShare/accounts/shareSubscriptions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties on the share subscription",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ShareSubscriptionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/accounts_shareSubscriptions_dataSetMappings_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_shareSubscriptions_triggers_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataShare/accounts/shareSubscriptions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "accounts_shareSubscriptions_dataSetMappings": {
+      "description": "Microsoft.DataShare/accounts/shareSubscriptions/dataSetMappings",
+      "oneOf": [
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AdlsGen2File"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "ADLS Gen2 file data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AdlsGen2FileDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AdlsGen2FileSystem"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "ADLS Gen2 file system data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AdlsGen2FileSystemDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AdlsGen2Folder"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "ADLS Gen2 folder data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AdlsGen2FolderDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Blob"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Blob data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "BlobFolder"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Blob folder data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobFolderMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Container"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Blob container data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobContainerMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "KustoCluster"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Kusto cluster data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KustoClusterDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "KustoDatabase"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Kusto database data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KustoDatabaseDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "KustoTable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Kusto database data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KustoTableDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SqlDBTable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Sql DB data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SqlDBTableDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SqlDWTable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "Sql DW data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SqlDWTableDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kind": {
+              "description": "Kind of data set mapping.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SynapseWorkspaceSqlPoolTable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "properties": {
+              "description": "A Synapse Workspace Sql Pool Table data set mapping properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SynapseWorkspaceSqlPoolTableDataSetMappingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "properties"
+          ],
+          "type": "object"
+        }
+      ],
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataShare/accounts/shareSubscriptions/dataSetMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ]
+    },
+    "accounts_shareSubscriptions_triggers": {
+      "description": "Microsoft.DataShare/accounts/shareSubscriptions/triggers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of synchronization on trigger.",
+          "oneOf": [
+            {
+              "enum": [
+                "ScheduleBased"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of scheduled synchronization",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledTriggerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataShare/accounts/shareSubscriptions/triggers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   },
   "unknown_resourceDefinitions": {
     "accounts_shares_providerShareSubscriptions": {
-      "type": "object",
       "description": "Microsoft.DataShare/accounts/shares/providerShareSubscriptions",
       "properties": {
         "apiVersion": {
@@ -1282,25 +1285,25 @@
           ],
           "type": "string"
         },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
         "type": {
           "enum": [
             "Microsoft.DataShare/accounts/shares/providerShareSubscriptions"
           ],
           "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
-      ]
+        "type"
+      ],
+      "type": "object"
     },
     "locations_consumerInvitations": {
-      "type": "object",
       "description": "Microsoft.DataShare/locations/consumerInvitations",
       "properties": {
         "apiVersion": {
@@ -1309,31 +1312,31 @@
           ],
           "type": "string"
         },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
         "type": {
           "enum": [
             "Microsoft.DataShare/locations/consumerInvitations"
           ],
           "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
-      ]
+        "type"
+      ],
+      "type": "object"
     }
   },
   "definitions": {
     "AccountProperties": {
-      "type": "object",
-      "properties": {}
+      "properties": {},
+      "type": "object"
     },
     "AdlsGen1FileDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -1364,10 +1367,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen1FileProperties": {
-      "type": "object",
       "properties": {
         "accountName": {
           "description": "The ADLS account name.",
@@ -1396,10 +1399,10 @@
         "folderPath",
         "resourceGroup",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen1FolderDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -1430,10 +1433,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen1FolderProperties": {
-      "type": "object",
       "properties": {
         "accountName": {
           "description": "The ADLS account name.",
@@ -1457,10 +1460,10 @@
         "folderPath",
         "resourceGroup",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FileDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -1491,10 +1494,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FileDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -1525,10 +1528,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FileDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "dataSetId": {
           "description": "The id of the source data set.",
@@ -1577,10 +1580,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FileProperties": {
-      "type": "object",
       "properties": {
         "filePath": {
           "description": "File path within the file system.",
@@ -1609,10 +1612,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FileSystemDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -1643,10 +1646,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FileSystemDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -1677,10 +1680,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FileSystemDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "dataSetId": {
           "description": "The id of the source data set.",
@@ -1709,10 +1712,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FileSystemProperties": {
-      "type": "object",
       "properties": {
         "fileSystem": {
           "description": "The file system name.",
@@ -1736,10 +1739,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FolderDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -1770,10 +1773,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FolderDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -1804,10 +1807,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FolderDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "dataSetId": {
           "description": "The id of the source data set.",
@@ -1841,10 +1844,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "AdlsGen2FolderProperties": {
-      "type": "object",
       "properties": {
         "fileSystem": {
           "description": "File system to which the folder belongs.",
@@ -1873,10 +1876,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "BlobContainerDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -1907,10 +1910,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "BlobContainerDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -1941,10 +1944,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "BlobContainerMappingProperties": {
-      "type": "object",
       "properties": {
         "containerName": {
           "description": "BLOB Container name.",
@@ -1973,10 +1976,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "BlobContainerProperties": {
-      "type": "object",
       "properties": {
         "containerName": {
           "description": "BLOB Container name.",
@@ -2000,10 +2003,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "BlobDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -2034,10 +2037,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "BlobDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -2068,10 +2071,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "BlobFolderDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -2102,10 +2105,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "BlobFolderDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -2136,10 +2139,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "BlobFolderMappingProperties": {
-      "type": "object",
       "properties": {
         "containerName": {
           "description": "Container that has the file path.",
@@ -2173,10 +2176,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "BlobFolderProperties": {
-      "type": "object",
       "properties": {
         "containerName": {
           "description": "Container that has the file path.",
@@ -2205,10 +2208,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "BlobMappingProperties": {
-      "type": "object",
       "properties": {
         "containerName": {
           "description": "Container that has the file path.",
@@ -2257,10 +2260,10 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "BlobProperties": {
-      "type": "object",
       "properties": {
         "containerName": {
           "description": "Container that has the file path.",
@@ -2289,17 +2292,17 @@
         "resourceGroup",
         "storageAccountName",
         "subscriptionId"
-      ]
+      ],
+      "type": "object"
     },
     "DefaultDtoTags": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "type": "string"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "Identity": {
-      "type": "object",
       "properties": {
         "type": {
           "description": "Identity Type",
@@ -2315,10 +2318,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "InvitationProperties": {
-      "type": "object",
       "properties": {
         "expirationDate": {
           "description": "The expiration date for the invitation and share subscription.",
@@ -2336,10 +2339,10 @@
           "description": "The target user or application Id that invitation is being sent to.\r\nMust be specified along TargetActiveDirectoryId. This enables sending\r\ninvitations to specific users or applications in an AD tenant.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "KustoClusterDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -2370,10 +2373,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "KustoClusterDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -2404,10 +2407,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "KustoClusterDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "dataSetId": {
           "description": "The id of the source data set.",
@@ -2421,10 +2424,10 @@
       "required": [
         "dataSetId",
         "kustoClusterResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "KustoClusterDataSetProperties": {
-      "type": "object",
       "properties": {
         "kustoClusterResourceId": {
           "description": "Resource id of the kusto cluster.",
@@ -2433,10 +2436,10 @@
       },
       "required": [
         "kustoClusterResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "KustoDatabaseDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -2467,10 +2470,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "KustoDatabaseDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -2501,10 +2504,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "KustoDatabaseDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "dataSetId": {
           "description": "The id of the source data set.",
@@ -2518,10 +2521,10 @@
       "required": [
         "dataSetId",
         "kustoClusterResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "KustoDatabaseDataSetProperties": {
-      "type": "object",
       "properties": {
         "kustoDatabaseResourceId": {
           "description": "Resource id of the kusto database.",
@@ -2530,10 +2533,10 @@
       },
       "required": [
         "kustoDatabaseResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "KustoTableDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -2564,10 +2567,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "KustoTableDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -2598,10 +2601,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "KustoTableDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "dataSetId": {
           "description": "The id of the source data set.",
@@ -2615,10 +2618,10 @@
       "required": [
         "dataSetId",
         "kustoClusterResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "KustoTableDataSetProperties": {
-      "type": "object",
       "properties": {
         "kustoDatabaseResourceId": {
           "description": "Resource id of the kusto database.",
@@ -2639,10 +2642,10 @@
       "required": [
         "kustoDatabaseResourceId",
         "tableLevelSharingProperties"
-      ]
+      ],
+      "type": "object"
     },
     "ScheduledSynchronizationSetting": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of synchronization setting.",
@@ -2673,10 +2676,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "ScheduledSynchronizationSettingProperties": {
-      "type": "object",
       "properties": {
         "recurrenceInterval": {
           "description": "Recurrence Interval",
@@ -2701,10 +2704,10 @@
       "required": [
         "recurrenceInterval",
         "synchronizationTime"
-      ]
+      ],
+      "type": "object"
     },
     "ScheduledTrigger": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of synchronization on trigger.",
@@ -2735,10 +2738,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "ScheduledTriggerProperties": {
-      "type": "object",
       "properties": {
         "recurrenceInterval": {
           "description": "Recurrence Interval",
@@ -2778,10 +2781,10 @@
       "required": [
         "recurrenceInterval",
         "synchronizationTime"
-      ]
+      ],
+      "type": "object"
     },
     "ShareProperties": {
-      "type": "object",
       "properties": {
         "description": {
           "description": "Share description.",
@@ -2806,10 +2809,10 @@
           "description": "Share terms.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ShareSubscriptionProperties": {
-      "type": "object",
       "properties": {
         "expirationDate": {
           "description": "The expiration date of the share subscription.",
@@ -2827,10 +2830,10 @@
       "required": [
         "invitationId",
         "sourceShareLocation"
-      ]
+      ],
+      "type": "object"
     },
     "SqlDBTableDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -2860,10 +2863,10 @@
       },
       "required": [
         "kind"
-      ]
+      ],
+      "type": "object"
     },
     "SqlDBTableDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -2894,10 +2897,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "SqlDBTableDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "databaseName": {
           "description": "DatabaseName name of the sink data set",
@@ -2926,10 +2929,10 @@
         "schemaName",
         "sqlServerResourceId",
         "tableName"
-      ]
+      ],
+      "type": "object"
     },
     "SqlDBTableProperties": {
-      "type": "object",
       "properties": {
         "databaseName": {
           "description": "Database name of the source data set",
@@ -2953,10 +2956,10 @@
         "schemaName",
         "sqlServerResourceId",
         "tableName"
-      ]
+      ],
+      "type": "object"
     },
     "SqlDWTableDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -2986,10 +2989,10 @@
       },
       "required": [
         "kind"
-      ]
+      ],
+      "type": "object"
     },
     "SqlDWTableDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -3020,10 +3023,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "SqlDWTableDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "dataSetId": {
           "description": "The id of the source data set.",
@@ -3052,10 +3055,10 @@
         "schemaName",
         "sqlServerResourceId",
         "tableName"
-      ]
+      ],
+      "type": "object"
     },
     "SqlDWTableProperties": {
-      "type": "object",
       "properties": {
         "dataWarehouseName": {
           "description": "DataWarehouse name of the source data set",
@@ -3079,10 +3082,10 @@
         "schemaName",
         "sqlServerResourceId",
         "tableName"
-      ]
+      ],
+      "type": "object"
     },
     "SynapseWorkspaceSqlPoolTableDataSet": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set.",
@@ -3113,10 +3116,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "SynapseWorkspaceSqlPoolTableDataSetMapping": {
-      "type": "object",
       "properties": {
         "kind": {
           "description": "Kind of data set mapping.",
@@ -3147,10 +3150,10 @@
       "required": [
         "kind",
         "properties"
-      ]
+      ],
+      "type": "object"
     },
     "SynapseWorkspaceSqlPoolTableDataSetMappingProperties": {
-      "type": "object",
       "properties": {
         "dataSetId": {
           "description": "The id of the source data set.",
@@ -3164,10 +3167,10 @@
       "required": [
         "dataSetId",
         "synapseWorkspaceSqlPoolTableResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "SynapseWorkspaceSqlPoolTableDataSetProperties": {
-      "type": "object",
       "properties": {
         "synapseWorkspaceSqlPoolTableResourceId": {
           "description": "Resource id of the Synapse Workspace SQL Pool Table",
@@ -3176,19 +3179,19 @@
       },
       "required": [
         "synapseWorkspaceSqlPoolTableResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "TableLevelSharingProperties": {
-      "type": "object",
       "properties": {
         "externalTablesToExclude": {
           "description": "External tables to be excluded in the data set",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3199,10 +3202,10 @@
           "description": "External tables to be included in the data set",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3213,10 +3216,10 @@
           "description": "Materialized views to be excluded in the data set",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3227,10 +3230,10 @@
           "description": "Materialized views to be included in the data set",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3241,10 +3244,10 @@
           "description": "Tables to be excluded in the data set",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3255,31 +3258,25 @@
           "description": "Tables to be included in the data set",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "accounts_shareSubscriptions_childResource": {
-      "type": "object",
       "description": "shareSubscriptions",
       "properties": {
         "apiVersion": {
           "enum": [
             "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "shareSubscriptions"
           ],
           "type": "string"
         },
@@ -3297,20 +3294,26 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "shareSubscriptions"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
     "accounts_shareSubscriptions_dataSetMappings_childResource": {
       "description": "dataSetMappings",
       "oneOf": [
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3341,10 +3344,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3375,10 +3378,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3409,10 +3412,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3443,10 +3446,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3477,10 +3480,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3511,10 +3514,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3545,10 +3548,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3579,10 +3582,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3613,10 +3616,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3647,10 +3650,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3681,10 +3684,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set mapping.",
@@ -3715,7 +3718,8 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         }
       ],
       "properties": {
@@ -3725,36 +3729,29 @@
           ],
           "type": "string"
         },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
         "type": {
           "enum": [
             "dataSetMappings"
           ],
           "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
+        "type"
       ]
     },
     "accounts_shareSubscriptions_triggers_childResource": {
-      "type": "object",
       "description": "triggers",
       "properties": {
         "apiVersion": {
           "enum": [
             "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "triggers"
           ],
           "type": "string"
         },
@@ -3782,28 +3779,28 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "triggers"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "kind",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
     "accounts_shares_childResource": {
-      "type": "object",
       "description": "shares",
       "properties": {
         "apiVersion": {
           "enum": [
             "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "shares"
           ],
           "type": "string"
         },
@@ -3821,20 +3818,26 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "shares"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
     "accounts_shares_dataSets_childResource": {
       "description": "dataSets",
       "oneOf": [
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -3865,10 +3868,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -3899,10 +3902,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -3933,10 +3936,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -3967,10 +3970,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4001,10 +4004,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4035,10 +4038,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4069,10 +4072,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4103,10 +4106,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4137,10 +4140,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4171,10 +4174,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4205,10 +4208,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4239,10 +4242,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4273,10 +4276,10 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         },
         {
-          "type": "object",
           "properties": {
             "kind": {
               "description": "Kind of data set.",
@@ -4307,7 +4310,8 @@
           "required": [
             "kind",
             "properties"
-          ]
+          ],
+          "type": "object"
         }
       ],
       "properties": {
@@ -4317,36 +4321,29 @@
           ],
           "type": "string"
         },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
         "type": {
           "enum": [
             "dataSets"
           ],
           "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
+        "type"
       ]
     },
     "accounts_shares_invitations_childResource": {
-      "type": "object",
       "description": "invitations",
       "properties": {
         "apiVersion": {
           "enum": [
             "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "invitations"
           ],
           "type": "string"
         },
@@ -4364,17 +4361,23 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "invitations"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
     "accounts_shares_providerShareSubscriptions_childResource": {
-      "type": "object",
       "description": "providerShareSubscriptions",
       "properties": {
         "apiVersion": {
@@ -4383,36 +4386,30 @@
           ],
           "type": "string"
         },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
         "type": {
           "enum": [
             "providerShareSubscriptions"
           ],
           "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
         }
       },
       "required": [
+        "name",
         "apiVersion",
-        "type",
-        "name"
-      ]
+        "type"
+      ],
+      "type": "object"
     },
     "accounts_shares_synchronizationSettings_childResource": {
-      "type": "object",
       "description": "synchronizationSettings",
       "properties": {
         "apiVersion": {
           "enum": [
             "2021-08-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "synchronizationSettings"
           ],
           "type": "string"
         },
@@ -4440,14 +4437,21 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "synchronizationSettings"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "kind",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   }
 }

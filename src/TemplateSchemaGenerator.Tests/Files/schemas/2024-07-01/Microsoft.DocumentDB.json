@@ -4,107 +4,12 @@
   "description": "Microsoft DocumentDB Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
-    "mongoClusters_firewallRules": {
-      "type": "object",
-      "description": "Microsoft.DocumentDB/mongoClusters/firewallRules",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DocumentDB/mongoClusters/firewallRules"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9][-_.a-zA-Z0-9]*",
-              "minLength": 1,
-              "maxLength": 80
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "The resource-specific properties for this resource.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/FirewallRuleProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
-    "mongoClusters_privateEndpointConnections": {
-      "type": "object",
-      "description": "Microsoft.DocumentDB/mongoClusters/privateEndpointConnections",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DocumentDB/mongoClusters/privateEndpointConnections"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The resource name",
-          "type": "string"
-        },
-        "properties": {
-          "description": "The resource-specific properties for this resource.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PrivateEndpointConnectionProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "apiVersion",
-        "type",
-        "name",
-        "properties"
-      ]
-    },
     "mongoClusters": {
-      "type": "object",
       "description": "Microsoft.DocumentDB/mongoClusters",
       "properties": {
         "apiVersion": {
           "enum": [
             "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.DocumentDB/mongoClusters"
           ],
           "type": "string"
         },
@@ -116,10 +21,10 @@
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*",
+              "maxLength": 40,
               "minLength": 3,
-              "maxLength": 40
+              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -137,19 +42,7 @@
             }
           ]
         },
-        "tags": {
-          "description": "Resource tags.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/TrackedResourceTags"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "resources": {
-          "type": "array",
           "items": {
             "oneOf": [
               {
@@ -159,21 +52,131 @@
                 "$ref": "#/definitions/mongoClusters_privateEndpointConnections_childResource"
               }
             ]
-          }
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DocumentDB/mongoClusters"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "location",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mongoClusters_firewallRules": {
+      "description": "Microsoft.DocumentDB/mongoClusters/firewallRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-07-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9][-_.a-zA-Z0-9]*",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FirewallRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DocumentDB/mongoClusters/firewallRules"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mongoClusters_privateEndpointConnections": {
+      "description": "Microsoft.DocumentDB/mongoClusters/privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-07-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DocumentDB/mongoClusters/privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   },
   "definitions": {
     "AdministratorProperties": {
-      "type": "object",
       "properties": {
         "password": {
           "description": "The administrator password.",
@@ -183,30 +186,30 @@
           "description": "The administrator user name.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "BackupProperties": {
-      "type": "object",
-      "properties": {}
+      "properties": {},
+      "type": "object"
     },
     "ComputeProperties": {
-      "type": "object",
       "properties": {
         "tier": {
           "description": "The compute tier to assign to the cluster, where each tier maps to a virtual-core and memory size. Example values: 'M30', 'M40'.",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FirewallRuleProperties": {
-      "type": "object",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address of the mongo cluster firewall rule. Must be IPv4 format.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+              "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -217,8 +220,8 @@
           "description": "The start IP address of the mongo cluster firewall rule. Must be IPv4 format.",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+              "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -229,10 +232,10 @@
       "required": [
         "endIpAddress",
         "startIpAddress"
-      ]
+      ],
+      "type": "object"
     },
     "HighAvailabilityProperties": {
-      "type": "object",
       "properties": {
         "targetMode": {
           "description": "The target high availability mode requested for the cluster.",
@@ -250,10 +253,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "MongoClusterProperties": {
-      "type": "object",
       "properties": {
         "administrator": {
           "description": "The local administrator properties for the mongo cluster.",
@@ -320,13 +323,13 @@
           "description": "List of private endpoint connections.",
           "oneOf": [
             {
-              "type": "array",
               "items": {
                 "enum": [
                   "GeoReplicas"
                 ],
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -396,10 +399,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "MongoClusterReplicaParameters": {
-      "type": "object",
       "properties": {
         "sourceLocation": {
           "description": "The location of the source cluster",
@@ -413,10 +416,10 @@
       "required": [
         "sourceLocation",
         "sourceResourceId"
-      ]
+      ],
+      "type": "object"
     },
     "MongoClusterRestoreParameters": {
-      "type": "object",
       "properties": {
         "pointInTimeUTC": {
           "description": "UTC point in time to restore a mongo cluster",
@@ -426,14 +429,14 @@
           "description": "Resource ID to locate the source cluster to restore",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "PrivateEndpoint": {
-      "type": "object",
-      "properties": {}
+      "properties": {},
+      "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "type": "object",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint resource.",
@@ -460,10 +463,10 @@
       },
       "required": [
         "privateLinkServiceConnectionState"
-      ]
+      ],
+      "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "type": "object",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -489,10 +492,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "ShardingProperties": {
-      "type": "object",
       "properties": {
         "shardCount": {
           "description": "Number of shards to provision on the cluster.",
@@ -505,10 +508,10 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "StorageProperties": {
-      "type": "object",
       "properties": {
         "sizeGb": {
           "description": "The size of the data disk assigned to each server.",
@@ -521,17 +524,17 @@
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "TrackedResourceTags": {
-      "type": "object",
-      "properties": {},
       "additionalProperties": {
         "type": "string"
-      }
+      },
+      "properties": {},
+      "type": "object"
     },
     "mongoClusters_firewallRules_childResource": {
-      "type": "object",
       "description": "firewallRules",
       "properties": {
         "apiVersion": {
@@ -540,20 +543,14 @@
           ],
           "type": "string"
         },
-        "type": {
-          "enum": [
-            "firewallRules"
-          ],
-          "type": "string"
-        },
         "name": {
           "description": "The resource name",
           "oneOf": [
             {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9][-_.a-zA-Z0-9]*",
+              "maxLength": 80,
               "minLength": 1,
-              "maxLength": 80
+              "pattern": "^[a-zA-Z0-9][-_.a-zA-Z0-9]*",
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -570,28 +567,28 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "firewallRules"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     },
     "mongoClusters_privateEndpointConnections_childResource": {
-      "type": "object",
       "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
             "2024-07-01"
-          ],
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "privateEndpointConnections"
           ],
           "type": "string"
         },
@@ -609,14 +606,21 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "type": {
+          "enum": [
+            "privateEndpointConnections"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "apiVersion",
-        "type",
         "name",
-        "properties"
-      ]
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   }
 }

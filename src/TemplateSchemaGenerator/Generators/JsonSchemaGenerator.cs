@@ -120,7 +120,7 @@ public static class JsonSchemaGenerator
                 continue;
             }
 
-            definitionsObject[name] = converter.ConvertType(type, allowRef: false, []);
+            definitionsObject[name] = SortKeysRecursive(converter.ConvertType(type, allowRef: false, []));
         }
 
         var definitionsByScopeType = new Dictionary<ScopeType, JsonObject>
@@ -133,12 +133,12 @@ public static class JsonSchemaGenerator
         };
         var childResourceDefinitions = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
 
-        foreach (var resourceType in resourceTypeArray.OrderBy(x => x.Name, StringComparer.OrdinalIgnoreCase))
+        foreach (var resourceType in resourceTypeArray.OrderBy(x => ParseResourceTypeName(x.Name).resourceTypeName, StringComparer.OrdinalIgnoreCase))
         {
             var (resourceTypeName, _) = ParseResourceTypeName(resourceType.Name);
             var key = GetArmResourceDefinitionKey(resourceTypeName);
 
-            var resourceDefinition = converter.ConvertResourceDefinition(resourceType, resourceTypeName, apiVersion);
+            var resourceDefinition = SortKeysRecursive(converter.ConvertResourceDefinition(resourceType, resourceTypeName, apiVersion));
 
             if (childrenByParentType.TryGetValue(resourceTypeName, out var children) && children.Length > 0)
             {
@@ -159,20 +159,22 @@ public static class JsonSchemaGenerator
                     {
                         var childResourceType = resourceTypesByName[childTypeName];
                         var shortType = childTypeName.Split('/', StringSplitOptions.RemoveEmptyEntries).LastOrDefault() ?? childTypeName;
-                        var childSchema = converter.ConvertResourceDefinition(childResourceType, shortType, apiVersion);
+                        var childSchema = SortKeysRecursive(converter.ConvertResourceDefinition(childResourceType, shortType, apiVersion));
 
                         childResourceDefinitions[childDefName] = childSchema;
                     }
                 }
 
+                // Insert 'resources' into the properties object, then re-sort so it lands in alphabetical order.
                 resourceDefinition["properties"]!["resources"] = new JsonObject
                 {
-                    ["type"] = "array",
                     ["items"] = new JsonObject
                     {
                         ["oneOf"] = childRefs,
                     },
+                    ["type"] = "array",
                 };
+                resourceDefinition["properties"] = SortKeysRecursive(resourceDefinition["properties"]);
             }
 
             foreach (var scopeType in new[] { ScopeType.Tenant, ScopeType.ManagementGroup, ScopeType.Subscription, ScopeType.ResourceGroup, ScopeType.None })
@@ -189,7 +191,7 @@ public static class JsonSchemaGenerator
         {
             foreach (var (name, schema) in childResourceDefinitions.OrderBy(x => x.Key, StringComparer.OrdinalIgnoreCase))
             {
-                definitionsObject[name] = schema;
+                definitionsObject[name] = SortKeysRecursive(schema);
             }
         }
 
@@ -342,8 +344,15 @@ public static class JsonSchemaGenerator
             _ => throw new InvalidOperationException($"Unsupported scope type: {scopeType}"),
         };
 
+    private static JsonObject SortKeysRecursive(JsonObject obj)
+        => (JsonObject)SortKeysRecursiveCore(obj)!;
+
     [return: NotNullIfNotNull(nameof(node))]
     private static JsonNode? SortKeysRecursive(JsonNode? node)
+        => SortKeysRecursiveCore(node);
+
+    [return: NotNullIfNotNull(nameof(node))]
+    private static JsonNode? SortKeysRecursiveCore(JsonNode? node)
     {
         switch (node)
         {
@@ -351,11 +360,11 @@ public static class JsonSchemaGenerator
                 var sorted = new JsonObject();
                 foreach (var (key, value) in obj.OrderBy(kvp => kvp.Key, StringComparer.OrdinalIgnoreCase))
                 {
-                    sorted[key] = SortKeysRecursive(value);
+                    sorted[key] = SortKeysRecursiveCore(value);
                 }
                 return sorted;
             case JsonArray array:
-                return new JsonArray([.. array.Select(SortKeysRecursive)]);
+                return new JsonArray([.. array.Select(SortKeysRecursiveCore)]);
             default:
                 return node?.DeepClone();
         }
@@ -387,21 +396,21 @@ public static class JsonSchemaGenerator
             var filteredProperties = bodyType.Properties.Where(p => !ReservedResourcePropertyNames.Contains(p.Key));
             var (properties, required) = ConvertWritableProperties(filteredProperties, []);
 
-            properties.Insert(0, "type", CreateEnumSchema(resourceTypeName));
             properties.Insert(0, "apiVersion", CreateEnumSchema(apiVersion));
-
-            required.Insert(0, "type");
-            required.Insert(0, "apiVersion");
+            properties["type"] = CreateEnumSchema(resourceTypeName);
 
             RewriteNameEnumToFullNamePattern(properties, resourceTypeName);
             EnsureRequiredIfPresent(properties, required, "properties");
 
+            required.Add("apiVersion");
+            required.Add("type");
+
             return new JsonObject
             {
-                ["type"] = "object",
                 ["description"] = resourceTypeName,
                 ["properties"] = properties,
                 ["required"] = required,
+                ["type"] = "object",
             };
         }
 
@@ -423,14 +432,14 @@ public static class JsonSchemaGenerator
             var filteredBaseProperties = discriminatedBody.BaseProperties.Where(p => !ReservedResourcePropertyNames.Contains(p.Key));
             var (sharedProperties, sharedRequired) = ConvertWritableProperties(filteredBaseProperties, []);
 
-            sharedProperties.Insert(0, "type", CreateEnumSchema(resourceTypeName));
             sharedProperties.Insert(0, "apiVersion", CreateEnumSchema(apiVersion));
-
-            sharedRequired.Insert(0, "type");
-            sharedRequired.Insert(0, "apiVersion");
+            sharedProperties["type"] = CreateEnumSchema(resourceTypeName);
 
             RewriteNameEnumToFullNamePattern(sharedProperties, resourceTypeName);
             EnsureRequiredIfPresent(sharedProperties, sharedRequired, "properties");
+
+            sharedRequired.Add("apiVersion");
+            sharedRequired.Add("type");
 
             foreach (var (_, element) in discriminatedBody.Elements.OrderBy(x => x.Key, StringComparer.OrdinalIgnoreCase))
             {
@@ -532,6 +541,15 @@ public static class JsonSchemaGenerator
         {
             if (type is ObjectType objectType && defNames.Contains(objectType.Name))
             {
+                // Don't ref a definition that would be a pure additionalProperties map
+                // (all named properties are read-only). Inline it to match legacy TypeScript generator output.
+                if (!objectType.Properties.Any(p => !p.Value.Flags.HasFlag(ObjectTypePropertyFlags.ReadOnly)) &&
+                    objectType.AdditionalProperties is not null)
+                {
+                    schema = null;
+                    return false;
+                }
+
                 schema = RefToDef(objectType.Name);
                 return true;
             }
