@@ -6,6 +6,7 @@ using System.IO.Abstractions;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using Azure.Bicep.Types.Concrete;
 
 namespace TemplateSchemaGenerator;
 
@@ -75,7 +76,14 @@ public class MainGenerator(
             {
                 var loadedResourceTypes = resourceTypes
                     .Select(typeName => resourceTypeProvider.Get(typeName, apiVersion))
+                    .Where(x => x.WritableScopes != ScopeType.None)
                     .ToArray();
+
+                if (!loadedResourceTypes.Any())
+                {
+                    // skip if there aren't any PUTable resource types
+                    continue;
+                }
 
                 var schemaPath = Utils.GetSchemaPath(apiVersion, grouped.ProviderNamespace);
                 // TODO set sortProperties to true after the migration to C# is complete
