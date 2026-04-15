@@ -501,12 +501,6 @@
         {
           "oneOf": [
             {
-              "$ref": "https://schema.management.azure.com/schemas/2020-03-01/microsoft.aadiam.json#/unknown_resourceDefinitions/privateLinkForAzureAd_privateLinkResources"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/2020-03-01-preview/microsoft.aadiam.json#/unknown_resourceDefinitions/privateLinkForAzureAd_privateLinkResources"
-            },
-            {
               "$ref": "https://schema.management.azure.com/schemas/2017-05-15/Microsoft.Addons.json#/subscription_resourceDefinitions/supportProviders_supportPlanTypes"
             },
             {
