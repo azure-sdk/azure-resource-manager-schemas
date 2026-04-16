@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Account.",
+          "description": "The resource name",
           "type": "string"
         },
         "resources": {
@@ -68,7 +68,9 @@
         }
       },
       "required": [
+        "location",
         "name",
+        "sku",
         "apiVersion",
         "type"
       ],
@@ -88,7 +90,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Creator instance.",
+          "description": "The resource name",
           "type": "string"
         },
         "tags": {
@@ -114,6 +116,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "apiVersion",
         "type"
@@ -134,7 +137,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Private Atlas instance.",
+          "description": "The resource name",
           "type": "string"
         },
         "tags": {
@@ -160,6 +163,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "apiVersion",
         "type"
@@ -168,8 +172,28 @@
     }
   },
   "definitions": {
+    "CreatorCreateParametersTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "MapsAccountCreateParametersTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "PrivateAtlasCreateParametersTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "Sku": {
-      "description": "The SKU of the Maps Account.",
       "properties": {
         "name": {
           "description": "The name of the SKU, in standard format (such as S0).",
@@ -182,7 +206,7 @@
       "type": "object"
     },
     "accounts_creators_childResource": {
-      "description": "Microsoft.Maps/accounts/creators",
+      "description": "creators",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -195,7 +219,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Creator instance.",
+          "description": "The resource name",
           "type": "string"
         },
         "tags": {
@@ -221,6 +245,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "apiVersion",
         "type"
@@ -228,7 +253,7 @@
       "type": "object"
     },
     "accounts_privateAtlases_childResource": {
-      "description": "Microsoft.Maps/accounts/privateAtlases",
+      "description": "privateAtlases",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -241,7 +266,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Private Atlas instance.",
+          "description": "The resource name",
           "type": "string"
         },
         "tags": {
@@ -267,6 +292,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "apiVersion",
         "type"

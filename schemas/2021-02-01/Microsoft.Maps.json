@@ -33,7 +33,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Account.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -91,7 +91,9 @@
         }
       },
       "required": [
+        "location",
         "name",
+        "sku",
         "properties",
         "apiVersion",
         "type"
@@ -112,7 +114,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Creator instance.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -149,6 +151,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -159,7 +162,6 @@
   },
   "definitions": {
     "CreatorProperties": {
-      "description": "Creator resource properties",
       "properties": {
         "storageUnits": {
           "description": "The storage units to be allocated. Integer values from 1 to 100, inclusive.",
@@ -181,13 +183,11 @@
       "type": "object"
     },
     "MapsAccountProperties": {
-      "description": "Additional Map account properties",
       "properties": {
         "disableLocalAuth": {
           "description": "Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -199,7 +199,6 @@
       "type": "object"
     },
     "Sku": {
-      "description": "The SKU of the Maps Account.",
       "properties": {
         "name": {
           "description": "The name of the SKU, in standard format (such as S0).",
@@ -223,8 +222,15 @@
       ],
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "accounts_creators_childResource": {
-      "description": "Microsoft.Maps/accounts/creators",
+      "description": "creators",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -237,7 +243,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Creator instance.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -274,6 +280,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",

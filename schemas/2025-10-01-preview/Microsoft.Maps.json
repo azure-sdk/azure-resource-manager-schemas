@@ -43,7 +43,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Account.",
+          "description": "The resource name",
           "oneOf": [
             {
               "minLength": 1,
@@ -113,7 +113,9 @@
         }
       },
       "required": [
+        "location",
         "name",
+        "sku",
         "properties",
         "apiVersion",
         "type"
@@ -134,7 +136,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Creator instance.",
+          "description": "The resource name",
           "oneOf": [
             {
               "minLength": 1,
@@ -180,6 +182,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -197,7 +200,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection associated with the Azure resource.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -229,7 +232,6 @@
   },
   "definitions": {
     "CorsRule": {
-      "description": "Specifies a CORS rule for the Map Account.",
       "properties": {
         "allowedOrigins": {
           "description": "Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or \"*\" to allow all domains",
@@ -252,7 +254,6 @@
       "type": "object"
     },
     "CorsRules": {
-      "description": "Sets the CORS rules. You can include up to five CorsRule elements in the request.",
       "properties": {
         "corsRules": {
           "description": "The list of CORS rules. You can include up to five CorsRule elements in the request.",
@@ -272,7 +273,6 @@
       "type": "object"
     },
     "CreatorProperties": {
-      "description": "Creator resource properties",
       "properties": {
         "consumedStorageUnitSizeInBytes": {
           "description": "The consumed storage unit size in bytes for the creator resource.",
@@ -316,7 +316,6 @@
       "type": "object"
     },
     "Encryption": {
-      "description": "All encryption configuration for a resource.",
       "properties": {
         "customerManagedKeyEncryption": {
           "description": "All Customer-managed key encryption properties for the resource.",
@@ -348,7 +347,6 @@
       "type": "object"
     },
     "EncryptionCustomerManagedKeyEncryption": {
-      "description": "All Customer-managed key encryption properties for the resource.",
       "properties": {
         "keyEncryptionKeyIdentity": {
           "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.",
@@ -369,13 +367,14 @@
       "type": "object"
     },
     "EncryptionCustomerManagedKeyEncryptionKeyIdentity": {
-      "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.",
       "properties": {
         "delegatedIdentityClientId": {
           "description": "delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.",
           "oneOf": [
             {
-              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
               "type": "string"
             },
             {
@@ -387,7 +386,9 @@
           "description": "application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540",
           "oneOf": [
             {
-              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
               "type": "string"
             },
             {
@@ -419,7 +420,6 @@
       "type": "object"
     },
     "LinkedResource": {
-      "description": "Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.",
       "properties": {
         "id": {
           "description": "ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.",
@@ -431,13 +431,12 @@
         }
       },
       "required": [
-        "uniqueName",
-        "id"
+        "id",
+        "uniqueName"
       ],
       "type": "object"
     },
     "LocationsItem": {
-      "description": "Data processing location.",
       "properties": {
         "locationName": {
           "description": "The location name.",
@@ -450,7 +449,6 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
-      "description": "Managed service identity (system assigned and/or user assigned identities)",
       "properties": {
         "type": {
           "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
@@ -490,8 +488,14 @@
       ],
       "type": "object"
     },
+    "ManagedServiceIdentityUserAssignedIdentities": {
+      "additionalProperties": {
+        "$ref": "#/definitions/UserAssignedIdentity"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "MapsAccountProperties": {
-      "description": "Additional Maps account properties",
       "properties": {
         "cors": {
           "description": "Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.",
@@ -508,7 +512,6 @@
           "description": "Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys and Shared Access Signature Token authentication from any usage.",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -574,12 +577,10 @@
       "type": "object"
     },
     "PrivateEndpoint": {
-      "description": "The private endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "description": "Properties of the private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint resource.",
@@ -610,7 +611,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -640,7 +640,6 @@
       "type": "object"
     },
     "Sku": {
-      "description": "The SKU of the Maps Account.",
       "properties": {
         "name": {
           "description": "The name of the SKU, in standard format (such as G2).",
@@ -662,13 +661,19 @@
       ],
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "UserAssignedIdentity": {
-      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
     "accounts_creators_childResource": {
-      "description": "Microsoft.Maps/accounts/creators",
+      "description": "creators",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -681,7 +686,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Creator instance.",
+          "description": "The resource name",
           "oneOf": [
             {
               "minLength": 1,
@@ -727,6 +732,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -735,7 +741,7 @@
       "type": "object"
     },
     "accounts_privateEndpointConnections_childResource": {
-      "description": "Microsoft.Maps/accounts/privateEndpointConnections",
+      "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -744,7 +750,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection associated with the Azure resource.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
