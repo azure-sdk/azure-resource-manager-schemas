@@ -34,7 +34,7 @@ const csharpGeneratorProviders: CsharpGeneratorConfig[] = [
     { namespace: 'Microsoft.Addons', enabled: false },
     { namespace: 'Microsoft.ADHybridHealthService', enabled: false },
     { namespace: 'Microsoft.Advisor', enabled: false },
-    { namespace: 'Microsoft.AgFoodPlatform', enabled: false },
+    { namespace: 'Microsoft.AgFoodPlatform', enabled: true },
     { namespace: 'Microsoft.AlertsManagement', enabled: false },
     { namespace: 'Microsoft.AnalysisServices', enabled: false },
     { namespace: 'Microsoft.ApiManagement', enabled: false },
