@@ -1,0 +1,469 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-01-20-preview/Microsoft.MessagingConnectors.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.MessagingConnectors",
+  "description": "Microsoft MessagingConnectors Resource Types",
+  "resourceDefinitions": {
+    "connectors": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-01-20-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,78}[a-zA-Z0-9_]"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Connector resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Basic info for Connector"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MessagingConnectors/connectors"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MessagingConnectors/connectors"
+    }
+  },
+  "definitions": {
+    "BitCoinSourceConnectorProperties": {
+      "type": "object",
+      "properties": {
+        "connectorType": {
+          "type": "string",
+          "enum": [
+            "BitCoinSource"
+          ]
+        }
+      },
+      "required": [
+        "connectorType"
+      ],
+      "description": "Configuration for BitCoinSourceConnector"
+    },
+    "ConfluentSourceConnectorProperties": {
+      "type": "object",
+      "properties": {
+        "autoOffsetReset": {
+          "type": "string",
+          "description": "AutoOffsetReset policy of the Confluent consume."
+        },
+        "bootstrapServers": {
+          "type": "string",
+          "description": "bootstrapServers of the Confluent server."
+        },
+        "connectorType": {
+          "type": "string",
+          "enum": [
+            "ConfluentSource"
+          ]
+        },
+        "consumerGroup": {
+          "type": "string",
+          "description": "ConsumerGroup of the Confluent."
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "description": "Password of the Confluent."
+        },
+        "topic": {
+          "type": "string",
+          "description": "Topic of the Confluent."
+        },
+        "user": {
+          "type": "string",
+          "description": "User of the Confluent."
+        }
+      },
+      "required": [
+        "autoOffsetReset",
+        "bootstrapServers",
+        "connectorType",
+        "consumerGroup",
+        "password",
+        "topic",
+        "user"
+      ],
+      "description": "Configuration for ConfluentSourceConnector"
+    },
+    "ConnectorProperties": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/BitCoinSourceConnectorProperties"
+        },
+        {
+          "$ref": "#/definitions/ConfluentSourceConnectorProperties"
+        },
+        {
+          "$ref": "#/definitions/CosmosDbSourceConnectorProperties"
+        },
+        {
+          "$ref": "#/definitions/GooglePubSubSourceConnectorProperties"
+        },
+        {
+          "$ref": "#/definitions/KinesisSourceConnectorProperties"
+        },
+        {
+          "$ref": "#/definitions/PostgreSqlSourceConnectorProperties"
+        },
+        {
+          "$ref": "#/definitions/SqlServerSourceConnectorProperties"
+        }
+      ],
+      "properties": {
+        "eventHubConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EventHubConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Basic info for EventHub"
+        },
+        "maxTasks": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Max Tasks count of the Connector."
+        },
+        "valueConverter": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "ByteArrayConverter",
+                "StringConverter",
+                "JsonConverter",
+                "AvroConverter",
+                "CsvConverter"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the Connector."
+        }
+      },
+      "required": [
+        "eventHubConfig",
+        "maxTasks",
+        "valueConverter"
+      ],
+      "description": "Basic info for Connector"
+    },
+    "CosmosDbSourceConnectorProperties": {
+      "type": "object",
+      "properties": {
+        "connectorType": {
+          "type": "string",
+          "enum": [
+            "CosmosDbSource"
+          ]
+        },
+        "container": {
+          "type": "string",
+          "description": "Container for CosmosDB server."
+        },
+        "cosmosEndpoint": {
+          "type": "string",
+          "description": "Endpoint of CosmosDB."
+        },
+        "databaseName": {
+          "type": "string",
+          "description": "DatabaseName for CosmosDB server."
+        },
+        "masterKey": {
+          "type": "string",
+          "format": "password",
+          "description": "masterKey for CosmosDB server."
+        },
+        "offsetPolicy": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "UseLatestSourceOffset",
+                "UseEarliestRecordedOffset"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "useLatestOffset policy."
+        },
+        "pollIntervalInMs": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "PollIntervalInMs policy."
+        }
+      },
+      "required": [
+        "connectorType",
+        "container",
+        "cosmosEndpoint",
+        "databaseName",
+        "masterKey",
+        "offsetPolicy",
+        "pollIntervalInMs"
+      ],
+      "description": "Configuration for CosmosDbSourceConnector"
+    },
+    "EventHubConfig": {
+      "type": "object",
+      "properties": {
+        "connectionString": {
+          "type": "string",
+          "format": "password",
+          "description": "connectionString of the EventHub."
+        },
+        "eventHubName": {
+          "type": "string",
+          "description": "name of the EventHub."
+        },
+        "namespaceHostName": {
+          "type": "string",
+          "description": "namespace of the EventHub."
+        }
+      },
+      "required": [
+        "connectionString",
+        "eventHubName",
+        "namespaceHostName"
+      ],
+      "description": "Basic info for EventHub"
+    },
+    "GooglePubSubSourceConnectorProperties": {
+      "type": "object",
+      "properties": {
+        "accountKey": {
+          "type": "string",
+          "format": "password",
+          "description": "AccountKey for pubsub server."
+        },
+        "connectorType": {
+          "type": "string",
+          "enum": [
+            "GooglePubSubSource"
+          ]
+        },
+        "projectId": {
+          "type": "string",
+          "description": "ProjectId for pubsub server."
+        },
+        "subscriptionName": {
+          "type": "string",
+          "description": "SubscriptionName for pubsub server."
+        }
+      },
+      "required": [
+        "accountKey",
+        "connectorType",
+        "projectId",
+        "subscriptionName"
+      ],
+      "description": "Configuration for GooglePubSubSourceConnector"
+    },
+    "KinesisSourceConnectorProperties": {
+      "type": "object",
+      "properties": {
+        "awsAccessKeyId": {
+          "type": "string",
+          "description": "AccessKeyId for AWS Kinesis Server."
+        },
+        "awsKinesisRegion": {
+          "type": "string",
+          "description": "Region of AWS Kinesis Server."
+        },
+        "awsKinesisStreamName": {
+          "type": "string",
+          "description": "StreamName in AWS Kinesis Server."
+        },
+        "awsSecretAccessKey": {
+          "type": "string",
+          "format": "password",
+          "description": "SecretAccessKey for AWS Kinesis Server."
+        },
+        "connectorType": {
+          "type": "string",
+          "enum": [
+            "KinesisSource"
+          ]
+        }
+      },
+      "required": [
+        "awsAccessKeyId",
+        "awsKinesisRegion",
+        "awsKinesisStreamName",
+        "awsSecretAccessKey",
+        "connectorType"
+      ],
+      "description": "Configuration for KinesisSourceConnector"
+    },
+    "PostgreSqlSourceConnectorProperties": {
+      "type": "object",
+      "properties": {
+        "connectorType": {
+          "type": "string",
+          "enum": [
+            "PostgreSqlSource"
+          ]
+        },
+        "databaseName": {
+          "type": "string",
+          "description": "DatabaseName for PostgreSql Server."
+        },
+        "hostName": {
+          "type": "string",
+          "description": "HostName for PostgreSql Server."
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "description": "Password for PostgreSql Server."
+        },
+        "port": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Port for PostgreSql Server."
+        },
+        "replicationSlotName": {
+          "type": "string",
+          "description": "ReplicationSlotName for PostgreSql Server."
+        },
+        "username": {
+          "type": "string",
+          "description": "Username for PostgreSql Server."
+        }
+      },
+      "required": [
+        "connectorType",
+        "databaseName",
+        "hostName",
+        "password",
+        "port",
+        "replicationSlotName",
+        "username"
+      ],
+      "description": "Configuration for PostgreSqlSourceConnector"
+    },
+    "SqlServerSourceConnectorProperties": {
+      "type": "object",
+      "properties": {
+        "connectorType": {
+          "type": "string",
+          "enum": [
+            "SqlServerSource"
+          ]
+        },
+        "databaseName": {
+          "type": "string",
+          "description": "DatabaseName for SqlServer."
+        },
+        "hostName": {
+          "type": "string",
+          "description": "HostName for SqlServer."
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "description": "Password for SqlServer."
+        },
+        "port": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Port for SqlServer."
+        },
+        "username": {
+          "type": "string",
+          "description": "Username for SqlServer."
+        }
+      },
+      "required": [
+        "connectorType",
+        "databaseName",
+        "hostName",
+        "password",
+        "port",
+        "username"
+      ],
+      "description": "Configuration for SqlServerSqlSourceConnector"
+    }
+  }
+}
