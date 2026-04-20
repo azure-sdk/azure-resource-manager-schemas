@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2020-03-01-preview/Microsoft.Aadiam.json#",
+  "id": "https://schema.management.azure.com/schemas/2020-03-01-preview/microsoft.aadiam.json#",
   "title": "microsoft.aadiam",
   "description": "microsoft aadiam Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -25,7 +25,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private link policy in Azure AD.",
+          "description": "The resource name",
           "type": "string"
         },
         "ownerTenantId": {
@@ -88,5 +88,13 @@
       "type": "object"
     }
   },
-  "definitions": {}
+  "definitions": {
+    "PrivateLinkPolicyTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    }
+  }
 }

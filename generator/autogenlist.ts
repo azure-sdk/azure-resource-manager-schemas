@@ -30,7 +30,7 @@ type CsharpGeneratorConfig = {
 const csharpGeneratorProviders: CsharpGeneratorConfig[] = [
     { namespace: 'Dynatrace.Observability', enabled: false },
     { namespace: 'Microsoft.AAD', enabled: false },
-    { namespace: 'Microsoft.Aadiam', enabled: false },
+    { namespace: 'Microsoft.Aadiam', enabled: true },
     { namespace: 'Microsoft.Addons', enabled: false },
     { namespace: 'Microsoft.ADHybridHealthService', enabled: false },
     { namespace: 'Microsoft.Advisor', enabled: false },

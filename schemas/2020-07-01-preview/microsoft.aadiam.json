@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2020-07-01-preview/Microsoft.Aadiam.json#",
+  "id": "https://schema.management.azure.com/schemas/2020-07-01-preview/microsoft.aadiam.json#",
   "title": "microsoft.aadiam",
   "description": "microsoft aadiam Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the azureADMetrics instance.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -54,6 +54,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -64,6 +65,13 @@
   },
   "definitions": {
     "AzureADMetricsPropertiesFormat": {
+      "properties": {},
+      "type": "object"
+    },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
       "properties": {},
       "type": "object"
     }
