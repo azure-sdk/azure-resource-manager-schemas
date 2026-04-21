@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the IacProfile.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 63,
@@ -65,6 +65,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -86,7 +87,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the workflow resource.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 63,
@@ -133,6 +134,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -143,7 +145,6 @@
   },
   "definitions": {
     "ACR": {
-      "description": "Information on the azure container registry",
       "properties": {
         "acrRegistryName": {
           "description": "ACR registry",
@@ -165,7 +166,6 @@
       "type": "object"
     },
     "ADORepository": {
-      "description": "Details of the ADO repository associated with the workflow.",
       "properties": {
         "adoOrganization": {
           "description": "The name of the Azure DevOps organization the pipeline is associated with.",
@@ -191,7 +191,6 @@
       "type": "object"
     },
     "ArtifactGenerationProperties": {
-      "description": "Properties used for generating artifacts such as Dockerfiles and manifests.",
       "properties": {
         "appName": {
           "description": "The name of the app.",
@@ -304,7 +303,6 @@
       "type": "object"
     },
     "AzurePipelineProfile": {
-      "description": "Azure Pipeline Profile",
       "properties": {
         "acr": {
           "description": "Resource identifier for azure container registry repository associated with the workflow.",
@@ -380,7 +378,6 @@
       "type": "object"
     },
     "Build": {
-      "description": "Build details of the repository associated with the workflow.",
       "properties": {
         "dockerBuildContext": {
           "description": "Path to Dockerfile Build Context within the repository.",
@@ -394,7 +391,6 @@
       "type": "object"
     },
     "Deployment": {
-      "description": "Deployment details of the repository associated with the workflow.",
       "properties": {
         "helmChartPath": {
           "description": "Helm chart directory path in repository.",
@@ -405,7 +401,6 @@
           "type": "string"
         },
         "kubeManifestLocations": {
-          "description": "Array of DeploymentKubeManifestLocationsItem",
           "oneOf": [
             {
               "items": {
@@ -451,8 +446,14 @@
       },
       "type": "object"
     },
+    "DeploymentOverrides": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "GitHubWorkflowProfile": {
-      "description": "GitHub Workflow Profile",
       "properties": {
         "acr": {
           "description": "Information on the azure container registry",
@@ -529,7 +530,6 @@
       "type": "object"
     },
     "GitHubWorkflowProfileOidcCredentials": {
-      "description": "The fields needed for OIDC with GitHub.",
       "properties": {
         "azureClientId": {
           "description": "Azure Application Client ID",
@@ -543,7 +543,6 @@
       "type": "object"
     },
     "IacGitHubProfile": {
-      "description": "GitHub Profile of a IacProfile.",
       "properties": {
         "branchName": {
           "description": "Repository Branch Name",
@@ -565,7 +564,6 @@
       "type": "object"
     },
     "IacProfileProperties": {
-      "description": "Properties of a IacProfile.",
       "properties": {
         "githubProfile": {
           "description": "GitHub Profile of a IacProfile",
@@ -579,7 +577,6 @@
           ]
         },
         "stages": {
-          "description": "Array of StageProperties",
           "oneOf": [
             {
               "items": {
@@ -593,7 +590,6 @@
           ]
         },
         "templates": {
-          "description": "Array of IacTemplateProperties",
           "oneOf": [
             {
               "items": {
@@ -645,7 +641,6 @@
       "type": "object"
     },
     "IacTemplateProperties": {
-      "description": "Properties of a IacTemplate.",
       "properties": {
         "instanceName": {
           "description": "the sample instance name of the template",
@@ -660,7 +655,6 @@
           "type": "string"
         },
         "templateDetails": {
-          "description": "Array of IacTemplateDetails",
           "oneOf": [
             {
               "items": {
@@ -681,15 +675,12 @@
       "type": "object"
     },
     "PullRequest": {
-      "description": "Details of the pull request containing the workflow.",
       "properties": {},
       "type": "object"
     },
     "StageProperties": {
-      "description": "Properties of a Stage.",
       "properties": {
         "dependencies": {
-          "description": "Array of StagePropertiesDependenciesItem",
           "oneOf": [
             {
               "items": {
@@ -713,7 +704,6 @@
       "type": "object"
     },
     "TerraformProfile": {
-      "description": "Terraform backend profile.",
       "properties": {
         "storageAccountName": {
           "description": "Terraform Storage Account Name",
@@ -734,8 +724,14 @@
       },
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "WorkflowProperties": {
-      "description": "Workflow properties",
       "properties": {
         "artifactGenerationProperties": {
           "description": "Properties for generating artifacts like dockerfile and manifests.",

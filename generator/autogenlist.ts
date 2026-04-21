@@ -87,7 +87,7 @@ const csharpGeneratorProviders: CsharpGeneratorConfig[] = [
     { namespace: 'Microsoft.DBforPostgreSQL', enabled: false },
     { namespace: 'Microsoft.DeploymentManager', enabled: false },
     { namespace: 'Microsoft.DesktopVirtualization', enabled: false },
-    { namespace: 'Microsoft.DevHub', enabled: false },
+    { namespace: 'Microsoft.DevHub', enabled: true },
     { namespace: 'Microsoft.Devices', enabled: false },
     { namespace: 'Microsoft.DeviceUpdate', enabled: false },
     { namespace: 'Microsoft.DevOps', enabled: false },
