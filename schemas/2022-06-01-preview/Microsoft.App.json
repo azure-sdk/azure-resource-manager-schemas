@@ -1103,9 +1103,29 @@
     "CertificateProperties": {
       "description": "Certificate resource specific properties",
       "properties": {
+        "domainControlValidation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CNAME",
+                "HTTP",
+                "TXT"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Selected type of domain control validation for managed certificates."
+        },
         "password": {
           "description": "Certificate password.",
           "type": "string"
+        },
+        "subjectName": {
+          "type": "string",
+          "description": "Subject name of the certificate."
         },
         "value": {
           "description": "PFX or PEM blob"
