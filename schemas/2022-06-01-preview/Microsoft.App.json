@@ -405,6 +405,17 @@
           ],
           "type": "string"
         },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
         "location": {
           "description": "The geo-location where the resource lives",
           "type": "string"
