@@ -1,0 +1,176 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.Authorization.Resources.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Authorization",
+  "description": "Microsoft Authorization Resource Types",
+  "resourceDefinitions": {
+    "resourceManagementPrivateLinks": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the resource management private link."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceManagementPrivateLinkEndpointConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Authorization/resourceManagementPrivateLinks"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Authorization/resourceManagementPrivateLinks"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "privateLinkAssociations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-03-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID of the PLA"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateLinkAssociationPropertiesExpanded"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Private Link Association Properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Authorization/privateLinkAssociations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Authorization/privateLinkAssociations"
+    }
+  },
+  "definitions": {
+    "PrivateLinkAssociationPropertiesExpanded": {
+      "type": "object",
+      "properties": {
+        "linkedPrivateLinkTenantId": {
+          "type": "string",
+          "description": "The private link tenantID."
+        },
+        "privateLink": {
+          "type": "string",
+          "description": "The rmpl Resource ID."
+        },
+        "publicNetworkAccess": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "publicNetworkAccessForceUpdate": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The public network access force update."
+        },
+        "scope": {
+          "type": "string",
+          "description": "The scope of the private link association."
+        },
+        "tenantID": {
+          "type": "string",
+          "description": "The TenantID."
+        }
+      },
+      "description": "Private Link Association Properties."
+    },
+    "ResourceManagementPrivateLinkEndpointConnections": {
+      "type": "object",
+      "properties": {
+        "privateEndpointConnections": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The private endpoint connections."
+        }
+      }
+    }
+  }
+}
