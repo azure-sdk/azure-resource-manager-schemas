@@ -135,7 +135,7 @@ const csharpGeneratorProviders: CsharpGeneratorConfig[] = [
     { namespace: 'Microsoft.ManagedServices', enabled: false },
     { namespace: 'Microsoft.Management', enabled: false },
     { namespace: 'Microsoft.ManagementPartner', enabled: false },
-    { namespace: 'Microsoft.Maps', enabled: false },
+    { namespace: 'Microsoft.Maps', enabled: true },
     { namespace: 'Microsoft.Marketplace', enabled: false },
     { namespace: 'Microsoft.Media', enabled: false },
     { namespace: 'Microsoft.Migrate', enabled: false },

@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Maps Account.",
+          "description": "The resource name",
           "type": "string"
         },
         "sku": {
@@ -55,7 +55,9 @@
         }
       },
       "required": [
+        "location",
         "name",
+        "sku",
         "apiVersion",
         "type"
       ],
@@ -63,8 +65,14 @@
     }
   },
   "definitions": {
+    "MapsAccountCreateParametersTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "Sku": {
-      "description": "The SKU of the Maps Account.",
       "properties": {
         "name": {
           "description": "The name of the SKU, in standard format (such as S0).",
