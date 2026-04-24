@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "FarmBeats resource name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -76,6 +76,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -93,7 +94,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Id of extension resource.",
+          "description": "The resource name",
           "type": "string"
         },
         "type": {
@@ -113,12 +114,10 @@
   },
   "definitions": {
     "FarmBeatsProperties": {
-      "description": "FarmBeats ARM Resource properties.",
       "properties": {},
       "type": "object"
     },
     "Sku": {
-      "description": "The resource model definition representing SKU",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
@@ -140,7 +139,7 @@
           "type": "string"
         },
         "size": {
-          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. ",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.",
           "type": "string"
         },
         "tier": {
@@ -166,8 +165,15 @@
       ],
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "farmBeats_extensions_childResource": {
-      "description": "Microsoft.AgFoodPlatform/farmBeats/extensions",
+      "description": "extensions",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -176,7 +182,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Id of extension resource.",
+          "description": "The resource name",
           "type": "string"
         },
         "type": {

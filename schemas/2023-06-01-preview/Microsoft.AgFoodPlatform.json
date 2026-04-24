@@ -29,7 +29,7 @@
           "type": "string"
         },
         "name": {
-          "description": "DataManagerForAgriculture resource name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 63,
@@ -57,16 +57,16 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/farmBeats_solutions_childResource"
+                "$ref": "#/definitions/farmBeats_dataConnectors_childResource"
               },
               {
                 "$ref": "#/definitions/farmBeats_extensions_childResource"
               },
               {
-                "$ref": "#/definitions/farmBeats_dataConnectors_childResource"
+                "$ref": "#/definitions/farmBeats_privateEndpointConnections_childResource"
               },
               {
-                "$ref": "#/definitions/farmBeats_privateEndpointConnections_childResource"
+                "$ref": "#/definitions/farmBeats_solutions_childResource"
               }
             ]
           },
@@ -95,6 +95,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -112,10 +113,17 @@
           "type": "string"
         },
         "name": {
-          "description": "Connector name.",
-          "maxLength": 63,
-          "minLength": 1,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "DataConnector Properties.",
@@ -169,12 +177,19 @@
         },
         "extensionVersion": {
           "description": "Extension Version.",
-          "maxLength": 10,
-          "minLength": 3,
-          "type": "string"
+          "oneOf": [
+            {
+              "maxLength": 10,
+              "minLength": 3,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "name": {
-          "description": "Id of extension resource.",
+          "description": "The resource name",
           "type": "string"
         },
         "type": {
@@ -201,7 +216,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Private endpoint connection name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -240,7 +255,7 @@
           "type": "string"
         },
         "name": {
-          "description": "SolutionId for Data Manager For Agriculture Resource.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z]{3,50}[.][a-zA-Z]{3,100}$",
@@ -279,8 +294,41 @@
     }
   },
   "definitions": {
+    "ApiKeyAuthCredentials": {
+      "properties": {
+        "apiKey": {
+          "description": "Properties of the key vault.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "kind": {
+          "description": "Enum for different types of AuthCredentials supported.",
+          "oneOf": [
+            {
+              "enum": [
+                "ApiKeyAuthCredentials"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "apiKey",
+        "kind"
+      ],
+      "type": "object"
+    },
     "ApiProperties": {
-      "description": "Api properties.",
       "properties": {
         "apiFreshnessTimeInMinutes": {
           "description": "Interval in minutes for which the weather data for the api needs to be refreshed.",
@@ -299,74 +347,66 @@
       "type": "object"
     },
     "AuthCredentials": {
-      "description": "AuthCredentials abstract base class for Auth Purpose.",
-      "oneOf": [
+      "allOf": [
         {
-          "description": "ApiKeyAuthCredentials class for ApiKey based Auth.",
+          "additionalProperties": false,
           "properties": {
-            "apiKey": {
-              "description": "Properties of the key vault.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/KeyVaultProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
             "kind": {
               "enum": [
-                "ApiKeyAuthCredentials"
-              ],
-              "type": "string"
-            }
-          },
-          "required": [
-            "apiKey",
-            "kind"
-          ],
-          "type": "object"
-        },
-        {
-          "description": "OAuthClientCredentials for clientId clientSecret auth.",
-          "properties": {
-            "clientId": {
-              "description": "ClientId associated with the provider.",
-              "minLength": 1,
-              "type": "string"
-            },
-            "clientSecret": {
-              "description": "Properties of the key vault.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/KeyVaultProperties"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
-            },
-            "kind": {
-              "enum": [
+                "ApiKeyAuthCredentials",
                 "OAuthClientCredentials"
               ],
               "type": "string"
             }
           },
           "required": [
-            "clientId",
-            "clientSecret",
             "kind"
           ],
           "type": "object"
+        },
+        {
+          "oneOf": [
+            {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/ApiKeyAuthCredentials"
+                },
+                {
+                  "properties": {
+                    "kind": {
+                      "const": "ApiKeyAuthCredentials"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/OAuthClientCredentials"
+                },
+                {
+                  "properties": {
+                    "kind": {
+                      "const": "OAuthClientCredentials"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "type": "object"
+                }
+              ]
+            }
+          ]
         }
-      ],
-      "properties": {},
-      "type": "object"
+      ]
     },
     "DataConnectorProperties": {
-      "description": "DataConnector Properties.",
       "properties": {
         "credentials": {
           "description": "AuthCredentials abstract base class for Auth Purpose.",
@@ -386,7 +426,6 @@
       "type": "object"
     },
     "DataManagerForAgricultureProperties": {
-      "description": "Data Manager For Agriculture ARM Resource properties.",
       "properties": {
         "publicNetworkAccess": {
           "description": "Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.",
@@ -418,12 +457,10 @@
       "type": "object"
     },
     "ErrorDetail": {
-      "description": "The error detail.",
       "properties": {},
       "type": "object"
     },
     "ErrorResponse": {
-      "description": "Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).",
       "properties": {
         "error": {
           "description": "The error object.",
@@ -439,8 +476,14 @@
       },
       "type": "object"
     },
+    "ExtensionInstallationRequestAdditionalApiProperties": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ApiProperties"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "Identity": {
-      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -460,38 +503,103 @@
       "type": "object"
     },
     "KeyVaultProperties": {
-      "description": "Properties of the key vault.",
       "properties": {
         "keyName": {
           "description": "Name of Key Vault key.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "keyVaultUri": {
           "description": "Uri of the key vault.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "keyVersion": {
           "description": "Version of Key Vault key.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
-        "keyVaultUri",
         "keyName",
+        "keyVaultUri",
         "keyVersion"
       ],
       "type": "object"
     },
+    "OAuthClientCredentials": {
+      "properties": {
+        "clientId": {
+          "description": "ClientId associated with the provider.",
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "clientSecret": {
+          "description": "Properties of the key vault.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "kind": {
+          "description": "Enum for different types of AuthCredentials supported.",
+          "oneOf": [
+            {
+              "enum": [
+                "OAuthClientCredentials"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "clientId",
+        "clientSecret",
+        "kind"
+      ],
+      "type": "object"
+    },
     "PrivateEndpoint": {
-      "description": "The private endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "description": "Properties of the private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint resource.",
@@ -522,7 +630,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -552,7 +659,6 @@
       "type": "object"
     },
     "SensorIntegration": {
-      "description": "Sensor integration request model.",
       "properties": {
         "enabled": {
           "description": "Sensor integration enable state.",
@@ -574,22 +680,42 @@
     },
     "SolutionProperties": {
       "additionalProperties": {},
-      "description": "Solution resource properties.",
       "properties": {
         "marketplacePublisherId": {
           "description": "SaaS application Marketplace Publisher Id.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "offerId": {
           "description": "SaaS application Offer Id.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "planId": {
           "description": "SaaS application Plan Id.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "roleAssignmentId": {
           "description": "Role Assignment Id.",
@@ -597,32 +723,60 @@
         },
         "saasSubscriptionId": {
           "description": "SaaS subscriptionId of the installed SaaS application.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "saasSubscriptionName": {
           "description": "SaaS subscription name of the installed SaaS application.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "termId": {
           "description": "SaaS application Term Id.",
-          "minLength": 1,
-          "type": "string"
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
+        "marketplacePublisherId",
+        "offerId",
+        "planId",
         "saasSubscriptionId",
         "saasSubscriptionName",
-        "marketplacePublisherId",
-        "planId",
-        "offerId",
         "termId"
       ],
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "farmBeats_dataConnectors_childResource": {
-      "description": "Microsoft.AgFoodPlatform/farmBeats/dataConnectors",
+      "description": "dataConnectors",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -631,10 +785,17 @@
           "type": "string"
         },
         "name": {
-          "description": "Connector name.",
-          "maxLength": 63,
-          "minLength": 1,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "DataConnector Properties.",
@@ -663,7 +824,7 @@
       "type": "object"
     },
     "farmBeats_extensions_childResource": {
-      "description": "Microsoft.AgFoodPlatform/farmBeats/extensions",
+      "description": "extensions",
       "properties": {
         "additionalApiProperties": {
           "description": "Additional Api Properties.",
@@ -688,12 +849,19 @@
         },
         "extensionVersion": {
           "description": "Extension Version.",
-          "maxLength": 10,
-          "minLength": 3,
-          "type": "string"
+          "oneOf": [
+            {
+              "maxLength": 10,
+              "minLength": 3,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "name": {
-          "description": "Id of extension resource.",
+          "description": "The resource name",
           "type": "string"
         },
         "type": {
@@ -711,7 +879,7 @@
       "type": "object"
     },
     "farmBeats_privateEndpointConnections_childResource": {
-      "description": "Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnections",
+      "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -720,7 +888,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Private endpoint connection name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -750,7 +918,7 @@
       "type": "object"
     },
     "farmBeats_solutions_childResource": {
-      "description": "Microsoft.AgFoodPlatform/farmBeats/solutions",
+      "description": "solutions",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -759,7 +927,7 @@
           "type": "string"
         },
         "name": {
-          "description": "SolutionId for Data Manager For Agriculture Resource.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z]{3,50}[.][a-zA-Z]{3,100}$",
