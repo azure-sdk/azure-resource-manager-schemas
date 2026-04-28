@@ -286,6 +286,16 @@ const disabledProviders: AutoGenConfig[] = [
         namespace: 'Microsoft.Web',
         disabledForAutogen: true,
     },
+    {
+        //Disabled until errors are fixed
+        //Ref '../2020-03-01-preview/componentLinkedStorageAccounts_API.json#/definitions/ErrorResponseLinkedStorage' is not referencing a valid location
+        basePath: 'applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights',
+        namespace: 'Microsoft.Insights',
+        suffix: 'Application',
+        useNamespaceFromConfig: true,
+        postProcessor: insightsApplicationPostProcessor,
+        disabledForAutogen: true,
+    },
 ];
 
 // Run "npm run list-basepaths" to discover all the valid readme files to add to this list
@@ -1555,13 +1565,6 @@ const autoGenList: AutoGenConfig[] = [
                 scopes: ScopeType.Extension,
             },
         ],
-    },
-    {
-        basePath: 'applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights',
-        namespace: 'Microsoft.Insights',
-        suffix: 'Application',
-        useNamespaceFromConfig: true,
-        postProcessor: insightsApplicationPostProcessor,
     },
     {
         basePath: 'quantum/resource-manager',
