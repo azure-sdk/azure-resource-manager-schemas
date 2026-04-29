@@ -35783,25 +35783,46 @@
           "$ref": "https://schema.management.azure.com/schemas/2024-06-15-preview/Microsoft.ManagedNetworkFabric.json#/resourceDefinitions/routePolicies"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2018-06-01-preview/Microsoft.ManagedServices.json#/unknown_resourceDefinitions/registrationAssignments"
+          "$ref": "https://schema.management.azure.com/schemas/2018-06-01-preview/Microsoft.ManagedServices.json#/resourceDefinitions/registrationAssignments"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2019-04-01-preview/Microsoft.ManagedServices.json#/unknown_resourceDefinitions/registrationAssignments"
+          "$ref": "https://schema.management.azure.com/schemas/2018-06-01-preview/Microsoft.ManagedServices.json#/resourceDefinitions/registrationDefinitions"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2019-06-01/Microsoft.ManagedServices.json#/unknown_resourceDefinitions/registrationAssignments"
+          "$ref": "https://schema.management.azure.com/schemas/2019-04-01-preview/Microsoft.ManagedServices.json#/resourceDefinitions/registrationAssignments"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2019-09-01/Microsoft.ManagedServices.json#/unknown_resourceDefinitions/registrationAssignments"
+          "$ref": "https://schema.management.azure.com/schemas/2019-04-01-preview/Microsoft.ManagedServices.json#/resourceDefinitions/registrationDefinitions"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2020-02-01-preview/Microsoft.ManagedServices.json#/unknown_resourceDefinitions/registrationAssignments"
+          "$ref": "https://schema.management.azure.com/schemas/2019-06-01/Microsoft.ManagedServices.json#/resourceDefinitions/registrationAssignments"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2022-01-01-preview/Microsoft.ManagedServices.json#/unknown_resourceDefinitions/registrationAssignments"
+          "$ref": "https://schema.management.azure.com/schemas/2019-06-01/Microsoft.ManagedServices.json#/resourceDefinitions/registrationDefinitions"
         },
         {
-          "$ref": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.ManagedServices.json#/unknown_resourceDefinitions/registrationAssignments"
+          "$ref": "https://schema.management.azure.com/schemas/2019-09-01/Microsoft.ManagedServices.json#/resourceDefinitions/registrationAssignments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2019-09-01/Microsoft.ManagedServices.json#/resourceDefinitions/registrationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01-preview/Microsoft.ManagedServices.json#/resourceDefinitions/registrationAssignments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2020-02-01-preview/Microsoft.ManagedServices.json#/resourceDefinitions/registrationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-01-preview/Microsoft.ManagedServices.json#/resourceDefinitions/registrationAssignments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-01-01-preview/Microsoft.ManagedServices.json#/resourceDefinitions/registrationDefinitions"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.ManagedServices.json#/resourceDefinitions/registrationAssignments"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.ManagedServices.json#/resourceDefinitions/registrationDefinitions"
         },
         {
           "$ref": "https://schema.management.azure.com/schemas/2025-03-01/Microsoft.ManufacturingPlatform.json#/resourceDefinitions/manufacturingDataServices"
