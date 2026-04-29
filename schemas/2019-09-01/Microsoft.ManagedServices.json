@@ -3,7 +3,7 @@
   "title": "Microsoft.ManagedServices",
   "description": "Microsoft ManagedServices Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "tenant_resourceDefinitions": {
     "registrationAssignments": {
       "description": "Microsoft.ManagedServices/registrationAssignments",
       "properties": {
@@ -14,7 +14,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Guid of the registration assignment.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -53,7 +53,280 @@
           "type": "string"
         },
         "name": {
-          "description": "Guid of the registration definition.",
+          "description": "The resource name",
+          "type": "string"
+        },
+        "plan": {
+          "description": "Plan details for the managed services.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a registration definition.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RegistrationDefinitionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedServices/registrationDefinitions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "registrationAssignments": {
+      "description": "Microsoft.ManagedServices/registrationAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of a registration assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RegistrationAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedServices/registrationAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "registrationDefinitions": {
+      "description": "Microsoft.ManagedServices/registrationDefinitions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "plan": {
+          "description": "Plan details for the managed services.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a registration definition.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RegistrationDefinitionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedServices/registrationDefinitions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "registrationAssignments": {
+      "description": "Microsoft.ManagedServices/registrationAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of a registration assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RegistrationAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedServices/registrationAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "registrationDefinitions": {
+      "description": "Microsoft.ManagedServices/registrationDefinitions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "plan": {
+          "description": "Plan details for the managed services.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a registration definition.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RegistrationDefinitionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedServices/registrationDefinitions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "resourceDefinitions": {
+    "registrationAssignments": {
+      "description": "Microsoft.ManagedServices/registrationAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of a registration assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RegistrationAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedServices/registrationAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "registrationDefinitions": {
+      "description": "Microsoft.ManagedServices/registrationDefinitions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
           "type": "string"
         },
         "plan": {
@@ -96,14 +369,15 @@
   },
   "definitions": {
     "Authorization": {
-      "description": "Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.",
       "properties": {
         "delegatedRoleDefinitionIds": {
           "description": "The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.",
           "oneOf": [
             {
               "items": {
-                "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                "maxLength": 36,
+                "minLength": 36,
+                "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
                 "type": "string"
               },
               "type": "array"
@@ -133,7 +407,6 @@
       "type": "object"
     },
     "Plan": {
-      "description": "Plan details for the managed services.",
       "properties": {
         "name": {
           "description": "The plan name.",
@@ -154,14 +427,13 @@
       },
       "required": [
         "name",
-        "publisher",
         "product",
+        "publisher",
         "version"
       ],
       "type": "object"
     },
     "RegistrationAssignmentProperties": {
-      "description": "Properties of a registration assignment.",
       "properties": {
         "registrationDefinitionId": {
           "description": "Fully qualified path of the registration definition.",
@@ -174,7 +446,6 @@
       "type": "object"
     },
     "RegistrationDefinitionProperties": {
-      "description": "Properties of a registration definition.",
       "properties": {
         "authorizations": {
           "description": "Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.",
