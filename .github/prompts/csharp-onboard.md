@@ -44,7 +44,13 @@ scripts/GenerateCsharp.ps1
 
 ### 4. Verify output
 
-Verify there are no errors
+Run the .NET Tests and verify there are no errors:
+
+```sh
+dotnet test
+```
+
+If any errors come up, attempt to fix them. If the fix is unclear, prompt the user for how to proceed.
 
 ### 5. Create a PR
 
