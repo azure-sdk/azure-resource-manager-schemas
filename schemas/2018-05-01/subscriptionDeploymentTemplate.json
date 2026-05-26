@@ -1347,6 +1347,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2025-07-01/Microsoft.ContainerService.DeploymentSafeguards.json#/subscription_resourceDefinitions/deploymentSafeguards"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.Consumption.json#/unknown_resourceDefinitions/budgets"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2018-05-31/Microsoft.CostManagement.json#/subscription_resourceDefinitions/reportconfigs"
             },
             {
