@@ -3308,6 +3308,20 @@
             }
           ]
         },
+        "customProperties": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IntegrationRuntimeDataFlowPropertiesCustomPropertiesItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Custom properties are used to tune the data flow runtime performance."
+        },
         "timeToLive": {
           "description": "Time to live (in minutes) setting of the cluster which will execute data flow job.",
           "oneOf": [
@@ -3322,6 +3336,19 @@
         }
       },
       "type": "object"
+    },
+    "IntegrationRuntimeDataFlowPropertiesCustomPropertiesItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of custom property."
+        },
+        "value": {
+          "type": "string",
+          "description": "Value of custom property."
+        }
+      }
     },
     "IntegrationRuntimeDataProxyProperties": {
       "description": "Data proxy properties for a managed dedicated integration runtime.",
