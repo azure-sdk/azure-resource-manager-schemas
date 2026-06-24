@@ -1176,6 +1176,21 @@
             }
           ]
         },
+        "isNegativeCachingEnabled": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether negative caching is enabled."
+        },
         "queryParameters": {
           "description": "query parameters to include or exclude (comma separated).",
           "type": "string"
