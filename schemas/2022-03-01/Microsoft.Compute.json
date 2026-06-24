@@ -5517,6 +5517,17 @@
             }
           ]
         },
+        "disableTcpStateTracking": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether the network interface is disabled for tcp state tracking."
+        },
         "dnsSettings": {
           "description": "The dns settings to be applied on the network interfaces.",
           "oneOf": [
