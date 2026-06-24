@@ -7712,6 +7712,9 @@
           "$ref": "https://schema.management.azure.com/schemas/2026-01-01-preview/Microsoft.Authorization.json#/resourceDefinitions/policyExemptions"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-08-01-preview/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2020-06-30-preview/Microsoft.Automanage.json#/resourceDefinitions/accounts"
         },
         {
