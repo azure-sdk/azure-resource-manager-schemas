@@ -494,6 +494,21 @@
     "GalleryApplicationVersionPublishingProfile": {
       "description": "The publishing profile of a gallery image version.",
       "properties": {
+        "advancedSettings": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Optional. Additional settings to pass to the VMApp extension. For advanced used only."
+        },
         "enableHealthCheck": {
           "description": "Optional. Whether or not this application reports health.",
           "oneOf": [
@@ -551,6 +566,16 @@
                 "Shallow"
               ],
               "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "settings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserArtifactSettings"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1439,6 +1464,19 @@
         "remove"
       ],
       "type": "object"
+    },
+    "UserArtifactSettings": {
+      "type": "object",
+      "properties": {
+        "configFileName": {
+          "type": "string",
+          "description": "Optional. The file to rename the downloaded config to on the VM. If not present, then the file will be called <appname>_config. This is limited to 4096 characters."
+        },
+        "packageFileName": {
+          "type": "string",
+          "description": "Optional. The file to rename the downloaded package to on the VM. If not present, then the file will be called <appname>. This is limited to 4096 characters."
+        }
+      }
     },
     "UserArtifactSource": {
       "description": "The source image from which the Image Version is going to be created.",
