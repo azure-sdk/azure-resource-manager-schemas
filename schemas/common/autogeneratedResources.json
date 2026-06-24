@@ -19115,6 +19115,15 @@
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.CustomProviders.json#/resourceDefinitions/associations"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-09-preview/Microsoft.Cts.json#/resourceDefinitions/connections"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-09-preview/Microsoft.Cts.json#/resourceDefinitions/flows"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-03-09-preview/Microsoft.Cts.json#/resourceDefinitions/pipelines"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2018-09-01-preview/Microsoft.CustomProviders.json#/resourceDefinitions/resourceProviders"
         },
         {
