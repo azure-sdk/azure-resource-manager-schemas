@@ -110,6 +110,16 @@
           ],
           "type": "string"
         },
+        "certificateCreateOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateRequestCertificateCreateOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "name": {
           "description": "Certificate friendly name.",
           "type": "string"
@@ -211,6 +221,21 @@
         }
       },
       "type": "object"
+    },
+    "CertificateRequestCertificateCreateOptions": {
+      "type": "object",
+      "properties": {
+        "validityInHours": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      }
     },
     "ClassicAlertSettings": {
       "description": "Settings for classic alerts",
@@ -710,6 +735,16 @@
             "2023-06-01"
           ],
           "type": "string"
+        },
+        "certificateCreateOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateRequestCertificateCreateOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "name": {
           "description": "Certificate friendly name.",
