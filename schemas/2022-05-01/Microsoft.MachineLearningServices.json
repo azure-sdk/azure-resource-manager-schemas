@@ -2633,6 +2633,17 @@
             }
           ]
         },
+        "disableLocalAuth": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication."
+        },
         "resourceId": {
           "description": "ARM resource id of the underlying compute",
           "type": "string"
