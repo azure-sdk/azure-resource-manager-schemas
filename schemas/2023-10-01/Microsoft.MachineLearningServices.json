@@ -12166,6 +12166,10 @@
             }
           ]
         },
+        "pathOnCompute": {
+          "type": "string",
+          "description": "Input Asset Delivery Path."
+        },
         "uri": {
           "description": "[Required] Input Asset URI.",
           "oneOf": [
