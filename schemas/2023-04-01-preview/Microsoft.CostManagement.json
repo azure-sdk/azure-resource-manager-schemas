@@ -2242,6 +2242,10 @@
           "description": "Date range of the current view.",
           "type": "string"
         },
+        "dateRange": {
+          "type": "string",
+          "description": "Date range of the current view."
+        },
         "displayName": {
           "description": "User input name of the view. Required.",
           "type": "string"
@@ -2279,6 +2283,11 @@
         "modifiedOn": {
           "description": "Date when the user last modified this view.",
           "type": "string"
+        },
+        "modifiedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date when the user last modified this view."
         },
         "pivots": {
           "description": "Configuration of 3 sub-views in the Cost Analysis UI.",
