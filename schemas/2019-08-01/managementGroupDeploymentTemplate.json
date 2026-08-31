@@ -1101,6 +1101,9 @@
               "$ref": "https://schema.management.azure.com/schemas/2026-03-17-preview/Microsoft.BillingTrust.json#/managementGroup_resourceDefinitions/assessments_rules"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-03-01-preview/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/privateLinkAssociations"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2017-11-11-preview/Microsoft.Blueprint.json#/managementGroup_resourceDefinitions/blueprints"
             },
             {
