@@ -2183,12 +2183,51 @@
           "description": "Name of a Dapr component to retrieve component secrets from",
           "type": "string"
         },
+        "serviceComponentBind": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DaprComponentServiceBinding"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of container app services bound to the Dapr component"
+        },
         "version": {
           "description": "Component version",
           "type": "string"
         }
       },
       "type": "object"
+    },
+    "DaprComponentServiceBinding": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DaprServiceBindMetadata"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dapr component metadata."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the service bind"
+        },
+        "serviceId": {
+          "type": "string",
+          "description": "Resource id of the target service"
+        }
+      },
+      "description": "Configuration to bind a Dapr Component to a dev ContainerApp Service"
     },
     "DaprConfiguration": {
       "properties": {},
@@ -2210,6 +2249,20 @@
         }
       },
       "type": "object"
+    },
+    "DaprServiceBindMetadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Service bind metadata property name."
+        },
+        "value": {
+          "type": "string",
+          "description": "Service bind metadata property value."
+        }
+      },
+      "description": "Dapr component metadata."
     },
     "DefaultAuthorizationPolicy": {
       "properties": {
