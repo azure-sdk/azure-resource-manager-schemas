@@ -622,6 +622,9 @@
         "kind": {
           "type": "string"
         },
+        "kind": {
+          "type": "string"
+        },
         "location": {
           "description": "Specifies the location of the resource.",
           "type": "string"
@@ -12165,6 +12168,10 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "pathOnCompute": {
+          "type": "string",
+          "description": "Input Asset Delivery Path."
         },
         "uri": {
           "description": "[Required] Input Asset URI.",
