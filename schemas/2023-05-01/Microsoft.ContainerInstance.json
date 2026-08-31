@@ -849,7 +849,6 @@
       },
       "required": [
         "keyName",
-        "keyVersion",
         "vaultBaseUrl"
       ],
       "type": "object"
