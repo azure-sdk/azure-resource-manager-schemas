@@ -22619,6 +22619,12 @@
           "$ref": "https://schema.management.azure.com/schemas/2025-12-01-preview/Microsoft.DBForMySql.json#/resourceDefinitions/flexibleServers_privateEndpointConnections"
         },
         {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-30-preview/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers"
+        },
+        {
+          "$ref": "https://schema.management.azure.com/schemas/2022-09-30-preview/Microsoft.DBforMySQL.json#/resourceDefinitions/flexibleServers_backups"
+        },
+        {
           "$ref": "https://schema.management.azure.com/schemas/2017-12-01/Microsoft.DBforPostgreSQL.json#/resourceDefinitions/servers"
         },
         {
